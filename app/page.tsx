@@ -112,7 +112,7 @@ export default function CusiFloresMockup() {
         <div className="mx-auto mt-4 flex w-[94%] max-w-7xl items-center justify-between rounded-full border border-white/40 bg-[#fffaf7]/75 px-4 py-3 shadow-[0_20px_60px_rgba(56,31,24,0.12)] backdrop-blur-xl md:mt-5 md:px-6 md:py-4">
           <a href="#top" className="min-w-0">
             <p className="text-[10px] uppercase tracking-[0.35em] text-[#9b766a] md:text-[11px]">CDMX · Luxury Florals</p>
-            <p className="truncate font-serif text-lg tracking-[0.14em] text-[#2b1a17] md:text-2xl">{BRAND.name}</p>
+            <p className="truncate text-lg tracking-[0.14em] text-[#2b1a17] md:text-2xl" style={{ fontFamily: 'Arial, sans-serif' }}>{BRAND.name}</p>
           </a>
 
           <nav className="hidden items-center gap-7 text-sm text-[#3d2a26] md:flex">
