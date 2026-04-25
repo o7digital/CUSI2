@@ -1,376 +1,325 @@
 const BRAND = {
   name: 'CUSI FLORES',
   city: 'Ciudad de Mexico',
-  whatsappUrl: 'https://wa.me/5215512345678?text=Hola%20CUSI%20FLORES%2C%20quiero%20hacer%20un%20pedido%20premium.',
   instagramUrl: 'https://instagram.com/cusiflores',
 }
 
-const images = {
-  hero: 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=2200&q=80',
-  occasions: 'https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=1600&q=80',
-  events: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1400&q=80',
-  featured: [
-    'https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?auto=format&fit=crop&w=1200&q=80',
-  ],
-}
+const WHATSAPP_MESSAGE =
+  'Hola CUSI FLORES, quiero hacer un pedido para el Dia de las Madres 2026. Me interesa un arreglo floral.'
 
-const featured = [
-  {
-    title: 'Ramo Signature',
-    desc: 'Disenos florales exclusivos con seleccion premium y presentacion impecable.',
-    price: 'Desde $1,290 MXN',
-    image: images.featured[0],
-  },
-  {
-    title: 'Caja Couture',
-    desc: 'Arreglos en caja de lujo pensados para regalar con elegancia y presencia.',
-    price: 'Desde $1,850 MXN',
-    image: images.featured[1],
-  },
-  {
-    title: 'Edicion Evento',
-    desc: 'Composicion floral refinada para cenas, bodas intimas y celebraciones especiales.',
-    price: 'Cotizacion personalizada',
-    image: images.featured[2],
-  },
-]
-
-const highlights = [
-  {
-    kicker: 'Editorial floral',
-    title: 'Ramos de autor',
-    text: 'Disenos con una estetica femenina, moderna y delicadamente aspiracional.',
-    tone: 'bg-[#f8f0ea]',
-  },
-  {
-    kicker: 'Luxury gifting',
-    title: 'Regalos con impacto',
-    text: 'Presentacion impecable para convertir cada entrega en una experiencia memorable.',
-    tone: 'bg-[#f4e5de]',
-  },
-  {
-    kicker: 'Boutique premium',
-    title: 'Imagen aspiracional',
-    text: 'Ideal para una marca floral elegante, contemporanea y con posicionamiento alto.',
-    tone: 'bg-[#2b1a17] text-white',
-  },
-]
-
-const servicePillars = [
-  {
-    title: 'Ramos couture',
-    text: 'Creaciones florales con composicion editorial, suaves contrastes y acabados impecables.',
-  },
-  {
-    title: 'Eventos boutique',
-    text: 'Ambientacion floral premium para cenas privadas, bodas intimas y experiencias exclusivas.',
-  },
-  {
-    title: 'Entrega selecta',
-    text: 'Atencion cuidada y servicio enfocado en zonas premium de Ciudad de Mexico.',
-  },
-]
-
-const quickStats = [
-  ['Entrega same day', 'En zonas seleccionadas'],
-  ['Pedidos por WhatsApp', 'Respuesta prioritaria'],
-  ['Arreglos premium', 'Diseno floral exclusivo'],
-  ['Eventos boutique', 'Cotizacion personalizada'],
-]
-
-const occasions = [
-  'Cumpleanos',
-  'Aniversarios',
-  'Nacimiento',
-  'Pedidas especiales',
-  'Eventos corporativos',
-  'Luxury gifting',
-]
+const whatsappUrl = `https://wa.me/5215512345678?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
 
 const navLinks = [
-  { label: 'Coleccion', href: '#coleccion' },
-  { label: 'Ocasiones', href: '#ocasiones' },
-  { label: 'Eventos', href: '#eventos' },
+  { label: 'Inicio', href: '#inicio' },
+  { label: 'Coleccion 10 de mayo', href: '#coleccion' },
+  { label: 'Catalogo', href: '#catalogo' },
+  { label: 'Pedidos', href: '#pedidos' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
+const campaignImages = [
+  '/mothers-day-2026/image-1-1.jpeg',
+  '/mothers-day-2026/image-2-1.jpeg',
+  '/mothers-day-2026/image-3-1.jpeg',
+  '/mothers-day-2026/image-4-1.jpeg',
+  '/mothers-day-2026/image-5-1.jpeg',
+  '/mothers-day-2026/image-6-1.jpeg',
+  '/mothers-day-2026/image-7-1.jpeg',
+  '/mothers-day-2026/image-8-1.jpeg',
+]
+
+const products = [
+  {
+    title: 'Ramo Mama Signature',
+    desc: 'Una composicion elegante para agradecer con presencia, suavidad y estilo boutique.',
+    price: 'Cotizar por WhatsApp',
+    image: campaignImages[0],
+  },
+  {
+    title: 'Caja Floral Couture',
+    desc: 'Flores seleccionadas en formato de lujo para un regalo memorable el 10 de mayo.',
+    price: 'Cotizar por WhatsApp',
+    image: campaignImages[1],
+  },
+  {
+    title: 'Arreglo Amor de Mama',
+    desc: 'Diseno con volumen armonico y tono emocional para celebrar a mama con intencion.',
+    price: 'Cotizar por WhatsApp',
+    image: campaignImages[2],
+  },
+  {
+    title: 'Edicion Rosas Premium',
+    desc: 'Rosas de presencia alta y acabados finos para una entrega premium en CDMX.',
+    price: 'Cotizar por WhatsApp',
+    image: campaignImages[3],
+  },
+  {
+    title: 'Composicion Primavera',
+    desc: 'Paleta fresca y femenina para regalar belleza con una lectura editorial.',
+    price: 'Cotizar por WhatsApp',
+    image: campaignImages[4],
+  },
+  {
+    title: 'Diseno Personalizado',
+    desc: 'Propuesta floral a medida segun estilo de mama, zona y horario de entrega.',
+    price: 'Cotizar por WhatsApp',
+    image: campaignImages[5],
+  },
+]
+
+const campaignOccasions = ['Mama', 'Abuela', 'Esposa', 'Suegra', 'Tia', 'Regalo corporativo para mamas']
+
+const emotionalPillars = [
+  { title: 'Flores seleccionadas', text: 'Curaduria floral con foco en calidad, frescura y armonia visual.' },
+  { title: 'Diseno con intencion', text: 'Cada arreglo se construye para comunicar emocion y elegancia.' },
+  { title: 'Entrega cuidada', text: 'Atencion personalizada y entrega programada en zonas seleccionadas.' },
+]
+
+const quickCampaignPoints = ['Pedidos por WhatsApp', 'Entrega programada', 'Presentacion premium']
+
 const ctaPrimary =
-  'inline-flex items-center justify-center rounded-full bg-[#2b1a17] px-6 py-3 text-sm font-medium text-white shadow-[0_16px_40px_rgba(43,29,26,0.24)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#1d100e]'
+  'inline-flex items-center justify-center rounded-full bg-[#2e231f] px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_45px_rgba(46,35,31,0.28)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#1f1613]'
 
 const ctaSoft =
-  'inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition duration-300 hover:bg-white/20'
+  'inline-flex items-center justify-center rounded-full border border-[#c8ada3] bg-white px-6 py-3 text-sm font-semibold text-[#2e231f] transition duration-300 hover:border-[#b4988e] hover:bg-[#fff8f5]'
 
-const cardBase =
-  'rounded-[1.6rem] border border-[#ead9d0] bg-white p-5 shadow-[0_18px_45px_rgba(83,48,37,0.06)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_55px_rgba(83,48,37,0.1)]'
-
-export default function CusiFloresMockup() {
+export default function CusiFloresMothersDayLanding() {
   return (
-    <div className="min-h-screen bg-[#f6efe9] text-[#241715] selection:bg-[#dcc1b7] selection:text-[#2b1a17]">
+    <div className="min-h-screen bg-[#f7f1eb] text-[#2a1c19] selection:bg-[#ddc5bb] selection:text-[#2a1c19]">
       <header className="fixed inset-x-0 top-0 z-50">
-        <div className="mx-auto mt-4 flex w-[94%] max-w-7xl items-center justify-between rounded-full border border-white/40 bg-[#fffaf7]/75 px-4 py-3 shadow-[0_20px_60px_rgba(56,31,24,0.12)] backdrop-blur-xl md:mt-5 md:px-6 md:py-4">
-          <a href="#top" className="min-w-0">
-            <p className="text-[10px] uppercase tracking-[0.35em] text-[#9b766a] md:text-[11px]">CDMX · Luxury Florals</p>
-            <p className="truncate text-lg tracking-[0.14em] text-[#2b1a17] md:text-2xl" style={{ fontFamily: 'Arial, sans-serif' }}>{BRAND.name}</p>
+        <div className="mx-auto mt-3 flex w-[94%] max-w-7xl items-center justify-between rounded-full border border-white/70 bg-[#fffaf7]/85 px-4 py-3 shadow-[0_15px_45px_rgba(62,38,31,0.15)] backdrop-blur-xl md:mt-5 md:px-6">
+          <a href="#inicio" className="min-w-0">
+            <p className="text-[10px] uppercase tracking-[0.28em] text-[#94736a] md:text-[11px]">Floreria premium CDMX</p>
+            <p className="truncate text-base tracking-[0.14em] text-[#2a1c19] md:text-xl">{BRAND.name}</p>
           </a>
 
-          <nav className="hidden items-center gap-7 text-sm text-[#3d2a26] md:flex">
+          <nav className="hidden items-center gap-5 text-sm text-[#3c2a25] lg:flex">
             {navLinks.map((item) => (
               <a key={item.label} href={item.href} className="transition duration-300 hover:opacity-60">
                 {item.label}
               </a>
             ))}
-            <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" className="transition duration-300 hover:opacity-60">
-              Instagram
-            </a>
           </nav>
 
-          <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className={`${ctaPrimary} px-4 py-2 text-xs md:px-5 md:py-2.5 md:text-sm`}>
-            WhatsApp
+          <a href={whatsappUrl} target="_blank" rel="noreferrer" className={`${ctaPrimary} px-4 py-2 text-xs md:text-sm`}>
+            Pedir ahora
           </a>
         </div>
       </header>
 
-      <main id="top">
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${images.hero}')` }} />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(28,17,15,0.88)_0%,rgba(28,17,15,0.58)_40%,rgba(28,17,15,0.2)_100%)]" />
-          <div className="relative mx-auto flex min-h-[100svh] w-[92%] max-w-7xl items-center pt-28 pb-20 md:pt-36">
-            <div className="max-w-3xl">
-              <div className="mb-6 inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-white/90 backdrop-blur-md md:text-xs">
-                Floreria premium en {BRAND.city}
+      <main id="inicio" className="overflow-hidden">
+        <section className="relative isolate">
+          <div className="absolute inset-0 bg-[radial-gradient(120%_110%_at_0%_0%,#f9e8de_0%,#f6eee8_45%,#f4efe9_100%)]" />
+          <div className="absolute inset-x-0 bottom-0 h-[50%] bg-[linear-gradient(180deg,rgba(244,239,233,0)_0%,rgba(244,239,233,0.9)_100%)]" />
+
+          <div className="relative mx-auto grid min-h-[95svh] w-[92%] max-w-7xl gap-8 pt-28 pb-14 md:pt-36 md:pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div className="reveal">
+              <div className="mb-5 flex flex-wrap gap-2 text-[10px] uppercase tracking-[0.24em] text-[#775e56] md:text-xs">
+                <span className="rounded-full border border-[#dbc4ba] bg-white/80 px-3 py-2">Edicion especial 10 de mayo</span>
+                <span className="rounded-full border border-[#dbc4ba] bg-white/80 px-3 py-2">Entrega premium CDMX</span>
               </div>
 
-              <h1 className="max-w-2xl font-serif text-4xl leading-[0.98] text-white sm:text-5xl md:text-7xl xl:text-[92px]">
-                Diseno floral de lujo para regalar con presencia.
+              <h1 className="max-w-2xl text-4xl leading-[0.98] text-[#2a1c19] sm:text-5xl md:text-7xl">
+                Flores para mama con presencia, elegancia y emocion.
               </h1>
 
-              <p className="mt-6 max-w-2xl text-base leading-7 text-white/85 md:text-xl md:leading-8">
-                Una boutique floral pensada para clientes que buscan belleza, delicadeza y una experiencia premium en cada detalle.
+              <p className="mt-5 max-w-2xl text-base leading-7 text-[#5d4740] md:text-lg md:leading-8">
+                Coleccion especial Dia de las Madres 2026. Ramos y arreglos premium con entrega en zonas seleccionadas de CDMX.
               </p>
 
-              <div className="mt-9 flex flex-wrap gap-3 md:gap-4">
-                <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-[#f2ddd4] px-7 py-3.5 text-sm font-medium text-[#2b1a17] shadow-2xl transition duration-300 hover:-translate-y-0.5 hover:bg-[#edd2c6]">
-                  Pedir ramo premium
+              <p className="mt-4 inline-flex rounded-full bg-[#efe0d8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#60473f] md:text-sm">
+                Agenda tu pedido antes del 10 de mayo
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a href={whatsappUrl} target="_blank" rel="noreferrer" className={ctaPrimary}>
+                  Pedir por WhatsApp
                 </a>
-                <a href="#contacto" className={ctaSoft}>
-                  Cotizar diseno personalizado
+                <a href="#coleccion" className={ctaSoft}>
+                  Ver coleccion 10 de mayo
                 </a>
               </div>
+            </div>
 
-              <p className="mt-5 text-sm text-white/80">Pedidos por WhatsApp · Entrega premium · Atencion personalizada</p>
+            <div className="reveal relative h-[360px] overflow-hidden rounded-[2.2rem] border border-[#e4d1c7] bg-white p-3 shadow-[0_26px_65px_rgba(71,44,35,0.15)] md:h-[520px]">
+              <img src={campaignImages[6]} alt="Arreglo floral premium Dia de las Madres" className="h-full w-full rounded-[1.5rem] object-cover" />
+            </div>
+          </div>
+        </section>
 
-              <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3 md:mt-14 md:gap-4">
-                {[
-                  ['Entrega premium', 'En zonas seleccionadas de CDMX'],
-                  ['Diseno editorial', 'Composicion floral con lenguaje visual refinado'],
-                  ['Atencion boutique', 'Experiencia calida, elegante y personalizada'],
-                ].map(([title, desc]) => (
-                  <div key={title} className="rounded-[24px] border border-white/20 bg-white/10 p-4 text-white backdrop-blur-md md:rounded-[28px] md:p-5">
-                    <p className="text-sm font-medium">{title}</p>
-                    <p className="mt-2 text-sm leading-6 text-white/75">{desc}</p>
-                  </div>
+        <section className="mx-auto -mt-6 w-[92%] max-w-7xl pb-12 md:-mt-8 md:pb-16">
+          <div className="reveal rounded-[1.8rem] border border-[#e3d2c9] bg-[#fffdfb] px-5 py-5 shadow-[0_20px_50px_rgba(82,52,42,0.08)] md:px-8">
+            <div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-center">
+              <div>
+                <p className="text-xs uppercase tracking-[0.22em] text-[#94736a] md:text-sm">Pedidos abiertos para el 10 de mayo</p>
+                <p className="mt-2 text-lg text-[#2a1c19] md:text-2xl">Cupos limitados para entregas premium en CDMX</p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {quickCampaignPoints.map((item) => (
+                  <span key={item} className="rounded-full border border-[#e4d1c7] bg-[#fbf4ef] px-4 py-2 text-xs text-[#57423c] md:text-sm">
+                    {item}
+                  </span>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section className="relative z-10 mx-auto -mt-14 w-[92%] max-w-7xl md:-mt-16">
-          <div className="grid gap-4 rounded-[2rem] border border-[#ead9d0] bg-[#fffaf7] p-5 shadow-[0_30px_80px_rgba(66,36,30,0.08)] md:grid-cols-3 md:p-6">
-            {highlights.map((item) => (
-              <article key={item.title} className={`rounded-[1.5rem] p-6 ${item.tone}`}>
-                <p className="text-xs uppercase tracking-[0.28em] text-[#9b766a]">{item.kicker}</p>
-                <h2 className="mt-3 font-serif text-2xl">{item.title}</h2>
-                <p className="mt-3 text-sm leading-6 text-[#6f5750]">{item.text}</p>
+        <section id="coleccion" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-8 md:py-14">
+          <div className="reveal mb-8 md:mb-10">
+            <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Coleccion Dia de las Madres</p>
+            <h2 className="mt-3 max-w-3xl text-3xl leading-tight md:text-5xl">Arreglos disenados para decir gracias con flores, belleza y presencia.</h2>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {products.map((item) => (
+              <article key={item.title} className="reveal overflow-hidden rounded-[1.6rem] border border-[#ead8cf] bg-[#fffdfa] shadow-[0_16px_42px_rgba(74,46,37,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_58px_rgba(74,46,37,0.14)]">
+                <div className="h-64 bg-[#f4ebe6] md:h-72">
+                  <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
+                </div>
+                <div className="space-y-3 p-5">
+                  <h3 className="text-2xl text-[#2a1c19]">{item.title}</h3>
+                  <p className="text-sm leading-6 text-[#664f48]">{item.desc}</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price}</p>
+                  <a href={whatsappUrl} target="_blank" rel="noreferrer" className={`${ctaSoft} w-full`}>
+                    Pedir este arreglo
+                  </a>
+                </div>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="mx-auto w-[92%] max-w-7xl py-6 md:py-8">
-          <div className="grid gap-4 rounded-[2rem] border border-[#ead9d0] bg-white p-4 shadow-[0_20px_50px_rgba(83,48,37,0.06)] sm:grid-cols-2 md:grid-cols-4 md:p-5">
-            {quickStats.map(([title, text]) => (
-              <article key={title} className="rounded-[1.3rem] bg-[#fbf6f2] p-4 transition duration-300 hover:bg-[#f6ece6]">
-                <h3 className="font-serif text-xl text-[#2b1a17]">{title}</h3>
-                <p className="mt-2 text-sm leading-6 text-[#6d5953]">{text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="coleccion" className="mx-auto w-[92%] max-w-7xl scroll-mt-32 py-16 md:py-24">
-          <div className="mb-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-[#9b766a]">Estilo de marca</p>
-              <h2 className="mt-4 max-w-2xl font-serif text-3xl leading-tight md:text-5xl">
-                Una floreria con codigo visual premium, pensada para vender lujo sin verse pesada.
-              </h2>
+        <section id="catalogo" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-12 md:py-16">
+          <div className="reveal rounded-[2rem] border border-[#dfccc2] bg-[#fdf8f4] p-6 md:p-10">
+            <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Catalogo especial 10 de mayo</p>
+            <h2 className="mt-3 text-3xl leading-tight md:text-5xl">Consulta la coleccion completa y elige el arreglo ideal para mama.</h2>
+            <div className="mt-5 grid gap-4 md:grid-cols-[1fr_auto] md:items-center">
+              <p className="max-w-2xl text-base leading-7 text-[#5d4740]">
+                El catalogo visual de Mother&apos;s Day - CUSI Flores ya esta integrado en esta landing. Si deseas atencion personalizada o version completa, solicitalo directo por WhatsApp.
+              </p>
+              <a href={whatsappUrl} target="_blank" rel="noreferrer" className={ctaPrimary}>
+                Solicitar catalogo por WhatsApp
+              </a>
             </div>
-            <div className="grid gap-4 sm:grid-cols-3">
-              {servicePillars.map((item) => (
-                <article key={item.title} className={cardBase}>
-                  <h3 className="font-serif text-xl text-[#2b1a17]">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-[#6d5953]">{item.text}</p>
+            <div className="mt-7 grid grid-cols-4 gap-3 md:grid-cols-8">
+              {campaignImages.map((image, index) => (
+                <div key={image} className="overflow-hidden rounded-xl border border-[#ead8cf] bg-white">
+                  <img src={image} alt={`Vista catalogo ${index + 1}`} className="h-20 w-full object-cover md:h-24" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto w-[92%] max-w-7xl py-6 md:py-10">
+          <div className="reveal rounded-[2rem] border border-[#e4d2c9] bg-white p-6 md:p-10">
+            <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Experiencia CUSI FLORES</p>
+            <h2 className="mt-3 text-3xl leading-tight md:text-5xl">Un detalle que mama no olvida.</h2>
+            <p className="mt-5 max-w-4xl text-base leading-8 text-[#5d4740]">
+              Cada arreglo CUSI FLORES esta pensado como una experiencia: flores seleccionadas, composicion cuidada, presentacion elegante y atencion personalizada para que tu regalo llegue con intencion y belleza.
+            </p>
+            <div className="mt-7 grid gap-4 md:grid-cols-3">
+              {emotionalPillars.map((item) => (
+                <article key={item.title} className="rounded-[1.4rem] border border-[#ead8cf] bg-[#fdf8f4] p-5">
+                  <h3 className="text-xl text-[#2a1c19]">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#664f48]">{item.text}</p>
                 </article>
               ))}
             </div>
           </div>
+        </section>
 
-          <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:gap-10">
-            <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-[#9b766a]">Coleccion destacada</p>
-              <h2 className="mt-4 max-w-lg font-serif text-3xl leading-tight md:text-5xl">
-                Una propuesta floral delicada, editorial y sofisticada.
-              </h2>
-              <p className="mt-6 max-w-xl text-base leading-8 text-[#5c4842]">
-                {BRAND.name} mezcla flor de temporada, direccion estetica, paletas suaves y acabados impecables para construir una marca premium con fuerte personalidad visual.
-              </p>
+        <section id="pedidos" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-12 md:py-16">
+          <div className="reveal rounded-[2rem] bg-[#2a1d1a] p-7 text-white shadow-[0_28px_70px_rgba(42,29,26,0.34)] md:p-10">
+            <h2 className="text-3xl leading-tight md:text-5xl">Haz tu pedido en menos de 2 minutos</h2>
+            <div className="mt-6 grid gap-3 md:grid-cols-2">
+              {[
+                '1. Elige tu arreglo',
+                '2. Confirma zona y horario de entrega',
+                '3. Personalizamos tu pedido',
+                '4. Recibe confirmacion por WhatsApp',
+              ].map((step) => (
+                <p key={step} className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white/90">
+                  {step}
+                </p>
+              ))}
             </div>
+            <a href={whatsappUrl} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center justify-center rounded-full bg-[#f4ddd2] px-6 py-3 text-sm font-semibold text-[#2a1d1a] transition duration-300 hover:bg-[#efcfc1]">
+              Ordenar ahora por WhatsApp
+            </a>
+          </div>
+        </section>
 
-            <div className="rounded-[2rem] border border-[#ead9d0] bg-white p-4 shadow-[0_30px_80px_rgba(83,48,37,0.08)] md:p-6">
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {featured.map((item) => (
-                  <article key={item.title} className="overflow-hidden rounded-[1.6rem] bg-[#fbf6f2] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(83,48,37,0.14)]">
-                    <div className="h-64 bg-cover bg-center md:h-72" style={{ backgroundImage: `url(${item.image})` }} />
-                    <div className="p-5">
-                      <h3 className="font-serif text-xl">{item.title}</h3>
-                      <p className="mt-3 text-sm leading-6 text-[#6d5953]">{item.desc}</p>
-                      <p className="mt-4 text-sm font-medium text-[#2b1d1a]">{item.price}</p>
-                    </div>
-                  </article>
-                ))}
-              </div>
+        <section id="ocasiones" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10 md:py-12">
+          <div className="reveal rounded-[2rem] border border-[#e4d2c9] bg-white p-6 md:p-10">
+            <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Ocasiones de campana</p>
+            <h2 className="mt-3 text-3xl leading-tight md:text-5xl">Regalos para cada tipo de mama</h2>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {campaignOccasions.map((item) => (
+                <p key={item} className="rounded-full border border-[#e8d8cf] bg-[#fbf4ef] px-5 py-3 text-sm text-[#4e3a34]">
+                  {item}
+                </p>
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="ocasiones" className="scroll-mt-32 bg-white py-16 md:py-24">
-          <div className="mx-auto grid w-[92%] max-w-7xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
-            <div className="relative h-[460px] overflow-hidden rounded-[2.4rem] shadow-[0_30px_90px_rgba(83,48,37,0.12)] md:h-[560px]">
-              <img src={images.occasions} alt="Arreglo floral premium" className="h-full w-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent" />
-              <div className="absolute bottom-6 left-6 rounded-[1.5rem] bg-white/85 p-5 backdrop-blur-md">
-                <p className="text-xs uppercase tracking-[0.28em] text-[#9b766a]">Signature gifting</p>
-                <p className="mt-2 font-serif text-2xl text-[#2b1a17]">Diseno floral con presencia</p>
-              </div>
-            </div>
-
+        <section id="eventos" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10 md:py-14">
+          <div className="reveal grid gap-5 rounded-[2rem] border border-[#dfccc2] bg-[#fff8f3] p-6 md:grid-cols-[1fr_0.9fr] md:p-9">
             <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-[#9b766a]">Momentos especiales</p>
-              <h2 className="mt-4 font-serif text-3xl leading-tight md:text-5xl">
-                Para cada ocasion, una propuesta floral elegante y deseable.
-              </h2>
-              <p className="mt-6 max-w-xl text-base leading-8 text-[#5c4842]">
-                Desde un detalle romantico hasta una ambientacion boutique, cada arreglo busca transmitir emocion, belleza y un lujo sutil pero evidente.
+              <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Eventos florales</p>
+              <h2 className="mt-3 text-3xl leading-tight md:text-5xl">Eventos boutique para momentos especiales</h2>
+              <p className="mt-4 max-w-xl text-base leading-7 text-[#5d4740]">
+                Esta temporada la prioridad es Dia de las Madres, pero seguimos atendiendo eventos privados y corporativos con direccion floral premium.
               </p>
-              <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                {occasions.map((item) => (
-                  <p key={item} className="rounded-full border border-[#eadfd8] bg-[#faf6f3] px-5 py-3 text-sm text-[#3a2a26] transition duration-300 hover:bg-[#f4ebe6]">
-                    {item}
-                  </p>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="eventos" className="mx-auto w-[92%] max-w-7xl scroll-mt-32 py-16 md:py-24">
-          <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8">
-            <div className="rounded-[2.2rem] bg-[#2b1a17] p-8 text-white shadow-[0_30px_80px_rgba(43,29,26,0.24)] md:p-12">
-              <p className="text-sm uppercase tracking-[0.3em] text-[#d8b8ab]">Eventos & decoracion floral</p>
-              <h2 className="mt-4 max-w-xl font-serif text-3xl leading-tight md:text-5xl">
-                Eventos con direccion floral de nivel boutique.
-              </h2>
-              <p className="mt-6 max-w-2xl text-base leading-8 text-white/80">
-                Cenas privadas, hoteles boutique, bodas intimas, gifts corporativos y experiencias especiales. {BRAND.name} puede convertirse en una marca con lenguaje visual fuerte y muy aspiracional.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3 md:gap-4">
-                <a href="#contacto" className="inline-flex items-center justify-center rounded-full bg-[#f2ddd4] px-6 py-3 text-sm font-medium text-[#2b1a17] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edd2c6]">
-                  Cotizar evento floral
-                </a>
-                <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-white/90 transition duration-300 hover:bg-white/10">
-                  Pedir por WhatsApp
-                </a>
-              </div>
-            </div>
-
-            <div className="grid gap-4">
-              <div className="overflow-hidden rounded-[2rem]">
-                <img src={images.events} alt="Evento floral premium" className="h-72 w-full object-cover" />
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <article className="rounded-[1.8rem] bg-white p-6 shadow-[0_20px_50px_rgba(83,48,37,0.08)]">
-                  <h3 className="font-serif text-3xl">Same day</h3>
-                  <p className="mt-2 text-sm leading-6 text-[#6d5953]">Respuesta agil para pedidos premium y arreglos de ocasion especial.</p>
-                </article>
-                <article className="rounded-[1.8rem] bg-[#efe2da] p-6 shadow-[0_20px_50px_rgba(83,48,37,0.08)]">
-                  <h3 className="font-serif text-3xl">CDMX</h3>
-                  <p className="mt-2 text-sm leading-6 text-[#6d5953]">Cobertura selectiva con enfoque boutique y experiencia cuidada.</p>
-                </article>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="contacto" className="scroll-mt-32 bg-[#efe2da] py-16 md:py-24">
-          <div className="mx-auto grid w-[92%] max-w-7xl gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
-            <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-[#9b766a]">Contacto</p>
-              <h2 className="mt-4 font-serif text-3xl leading-tight md:text-5xl">
-                {BRAND.name} puede verse como una marca floral realmente premium en CDMX.
-              </h2>
-              <p className="mt-6 max-w-2xl text-base leading-8 text-[#5c4842]">
-                Este mockup esta pensado para posicionar a {BRAND.name} como una boutique floral aspiracional en CDMX, con una imagen elegante, contemporanea y muy vendible.
-              </p>
-            </div>
-
-            <aside className="rounded-[2rem] bg-white p-8 shadow-[0_30px_80px_rgba(83,48,37,0.1)]">
-              <p className="text-sm uppercase tracking-[0.25em] text-[#9b766a]">{BRAND.name}</p>
-              <div className="mt-4 space-y-2 text-base leading-7 text-[#3a2a26]">
-                <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="block transition hover:opacity-70">
-                  WhatsApp directo
-                </a>
-                <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" className="block transition hover:opacity-70">
-                  Instagram boutique
-                </a>
-                <p>Disenos premium a pedido</p>
-                <p>Entregas selectas en CDMX</p>
-              </div>
-              <p className="mt-5 rounded-[1.5rem] bg-[#fbf6f2] p-4 text-sm leading-6 text-[#6d5953]">
-                Ideal para cerrar ventas rapidas desde Instagram y WhatsApp con una imagen mucho mas premium.
-              </p>
-              <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className={`${ctaPrimary} mt-6 w-full`}>
-                Solicitar pedido personalizado
+              <a href={whatsappUrl} target="_blank" rel="noreferrer" className={`${ctaSoft} mt-6`}>
+                Cotizar evento floral
               </a>
-            </aside>
+            </div>
+            <div className="overflow-hidden rounded-[1.6rem] border border-[#e4d2c9] bg-white p-2">
+              <img src={campaignImages[7]} alt="Evento floral premium CDMX" className="h-full min-h-[240px] w-full rounded-[1.1rem] object-cover" />
+            </div>
+          </div>
+        </section>
+
+        <section id="contacto" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10 md:py-16">
+          <div className="reveal grid gap-6 rounded-[2rem] border border-[#dfccc2] bg-white p-6 md:grid-cols-[1fr_auto] md:p-10">
+            <div>
+              <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Contacto</p>
+              <h2 className="mt-3 max-w-2xl text-3xl leading-tight md:text-5xl">Elige arreglo, confirma entrega CDMX y cierra tu pedido por WhatsApp.</h2>
+              <p className="mt-4 max-w-2xl text-base leading-7 text-[#5d4740]">
+                Campana activa para el 10 de mayo de 2026 con cupos limitados. Recomendamos apartar con anticipacion.
+              </p>
+            </div>
+            <a href={whatsappUrl} target="_blank" rel="noreferrer" className={`${ctaPrimary} h-fit`}>
+              Pedir ahora por WhatsApp
+            </a>
           </div>
         </section>
       </main>
 
-      <footer className="mx-auto flex w-[92%] max-w-7xl flex-col items-center justify-between gap-3 py-8 text-center text-xs uppercase tracking-[0.24em] text-[#8f6b60] md:flex-row md:text-left">
-        <p>{BRAND.name} · Floreria premium · CDMX</p>
-        <div className="flex items-center gap-4">
+      <footer className="mx-auto flex w-[92%] max-w-7xl flex-col gap-4 border-t border-[#e6d5cc] py-8 text-sm text-[#6f5851] md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="text-lg text-[#2a1c19]">CUSI FLORES</p>
+          <p>Floreria premium en Ciudad de Mexico</p>
+          <p>Coleccion Dia de las Madres 2026</p>
+          <p className="mt-2 text-xs">Pedidos sujetos a disponibilidad y zona de entrega.</p>
+        </div>
+        <div className="flex gap-4 text-[#4e3a34]">
           <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" className="transition hover:opacity-60">
             Instagram
           </a>
-          <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="transition hover:opacity-60">
+          <a href={whatsappUrl} target="_blank" rel="noreferrer" className="transition hover:opacity-60">
             WhatsApp
           </a>
         </div>
       </footer>
 
-      <div className="fixed bottom-4 left-1/2 z-50 w-[92%] max-w-md -translate-x-1/2 md:hidden">
-        <div className="flex items-center justify-between rounded-full bg-[#2b1a17] px-5 py-3 text-white shadow-[0_20px_50px_rgba(43,29,26,0.28)]">
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.25em] text-white/60">{BRAND.name}</p>
-            <p className="text-sm font-medium">Pedir por WhatsApp</p>
-          </div>
-          <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="rounded-full bg-[#f2ddd4] px-4 py-2 text-sm font-medium text-[#2b1a17] transition duration-300 hover:bg-[#edd2c6]">
-            Pedir ahora
-          </a>
-        </div>
+      <div className="fixed bottom-4 right-4 z-50 md:hidden">
+        <a href={whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-[#2e231f] px-5 py-3 text-sm font-semibold text-white shadow-[0_18px_45px_rgba(46,35,31,0.35)]">
+          Pedir por WhatsApp
+        </a>
       </div>
     </div>
   )
