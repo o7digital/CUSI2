@@ -143,7 +143,7 @@ export default function CusiFloresMockup() {
               </div>
 
               <h1 className="max-w-2xl font-serif text-4xl leading-[0.98] text-white sm:text-5xl md:text-7xl xl:text-[92px]">
-                Coleccion especial Dia de las Madres 2026. Ramos y arreglos premium con entrega en zonas seleccionadas de CDMX.
+                Flores para mama con presencia, elegancia y emocion
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-7 text-white/85 md:text-xl md:leading-8">
