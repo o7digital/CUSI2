@@ -105,11 +105,11 @@ export default function CusiFloresMockup() {
               </div>
             </div>
 
-            <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-[#e4d1c7] bg-white/95 p-8 shadow-[0_26px_65px_rgba(71,44,35,0.15)] backdrop-blur-sm lg:flex lg:flex-col lg:justify-between">
-              <p className="text-center text-5xl leading-[1.35] text-[#6a9448]">
+            <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-[#e4d1c7] bg-white/95 p-8 shadow-[0_26px_65px_rgba(71,44,35,0.15)] backdrop-blur-sm lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
+              <p className="text-center text-3xl leading-[1.35] text-[#6a9448]">
                 &ldquo;Este ano para asegurar la calidad de nuestra flor nos requieren los Pedidos Confirmados 10 dias antes, Lunes 29 de Abril 9 pm&rdquo;
               </p>
-              <p className="text-center text-5xl leading-[1.35] text-[#6a9448]">
+              <p className="text-center text-3xl leading-[1.35] text-[#6a9448]">
                 &ldquo;Todo se entregara el 7, 8 y 9 de mayo para conveniencia de todos y solo x excepcion el 10.&rdquo;
               </p>
             </div>
