@@ -1,3 +1,7 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+
 const BRAND = {
   name: 'CUSI FLORES',
   city: 'Ciudad de Mexico',
@@ -80,7 +84,7 @@ const navLinks = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Coleccion 10 de mayo', href: '#coleccion' },
   { label: 'Catalogo', href: '#catalogo' },
-  { label: 'Pedidos', href: '#pedidos' },
+  { label: 'Quienes Somos', href: '#pedidos' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
@@ -91,16 +95,37 @@ const ctaSoft =
   'inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition duration-300 hover:bg-white/20'
 
 export default function CusiFloresMockup() {
+  const [menuVisible, setMenuVisible] = useState(true)
+
+  useEffect(() => {
+    let lastY = window.scrollY
+
+    const onScroll = () => {
+      const currentY = window.scrollY
+      if (currentY < 40) {
+        setMenuVisible(true)
+      } else if (currentY > lastY) {
+        setMenuVisible(false)
+      } else {
+        setMenuVisible(true)
+      }
+      lastY = currentY
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
     <div className="min-h-screen bg-[#f6efe9] text-[#241715] selection:bg-[#dcc1b7] selection:text-[#2b1a17]">
-      <header className="fixed inset-x-0 top-0 z-50">
+      <header className={`fixed inset-x-0 top-0 z-50 transition-transform duration-300 ${menuVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="mx-auto mt-3 flex w-[94%] max-w-7xl items-center justify-between rounded-full border border-white/70 bg-[#fffaf7]/85 px-4 py-3 shadow-[0_15px_45px_rgba(62,38,31,0.15)] backdrop-blur-xl md:mt-5 md:px-6">
           <a href="#inicio" className="min-w-0">
             <p className="text-[10px] uppercase tracking-[0.28em] text-[#94736a] md:text-[11px]">Floreria premium CDMX</p>
             <p className="truncate text-base tracking-[0.14em] text-[#2a1c19] md:text-xl">{BRAND.name}</p>
           </a>
 
-          <nav className="hidden items-center gap-5 text-sm text-[#3c2a25] lg:flex">
+          <nav className="hidden items-center gap-5 text-base text-[#3c2a25] lg:flex">
             {navLinks.map((item) => (
               <a key={item.label} href={item.href} className="transition duration-300 hover:opacity-60">
                 {item.label}
@@ -120,10 +145,6 @@ export default function CusiFloresMockup() {
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(28,17,15,0.88)_0%,rgba(28,17,15,0.58)_40%,rgba(28,17,15,0.2)_100%)]" />
           <div className="relative mx-auto grid min-h-[100svh] w-[92%] max-w-7xl items-center gap-8 pt-28 pb-20 md:pt-36 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="max-w-3xl">
-              <div className="mb-6 inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-white/90 backdrop-blur-md md:text-xs">
-                Floreria premium en {BRAND.city}
-              </div>
-
               <h1 className="max-w-2xl text-4xl leading-[0.98] text-white sm:text-5xl md:text-7xl xl:text-[92px]">
                 Flores para mama con presencia, elegancia y emocion
               </h1>
@@ -140,8 +161,8 @@ export default function CusiFloresMockup() {
                 <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-[#f2ddd4] px-7 py-3.5 text-sm font-medium text-[#2b1a17] shadow-2xl transition duration-300 hover:-translate-y-0.5 hover:bg-[#edd2c6]">
                   Pedir ramo premium
                 </a>
-                <a href="#contacto" className={ctaSoft}>
-                  Cotizar diseno personalizado
+                <a href="#pedidos" className={ctaSoft}>
+                  Cotizar Areglo Personalizado
                 </a>
               </div>
 
@@ -165,7 +186,7 @@ export default function CusiFloresMockup() {
               <p className="text-center text-3xl leading-[1.35] text-[#6a9448]">
                 &ldquo;Este ano para asegurar la calidad de nuestra flor nos requieren los Pedidos Confirmados 10 dias antes, Lunes 29 de Abril 9 pm&rdquo;
               </p>
-              <p className="text-center text-3xl leading-[1.35] text-[#6a9448]">
+              <p className="-translate-y-[1.5cm] text-center text-3xl leading-[1.35] text-[#6a9448]">
                 &ldquo;Todo se entregara el 7, 8 y 9 de mayo para conveniencia de todos y solo x excepcion el 10.&rdquo;
               </p>
             </div>
@@ -337,17 +358,20 @@ export default function CusiFloresMockup() {
           <p>Entrega a Domicilio en pedidos a partir de $600.00 en CDMX y Area Metropolitan, c/cargo x a partir de 5km de lomas Virreyes.</p>
           <p>Arreglos semanales para casas y oficinas. Eventos de todos tamanos.</p>
           <p className="pt-1 text-xs text-[#6f5851]">Pedidos sujetos a disponibilidad y zona de entrega.</p>
+          <a href="/aviso-de-privacidad" className="inline-block pt-1 text-xs font-semibold text-[#6f5851] underline underline-offset-2 transition hover:opacity-70">
+            Aviso de privacidad
+          </a>
         </div>
 
         <div className="md:justify-self-end">
           <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram CUSI FLORES" className="inline-flex items-center justify-center rounded-full border border-[#d8c7be] p-3 transition hover:opacity-80">
-            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6">
+            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-9 w-9">
               <defs>
                 <linearGradient id="instagram-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#f58529" />
-                  <stop offset="30%" stopColor="#dd2a7b" />
-                  <stop offset="60%" stopColor="#8134af" />
-                  <stop offset="100%" stopColor="#515bd4" />
+                  <stop offset="0%" stopColor="#fd1d1d" />
+                  <stop offset="45%" stopColor="#e1306c" />
+                  <stop offset="75%" stopColor="#c13584" />
+                  <stop offset="100%" stopColor="#833ab4" />
                 </linearGradient>
               </defs>
               <path fill="url(#instagram-gradient)" d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5Zm8.9 2.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" />
