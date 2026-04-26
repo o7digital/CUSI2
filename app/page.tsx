@@ -319,29 +319,31 @@ export default function CusiFloresMockup() {
         <section id="contacto" className="scroll-mt-32" />
       </main>
 
-      <footer className="mx-auto flex w-[92%] max-w-7xl flex-col gap-4 border-t border-[#e6d5cc] py-8 text-sm text-[#6f5851] md:flex-row md:items-end md:justify-between">
+      <footer className="mx-auto grid w-[92%] max-w-7xl gap-6 border-t border-[#e6d5cc] py-8 text-sm text-[#6f5851] md:grid-cols-[220px_1fr_1.2fr_auto] md:items-start">
         <div>
           <img src="/cusi-logo.png" alt="Logo CUSI" className="h-auto w-[220px] max-w-full" />
           <p>Floreria premium en Ciudad de Mexico</p>
           <p>Coleccion Dia de las Madres 2026</p>
-          <p className="mt-2 font-semibold text-[#b48700]">+52 - 55 - 2109 - 2665</p>
-          <p className="font-semibold text-[#b48700]">+52 - 55 - 6157 - 9500</p>
-          <p className="mt-2 font-semibold text-[#b48700]">Para conocer el status de su pedido:</p>
-          <p className="font-semibold text-[#b48700]">+52 - 56 - 1923 - 2940</p>
-          <p className="mt-2 font-semibold text-[#b48700]">Emergencias:</p>
-          <p className="font-semibold text-[#b48700]">+52 - 55 - 5596 - 9871</p>
-          <ul className="mt-3 list-disc space-y-1 pl-6 text-[#8a6a00]">
-            <li>Pedidos por Whats App y confirmar x tel</li>
-            <li>Entrega a Domicilio en pedidos a partir de $600.00 en CDMX y Area Metropolitan, c/cargo x a partir de 5km de lomas Virreyes</li>
-            <li>Calendarizacion de Eventos.</li>
-            <li>Arreglos semanales para casas y oficinas</li>
-            <li>Eventos de todos tamanos.</li>
-          </ul>
-          <p className="mt-2 text-xs">Pedidos sujetos a disponibilidad y zona de entrega.</p>
         </div>
-        <div className="flex items-center gap-2 text-right text-[#4e3a34]">
-          <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" className="text-base font-semibold transition hover:opacity-60">
-            Instagram @cusi.flores
+
+        <div className="space-y-2 text-[#b48700]">
+          <p className="font-semibold">+52 - 55 - 2109 - 2665 / +52 - 55 - 6157 - 9500</p>
+          <p className="font-semibold">Status de pedido: +52 - 56 - 1923 - 2940</p>
+          <p className="font-semibold">Emergencias: +52 - 55 - 5596 - 9871</p>
+        </div>
+
+        <div className="space-y-2 text-[#8a6a00]">
+          <p>Pedidos por Whats App y confirmar x tel. Calendarizacion de Eventos.</p>
+          <p>Entrega a Domicilio en pedidos a partir de $600.00 en CDMX y Area Metropolitan, c/cargo x a partir de 5km de lomas Virreyes.</p>
+          <p>Arreglos semanales para casas y oficinas. Eventos de todos tamanos.</p>
+          <p className="pt-1 text-xs text-[#6f5851]">Pedidos sujetos a disponibilidad y zona de entrega.</p>
+        </div>
+
+        <div className="md:justify-self-end">
+          <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram CUSI FLORES" className="inline-flex items-center justify-center rounded-full border border-[#d8c7be] p-3 text-[#4e3a34] transition hover:opacity-60">
+            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6 fill-current">
+              <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5Zm8.9 2.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" />
+            </svg>
           </a>
         </div>
       </footer>
