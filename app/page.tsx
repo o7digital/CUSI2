@@ -83,8 +83,7 @@ const occasions = [
 const navLinks = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Coleccion 10 de mayo', href: '#coleccion' },
-  { label: 'Catalogo', href: '#catalogo' },
-  { label: 'Quienes Somos', href: '#pedidos' },
+  { label: 'Quienes Somos', href: '/quienes-somos' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
@@ -96,6 +95,7 @@ const ctaSoft =
 
 export default function CusiFloresMockup() {
   const [menuVisible, setMenuVisible] = useState(true)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     let lastY = window.scrollY
@@ -106,6 +106,7 @@ export default function CusiFloresMockup() {
         setMenuVisible(true)
       } else if (currentY > lastY) {
         setMenuVisible(false)
+        setMobileMenuOpen(false)
       } else {
         setMenuVisible(true)
       }
@@ -133,10 +134,39 @@ export default function CusiFloresMockup() {
             ))}
           </nav>
 
-          <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className={`${ctaPrimary} px-4 py-2 text-xs md:text-sm`}>
-            Pedir ahora
-          </a>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              aria-label="Abrir menu"
+              aria-expanded={mobileMenuOpen}
+              onClick={() => setMobileMenuOpen((open) => !open)}
+              className="inline-flex items-center justify-center rounded-full border border-[#d8c7be] bg-white px-3 py-2 text-[#2b1a17] lg:hidden"
+            >
+              <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
+                {mobileMenuOpen ? <path fill="currentColor" d="M6.2 5.15 12 10.94l5.8-5.8L19.2 6.56 13.41 12l5.8 5.8-1.42 1.4-5.8-5.79-5.8 5.8-1.4-1.42 5.79-5.8-5.8-5.8z" /> : <path fill="currentColor" d="M3 6.75h18v1.5H3zm0 4.5h18v1.5H3zm0 4.5h18v1.5H3z" />}
+              </svg>
+            </button>
+
+            <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className={`${ctaPrimary} hidden px-4 py-2 text-xs md:text-sm lg:inline-flex`}>
+              Pedir ahora
+            </a>
+          </div>
         </div>
+
+        {mobileMenuOpen && (
+          <div className="mx-auto mt-2 w-[94%] max-w-7xl rounded-3xl border border-[#e4d2c9] bg-[#fffaf7] p-4 shadow-[0_20px_45px_rgba(62,38,31,0.12)] lg:hidden">
+            <nav className="flex flex-col gap-2 text-base text-[#3c2a25]">
+              {navLinks.map((item) => (
+                <a key={item.label} href={item.href} onClick={() => setMobileMenuOpen(false)} className="rounded-xl px-3 py-2 transition hover:bg-[#f7eee9]">
+                  {item.label}
+                </a>
+              ))}
+              <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" onClick={() => setMobileMenuOpen(false)} className="mt-2 inline-flex items-center justify-center rounded-full bg-[#2b1a17] px-5 py-2.5 text-sm font-medium text-white">
+                Pedir ahora
+              </a>
+            </nav>
+          </div>
+        )}
       </header>
 
       <main id="inicio">
@@ -184,7 +214,7 @@ export default function CusiFloresMockup() {
 
             <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-[#e4d1c7] bg-white/95 p-8 shadow-[0_26px_65px_rgba(71,44,35,0.15)] backdrop-blur-sm lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
               <p className="text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Este ano para asegurar la calidad de nuestra flor nos requieren los Pedidos Confirmados 10 dias antes, Lunes 29 de Abril 9 pm&rdquo;
+                &ldquo;Este año para asegurar la calidad de nuestra flor nos requieren los Pedidos Confirmados 10 dias antes, Lunes 29 de Abril 9 pm&rdquo;
               </p>
               <p className="-translate-y-[1.5cm] text-center text-3xl leading-[1.35] text-[#6a9448]">
                 &ldquo;Todo se entregara el 7, 8 y 9 de mayo para conveniencia de todos y solo x excepcion el 10.&rdquo;
@@ -203,7 +233,11 @@ export default function CusiFloresMockup() {
             {products.map((item) => (
               <article key={item.title} className="overflow-hidden rounded-[1.6rem] border border-[#ead8cf] bg-[#fffdfa] shadow-[0_16px_42px_rgba(74,46,37,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_58px_rgba(74,46,37,0.14)]">
                 <div className="h-64 bg-[#f4ebe6] md:h-72">
-                  <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className={`h-full w-full ${item.title === 'Arreglo Amor de Mama' ? 'object-contain bg-white p-1' : 'object-cover'}`}
+                  />
                 </div>
                 <div className="space-y-3 p-5">
                   <h3 className="text-2xl text-[#2a1c19]">{item.title}</h3>
@@ -365,13 +399,13 @@ export default function CusiFloresMockup() {
 
         <div className="md:justify-self-end">
           <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram CUSI FLORES" className="inline-flex items-center justify-center rounded-full border border-[#d8c7be] p-3 transition hover:opacity-80">
-            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-9 w-9">
+            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-14 w-14">
               <defs>
                 <linearGradient id="instagram-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#fd1d1d" />
-                  <stop offset="45%" stopColor="#e1306c" />
-                  <stop offset="75%" stopColor="#c13584" />
-                  <stop offset="100%" stopColor="#833ab4" />
+                  <stop offset="0%" stopColor="#ff0033" />
+                  <stop offset="45%" stopColor="#ff1744" />
+                  <stop offset="75%" stopColor="#e1306c" />
+                  <stop offset="100%" stopColor="#c2185b" />
                 </linearGradient>
               </defs>
               <path fill="url(#instagram-gradient)" d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5Zm8.9 2.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" />
