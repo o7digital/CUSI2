@@ -134,7 +134,7 @@ export default function CusiFloresMockup() {
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${images.hero}')` }} />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(28,17,15,0.88)_0%,rgba(28,17,15,0.58)_40%,rgba(28,17,15,0.2)_100%)]" />
-          <div className="relative mx-auto flex min-h-[100svh] w-[92%] max-w-7xl items-center pt-28 pb-20 md:pt-36">
+          <div className="relative mx-auto grid min-h-[100svh] w-[92%] max-w-7xl items-center gap-8 pt-28 pb-20 md:pt-36 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="max-w-3xl">
               <div className="mb-6 inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-white/90 backdrop-blur-md md:text-xs">
                 Floreria premium en {BRAND.city}
@@ -146,6 +146,10 @@ export default function CusiFloresMockup() {
 
               <p className="mt-6 max-w-2xl text-base leading-7 text-white/85 md:text-xl md:leading-8">
                 Coleccion especial Dia de las Madres 2026. Ramos y arreglos premium con entrega en zonas seleccionadas de CDMX.
+              </p>
+
+              <p className="mt-4 inline-flex rounded-full bg-[#efe0d8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#60473f] md:text-sm">
+                Agenda tu pedido antes del 10 de mayo
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3 md:gap-4">
@@ -171,6 +175,15 @@ export default function CusiFloresMockup() {
                   </div>
                 ))}
               </div>
+            </div>
+
+            <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-[#e4d1c7] bg-white/95 p-8 shadow-[0_26px_65px_rgba(71,44,35,0.15)] backdrop-blur-sm lg:flex lg:flex-col lg:justify-between">
+              <p className="text-center text-5xl leading-[1.35] text-[#6a9448]">
+                &ldquo;Este ano para asegurar la calidad de nuestra flor nos requieren los Pedidos Confirmados 10 dias antes, Lunes 29 de Abril 9 pm&rdquo;
+              </p>
+              <p className="text-center text-5xl leading-[1.35] text-[#6a9448]">
+                &ldquo;Todo se entregara el 7, 8 y 9 de mayo para conveniencia de todos y solo x excepcion el 10.&rdquo;
+              </p>
             </div>
           </div>
         </section>
