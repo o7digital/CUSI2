@@ -83,8 +83,7 @@ const occasions = [
 const navLinks = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Coleccion 10 de mayo', href: '#coleccion' },
-  { label: 'Catalogo', href: '#catalogo' },
-  { label: 'Quienes Somos', href: '#pedidos' },
+  { label: 'Quienes Somos', href: '/quienes-somos' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
