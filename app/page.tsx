@@ -161,7 +161,7 @@ export default function CusiFloresMockup() {
               <p className="text-center text-3xl leading-[1.35] text-[#6a9448]">
                 &ldquo;Este ano para asegurar la calidad de nuestra flor nos requieren los Pedidos Confirmados 10 dias antes, Lunes 29 de Abril 9 pm&rdquo;
               </p>
-              <p className="text-center text-3xl leading-[1.35] text-[#6a9448]">
+              <p className="-translate-y-[1.5cm] text-center text-3xl leading-[1.35] text-[#6a9448]">
                 &ldquo;Todo se entregara el 7, 8 y 9 de mayo para conveniencia de todos y solo x excepcion el 10.&rdquo;
               </p>
             </div>
