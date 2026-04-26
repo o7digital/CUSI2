@@ -61,6 +61,12 @@ const products = [
   },
 ]
 
+const emotionalPillars = [
+  { title: 'Flores seleccionadas', text: 'Curaduria floral con foco en calidad, frescura y armonia visual.' },
+  { title: 'Diseno con intencion', text: 'Cada arreglo se construye para comunicar emocion y elegancia.' },
+  { title: 'Entrega cuidada', text: 'Atencion personalizada y entrega programada en zonas seleccionadas.' },
+]
+
 const occasions = [
   'Cumpleanos',
   'Aniversarios',
@@ -264,39 +270,46 @@ export default function CusiFloresMockup() {
           </div>
         </section>
 
-        <section id="contacto" className="scroll-mt-32 bg-[#efe2da] py-16 md:py-24">
-          <div className="mx-auto grid w-[92%] max-w-7xl gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
-            <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-[#9b766a]">Contacto</p>
-              <h2 className="mt-4 font-serif text-3xl leading-tight md:text-5xl">
-                {BRAND.name} puede verse como una marca floral realmente premium en CDMX.
-              </h2>
-              <p className="mt-6 max-w-2xl text-base leading-8 text-[#5c4842]">
-                Este mockup esta pensado para posicionar a {BRAND.name} como una boutique floral aspiracional en CDMX, con una imagen elegante, contemporanea y muy vendible.
-              </p>
+        <section className="mx-auto w-[92%] max-w-7xl py-6 md:py-10">
+          <div className="rounded-[2rem] border border-[#e4d2c9] bg-white p-6 md:p-10">
+            <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Experiencia CUSI FLORES</p>
+            <h2 className="mt-3 text-3xl leading-tight md:text-5xl">Un detalle que mama no olvida.</h2>
+            <p className="mt-5 max-w-4xl text-base leading-8 text-[#5d4740]">
+              Cada arreglo CUSI FLORES esta pensado como una experiencia: flores seleccionadas, composicion cuidada, presentacion elegante y atencion personalizada para que tu regalo llegue con intencion y belleza.
+            </p>
+            <div className="mt-7 grid gap-4 md:grid-cols-3">
+              {emotionalPillars.map((item) => (
+                <article key={item.title} className="rounded-[1.4rem] border border-[#ead8cf] bg-[#fdf8f4] p-5">
+                  <h3 className="text-xl text-[#2a1c19]">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#664f48]">{item.text}</p>
+                </article>
+              ))}
             </div>
-
-            <aside className="rounded-[2rem] bg-white p-8 shadow-[0_30px_80px_rgba(83,48,37,0.1)]">
-              <p className="text-sm uppercase tracking-[0.25em] text-[#9b766a]">{BRAND.name}</p>
-              <div className="mt-4 space-y-2 text-base leading-7 text-[#3a2a26]">
-                <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="block transition hover:opacity-70">
-                  WhatsApp directo
-                </a>
-                <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" className="block transition hover:opacity-70">
-                  Instagram boutique
-                </a>
-                <p>Disenos premium a pedido</p>
-                <p>Entregas selectas en CDMX</p>
-              </div>
-              <p className="mt-5 rounded-[1.5rem] bg-[#fbf6f2] p-4 text-sm leading-6 text-[#6d5953]">
-                Ideal para cerrar ventas rapidas desde Instagram y WhatsApp con una imagen mucho mas premium.
-              </p>
-              <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className={`${ctaPrimary} mt-6 w-full`}>
-                Solicitar pedido personalizado
-              </a>
-            </aside>
           </div>
         </section>
+
+        <section id="pedidos" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-12 md:py-16">
+          <div className="rounded-[2rem] bg-[#2a1d1a] p-7 text-white shadow-[0_28px_70px_rgba(42,29,26,0.34)] md:p-10">
+            <h2 className="text-3xl leading-tight md:text-5xl">Haz tu pedido en menos de 2 minutos</h2>
+            <div className="mt-6 grid gap-3 md:grid-cols-2">
+              {[
+                '1. Elige tu arreglo',
+                '2. Confirma zona y horario de entrega',
+                '3. Personalizamos tu pedido',
+                '4. Recibe confirmacion por WhatsApp',
+              ].map((step) => (
+                <p key={step} className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white/90">
+                  {step}
+                </p>
+              ))}
+            </div>
+            <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center justify-center rounded-full bg-[#f4ddd2] px-6 py-3 text-sm font-semibold text-[#2a1d1a] transition duration-300 hover:bg-[#efcfc1]">
+              Ordenar ahora por WhatsApp
+            </a>
+          </div>
+        </section>
+
+        <section id="contacto" className="scroll-mt-32" />
       </main>
 
       <footer className="mx-auto flex w-[92%] max-w-7xl flex-col items-center justify-between gap-3 py-8 text-center text-xs uppercase tracking-[0.24em] text-[#8f6b60] md:flex-row md:text-left">
