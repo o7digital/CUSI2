@@ -173,16 +173,23 @@ export default function QuienesSomosPage() {
           <p>Coleccion Dia de las Madres 2026</p>
         </div>
 
-        <div className="space-y-2 text-[#b48700]">
-          <p className="font-semibold">+52 - 55 - 2109 - 2665 / +52 - 55 - 6157 - 9500</p>
-          <p className="font-semibold">Status de pedido: +52 - 56 - 1923 - 2940</p>
-          <p className="font-semibold">Emergencias: +52 - 55 - 5596 - 9871</p>
+        <div className="text-[#b48700]">
+          <p className="font-semibold">Telefonos de contacto</p>
+          <ul className="mt-2 list-disc space-y-2 pl-5">
+            <li className="font-semibold">Pedidos y cotizaciones: +52 55 2109 2665 / +52 55 6157 9500</li>
+            <li className="font-semibold">Estado de pedido: +52 56 1923 2940</li>
+            <li className="font-semibold">Emergencias: +52 55 5596 9871</li>
+          </ul>
         </div>
 
-        <div className="space-y-2 text-[#8a6a00]">
-          <p>Pedidos por Whats App y confirmar x tel. Calendarizacion de Eventos.</p>
-          <p>Entrega a Domicilio en pedidos a partir de $600.00 en CDMX y Area Metropolitan, c/cargo x a partir de 5km de lomas Virreyes.</p>
-          <p>Arreglos semanales para casas y oficinas. Eventos de todos tamanos.</p>
+        <div className="space-y-3 text-[#8a6a00]">
+          <p className="font-semibold text-[#6f5851]">Informacion de servicio</p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>Pedidos por WhatsApp con confirmacion telefonica.</li>
+            <li>Entrega a domicilio desde $600 en CDMX y area metropolitana.</li>
+            <li>Cargo adicional para distancias mayores a 5 km de Lomas Virreyes.</li>
+            <li>Arreglos semanales para casas, oficinas y eventos de todos los tamanos.</li>
+          </ul>
           <p className="pt-1 text-xs text-[#6f5851]">Pedidos sujetos a disponibilidad y zona de entrega.</p>
           <a href="/aviso-de-privacidad" className="inline-block pt-1 text-xs font-semibold text-[#6f5851] underline underline-offset-2 transition hover:opacity-70">
             Aviso de privacidad

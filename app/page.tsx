@@ -188,15 +188,16 @@ export default function CusiFloresMockup() {
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3 md:gap-4">
-                <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-[#f2ddd4] px-7 py-3.5 text-sm font-medium text-[#2b1a17] shadow-2xl transition duration-300 hover:-translate-y-0.5 hover:bg-[#edd2c6]">
-                  Pedir ramo premium
-                </a>
                 <a href="#pedidos" className={ctaSoft}>
-                  Cotizar Areglo Personalizado
+                  Cotizar Arreglo Personalizado
                 </a>
               </div>
 
-              <p className="mt-5 text-sm text-white/80">Pedidos por WhatsApp · Entrega premium · Atencion personalizada</p>
+              <ul className="mt-5 list-disc space-y-1 pl-5 text-sm text-white/85 md:text-base">
+                <li>Pedidos y cotizaciones: +52 55 2109 2665 / +52 55 6157 9500</li>
+                <li>Estado de pedido: +52 56 1923 2940</li>
+                <li>Emergencias: +52 55 5596 9871</li>
+              </ul>
 
               <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3 md:mt-14 md:gap-4">
                 {[
@@ -214,10 +215,10 @@ export default function CusiFloresMockup() {
 
             <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-[#e4d1c7] bg-white/95 p-8 shadow-[0_26px_65px_rgba(71,44,35,0.15)] backdrop-blur-sm lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
               <p className="text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Este año para asegurar la calidad de nuestra flor nos requieren los Pedidos Confirmados 10 dias antes, Lunes 29 de Abril 9 pm&rdquo;
+                &ldquo;Para asegurar la calidad de nuestras flores, los pedidos deben quedar confirmados con 10 dias de anticipacion.&rdquo;
               </p>
               <p className="-translate-y-[1.5cm] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Todo se entregara el 7, 8 y 9 de mayo para conveniencia de todos y solo x excepcion el 10.&rdquo;
+                &ldquo;Las entregas se realizaran el 7, 8 y 9 de mayo. El 10 de mayo se atendera solo de forma excepcional, sujeto a disponibilidad.&rdquo;
               </p>
             </div>
           </div>
@@ -232,13 +233,7 @@ export default function CusiFloresMockup() {
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {products.map((item) => (
               <article key={item.title} className="overflow-hidden rounded-[1.6rem] border border-[#ead8cf] bg-[#fffdfa] shadow-[0_16px_42px_rgba(74,46,37,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_58px_rgba(74,46,37,0.14)]">
-                <div className="h-64 bg-[#f4ebe6] md:h-72">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className={`h-full w-full ${item.title === 'Arreglo Amor de Mama' ? 'object-contain bg-white p-1' : 'object-cover'}`}
-                  />
-                </div>
+                <div className="h-64 bg-[#f4ebe6] md:h-72" />
                 <div className="space-y-3 p-5">
                   <h3 className="text-2xl text-[#2a1c19]">{item.title}</h3>
                   <p className="text-sm leading-6 text-[#664f48]">{item.desc}</p>
@@ -381,16 +376,23 @@ export default function CusiFloresMockup() {
           <p>Coleccion Dia de las Madres 2026</p>
         </div>
 
-        <div className="space-y-2 text-[#b48700]">
-          <p className="font-semibold">+52 - 55 - 2109 - 2665 / +52 - 55 - 6157 - 9500</p>
-          <p className="font-semibold">Status de pedido: +52 - 56 - 1923 - 2940</p>
-          <p className="font-semibold">Emergencias: +52 - 55 - 5596 - 9871</p>
+        <div className="text-[#b48700]">
+          <p className="font-semibold">Telefonos de contacto</p>
+          <ul className="mt-2 list-disc space-y-2 pl-5">
+            <li className="font-semibold">Pedidos y cotizaciones: +52 55 2109 2665 / +52 55 6157 9500</li>
+            <li className="font-semibold">Estado de pedido: +52 56 1923 2940</li>
+            <li className="font-semibold">Emergencias: +52 55 5596 9871</li>
+          </ul>
         </div>
 
-        <div className="space-y-2 text-[#8a6a00]">
-          <p>Pedidos por Whats App y confirmar x tel. Calendarizacion de Eventos.</p>
-          <p>Entrega a Domicilio en pedidos a partir de $600.00 en CDMX y Area Metropolitan, c/cargo x a partir de 5km de lomas Virreyes.</p>
-          <p>Arreglos semanales para casas y oficinas. Eventos de todos tamanos.</p>
+        <div className="space-y-3 text-[#8a6a00]">
+          <p className="font-semibold text-[#6f5851]">Informacion de servicio</p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>Pedidos por WhatsApp con confirmacion telefonica.</li>
+            <li>Entrega a domicilio desde $600 en CDMX y area metropolitana.</li>
+            <li>Cargo adicional para distancias mayores a 5 km de Lomas Virreyes.</li>
+            <li>Arreglos semanales para casas, oficinas y eventos de todos los tamanos.</li>
+          </ul>
           <p className="pt-1 text-xs text-[#6f5851]">Pedidos sujetos a disponibilidad y zona de entrega.</p>
           <a href="/aviso-de-privacidad" className="inline-block pt-1 text-xs font-semibold text-[#6f5851] underline underline-offset-2 transition hover:opacity-70">
             Aviso de privacidad
