@@ -84,7 +84,7 @@ const navLinks = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Coleccion 10 de mayo', href: '#coleccion' },
   { label: 'Catalogo', href: '#catalogo' },
-  { label: 'Pedidos', href: '#pedidos' },
+  { label: 'Quienes Somos', href: '#pedidos' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
