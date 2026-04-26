@@ -97,7 +97,7 @@ export default function CusiFloresMockup() {
         <div className="mx-auto mt-3 flex w-[94%] max-w-7xl items-center justify-between rounded-full border border-white/70 bg-[#fffaf7]/85 px-4 py-3 shadow-[0_15px_45px_rgba(62,38,31,0.15)] backdrop-blur-xl md:mt-5 md:px-6">
           <a href="#inicio" className="min-w-0">
             <p className="text-[10px] uppercase tracking-[0.28em] text-[#94736a] md:text-[11px]">Floreria premium CDMX</p>
-            <p className="truncate text-base tracking-[0.14em] text-[#2a1c19] md:text-xl">{BRAND.name}</p>
+            <img src="/cusi-logo.png" alt="Logo CUSI" className="mt-1 h-auto w-[140px] max-w-full" />
           </a>
 
           <nav className="hidden items-center gap-5 text-sm text-[#3c2a25] lg:flex">
