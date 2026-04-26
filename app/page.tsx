@@ -26,7 +26,14 @@ const campaignImages = [
   '/mothers-day-2026/image-8-1.webp',
 ]
 
-const products = [
+type ProductCard = {
+  title: string
+  desc: string
+  price: string
+  image: string
+}
+
+const fallbackProducts: ProductCard[] = [
   {
     title: 'Ramo Mama Signature',
     desc: 'Una composicion elegante para agradecer con presencia, suavidad y estilo boutique.',
@@ -96,6 +103,9 @@ const ctaSoft =
 export default function CusiFloresMockup() {
   const [menuVisible, setMenuVisible] = useState(true)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [products, setProducts] = useState<ProductCard[]>(fallbackProducts)
+  const [productsLoading, setProductsLoading] = useState(true)
+  const [productsError, setProductsError] = useState<string | null>(null)
 
   useEffect(() => {
     let lastY = window.scrollY
@@ -115,6 +125,40 @@ export default function CusiFloresMockup() {
 
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    let isMounted = true
+
+    const loadProducts = async () => {
+      try {
+        const response = await fetch('/api/products')
+        if (!response.ok) {
+          throw new Error(`Products API failed with ${response.status}`)
+        }
+
+        const data = (await response.json()) as { products?: ProductCard[] }
+        if (isMounted && Array.isArray(data.products) && data.products.length > 0) {
+          setProducts(data.products)
+          setProductsError(null)
+        }
+      } catch (error) {
+        if (isMounted) {
+          setProductsError('Impossible de charger les produits en temps reel. Affichage de la collection locale.')
+        }
+        console.error(error)
+      } finally {
+        if (isMounted) {
+          setProductsLoading(false)
+        }
+      }
+    }
+
+    loadProducts()
+
+    return () => {
+      isMounted = false
+    }
   }, [])
 
   return (
@@ -228,12 +272,14 @@ export default function CusiFloresMockup() {
           <div className="mb-8 md:mb-10">
             <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Coleccion Dia de las Madres</p>
             <h2 className="mt-3 max-w-3xl text-3xl leading-tight md:text-5xl">Arreglos disenados para decir gracias con flores, belleza y presencia.</h2>
+            {productsLoading ? <p className="mt-3 text-sm text-[#6f5851]">Chargement des produits WooCommerce...</p> : null}
+            {productsError ? <p className="mt-3 text-sm text-[#6f5851]">{productsError}</p> : null}
           </div>
 
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {products.map((item) => (
               <article key={item.title} className="overflow-hidden rounded-[1.6rem] border border-[#ead8cf] bg-[#fffdfa] shadow-[0_16px_42px_rgba(74,46,37,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_58px_rgba(74,46,37,0.14)]">
-                <div className="h-64 bg-[#f4ebe6] md:h-72" />
+                <img src={item.image} alt={item.title} className="h-64 w-full bg-[#f4ebe6] object-cover md:h-72" loading="lazy" />
                 <div className="space-y-3 p-5">
                   <h3 className="text-2xl text-[#2a1c19]">{item.title}</h3>
                   <p className="text-sm leading-6 text-[#664f48]">{item.desc}</p>
