@@ -330,6 +330,13 @@ export default function CusiFloresMockup() {
           <p className="font-semibold text-[#b48700]">+52 - 56 - 1923 - 2940</p>
           <p className="mt-2 font-semibold text-[#b48700]">Emergencias:</p>
           <p className="font-semibold text-[#b48700]">+52 - 55 - 5596 - 9871</p>
+          <ul className="mt-3 list-disc space-y-1 pl-6 text-[#8a6a00]">
+            <li>Pedidos por Whats App y confirmar x tel</li>
+            <li>Entrega a Domicilio en pedidos a partir de $600.00 en CDMX y Area Metropolitan, c/cargo x a partir de 5km de lomas Virreyes</li>
+            <li>Calendarizacion de Eventos.</li>
+            <li>Arreglos semanales para casas y oficinas</li>
+            <li>Eventos de todos tamanos.</li>
+          </ul>
           <p className="mt-2 text-xs">Pedidos sujetos a disponibilidad y zona de entrega.</p>
         </div>
         <div className="flex items-center gap-2 text-right text-[#4e3a34]">
