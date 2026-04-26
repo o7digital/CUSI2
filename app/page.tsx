@@ -11,6 +11,56 @@ const images = {
   events: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1400&q=80',
 }
 
+const campaignImages = [
+  '/mothers-day-2026/image-1-1.jpeg',
+  '/mothers-day-2026/image-2-1.jpeg',
+  '/mothers-day-2026/image-3-1.jpeg',
+  '/mothers-day-2026/image-4-1.jpeg',
+  '/mothers-day-2026/image-5-1.jpeg',
+  '/mothers-day-2026/image-6-1.jpeg',
+  '/mothers-day-2026/image-7-1.jpeg',
+  '/mothers-day-2026/image-8-1.jpeg',
+]
+
+const products = [
+  {
+    title: 'Ramo Mama Signature',
+    desc: 'Una composicion elegante para agradecer con presencia, suavidad y estilo boutique.',
+    price: 'Cotizar por WhatsApp',
+    image: campaignImages[0],
+  },
+  {
+    title: 'Caja Floral Couture',
+    desc: 'Flores seleccionadas en formato de lujo para un regalo memorable el 10 de mayo.',
+    price: 'Cotizar por WhatsApp',
+    image: campaignImages[1],
+  },
+  {
+    title: 'Arreglo Amor de Mama',
+    desc: 'Diseno con volumen armonico y tono emocional para celebrar a mama con intencion.',
+    price: 'Cotizar por WhatsApp',
+    image: campaignImages[2],
+  },
+  {
+    title: 'Edicion Rosas Premium',
+    desc: 'Rosas de presencia alta y acabados finos para una entrega premium en CDMX.',
+    price: 'Cotizar por WhatsApp',
+    image: campaignImages[3],
+  },
+  {
+    title: 'Composicion Primavera',
+    desc: 'Paleta fresca y femenina para regalar belleza con una lectura editorial.',
+    price: 'Cotizar por WhatsApp',
+    image: campaignImages[4],
+  },
+  {
+    title: 'Diseno Personalizado',
+    desc: 'Propuesta floral a medida segun estilo de mama, zona y horario de entrega.',
+    price: 'Cotizar por WhatsApp',
+    image: campaignImages[5],
+  },
+]
+
 const occasions = [
   'Cumpleanos',
   'Aniversarios',
@@ -116,7 +166,35 @@ export default function CusiFloresMockup() {
           </div>
         </section>
 
-        <section id="coleccion" className="scroll-mt-32" />
+        <section id="coleccion" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10 md:py-14">
+          <div className="mb-8 md:mb-10">
+            <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Coleccion Dia de las Madres</p>
+            <h2 className="mt-3 max-w-3xl text-3xl leading-tight md:text-5xl">Arreglos disenados para decir gracias con flores, belleza y presencia.</h2>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {products.map((item) => (
+              <article key={item.title} className="overflow-hidden rounded-[1.6rem] border border-[#ead8cf] bg-[#fffdfa] shadow-[0_16px_42px_rgba(74,46,37,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_58px_rgba(74,46,37,0.14)]">
+                <div className="h-64 bg-[#f4ebe6] md:h-72">
+                  <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
+                </div>
+                <div className="space-y-3 p-5">
+                  <h3 className="text-2xl text-[#2a1c19]">{item.title}</h3>
+                  <p className="text-sm leading-6 text-[#664f48]">{item.desc}</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price}</p>
+                  <a
+                    href={BRAND.whatsappUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex w-full items-center justify-center rounded-full border border-[#c8ada3] bg-white px-6 py-3 text-sm font-semibold text-[#2e231f] transition duration-300 hover:border-[#b4988e] hover:bg-[#fff8f5]"
+                  >
+                    Pedir este arreglo
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
 
         <section id="ocasiones" className="scroll-mt-32 bg-white py-16 md:py-24">
           <div className="mx-auto grid w-[92%] max-w-7xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
