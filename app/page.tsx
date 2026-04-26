@@ -33,45 +33,6 @@ type ProductCard = {
   image: string
 }
 
-const fallbackProducts: ProductCard[] = [
-  {
-    title: 'Ramo Mama Signature',
-    desc: 'Una composicion elegante para agradecer con presencia, suavidad y estilo boutique.',
-    price: 'Cotizar por WhatsApp',
-    image: campaignImages[0],
-  },
-  {
-    title: 'Caja Floral Couture',
-    desc: 'Flores seleccionadas en formato de lujo para un regalo memorable el 10 de mayo.',
-    price: 'Cotizar por WhatsApp',
-    image: campaignImages[1],
-  },
-  {
-    title: 'Arreglo Amor de Mama',
-    desc: 'Diseno con volumen armonico y tono emocional para celebrar a mama con intencion.',
-    price: 'Cotizar por WhatsApp',
-    image: campaignImages[2],
-  },
-  {
-    title: 'Edicion Rosas Premium',
-    desc: 'Rosas de presencia alta y acabados finos para una entrega premium en CDMX.',
-    price: 'Cotizar por WhatsApp',
-    image: campaignImages[3],
-  },
-  {
-    title: 'Composicion Primavera',
-    desc: 'Paleta fresca y femenina para regalar belleza con una lectura editorial.',
-    price: 'Cotizar por WhatsApp',
-    image: campaignImages[4],
-  },
-  {
-    title: 'Diseno Personalizado',
-    desc: 'Propuesta floral a medida segun estilo de mama, zona y horario de entrega.',
-    price: 'Cotizar por WhatsApp',
-    image: campaignImages[5],
-  },
-]
-
 const emotionalPillars = [
   { title: 'Flores seleccionadas', text: 'Curaduria floral con foco en calidad, frescura y armonia visual.' },
   { title: 'Diseno con intencion', text: 'Cada arreglo se construye para comunicar emocion y elegancia.' },
@@ -126,7 +87,7 @@ const ctaSoft =
 export default function CusiFloresMockup() {
   const [menuVisible, setMenuVisible] = useState(true)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [products, setProducts] = useState<ProductCard[]>(fallbackProducts)
+  const [products, setProducts] = useState<ProductCard[]>([])
   const [productsLoading, setProductsLoading] = useState(true)
   const [productsError, setProductsError] = useState<string | null>(null)
 
@@ -167,7 +128,8 @@ export default function CusiFloresMockup() {
         }
       } catch (error) {
         if (isMounted) {
-          setProductsError('Impossible de charger les produits en temps reel. Affichage de la collection locale.')
+          setProducts([])
+          setProductsError('No pudimos cargar los productos por el momento. Intenta de nuevo en unos minutos.')
         }
         console.error(error)
       } finally {
@@ -306,7 +268,7 @@ export default function CusiFloresMockup() {
           <div className="mb-8 md:mb-10">
             <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Coleccion Dia de las Madres</p>
             <h2 className="mt-3 max-w-3xl text-3xl leading-tight md:text-5xl">Arreglos disenados para decir gracias con flores, belleza y presencia.</h2>
-            {productsLoading ? <p className="mt-3 text-sm text-[#6f5851]">Chargement des produits WooCommerce...</p> : null}
+            {productsLoading ? <p className="mt-3 text-sm text-[#6f5851]">Cargando productos...</p> : null}
             {productsError ? <p className="mt-3 text-sm text-[#6f5851]">{productsError}</p> : null}
           </div>
 
@@ -335,6 +297,12 @@ export default function CusiFloresMockup() {
               </article>
             ))}
           </div>
+
+          {!productsLoading && !products.length ? (
+            <div className="mt-4 rounded-2xl border border-[#ead8cf] bg-[#fffdfa] p-5 text-sm text-[#6f5851]">
+              No hay productos disponibles para mostrar en este momento.
+            </div>
+          ) : null}
         </section>
 
         <section id="ocasiones" className="scroll-mt-32 bg-white py-16 md:py-24">

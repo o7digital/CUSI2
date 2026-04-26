@@ -23,6 +23,7 @@ export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 const WP_BASE_URL = 'https://oliviers54.sg-host.com'
+const PRODUCTS_URL = `${WP_BASE_URL}/wp-json/wc/store/v1/products?per_page=24&orderby=date&order=desc`
 
 const stripHtml = (input: string) => input.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
 const normalizeWpUrl = (url: string) =>
@@ -52,17 +53,45 @@ const formatPrice = (prices: WooStoreProduct['prices']) => {
   }).format(amount)
 }
 
+const fetchProductsWithRetry = async (retries = 2) => {
+  let lastStatus = 0
+  let lastError = ''
+
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
+    try {
+      const response = await fetch(PRODUCTS_URL, {
+        cache: 'no-store',
+        headers: {
+          accept: 'application/json',
+          'user-agent': 'cusi-site/1.0 (+https://cusi-2.vercel.app)',
+        },
+      })
+
+      lastStatus = response.status
+      if (!response.ok) {
+        throw new Error(`status_${response.status}`)
+      }
+
+      const data = (await response.json()) as unknown
+      if (!Array.isArray(data)) {
+        throw new Error('invalid_payload')
+      }
+
+      return data as WooStoreProduct[]
+    } catch (error) {
+      lastError = error instanceof Error ? error.message : 'unknown_error'
+      if (attempt < retries) {
+        await new Promise((resolve) => setTimeout(resolve, 300 * (attempt + 1)))
+      }
+    }
+  }
+
+  throw new Error(`fetch_failed status=${lastStatus} reason=${lastError}`)
+}
+
 export async function GET() {
   try {
-    const response = await fetch(`${WP_BASE_URL}/wp-json/wc/store/v1/products?per_page=24&orderby=date&order=desc`, {
-      cache: 'no-store',
-    })
-
-    if (!response.ok) {
-      return NextResponse.json({ error: `WooCommerce API error: ${response.status}` }, { status: 502 })
-    }
-
-    const data = (await response.json()) as WooStoreProduct[]
+    const data = await fetchProductsWithRetry()
 
     const products: ProductCard[] = data
       .map((item, index) => {
@@ -85,6 +114,6 @@ export async function GET() {
     return NextResponse.json({ products })
   } catch (error) {
     console.error('Failed to fetch WooCommerce products', error)
-    return NextResponse.json({ error: 'Failed to load products' }, { status: 500 })
+    return NextResponse.json({ error: 'Failed to load products' }, { status: 502 })
   }
 }
