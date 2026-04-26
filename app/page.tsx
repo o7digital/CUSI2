@@ -90,9 +90,10 @@ const occasions = [
 ]
 
 const navLinks = [
-  { label: 'Coleccion', href: '#coleccion' },
-  { label: 'Ocasiones', href: '#ocasiones' },
-  { label: 'Eventos', href: '#eventos' },
+  { label: 'Inicio', href: '#inicio' },
+  { label: 'Coleccion 10 de mayo', href: '#coleccion' },
+  { label: 'Catalogo', href: '#catalogo' },
+  { label: 'Pedidos', href: '#pedidos' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
@@ -109,30 +110,27 @@ export default function CusiFloresMockup() {
   return (
     <div className="min-h-screen bg-[#f6efe9] text-[#241715] selection:bg-[#dcc1b7] selection:text-[#2b1a17]">
       <header className="fixed inset-x-0 top-0 z-50">
-        <div className="mx-auto mt-4 flex w-[94%] max-w-7xl items-center justify-between rounded-full border border-white/40 bg-[#fffaf7]/75 px-4 py-3 shadow-[0_20px_60px_rgba(56,31,24,0.12)] backdrop-blur-xl md:mt-5 md:px-6 md:py-4">
-          <a href="#top" className="min-w-0">
-            <p className="text-[10px] uppercase tracking-[0.35em] text-[#9b766a] md:text-[11px]">CDMX · Luxury Florals</p>
-            <p className="truncate text-lg tracking-[0.14em] text-[#2b1a17] md:text-2xl" style={{ fontFamily: 'Arial, sans-serif' }}>{BRAND.name}</p>
+        <div className="mx-auto mt-3 flex w-[94%] max-w-7xl items-center justify-between rounded-full border border-white/70 bg-[#fffaf7]/85 px-4 py-3 shadow-[0_15px_45px_rgba(62,38,31,0.15)] backdrop-blur-xl md:mt-5 md:px-6">
+          <a href="#inicio" className="min-w-0">
+            <p className="text-[10px] uppercase tracking-[0.28em] text-[#94736a] md:text-[11px]">Floreria premium CDMX</p>
+            <p className="truncate text-base tracking-[0.14em] text-[#2a1c19] md:text-xl">{BRAND.name}</p>
           </a>
 
-          <nav className="hidden items-center gap-7 text-sm text-[#3d2a26] md:flex">
+          <nav className="hidden items-center gap-5 text-sm text-[#3c2a25] lg:flex">
             {navLinks.map((item) => (
               <a key={item.label} href={item.href} className="transition duration-300 hover:opacity-60">
                 {item.label}
               </a>
             ))}
-            <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" className="transition duration-300 hover:opacity-60">
-              Instagram
-            </a>
           </nav>
 
-          <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className={`${ctaPrimary} px-4 py-2 text-xs md:px-5 md:py-2.5 md:text-sm`}>
-            WhatsApp
+          <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className={`${ctaPrimary} px-4 py-2 text-xs md:text-sm`}>
+            Pedir ahora
           </a>
         </div>
       </header>
 
-      <main id="top">
+      <main id="inicio">
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${images.hero}')` }} />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(28,17,15,0.88)_0%,rgba(28,17,15,0.58)_40%,rgba(28,17,15,0.2)_100%)]" />
