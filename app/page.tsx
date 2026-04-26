@@ -319,9 +319,14 @@ export default function CusiFloresMockup() {
         <section id="contacto" className="scroll-mt-32" />
       </main>
 
-      <footer className="mx-auto flex w-[92%] max-w-7xl flex-col items-center justify-between gap-3 py-8 text-center text-xs uppercase tracking-[0.24em] text-[#8f6b60] md:flex-row md:text-left">
-        <p>{BRAND.name} · Floreria premium · CDMX</p>
-        <div className="flex items-center gap-4">
+      <footer className="mx-auto flex w-[92%] max-w-7xl flex-col gap-4 border-t border-[#e6d5cc] py-8 text-sm text-[#6f5851] md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="text-lg text-[#2a1c19]">CUSI FLORES</p>
+          <p>Floreria premium en Ciudad de Mexico</p>
+          <p>Coleccion Dia de las Madres 2026</p>
+          <p className="mt-2 text-xs">Pedidos sujetos a disponibilidad y zona de entrega.</p>
+        </div>
+        <div className="flex gap-4 text-[#4e3a34]">
           <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" className="transition hover:opacity-60">
             Instagram
           </a>
@@ -331,16 +336,10 @@ export default function CusiFloresMockup() {
         </div>
       </footer>
 
-      <div className="fixed bottom-4 left-1/2 z-50 w-[92%] max-w-md -translate-x-1/2 md:hidden">
-        <div className="flex items-center justify-between rounded-full bg-[#2b1a17] px-5 py-3 text-white shadow-[0_20px_50px_rgba(43,29,26,0.28)]">
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.25em] text-white/60">{BRAND.name}</p>
-            <p className="text-sm font-medium">Pedir por WhatsApp</p>
-          </div>
-          <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="rounded-full bg-[#f2ddd4] px-4 py-2 text-sm font-medium text-[#2b1a17] transition duration-300 hover:bg-[#edd2c6]">
-            Pedir ahora
-          </a>
-        </div>
+      <div className="fixed bottom-4 right-4 z-50 md:hidden">
+        <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-[#2e231f] px-5 py-3 text-sm font-semibold text-white shadow-[0_18px_45px_rgba(46,35,31,0.35)]">
+          Pedir por WhatsApp
+        </a>
       </div>
     </div>
   )
