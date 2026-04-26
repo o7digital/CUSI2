@@ -139,11 +139,11 @@ export default function CusiFloresMockup() {
           <div className="relative mx-auto flex min-h-[100svh] w-[92%] max-w-7xl items-center pt-28 pb-20 md:pt-36">
             <div className="max-w-3xl">
               <div className="mb-6 inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-white/90 backdrop-blur-md md:text-xs">
-                Floreria premium en {BRAND.city}
+                Coleccion Dia de las Madres 2026
               </div>
 
               <h1 className="max-w-2xl font-serif text-4xl leading-[0.98] text-white sm:text-5xl md:text-7xl xl:text-[92px]">
-                Diseno floral de lujo para regalar con presencia.
+                Flores para mama con presencia, elegancia y emocion.
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-7 text-white/85 md:text-xl md:leading-8">
