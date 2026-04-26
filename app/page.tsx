@@ -100,7 +100,7 @@ export default function CusiFloresMockup() {
             <img src="/cusi-logo.png" alt="Logo CUSI" className="mt-1 h-auto w-[140px] max-w-full" />
           </a>
 
-          <nav className="hidden items-center gap-5 text-sm text-[#3c2a25] lg:flex">
+          <nav className="hidden items-center gap-5 text-base text-[#3c2a25] lg:flex">
             {navLinks.map((item) => (
               <a key={item.label} href={item.href} className="transition duration-300 hover:opacity-60">
                 {item.label}
