@@ -136,8 +136,8 @@ export default function CusiFloresMockup() {
                 <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-[#f2ddd4] px-7 py-3.5 text-sm font-medium text-[#2b1a17] shadow-2xl transition duration-300 hover:-translate-y-0.5 hover:bg-[#edd2c6]">
                   Pedir ramo premium
                 </a>
-                <a href="#contacto" className={ctaSoft}>
-                  Cotizar diseno personalizado
+                <a href="#pedidos" className={ctaSoft}>
+                  Cotizar Areglo Personalizado
                 </a>
               </div>
 
