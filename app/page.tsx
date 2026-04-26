@@ -16,14 +16,14 @@ const images = {
 }
 
 const campaignImages = [
-  '/mothers-day-2026/image-1-1.jpeg',
-  '/mothers-day-2026/image-2-1.jpeg',
-  '/mothers-day-2026/image-3-1.jpeg',
-  '/mothers-day-2026/image-4-1.jpeg',
-  '/mothers-day-2026/image-5-1.jpeg',
-  '/mothers-day-2026/image-6-1.jpeg',
-  '/mothers-day-2026/image-7-1.jpeg',
-  '/mothers-day-2026/image-8-1.jpeg',
+  '/mothers-day-2026/image-1-1.webp',
+  '/mothers-day-2026/image-2-1.webp',
+  '/mothers-day-2026/image-3-1.webp',
+  '/mothers-day-2026/image-4-1.webp',
+  '/mothers-day-2026/image-5-1.webp',
+  '/mothers-day-2026/image-6-1.webp',
+  '/mothers-day-2026/image-7-1.webp',
+  '/mothers-day-2026/image-8-1.webp',
 ]
 
 const products = [
@@ -376,7 +376,7 @@ export default function CusiFloresMockup() {
 
       <footer className="mx-auto grid w-[92%] max-w-7xl gap-6 border-t border-[#e6d5cc] py-8 text-sm text-[#6f5851] md:grid-cols-[220px_1fr_1.2fr_auto] md:items-start">
         <div>
-          <img src="/cusi-logo.png" alt="Logo CUSI" className="h-auto w-[220px] max-w-full" />
+          <img src="/cusi-logo.webp" alt="Logo CUSI" className="h-auto w-[220px] max-w-full" />
           <p>Floreria premium en Ciudad de Mexico</p>
           <p>Coleccion Dia de las Madres 2026</p>
         </div>

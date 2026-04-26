@@ -168,7 +168,7 @@ export default function QuienesSomosPage() {
 
       <footer className="mx-auto grid w-[92%] max-w-7xl gap-6 border-t border-[#e6d5cc] py-8 text-sm text-[#6f5851] md:grid-cols-[220px_1fr_1.2fr_auto] md:items-start">
         <div>
-          <img src="/cusi-logo.png" alt="Logo CUSI" className="h-auto w-[220px] max-w-full" />
+          <img src="/cusi-logo.webp" alt="Logo CUSI" className="h-auto w-[220px] max-w-full" />
           <p>Floreria premium en Ciudad de Mexico</p>
           <p>Coleccion Dia de las Madres 2026</p>
         </div>
