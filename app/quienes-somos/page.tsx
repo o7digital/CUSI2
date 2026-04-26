@@ -16,6 +16,29 @@ const navLinks = [
   { label: 'Contacto', href: '/#contacto' },
 ]
 
+const footerSeoKeywords = [
+  'floreria en cdmx lomas virreyes cdmx',
+  'floreria premium cdmx lomas virreyes cdmx',
+  'flores a domicilio cdmx lomas virreyes cdmx',
+  'arreglos florales cdmx lomas virreyes cdmx',
+  'ramos de flores cdmx lomas virreyes cdmx',
+  'flores para mama lomas virreyes cdmx',
+  'flores dia de las madres lomas virreyes cdmx',
+  'arreglos dia de las madres lomas virreyes cdmx',
+  'regalos dia de las madres lomas virreyes cdmx',
+  'flores para cumpleanos lomas virreyes cdmx',
+  'ramos para aniversario lomas virreyes cdmx',
+  'orquideas a domicilio lomas virreyes cdmx',
+  'tulipanes en ramo lomas virreyes cdmx',
+  'caja de rosas amarillas lomas virreyes cdmx',
+  'rosas rojas a domicilio lomas virreyes cdmx',
+  'arreglos florales elegantes lomas virreyes cdmx',
+  'floreria lomas virreyes cdmx',
+  'flores en ciudad de mexico lomas virreyes cdmx',
+  'envio de flores cdmx lomas virreyes cdmx',
+  'pedir flores por whatsapp lomas virreyes cdmx',
+]
+
 const ctaPrimary =
   'inline-flex items-center justify-center rounded-full bg-[#2b1a17] px-6 py-3 text-sm font-medium text-white shadow-[0_16px_40px_rgba(43,29,26,0.24)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#1d100e]'
 
@@ -215,6 +238,12 @@ export default function QuienesSomosPage() {
               <path fill="url(#instagram-gradient-quienes)" d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5Zm8.9 2.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" />
             </svg>
           </a>
+        </div>
+
+        <div className="md:col-span-4">
+          <p className="mt-2 border-t border-[#e6d5cc] pt-5 text-[11px] leading-6 text-[#907972] md:text-xs">
+            {footerSeoKeywords.join(' · ')}
+          </p>
         </div>
       </footer>
     </div>
