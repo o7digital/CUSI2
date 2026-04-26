@@ -365,13 +365,13 @@ export default function CusiFloresMockup() {
 
         <div className="md:justify-self-end">
           <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram CUSI FLORES" className="inline-flex items-center justify-center rounded-full border border-[#d8c7be] p-3 transition hover:opacity-80">
-            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-9 w-9">
+            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-14 w-14">
               <defs>
                 <linearGradient id="instagram-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#fd1d1d" />
-                  <stop offset="45%" stopColor="#e1306c" />
-                  <stop offset="75%" stopColor="#c13584" />
-                  <stop offset="100%" stopColor="#833ab4" />
+                  <stop offset="0%" stopColor="#ff0033" />
+                  <stop offset="45%" stopColor="#ff1744" />
+                  <stop offset="75%" stopColor="#e1306c" />
+                  <stop offset="100%" stopColor="#c2185b" />
                 </linearGradient>
               </defs>
               <path fill="url(#instagram-gradient)" d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5Zm8.9 2.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" />
