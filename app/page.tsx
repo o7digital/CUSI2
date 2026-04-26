@@ -321,7 +321,7 @@ export default function CusiFloresMockup() {
 
       <footer className="mx-auto flex w-[92%] max-w-7xl flex-col gap-4 border-t border-[#e6d5cc] py-8 text-sm text-[#6f5851] md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="text-lg text-[#2a1c19]">CUSI FLORES</p>
+          <img src="/cusi-logo.png" alt="Logo CUSI" className="h-auto w-[220px] max-w-full" />
           <p>Floreria premium en Ciudad de Mexico</p>
           <p>Coleccion Dia de las Madres 2026</p>
           <p className="mt-2 text-xs">Pedidos sujetos a disponibilidad y zona de entrega.</p>
