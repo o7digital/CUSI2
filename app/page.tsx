@@ -221,13 +221,6 @@ export default function CusiFloresMockup() {
               <p className="mt-6 max-w-xl text-base leading-8 text-[#5c4842]">
                 Desde un detalle romantico hasta una ambientacion boutique, cada arreglo busca transmitir emocion, belleza y un lujo sutil pero evidente.
               </p>
-              <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                {occasions.map((item) => (
-                  <p key={item} className="rounded-full border border-[#eadfd8] bg-[#faf6f3] px-5 py-3 text-sm text-[#3a2a26] transition duration-300 hover:bg-[#f4ebe6]">
-                    {item}
-                  </p>
-                ))}
-              </div>
             </div>
           </div>
         </section>
@@ -306,6 +299,20 @@ export default function CusiFloresMockup() {
             <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center justify-center rounded-full bg-[#f4ddd2] px-6 py-3 text-sm font-semibold text-[#2a1d1a] transition duration-300 hover:bg-[#efcfc1]">
               Ordenar ahora por WhatsApp
             </a>
+          </div>
+        </section>
+
+        <section className="mx-auto w-[92%] max-w-7xl py-6 md:py-10">
+          <div className="rounded-[2rem] border border-[#e4d2c9] bg-white p-6 md:p-10">
+            <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Ocasiones de campana</p>
+            <h2 className="mt-3 text-3xl leading-tight md:text-5xl">Regalos para cada tipo de mama</h2>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {occasions.map((item) => (
+                <p key={item} className="rounded-full border border-[#e8d8cf] bg-[#fbf4ef] px-5 py-3 text-sm text-[#4e3a34]">
+                  {item}
+                </p>
+              ))}
+            </div>
           </div>
         </section>
 
