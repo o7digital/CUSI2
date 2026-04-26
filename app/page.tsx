@@ -324,14 +324,17 @@ export default function CusiFloresMockup() {
           <img src="/cusi-logo.png" alt="Logo CUSI" className="h-auto w-[220px] max-w-full" />
           <p>Floreria premium en Ciudad de Mexico</p>
           <p>Coleccion Dia de las Madres 2026</p>
+          <p className="mt-2 font-semibold text-[#b48700]">+52 - 55 - 2109 - 2665</p>
+          <p className="font-semibold text-[#b48700]">+52 - 55 - 6157 - 9500</p>
+          <p className="mt-2 font-semibold text-[#b48700]">Para conocer el status de su pedido:</p>
+          <p className="font-semibold text-[#b48700]">+52 - 56 - 1923 - 2940</p>
+          <p className="mt-2 font-semibold text-[#b48700]">Emergencias:</p>
+          <p className="font-semibold text-[#b48700]">+52 - 55 - 5596 - 9871</p>
           <p className="mt-2 text-xs">Pedidos sujetos a disponibilidad y zona de entrega.</p>
         </div>
-        <div className="flex gap-4 text-[#4e3a34]">
-          <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" className="transition hover:opacity-60">
-            Instagram
-          </a>
-          <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="transition hover:opacity-60">
-            WhatsApp
+        <div className="flex items-center gap-2 text-right text-[#4e3a34]">
+          <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" className="text-base font-semibold transition hover:opacity-60">
+            Instagram @cusi.flores
           </a>
         </div>
       </footer>
