@@ -202,7 +202,11 @@ export default function CusiFloresMockup() {
             {products.map((item) => (
               <article key={item.title} className="overflow-hidden rounded-[1.6rem] border border-[#ead8cf] bg-[#fffdfa] shadow-[0_16px_42px_rgba(74,46,37,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_58px_rgba(74,46,37,0.14)]">
                 <div className="h-64 bg-[#f4ebe6] md:h-72">
-                  <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className={`h-full w-full ${item.title === 'Arreglo Amor de Mama' ? 'object-contain bg-white p-1' : 'object-cover'}`}
+                  />
                 </div>
                 <div className="space-y-3 p-5">
                   <h3 className="text-2xl text-[#2a1c19]">{item.title}</h3>
