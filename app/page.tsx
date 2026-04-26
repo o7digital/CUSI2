@@ -124,7 +124,7 @@ export default function CusiFloresMockup() {
                 Floreria premium en {BRAND.city}
               </div>
 
-              <h1 className="max-w-2xl font-serif text-4xl leading-[0.98] text-white sm:text-5xl md:text-7xl xl:text-[92px]">
+              <h1 className="max-w-2xl text-4xl leading-[0.98] text-white sm:text-5xl md:text-7xl xl:text-[92px]">
                 Flores para mama con presencia, elegancia y emocion
               </h1>
 
@@ -209,13 +209,13 @@ export default function CusiFloresMockup() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent" />
               <div className="absolute bottom-6 left-6 rounded-[1.5rem] bg-white/85 p-5 backdrop-blur-md">
                 <p className="text-xs uppercase tracking-[0.28em] text-[#9b766a]">Signature gifting</p>
-                <p className="mt-2 font-serif text-2xl text-[#2b1a17]">Diseno floral con presencia</p>
+                <p className="mt-2 text-2xl text-[#2b1a17]">Diseno floral con presencia</p>
               </div>
             </div>
 
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-[#9b766a]">Momentos especiales</p>
-              <h2 className="mt-4 font-serif text-3xl leading-tight md:text-5xl">
+              <h2 className="mt-4 text-3xl leading-tight md:text-5xl">
                 Para cada ocasion, una propuesta floral elegante y deseable.
               </h2>
               <p className="mt-6 max-w-xl text-base leading-8 text-[#5c4842]">
@@ -229,7 +229,7 @@ export default function CusiFloresMockup() {
           <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8">
             <div className="rounded-[2.2rem] bg-[#2b1a17] p-8 text-white shadow-[0_30px_80px_rgba(43,29,26,0.24)] md:p-12">
               <p className="text-sm uppercase tracking-[0.3em] text-[#d8b8ab]">Eventos & decoracion floral</p>
-              <h2 className="mt-4 max-w-xl font-serif text-3xl leading-tight md:text-5xl">
+              <h2 className="mt-4 max-w-xl text-3xl leading-tight md:text-5xl">
                 Eventos con direccion floral de nivel boutique.
               </h2>
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/80">
@@ -251,11 +251,11 @@ export default function CusiFloresMockup() {
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <article className="rounded-[1.8rem] bg-white p-6 shadow-[0_20px_50px_rgba(83,48,37,0.08)]">
-                  <h3 className="font-serif text-3xl">Same day</h3>
+                  <h3 className="text-3xl">Same day</h3>
                   <p className="mt-2 text-sm leading-6 text-[#6d5953]">Respuesta agil para pedidos premium y arreglos de ocasion especial.</p>
                 </article>
                 <article className="rounded-[1.8rem] bg-[#efe2da] p-6 shadow-[0_20px_50px_rgba(83,48,37,0.08)]">
-                  <h3 className="font-serif text-3xl">CDMX</h3>
+                  <h3 className="text-3xl">CDMX</h3>
                   <p className="mt-2 text-sm leading-6 text-[#6d5953]">Cobertura selectiva con enfoque boutique y experiencia cuidada.</p>
                 </article>
               </div>
