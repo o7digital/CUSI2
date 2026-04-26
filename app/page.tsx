@@ -333,6 +333,9 @@ export default function CusiFloresMockup() {
           <p>Entrega a Domicilio en pedidos a partir de $600.00 en CDMX y Area Metropolitan, c/cargo x a partir de 5km de lomas Virreyes.</p>
           <p>Arreglos semanales para casas y oficinas. Eventos de todos tamanos.</p>
           <p className="pt-1 text-xs text-[#6f5851]">Pedidos sujetos a disponibilidad y zona de entrega.</p>
+          <a href="/aviso-de-privacidad" className="inline-block pt-1 text-xs font-semibold text-[#6f5851] underline underline-offset-2 transition hover:opacity-70">
+            Aviso de privacidad
+          </a>
         </div>
 
         <div className="md:justify-self-end">
