@@ -1,15 +1,29 @@
+const legalLinks = [
+  { label: 'Aviso de Privacidad', href: '/aviso-de-privacidad' },
+  { label: 'Pago de Impuestos', href: '/pago-de-impuestos' },
+  { label: 'Condiciones Generales de Uso', href: '/condiciones-generales-de-uso' },
+]
+
 export default function AvisoDePrivacidadPage() {
   return (
-    <main className="mx-auto w-[92%] max-w-5xl py-10 text-[#2a1c19] md:py-16">
-      <header className="rounded-3xl border border-[#ead8cf] bg-white p-6 md:p-10">
-        <h1 className="text-3xl leading-tight md:text-5xl">Aviso de Privacidad Integral</h1>
-        <p className="mt-4 text-sm text-[#6f5851]">Ultima actualizacion: Abril 2026</p>
-        <p className="mt-5 text-base leading-8 text-[#4e3a34]">
-          En cumplimiento con la Ley Federal de Proteccion de Datos Personales en Posesion de los Particulares, CUSI FLORES pone a disposicion de sus clientes, usuarios y visitantes el presente Aviso de Privacidad, con el fin de informar de manera clara como se recaban, utilizan, protegen y, en su caso, comparten sus datos personales.
-        </p>
+    <div className="min-h-screen bg-[#f6efe9] text-[#241715]">
+      <header className="sticky top-0 z-40 border-b border-[#ead8cf] bg-[#fffaf7]/90 backdrop-blur-md">
+        <div className="mx-auto flex w-[92%] max-w-7xl items-center justify-between py-4">
+          <a href="/" className="text-sm font-semibold tracking-[0.16em] text-[#2a1c19]">CUSI FLORES</a>
+          <a href="/" className="rounded-full border border-[#d8c7be] px-4 py-2 text-xs font-semibold text-[#2e231f]">Volver al inicio</a>
+        </div>
       </header>
 
-      <section className="mt-8 space-y-6 rounded-3xl border border-[#ead8cf] bg-white p-6 md:p-10">
+      <main className="mx-auto w-[92%] max-w-5xl py-8 text-[#2a1c19] md:py-12">
+        <section className="rounded-3xl border border-[#ead8cf] bg-white p-6 md:p-10">
+          <h1 className="text-3xl leading-tight md:text-5xl">Aviso de Privacidad Integral</h1>
+          <p className="mt-4 text-sm text-[#6f5851]">Ultima actualizacion: Abril 2026</p>
+          <p className="mt-5 text-base leading-8 text-[#4e3a34]">
+            En cumplimiento con la Ley Federal de Proteccion de Datos Personales en Posesion de los Particulares, CUSI FLORES pone a disposicion de sus clientes, usuarios y visitantes el presente Aviso de Privacidad, con el fin de informar de manera clara como se recaban, utilizan, protegen y, en su caso, comparten sus datos personales.
+          </p>
+        </section>
+
+        <section className="mt-6 space-y-6 rounded-3xl border border-[#ead8cf] bg-white p-6 md:p-10">
         <article>
           <h2 className="text-2xl md:text-3xl">1. Responsable del tratamiento de datos personales</h2>
           <p className="mt-3 text-base leading-8 text-[#4e3a34]">
@@ -198,7 +212,19 @@ export default function AvisoDePrivacidadPage() {
           </ul>
           <p className="mt-5 text-sm text-[#6f5851]">CUSI FLORES - Aviso de Privacidad actualizado en Abril 2026.</p>
         </article>
-      </section>
-    </main>
+        </section>
+      </main>
+
+      <footer className="mx-auto w-[92%] max-w-7xl border-t border-[#e6d5cc] py-8 text-sm text-[#6f5851]">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6f5851]">Informacion legal</p>
+        <div className="mt-2 flex flex-col gap-1.5 text-sm font-semibold">
+          {legalLinks.map((link) => (
+            <a key={link.href} href={link.href} className="underline underline-offset-2 transition hover:opacity-70">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </footer>
+    </div>
   )
 }

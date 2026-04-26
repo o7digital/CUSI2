@@ -477,9 +477,14 @@ export default function CusiFloresMockup() {
             <li>Arreglos semanales para casas, oficinas y eventos de todos los tamanos.</li>
           </ul>
           <p className="pt-1 text-xs text-[#6f5851]">Pedidos sujetos a disponibilidad y zona de entrega.</p>
-          <a href="/aviso-de-privacidad" className="inline-block pt-1 text-xs font-semibold text-[#6f5851] underline underline-offset-2 transition hover:opacity-70">
-            Aviso de privacidad
-          </a>
+          <div className="pt-1">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6f5851]">Informacion legal</p>
+            <div className="mt-2 flex flex-col gap-1.5 text-xs font-semibold text-[#6f5851]">
+              <a href="/aviso-de-privacidad" className="underline underline-offset-2 transition hover:opacity-70">Aviso de Privacidad</a>
+              <a href="/pago-de-impuestos" className="underline underline-offset-2 transition hover:opacity-70">Pago de Impuestos</a>
+              <a href="/condiciones-generales-de-uso" className="underline underline-offset-2 transition hover:opacity-70">Condiciones Generales de Uso</a>
+            </div>
+          </div>
         </div>
 
         <div className="md:justify-self-end">
