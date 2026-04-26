@@ -19,9 +19,19 @@ type ProductCard = {
   image: string
 }
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 const WP_BASE_URL = 'https://oliviers54.sg-host.com'
 
 const stripHtml = (input: string) => input.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
+const normalizeWpUrl = (url: string) =>
+  url.startsWith('http://oliviers54.sg-host.com/') ? url.replace('http://', 'https://') : url
+
+const extractImageFromHtml = (html: string) => {
+  const match = html.match(/<img[^>]+src=["']([^"']+)["']/i)
+  return match?.[1] ? normalizeWpUrl(match[1]) : null
+}
 
 const formatPrice = (prices: WooStoreProduct['prices']) => {
   if (!prices?.price) return 'Cotizar por WhatsApp'
@@ -45,7 +55,7 @@ const formatPrice = (prices: WooStoreProduct['prices']) => {
 export async function GET() {
   try {
     const response = await fetch(`${WP_BASE_URL}/wp-json/wc/store/v1/products?per_page=24&orderby=date&order=desc`, {
-      next: { revalidate: 300 },
+      cache: 'no-store',
     })
 
     if (!response.ok) {
@@ -59,7 +69,9 @@ export async function GET() {
         const title = item.name?.trim() || `Arreglo floral ${index + 1}`
         const descSource = item.short_description || item.description || ''
         const desc = stripHtml(descSource) || 'Arreglo floral premium para ocasiones especiales.'
-        const image = item.images?.[0]?.src || '/mothers-day-2026/image-1-1.webp'
+        const apiImage = item.images?.[0]?.src ? normalizeWpUrl(item.images[0].src) : null
+        const htmlImage = extractImageFromHtml(item.description || '')
+        const image = apiImage || htmlImage || '/mothers-day-2026/image-1-1.webp'
 
         return {
           title,

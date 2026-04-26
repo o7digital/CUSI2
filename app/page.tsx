@@ -238,9 +238,20 @@ export default function CusiFloresMockup() {
               </div>
 
               <ul className="mt-5 list-disc space-y-1 pl-5 text-sm text-white/85 md:text-base">
-                <li>Pedidos y cotizaciones: +52 55 2109 2665 / +52 55 6157 9500</li>
-                <li>Estado de pedido: +52 56 1923 2940</li>
-                <li>Emergencias: +52 55 5596 9871</li>
+                <li>
+                  Pedidos y cotizaciones:{' '}
+                  <a href="tel:+525521092665" className="underline underline-offset-2 hover:opacity-80">+52 55 2109 2665</a>
+                  {' / '}
+                  <a href="tel:+525561579500" className="underline underline-offset-2 hover:opacity-80">+52 55 6157 9500</a>
+                </li>
+                <li>
+                  Estado de pedido:{' '}
+                  <a href="tel:+525619232940" className="underline underline-offset-2 hover:opacity-80">+52 56 1923 2940</a>
+                </li>
+                <li>
+                  Emergencias:{' '}
+                  <a href="tel:+525555969871" className="underline underline-offset-2 hover:opacity-80">+52 55 5596 9871</a>
+                </li>
               </ul>
 
               <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3 md:mt-14 md:gap-4">
@@ -392,8 +403,21 @@ export default function CusiFloresMockup() {
                 </p>
               ))}
             </div>
-            <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center justify-center rounded-full bg-[#f4ddd2] px-6 py-3 text-sm font-semibold text-[#2a1d1a] transition duration-300 hover:bg-[#efcfc1]">
-              Ordenar ahora por WhatsApp
+
+            <form action="https://formspree.io/f/xqewoabn" method="POST" className="mt-7 grid gap-3 md:grid-cols-2">
+              <input type="text" name="nombre" required placeholder="Nombre" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
+              <input type="tel" name="telefono" required placeholder="Telefono" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
+              <input type="email" name="email" placeholder="Email (opcional)" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
+              <input type="text" name="arreglo" required placeholder="Arreglo o producto" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
+              <textarea name="mensaje" required placeholder="Zona de entrega, fecha, horario y detalles del pedido" rows={4} className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45 md:col-span-2" />
+              <input type="hidden" name="_subject" value="Nuevo pedido CUSI FLORES" />
+              <button type="submit" className="inline-flex items-center justify-center rounded-full bg-[#f4ddd2] px-6 py-3 text-sm font-semibold text-[#2a1d1a] transition duration-300 hover:bg-[#efcfc1] md:col-span-2 md:justify-self-start">
+                Enviar pedido
+              </button>
+            </form>
+
+            <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center justify-center rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white/95 transition duration-300 hover:bg-white/10">
+              O pedir por WhatsApp
             </a>
           </div>
         </section>
@@ -425,9 +449,20 @@ export default function CusiFloresMockup() {
         <div className="text-[#b48700]">
           <p className="font-semibold">Telefonos de contacto</p>
           <ul className="mt-2 list-disc space-y-2 pl-5">
-            <li className="font-semibold">Pedidos y cotizaciones: +52 55 2109 2665 / +52 55 6157 9500</li>
-            <li className="font-semibold">Estado de pedido: +52 56 1923 2940</li>
-            <li className="font-semibold">Emergencias: +52 55 5596 9871</li>
+            <li className="font-semibold">
+              Pedidos y cotizaciones:{' '}
+              <a href="tel:+525521092665" className="underline underline-offset-2 hover:opacity-80">+52 55 2109 2665</a>
+              {' / '}
+              <a href="tel:+525561579500" className="underline underline-offset-2 hover:opacity-80">+52 55 6157 9500</a>
+            </li>
+            <li className="font-semibold">
+              Estado de pedido:{' '}
+              <a href="tel:+525619232940" className="underline underline-offset-2 hover:opacity-80">+52 56 1923 2940</a>
+            </li>
+            <li className="font-semibold">
+              Emergencias:{' '}
+              <a href="tel:+525555969871" className="underline underline-offset-2 hover:opacity-80">+52 55 5596 9871</a>
+            </li>
           </ul>
         </div>
 
