@@ -287,24 +287,27 @@ export default function CusiFloresMockup() {
             {productsError ? <p className="mt-3 text-sm text-[#6f5851]">{productsError}</p> : null}
           </div>
 
-          <div className="grid auto-rows-fr gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-3">
             {products.map((item) => (
               <article key={item.title} className="flex h-full flex-col overflow-hidden rounded-[1.6rem] border border-[#ead8cf] bg-[#fffdfa] shadow-[0_16px_42px_rgba(74,46,37,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_58px_rgba(74,46,37,0.14)]">
-                <div className="flex h-64 items-center justify-center bg-[#f7efea] p-4 md:h-72">
+                <div className="flex h-52 items-center justify-center bg-[#f7efea] px-4 py-3 md:h-56">
                   <img src={item.image} alt={item.title} className="h-full w-full object-contain" loading="lazy" />
                 </div>
-                <div className="flex flex-1 flex-col gap-3 p-5">
-                  <h3 className="min-h-[5.2rem] text-2xl leading-tight text-[#2a1c19]">{item.title}</h3>
-                  <p className="min-h-[4.5rem] text-sm leading-6 text-[#664f48]">{item.desc}</p>
-                  <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price}</p>
-                  <a
-                    href={BRAND.whatsappUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-auto inline-flex w-full items-center justify-center rounded-full border border-[#c8ada3] bg-white px-6 py-3 text-sm font-semibold text-[#2e231f] transition duration-300 hover:border-[#b4988e] hover:bg-[#fff8f5]"
-                  >
-                    Pedir este arreglo
-                  </a>
+                <div className="flex flex-1 flex-col gap-2 p-4">
+                  <h3 className="min-h-[3.4rem] text-[2rem] leading-[1.05] text-[#2a1c19] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden">
+                    {item.title}
+                  </h3>
+                  <div className="mt-auto space-y-2">
+                    <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price}</p>
+                    <a
+                      href={BRAND.whatsappUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex w-full items-center justify-center rounded-full border border-[#c8ada3] bg-white px-6 py-2.5 text-sm font-semibold text-[#2e231f] transition duration-300 hover:border-[#b4988e] hover:bg-[#fff8f5]"
+                    >
+                      Comprar
+                    </a>
+                  </div>
                 </div>
               </article>
             ))}
