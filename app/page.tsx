@@ -1,3 +1,7 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+
 const BRAND = {
   name: 'CUSI FLORES',
   city: 'Ciudad de Mexico',
@@ -91,9 +95,30 @@ const ctaSoft =
   'inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition duration-300 hover:bg-white/20'
 
 export default function CusiFloresMockup() {
+  const [menuVisible, setMenuVisible] = useState(true)
+
+  useEffect(() => {
+    let lastY = window.scrollY
+
+    const onScroll = () => {
+      const currentY = window.scrollY
+      if (currentY < 40) {
+        setMenuVisible(true)
+      } else if (currentY > lastY) {
+        setMenuVisible(false)
+      } else {
+        setMenuVisible(true)
+      }
+      lastY = currentY
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
     <div className="min-h-screen bg-[#f6efe9] text-[#241715] selection:bg-[#dcc1b7] selection:text-[#2b1a17]">
-      <header className="fixed inset-x-0 top-0 z-50">
+      <header className={`fixed inset-x-0 top-0 z-50 transition-transform duration-300 ${menuVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="mx-auto mt-3 flex w-[94%] max-w-7xl items-center justify-between rounded-full border border-white/70 bg-[#fffaf7]/85 px-4 py-3 shadow-[0_15px_45px_rgba(62,38,31,0.15)] backdrop-blur-xl md:mt-5 md:px-6">
           <a href="#inicio" className="min-w-0">
             <p className="text-[10px] uppercase tracking-[0.28em] text-[#94736a] md:text-[11px]">Floreria premium CDMX</p>
