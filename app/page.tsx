@@ -9,76 +9,7 @@ const images = {
   hero: 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=2200&q=80',
   occasions: 'https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=1600&q=80',
   events: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1400&q=80',
-  featured: [
-    'https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?auto=format&fit=crop&w=1200&q=80',
-  ],
 }
-
-const featured = [
-  {
-    title: 'Ramo Signature',
-    desc: 'Disenos florales exclusivos con seleccion premium y presentacion impecable.',
-    price: 'Desde $1,290 MXN',
-    image: images.featured[0],
-  },
-  {
-    title: 'Caja Couture',
-    desc: 'Arreglos en caja de lujo pensados para regalar con elegancia y presencia.',
-    price: 'Desde $1,850 MXN',
-    image: images.featured[1],
-  },
-  {
-    title: 'Edicion Evento',
-    desc: 'Composicion floral refinada para cenas, bodas intimas y celebraciones especiales.',
-    price: 'Cotizacion personalizada',
-    image: images.featured[2],
-  },
-]
-
-const highlights = [
-  {
-    kicker: 'Editorial floral',
-    title: 'Ramos de autor',
-    text: 'Disenos con una estetica femenina, moderna y delicadamente aspiracional.',
-    tone: 'bg-[#f8f0ea]',
-  },
-  {
-    kicker: 'Luxury gifting',
-    title: 'Regalos con impacto',
-    text: 'Presentacion impecable para convertir cada entrega en una experiencia memorable.',
-    tone: 'bg-[#f4e5de]',
-  },
-  {
-    kicker: 'Boutique premium',
-    title: 'Imagen aspiracional',
-    text: 'Ideal para una marca floral elegante, contemporanea y con posicionamiento alto.',
-    tone: 'bg-[#2b1a17] text-white',
-  },
-]
-
-const servicePillars = [
-  {
-    title: 'Ramos couture',
-    text: 'Creaciones florales con composicion editorial, suaves contrastes y acabados impecables.',
-  },
-  {
-    title: 'Eventos boutique',
-    text: 'Ambientacion floral premium para cenas privadas, bodas intimas y experiencias exclusivas.',
-  },
-  {
-    title: 'Entrega selecta',
-    text: 'Atencion cuidada y servicio enfocado en zonas premium de Ciudad de Mexico.',
-  },
-]
-
-const quickStats = [
-  ['Entrega same day', 'En zonas seleccionadas'],
-  ['Pedidos por WhatsApp', 'Respuesta prioritaria'],
-  ['Arreglos premium', 'Diseno floral exclusivo'],
-  ['Eventos boutique', 'Cotizacion personalizada'],
-]
 
 const occasions = [
   'Cumpleanos',
@@ -102,9 +33,6 @@ const ctaPrimary =
 
 const ctaSoft =
   'inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition duration-300 hover:bg-white/20'
-
-const cardBase =
-  'rounded-[1.6rem] border border-[#ead9d0] bg-white p-5 shadow-[0_18px_45px_rgba(83,48,37,0.06)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_55px_rgba(83,48,37,0.1)]'
 
 export default function CusiFloresMockup() {
   return (
@@ -188,74 +116,7 @@ export default function CusiFloresMockup() {
           </div>
         </section>
 
-        <section className="relative z-10 mx-auto -mt-14 w-[92%] max-w-7xl md:-mt-16">
-          <div className="grid gap-4 rounded-[2rem] border border-[#ead9d0] bg-[#fffaf7] p-5 shadow-[0_30px_80px_rgba(66,36,30,0.08)] md:grid-cols-3 md:p-6">
-            {highlights.map((item) => (
-              <article key={item.title} className={`rounded-[1.5rem] p-6 ${item.tone}`}>
-                <p className="text-xs uppercase tracking-[0.28em] text-[#9b766a]">{item.kicker}</p>
-                <h2 className="mt-3 font-serif text-2xl">{item.title}</h2>
-                <p className="mt-3 text-sm leading-6 text-[#6f5750]">{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="mx-auto w-[92%] max-w-7xl py-6 md:py-8">
-          <div className="grid gap-4 rounded-[2rem] border border-[#ead9d0] bg-white p-4 shadow-[0_20px_50px_rgba(83,48,37,0.06)] sm:grid-cols-2 md:grid-cols-4 md:p-5">
-            {quickStats.map(([title, text]) => (
-              <article key={title} className="rounded-[1.3rem] bg-[#fbf6f2] p-4 transition duration-300 hover:bg-[#f6ece6]">
-                <h3 className="font-serif text-xl text-[#2b1a17]">{title}</h3>
-                <p className="mt-2 text-sm leading-6 text-[#6d5953]">{text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="coleccion" className="mx-auto w-[92%] max-w-7xl scroll-mt-32 py-16 md:py-24">
-          <div className="mb-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-[#9b766a]">Estilo de marca</p>
-              <h2 className="mt-4 max-w-2xl font-serif text-3xl leading-tight md:text-5xl">
-                Una floreria con codigo visual premium, pensada para vender lujo sin verse pesada.
-              </h2>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-3">
-              {servicePillars.map((item) => (
-                <article key={item.title} className={cardBase}>
-                  <h3 className="font-serif text-xl text-[#2b1a17]">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-[#6d5953]">{item.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:gap-10">
-            <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-[#9b766a]">Coleccion destacada</p>
-              <h2 className="mt-4 max-w-lg font-serif text-3xl leading-tight md:text-5xl">
-                Una propuesta floral delicada, editorial y sofisticada.
-              </h2>
-              <p className="mt-6 max-w-xl text-base leading-8 text-[#5c4842]">
-                {BRAND.name} mezcla flor de temporada, direccion estetica, paletas suaves y acabados impecables para construir una marca premium con fuerte personalidad visual.
-              </p>
-            </div>
-
-            <div className="rounded-[2rem] border border-[#ead9d0] bg-white p-4 shadow-[0_30px_80px_rgba(83,48,37,0.08)] md:p-6">
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {featured.map((item) => (
-                  <article key={item.title} className="overflow-hidden rounded-[1.6rem] bg-[#fbf6f2] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(83,48,37,0.14)]">
-                    <div className="h-64 bg-cover bg-center md:h-72" style={{ backgroundImage: `url(${item.image})` }} />
-                    <div className="p-5">
-                      <h3 className="font-serif text-xl">{item.title}</h3>
-                      <p className="mt-3 text-sm leading-6 text-[#6d5953]">{item.desc}</p>
-                      <p className="mt-4 text-sm font-medium text-[#2b1d1a]">{item.price}</p>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        <section id="coleccion" className="scroll-mt-32" />
 
         <section id="ocasiones" className="scroll-mt-32 bg-white py-16 md:py-24">
           <div className="mx-auto grid w-[92%] max-w-7xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
