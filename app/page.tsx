@@ -147,7 +147,7 @@ export default function CusiFloresMockup() {
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-7 text-white/85 md:text-xl md:leading-8">
-                Una boutique floral pensada para clientes que buscan belleza, delicadeza y una experiencia premium en cada detalle.
+                Coleccion especial Dia de las Madres 2026. Ramos y arreglos premium con entrega en zonas seleccionadas de CDMX.
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3 md:gap-4">
