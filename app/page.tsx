@@ -95,6 +95,7 @@ const ctaSoft =
 
 export default function CusiFloresMockup() {
   const [menuVisible, setMenuVisible] = useState(true)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     let lastY = window.scrollY
@@ -105,6 +106,7 @@ export default function CusiFloresMockup() {
         setMenuVisible(true)
       } else if (currentY > lastY) {
         setMenuVisible(false)
+        setMobileMenuOpen(false)
       } else {
         setMenuVisible(true)
       }
@@ -132,10 +134,39 @@ export default function CusiFloresMockup() {
             ))}
           </nav>
 
-          <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className={`${ctaPrimary} px-4 py-2 text-xs md:text-sm`}>
-            Pedir ahora
-          </a>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              aria-label="Abrir menu"
+              aria-expanded={mobileMenuOpen}
+              onClick={() => setMobileMenuOpen((open) => !open)}
+              className="inline-flex items-center justify-center rounded-full border border-[#d8c7be] bg-white px-3 py-2 text-[#2b1a17] lg:hidden"
+            >
+              <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
+                {mobileMenuOpen ? <path fill="currentColor" d="M6.2 5.15 12 10.94l5.8-5.8L19.2 6.56 13.41 12l5.8 5.8-1.42 1.4-5.8-5.79-5.8 5.8-1.4-1.42 5.79-5.8-5.8-5.8z" /> : <path fill="currentColor" d="M3 6.75h18v1.5H3zm0 4.5h18v1.5H3zm0 4.5h18v1.5H3z" />}
+              </svg>
+            </button>
+
+            <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className={`${ctaPrimary} hidden px-4 py-2 text-xs md:text-sm lg:inline-flex`}>
+              Pedir ahora
+            </a>
+          </div>
         </div>
+
+        {mobileMenuOpen && (
+          <div className="mx-auto mt-2 w-[94%] max-w-7xl rounded-3xl border border-[#e4d2c9] bg-[#fffaf7] p-4 shadow-[0_20px_45px_rgba(62,38,31,0.12)] lg:hidden">
+            <nav className="flex flex-col gap-2 text-base text-[#3c2a25]">
+              {navLinks.map((item) => (
+                <a key={item.label} href={item.href} onClick={() => setMobileMenuOpen(false)} className="rounded-xl px-3 py-2 transition hover:bg-[#f7eee9]">
+                  {item.label}
+                </a>
+              ))}
+              <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" onClick={() => setMobileMenuOpen(false)} className="mt-2 inline-flex items-center justify-center rounded-full bg-[#2b1a17] px-5 py-2.5 text-sm font-medium text-white">
+                Pedir ahora
+              </a>
+            </nav>
+          </div>
+        )}
       </header>
 
       <main id="inicio">
