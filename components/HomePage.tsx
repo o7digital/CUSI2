@@ -313,7 +313,7 @@ export default function CusiFloresMockup() {
             <div className="relative h-[460px] overflow-hidden rounded-[2.4rem] shadow-[0_30px_90px_rgba(83,48,37,0.12)] md:h-[560px]">
               <img src={images.occasions} alt="Arreglo floral premium" className="h-full w-full object-cover scale-[0.7]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent" />
-              <div className="absolute bottom-6 left-6 rounded-[1.5rem] bg-white/85 p-5 backdrop-blur-md">
+              <div className="absolute bottom-6 left-6 translate-y-[2cm] rounded-[1.5rem] bg-white/85 p-5 backdrop-blur-md">
                 <p className="text-xs uppercase tracking-[0.28em] text-[#9b766a]">Signature gifting</p>
                 <p className="mt-2 text-2xl text-[#2b1a17]">Diseno floral con presencia</p>
               </div>
