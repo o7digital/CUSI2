@@ -84,20 +84,6 @@ const ctaPrimary =
 const ctaSoft =
   'inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition duration-300 hover:bg-white/20'
 
-const handwrittenDescriptions: Record<string, string> = {
-  'Caja Rosas Amarillas': '16 rosas en caja, alegria luminosa.',
-  'Rosas Premium en Ramo': 'Ramo clasico de rosas, presencia elegante.',
-  'Tulipanes en ramo': '2 docenas de tulipanes, frescura delicada.',
-  'Tulipanes en cilindro': '4 decenas de tulipanes, diseno con altura.',
-  'Indonesia Orquídea Phalenopsis': 'Orquidea premium con gesto refinado.',
-  'Orquídea Phalenopsis En Escultura de Piedra': 'Escultura floral para espacios con caracter.',
-  'Orquídea en cilindro d e vidrio': 'Orquidea en cilindro de vidrio, minimalismo botanico.',
-  'Orquídea Phalenopsis 8 Varas': 'Composicion de 8 varas, impacto sofisticado.',
-  'Orquídea Phalenopsis En Escultura de Piedra 3 varas': '3 varas en escultura, trazo artistico.',
-  'Orquídea Phalenopsis En Cilindro de Cristal': 'Orquidea en cristal, elegancia atemporal.',
-  'Orquídea Fiusha Phalenopsis': 'Fiusha vibrante para un detalle inolvidable.',
-}
-
 export default function CusiFloresMockup() {
   const [menuVisible, setMenuVisible] = useState(true)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -279,12 +265,6 @@ export default function CusiFloresMockup() {
                   <h3 className="min-h-[3.4rem] text-[2.1rem] leading-[1.02] text-[#2a1c19] [font-family:var(--font-script)] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden">
                     {item.title}
                   </h3>
-                  <p className="text-[1.35rem] leading-tight text-[#8d6c62] italic tracking-[0.01em] [font-family:var(--font-script)]">
-                    {handwrittenDescriptions[item.title] || 'Diseno floral con sello CUSI.'}
-                  </p>
-                  {item.title === 'Caja Rosas Amarillas' ? <p className="text-sm font-medium text-[#664f48]">16 Rosas</p> : null}
-                  {item.title === 'Tulipanes en ramo' ? <p className="text-sm font-medium text-[#664f48]">2 docenas</p> : null}
-                  {item.title === 'Tulipanes en cilindro' ? <p className="text-sm font-medium text-[#664f48]">4 Decenas</p> : null}
                   <div className="mt-auto space-y-2">
                     <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price} + IVA</p>
                     <a
