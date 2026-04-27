@@ -442,20 +442,6 @@ export default function CusiFloresMockup() {
           </div>
         </section>
 
-        <section className="mx-auto w-[92%] max-w-7xl py-6 md:py-10">
-          <div className="rounded-[2rem] border border-[#e4d2c9] bg-white p-6 md:p-10">
-            <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Ocasiones de campana</p>
-            <h2 className="mt-3 text-3xl leading-tight md:text-5xl">Regalos para cada tipo de Mama</h2>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {occasions.map((item) => (
-                <p key={item} className="rounded-full border border-[#e8d8cf] bg-[#fbf4ef] px-5 py-3 text-sm text-[#4e3a34]">
-                  {item}
-                </p>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section id="contacto" className="scroll-mt-32" />
       </main>
 
