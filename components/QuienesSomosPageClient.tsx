@@ -90,6 +90,14 @@ export default function QuienesSomosPageClient() {
               <a href="/en/about" className="underline underline-offset-2 hover:opacity-75">
                 EN
               </a>
+              <span className="text-[#b8a9a2]">|</span>
+              <a href="/it/about" className="underline underline-offset-2 hover:opacity-75">
+                IT
+              </a>
+              <span className="text-[#b8a9a2]">|</span>
+              <a href="/fr/about" className="underline underline-offset-2 hover:opacity-75">
+                FR
+              </a>
             </div>
             <button
               type="button"
@@ -117,6 +125,14 @@ export default function QuienesSomosPageClient() {
                 <span className="text-[#b8a9a2]">|</span>
                 <a href="/en/about" className="underline underline-offset-2 hover:opacity-75">
                   EN
+                </a>
+                <span className="text-[#b8a9a2]">|</span>
+                <a href="/it/about" className="underline underline-offset-2 hover:opacity-75">
+                  IT
+                </a>
+                <span className="text-[#b8a9a2]">|</span>
+                <a href="/fr/about" className="underline underline-offset-2 hover:opacity-75">
+                  FR
                 </a>
               </div>
               {navLinks.map((item) => (
@@ -268,6 +284,14 @@ export default function QuienesSomosPageClient() {
           <span className="text-[#b8a9a2]">|</span>
           <a href="/en/about" className="underline underline-offset-2 hover:opacity-75">
             EN
+          </a>
+          <span className="text-[#b8a9a2]">|</span>
+          <a href="/it/about" className="underline underline-offset-2 hover:opacity-75">
+            IT
+          </a>
+          <span className="text-[#b8a9a2]">|</span>
+          <a href="/fr/about" className="underline underline-offset-2 hover:opacity-75">
+            FR
           </a>
         </div>
       </div>

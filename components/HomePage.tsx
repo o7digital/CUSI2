@@ -188,6 +188,10 @@ export default function CusiFloresMockup() {
               <a href="/it" className="underline underline-offset-2 hover:opacity-75">
                 IT
               </a>
+              <span className="text-[#b8a9a2]">|</span>
+              <a href="/fr" className="underline underline-offset-2 hover:opacity-75">
+                FR
+              </a>
             </div>
             <button
               type="button"
@@ -219,6 +223,10 @@ export default function CusiFloresMockup() {
                 <span className="text-[#b8a9a2]">|</span>
                 <a href="/it" className="underline underline-offset-2 hover:opacity-75">
                   IT
+                </a>
+                <span className="text-[#b8a9a2]">|</span>
+                <a href="/fr" className="underline underline-offset-2 hover:opacity-75">
+                  FR
                 </a>
               </div>
               {navLinks.map((item) => (
@@ -549,6 +557,10 @@ export default function CusiFloresMockup() {
           <span className="text-[#b8a9a2]">|</span>
           <a href="/it" className="underline underline-offset-2 hover:opacity-75">
             IT
+          </a>
+          <span className="text-[#b8a9a2]">|</span>
+          <a href="/fr" className="underline underline-offset-2 hover:opacity-75">
+            FR
           </a>
         </div>
       </div>
