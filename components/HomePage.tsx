@@ -279,7 +279,7 @@ export default function CusiFloresMockup() {
                   <h3 className="min-h-[3.4rem] text-[2.1rem] leading-[1.02] text-[#2a1c19] [font-family:var(--font-script)] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden">
                     {item.title}
                   </h3>
-                  <p className="text-[1.35rem] leading-tight text-[#8d6c62] italic tracking-[0.01em] [font-family:var(--font-script)]">
+                  <p className="text-[1.35rem] leading-tight text-[#8d6c62] italic tracking-[0.01em] [font-family:Arial,sans-serif]">
                     {handwrittenDescriptions[item.title] || 'Diseno floral con sello CUSI.'}
                   </p>
                   {item.title === 'Caja Rosas Amarillas' ? <p className="text-sm font-medium text-[#664f48]">16 Rosas</p> : null}
@@ -313,6 +313,10 @@ export default function CusiFloresMockup() {
             <div className="relative h-[460px] overflow-hidden rounded-[2.4rem] shadow-[0_30px_90px_rgba(83,48,37,0.12)] md:h-[560px]">
               <img src={images.occasions} alt="Arreglo floral premium" className="h-full w-full object-cover scale-[0.7]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent" />
+              <div className="absolute bottom-6 left-6 rounded-[1.5rem] bg-white/85 p-5 backdrop-blur-md">
+                <p className="text-xs uppercase tracking-[0.28em] text-[#9b766a]">Signature gifting</p>
+                <p className="mt-2 text-2xl text-[#2b1a17]">Diseno floral con presencia</p>
+              </div>
             </div>
 
             <div>
