@@ -205,7 +205,7 @@ export default function CusiFloresMockup() {
           <div className="relative mx-auto grid min-h-[100svh] w-[92%] max-w-7xl items-center gap-8 pt-28 pb-20 md:pt-36 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="max-w-3xl">
               <h1 className="max-w-2xl text-4xl leading-[0.98] text-white sm:text-5xl md:text-7xl xl:text-[92px]">
-                Flores para mama con presencia, elegancia y emocion
+                Permite que las Flores de CUSI sean las embajadoras de tu cariño el 10 de mayo
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-7 text-white/85 md:text-xl md:leading-8">
@@ -213,41 +213,24 @@ export default function CusiFloresMockup() {
               </p>
 
               <p className="mt-4 inline-flex rounded-full bg-[#efe0d8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#60473f] md:text-sm">
-                Agenda tu pedido antes del 10 de mayo
+                Agenda tu pedido antes del 5 de mayo
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3 md:gap-4">
                 <a href="#pedidos" className={ctaSoft}>
-                  Cotizar Arreglo Personalizado
+                  Solicitar Arreglo
                 </a>
               </div>
 
-              <ul className="mt-5 list-disc space-y-1 pl-5 text-sm text-white/85 md:text-base">
-                <li>
-                  Pedidos y cotizaciones:{' '}
-                  <a href="tel:+525521092665" className="underline underline-offset-2 hover:opacity-80">+52 55 2109 2665</a>
-                  {' / '}
-                  <a href="tel:+525561579500" className="underline underline-offset-2 hover:opacity-80">+52 55 6157 9500</a>
-                </li>
-                <li>
-                  Estado de pedido:{' '}
-                  <a href="tel:+525619232940" className="underline underline-offset-2 hover:opacity-80">+52 56 1923 2940</a>
-                </li>
-                <li>
-                  Emergencias:{' '}
-                  <a href="tel:+525555969871" className="underline underline-offset-2 hover:opacity-80">+52 55 5596 9871</a>
-                </li>
-              </ul>
-
               <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3 md:mt-14 md:gap-4">
                 {[
-                  ['Entrega premium', 'En zonas seleccionadas de CDMX'],
+                  ['Entrega en CDMX', ''],
                   ['Diseno editorial', 'Composicion floral con lenguaje visual refinado'],
                   ['Atencion boutique', 'Experiencia calida, elegante y personalizada'],
                 ].map(([title, desc]) => (
                   <div key={title} className="rounded-[24px] border border-white/20 bg-white/10 p-4 text-white backdrop-blur-md md:rounded-[28px] md:p-5">
                     <p className="text-sm font-medium">{title}</p>
-                    <p className="mt-2 text-sm leading-6 text-white/75">{desc}</p>
+                    {desc ? <p className="mt-2 text-sm leading-6 text-white/75">{desc}</p> : null}
                   </div>
                 ))}
               </div>
@@ -267,7 +250,7 @@ export default function CusiFloresMockup() {
         <section id="coleccion" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10 md:py-14">
           <div className="mb-8 md:mb-10">
             <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Coleccion Dia de las Madres</p>
-            <h2 className="mt-3 max-w-3xl text-3xl leading-tight md:text-5xl">Arreglos disenados para decir gracias con flores, belleza y presencia.</h2>
+            <h2 className="mt-3 max-w-3xl text-2xl leading-tight md:text-[2.55rem]">Arreglos disenados para decir gracias con flores, belleza y presencia.</h2>
             {productsLoading ? <p className="mt-3 text-sm text-[#6f5851]">Cargando productos...</p> : null}
             {productsError ? <p className="mt-3 text-sm text-[#6f5851]">{productsError}</p> : null}
           </div>
