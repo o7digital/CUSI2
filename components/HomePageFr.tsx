@@ -268,9 +268,9 @@ export default function CusiFloresFrPage() {
 
               <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3 md:mt-14 md:gap-4">
                 {[
-                  ['Delivery in CDMX', ''],
-                  ['Editorial design', 'Floral composition with refined visual language'],
-                  ['Boutique service', 'A warm, elegant, and personalized experience'],
+                  ['Livraison a CDMX', ''],
+                  ['Design editorial', 'Composition florale au langage visuel raffine'],
+                  ['Service boutique', 'Une experience chaleureuse, elegante et personnalisee'],
                 ].map(([title, desc]) => (
                   <div key={title} className="rounded-[24px] border border-white/20 bg-white/10 p-4 text-white backdrop-blur-md md:rounded-[28px] md:p-5">
                     <p className="font-[var(--font-display)] text-base font-medium md:text-lg">{title}</p>
@@ -282,10 +282,10 @@ export default function CusiFloresFrPage() {
 
             <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-[#e4d1c7] bg-white/95 p-8 shadow-[0_26px_65px_rgba(71,44,35,0.15)] backdrop-blur-sm lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
               <p className="font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;To ensure flower quality, orders should be confirmed at least 10 days in advance.&rdquo;
+                &ldquo;Pour garantir la qualite des fleurs, les commandes doivent etre confirmees au moins 10 jours a l&rsquo;avance.&rdquo;
               </p>
               <p className="-translate-y-[1.5cm] font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Deliveries will be made on May 7, 8, and 9. On May 10, orders will be accepted only exceptionally, subject to availability.&rdquo;
+                &ldquo;Les livraisons auront lieu les 7, 8 et 9 mai. Le 10 mai, les commandes seront acceptees uniquement de facon exceptionnelle, selon disponibilite.&rdquo;
               </p>
             </div>
           </div>
@@ -294,8 +294,8 @@ export default function CusiFloresFrPage() {
         <section id="coleccion" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10 md:py-14">
           <div className="mb-8 md:mb-10">
             <p className="text-sm uppercase tracking-[0.24em] text-[#94736a] md:text-base">Collection Fete des Meres</p>
-            <h2 className="mt-3 max-w-3xl text-[1.35rem] leading-tight [font-family:Arial,sans-serif] md:text-[2.295rem]">Arrangements that say thank you with beauty and presence.</h2>
-            {productsLoading ? <p className="mt-3 text-sm text-[#6f5851]">Loading products...</p> : null}
+            <h2 className="mt-3 max-w-3xl text-[1.35rem] leading-tight [font-family:Arial,sans-serif] md:text-[2.295rem]">Des compositions qui disent merci avec elegance et presence.</h2>
+            {productsLoading ? <p className="mt-3 text-sm text-[#6f5851]">Chargement des produits...</p> : null}
             {productsError ? <p className="mt-3 text-sm text-[#6f5851]">{productsError}</p> : null}
           </div>
 
@@ -310,11 +310,11 @@ export default function CusiFloresFrPage() {
                     {item.title}
                   </h3>
                   <p className="text-[1.35rem] leading-tight text-[#8d6c62] italic tracking-[0.01em] [font-family:Arial,sans-serif]">
-                    {handwrittenDescriptions[item.title] || 'Signature CUSI floral design.'}
+                    {handwrittenDescriptions[item.title] || 'Design floral signature CUSI.'}
                   </p>
                   {item.title === 'Caja Rosas Amarillas' ? <p className="text-sm font-medium text-[#664f48]">16 roses</p> : null}
-                  {item.title === 'Tulipanes en ramo' ? <p className="text-sm font-medium text-[#664f48]">2 dozen</p> : null}
-                  {item.title === 'Tulipanes en cilindro' ? <p className="text-sm font-medium text-[#664f48]">40 stems</p> : null}
+                  {item.title === 'Tulipanes en ramo' ? <p className="text-sm font-medium text-[#664f48]">2 douzaines</p> : null}
+                  {item.title === 'Tulipanes en cilindro' ? <p className="text-sm font-medium text-[#664f48]">40 tiges</p> : null}
                   <div className="mt-auto space-y-2">
                     <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price} + IVA</p>
                     <a
@@ -323,7 +323,7 @@ export default function CusiFloresFrPage() {
                       rel="noreferrer"
                       className="inline-flex w-full items-center justify-center rounded-full border border-[#c8ada3] bg-white px-6 py-2.5 text-sm font-semibold text-[#2e231f] transition duration-300 hover:border-[#b4988e] hover:bg-[#fff8f5]"
                     >
-                      Buy
+                      Acheter
                     </a>
                   </div>
                 </div>
@@ -333,7 +333,7 @@ export default function CusiFloresFrPage() {
 
           {!productsLoading && !products.length ? (
             <div className="mt-4 rounded-2xl border border-[#ead8cf] bg-[#fffdfa] p-5 text-sm text-[#6f5851]">
-              No products are available right now.
+              Aucun produit n'est disponible pour le moment.
             </div>
           ) : null}
         </section>
