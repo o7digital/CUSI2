@@ -23,7 +23,10 @@ export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 const WP_BASE_URL = 'https://oliviers54.sg-host.com'
-const PRODUCTS_URL = `${WP_BASE_URL}/wp-json/wc/store/v1/products?per_page=24&orderby=date&order=desc`
+const getProductsUrl = () => {
+  const cacheBuster = Math.floor(Date.now() / 60000)
+  return `${WP_BASE_URL}/wp-json/wc/store/v1/products?per_page=24&orderby=date&order=desc&_=${cacheBuster}`
+}
 
 const stripHtml = (input: string) => input.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
 const normalizeWpUrl = (url: string) =>
@@ -72,7 +75,7 @@ const fetchProductsWithRetry = async (retries = 2) => {
 
   for (let attempt = 0; attempt <= retries; attempt += 1) {
     try {
-      const response = await fetch(PRODUCTS_URL, {
+      const response = await fetch(getProductsUrl(), {
         cache: 'no-store',
         headers: {
           accept: 'application/json',
