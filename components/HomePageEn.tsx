@@ -180,7 +180,7 @@ export default function CusiFloresEnPage() {
           <div className="flex items-center gap-2">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#d8c7be] bg-white px-3 py-1 text-xs font-semibold text-[#2e231f]">
               <a href="/" className="underline underline-offset-2 hover:opacity-75">
-                FR
+                ES
               </a>
               <span className="text-[#b8a9a2]">|</span>
               <span>EN</span>
@@ -208,7 +208,7 @@ export default function CusiFloresEnPage() {
             <nav className="flex flex-col gap-2 text-base text-[#3c2a25]">
               <div className="mb-1 inline-flex items-center gap-2 rounded-full border border-[#d8c7be] bg-white px-3 py-1 text-xs font-semibold text-[#2e231f]">
                 <a href="/" className="underline underline-offset-2 hover:opacity-75">
-                  FR
+                  ES
                 </a>
                 <span className="text-[#b8a9a2]">|</span>
                 <span>EN</span>
@@ -534,7 +534,7 @@ export default function CusiFloresEnPage() {
       <div className="fixed bottom-4 left-4 z-50">
         <div className="inline-flex items-center gap-2 rounded-full border border-[#d8c7be] bg-white px-3 py-2 text-xs font-semibold text-[#2e231f] shadow-[0_10px_25px_rgba(46,35,31,0.2)]">
           <a href="/" className="underline underline-offset-2 hover:opacity-75">
-            FR
+            ES
           </a>
           <span className="text-[#b8a9a2]">|</span>
           <span>EN</span>

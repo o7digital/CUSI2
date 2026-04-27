@@ -27,7 +27,7 @@ export default function AvisoDePrivacidadPage() {
           <a href="/" className="text-sm font-semibold tracking-[0.16em] text-[#2a1c19]">CUSI</a>
           <div className="flex items-center gap-2">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#d8c7be] bg-white px-3 py-1 text-xs font-semibold text-[#2e231f]">
-              <span>FR</span>
+              <span>ES</span>
               <span className="text-[#b8a9a2]">|</span>
               <a href="/en/privacy-policy" className="underline underline-offset-2 hover:opacity-75">
                 EN

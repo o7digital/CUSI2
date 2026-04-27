@@ -28,7 +28,7 @@ export default function TermsOfUsePage() {
           <div className="flex items-center gap-2">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#d8c7be] bg-white px-3 py-1 text-xs font-semibold text-[#2e231f]">
               <a href="/condiciones-generales-de-uso" className="underline underline-offset-2 hover:opacity-75">
-                FR
+                ES
               </a>
               <span className="text-[#b8a9a2]">|</span>
               <span>EN</span>

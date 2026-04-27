@@ -179,7 +179,7 @@ export default function CusiFloresMockup() {
 
           <div className="flex items-center gap-2">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#d8c7be] bg-white px-3 py-1 text-xs font-semibold text-[#2e231f]">
-              <span>FR</span>
+              <span>ES</span>
               <span className="text-[#b8a9a2]">|</span>
               <a href="/en" className="underline underline-offset-2 hover:opacity-75">
                 EN
@@ -207,7 +207,7 @@ export default function CusiFloresMockup() {
           <div className="mx-auto mt-2 w-[94%] max-w-7xl rounded-3xl border border-[#e4d2c9] bg-[#fffaf7] p-4 shadow-[0_20px_45px_rgba(62,38,31,0.12)] lg:hidden">
             <nav className="flex flex-col gap-2 text-base text-[#3c2a25]">
               <div className="mb-1 inline-flex items-center gap-2 rounded-full border border-[#d8c7be] bg-white px-3 py-1 text-xs font-semibold text-[#2e231f]">
-                <span>FR</span>
+                <span>ES</span>
                 <span className="text-[#b8a9a2]">|</span>
                 <a href="/en" className="underline underline-offset-2 hover:opacity-75">
                   EN
@@ -533,7 +533,7 @@ export default function CusiFloresMockup() {
       </div>
       <div className="fixed bottom-4 left-4 z-50">
         <div className="inline-flex items-center gap-2 rounded-full border border-[#d8c7be] bg-white px-3 py-2 text-xs font-semibold text-[#2e231f] shadow-[0_10px_25px_rgba(46,35,31,0.2)]">
-          <span>FR</span>
+          <span>ES</span>
           <span className="text-[#b8a9a2]">|</span>
           <a href="/en" className="underline underline-offset-2 hover:opacity-75">
             EN
