@@ -56,26 +56,26 @@ const navLinks = [
 ]
 
 const footerSeoKeywords = [
-  'floreria en cdmx lomas virreyes cdmx',
-  'floreria premium cdmx lomas virreyes cdmx',
-  'flores a domicilio cdmx lomas virreyes cdmx',
-  'arreglos florales cdmx lomas virreyes cdmx',
-  'ramos de flores cdmx lomas virreyes cdmx',
-  'flores para mama lomas virreyes cdmx',
-  'flores dia de las madres lomas virreyes cdmx',
-  'arreglos dia de las madres lomas virreyes cdmx',
-  'regalos dia de las madres lomas virreyes cdmx',
-  'flores para cumpleanos lomas virreyes cdmx',
-  'ramos para aniversario lomas virreyes cdmx',
-  'orquideas a domicilio lomas virreyes cdmx',
-  'tulipanes en ramo lomas virreyes cdmx',
-  'caja de rosas amarillas lomas virreyes cdmx',
-  'rosas rojas a domicilio lomas virreyes cdmx',
-  'arreglos florales elegantes lomas virreyes cdmx',
-  'floreria lomas virreyes cdmx',
-  'flores en ciudad de mexico lomas virreyes cdmx',
-  'envio de flores cdmx lomas virreyes cdmx',
-  'pedir flores por whatsapp lomas virreyes cdmx',
+  'floreria en cdmx bosques de las lomas cdmx',
+  'floreria premium cdmx bosques de las lomas cdmx',
+  'flores a domicilio cdmx bosques de las lomas cdmx',
+  'arreglos florales cdmx bosques de las lomas cdmx',
+  'ramos de flores cdmx bosques de las lomas cdmx',
+  'flores para mama bosques de las lomas cdmx',
+  'flores dia de las madres bosques de las lomas cdmx',
+  'arreglos dia de las madres bosques de las lomas cdmx',
+  'regalos dia de las madres bosques de las lomas cdmx',
+  'flores para cumpleanos bosques de las lomas cdmx',
+  'ramos para aniversario bosques de las lomas cdmx',
+  'orquideas a domicilio bosques de las lomas cdmx',
+  'tulipanes en ramo bosques de las lomas cdmx',
+  'caja de rosas amarillas bosques de las lomas cdmx',
+  'rosas rojas a domicilio bosques de las lomas cdmx',
+  'arreglos florales elegantes bosques de las lomas cdmx',
+  'floreria bosques de las lomas cdmx',
+  'flores en ciudad de mexico bosques de las lomas cdmx',
+  'envio de flores cdmx bosques de las lomas cdmx',
+  'pedir flores por whatsapp bosques de las lomas cdmx',
 ]
 
 const ctaPrimary =
@@ -269,7 +269,7 @@ export default function CusiFloresMockup() {
                   {item.title === 'Tulipanes en ramo' ? <p className="text-sm font-medium text-[#664f48]">2 docenas</p> : null}
                   {item.title === 'Tulipanes en cilindro' ? <p className="text-sm font-medium text-[#664f48]">4 Decenas</p> : null}
                   <div className="mt-auto space-y-2">
-                    <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price}</p>
+                    <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price} + IVA</p>
                     <a
                       href={BRAND.whatsappUrl}
                       target="_blank"
@@ -355,7 +355,7 @@ export default function CusiFloresMockup() {
         <section className="mx-auto w-[92%] max-w-7xl py-6 md:py-10">
           <div className="rounded-[2rem] border border-[#e4d2c9] bg-white p-6 md:p-10">
             <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Experiencia CUSI</p>
-            <h2 className="mt-3 text-3xl leading-tight md:text-5xl">Un detalle que Mama no olvida.</h2>
+            <h2 className="mt-3 text-3xl leading-tight md:text-5xl">Un detalle que Mama no olvidara.</h2>
             <p className="mt-5 max-w-4xl text-base leading-8 text-[#5d4740]">
               Cada arreglo CUSI esta pensado como una experiencia: flores seleccionadas, composicion cuidada, presentacion elegante y atencion personalizada para que tu regalo llegue con intencion y belleza.
             </p>
@@ -363,7 +363,7 @@ export default function CusiFloresMockup() {
               {emotionalPillars.map((item) => (
                 <article key={item.title} className="rounded-[1.4rem] border border-[#ead8cf] bg-[#fdf8f4] p-5">
                   <h3 className="text-xl text-[#2a1c19]">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-[#664f48]">{item.text}</p>
+                  <p className="mt-2 text-[15px] leading-[1.65] text-[#664f48]">{item.text}</p>
                 </article>
               ))}
             </div>
