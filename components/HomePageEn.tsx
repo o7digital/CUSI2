@@ -531,6 +531,15 @@ export default function CusiFloresEnPage() {
           Order on WhatsApp
         </a>
       </div>
+      <div className="fixed bottom-4 left-4 z-50">
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#d8c7be] bg-white px-3 py-2 text-xs font-semibold text-[#2e231f] shadow-[0_10px_25px_rgba(46,35,31,0.2)]">
+          <a href="/" className="underline underline-offset-2 hover:opacity-75">
+            FR
+          </a>
+          <span className="text-[#b8a9a2]">|</span>
+          <span>EN</span>
+        </div>
+      </div>
     </div>
   )
 }

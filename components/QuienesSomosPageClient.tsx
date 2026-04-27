@@ -262,6 +262,15 @@ export default function QuienesSomosPageClient() {
           </p>
         </div>
       </footer>
+      <div className="fixed bottom-4 left-4 z-50">
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#d8c7be] bg-white px-3 py-2 text-xs font-semibold text-[#2e231f] shadow-[0_10px_25px_rgba(46,35,31,0.2)]">
+          <span>FR</span>
+          <span className="text-[#b8a9a2]">|</span>
+          <a href="/en/about" className="underline underline-offset-2 hover:opacity-75">
+            EN
+          </a>
+        </div>
+      </div>
     </div>
   )
 }
