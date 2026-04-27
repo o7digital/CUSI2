@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, Dancing_Script, Manrope } from 'next/font/google'
+import Script from 'next/script'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -46,7 +47,21 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body className={`${manrope.variable} ${cormorant.variable} ${dancingScript.variable}`}>{children}</body>
+      <body className={`${manrope.variable} ${cormorant.variable} ${dancingScript.variable}`}>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-5NB55HC1FZ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-5NB55HC1FZ');
+          `}
+        </Script>
+        {children}
+      </body>
     </html>
   )
 }
