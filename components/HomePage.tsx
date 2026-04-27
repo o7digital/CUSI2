@@ -437,12 +437,8 @@ export default function CusiFloresMockup() {
 
             <ul className="mt-4 list-disc space-y-1 pl-5 text-xs text-white/80 md:text-sm">
               <li>Despues de 5 km de Bosques de las Lomas habra un cargo por envio con taxi de confianza, que se anade al precio del arreglo.</li>
-              <li>Por ahora nuestros arreglos van sanitizados.</li>
             </ul>
 
-            <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center justify-center rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white/95 transition duration-300 hover:bg-white/10">
-              O pedir por WhatsApp
-            </a>
           </div>
         </section>
 
