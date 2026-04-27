@@ -53,6 +53,13 @@ const formatPrice = (prices: WooStoreProduct['prices']) => {
   }).format(amount)
 }
 
+const normalizeTitle = (title: string) => {
+  if (title === 'Rosas e n Ramo Rosas o Rojas 2 docenas') {
+    return 'Rosas Premium en Ramo'
+  }
+  return title
+}
+
 const fetchProductsWithRetry = async (retries = 2) => {
   let lastStatus = 0
   let lastError = ''
@@ -95,7 +102,7 @@ export async function GET() {
 
     const products: ProductCard[] = data
       .map((item, index) => {
-        const title = item.name?.trim() || `Arreglo floral ${index + 1}`
+        const title = normalizeTitle(item.name?.trim() || `Arreglo floral ${index + 1}`)
         const descSource = item.short_description || item.description || ''
         const desc = stripHtml(descSource) || 'Arreglo floral premium para ocasiones especiales.'
         const apiImage = item.images?.[0]?.src ? normalizeWpUrl(item.images[0].src) : null

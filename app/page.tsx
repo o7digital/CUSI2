@@ -262,9 +262,10 @@ export default function CusiFloresMockup() {
                   <img src={item.image} alt={item.title} className="h-full w-full object-contain" loading="lazy" />
                 </div>
                 <div className="flex flex-1 flex-col gap-2 p-4">
-                  <h3 className="min-h-[3.4rem] text-[2rem] leading-[1.05] text-[#2a1c19] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden">
+                  <h3 className="min-h-[3.4rem] text-[1.6rem] leading-[1.05] text-[#2a1c19] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden">
                     {item.title}
                   </h3>
+                  {item.title === 'Caja Rosas Amarillas' ? <p className="text-sm font-medium text-[#664f48]">16 Rosas</p> : null}
                   <div className="mt-auto space-y-2">
                     <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price}</p>
                     <a
@@ -352,7 +353,7 @@ export default function CusiFloresMockup() {
         <section className="mx-auto w-[92%] max-w-7xl py-6 md:py-10">
           <div className="rounded-[2rem] border border-[#e4d2c9] bg-white p-6 md:p-10">
             <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Experiencia CUSI FLORES</p>
-            <h2 className="mt-3 text-3xl leading-tight md:text-5xl">Un detalle que mama no olvida.</h2>
+            <h2 className="mt-3 text-3xl leading-tight md:text-5xl">Un detalle que Mama no olvida.</h2>
             <p className="mt-5 max-w-4xl text-base leading-8 text-[#5d4740]">
               Cada arreglo CUSI FLORES esta pensado como una experiencia: flores seleccionadas, composicion cuidada, presentacion elegante y atencion personalizada para que tu regalo llegue con intencion y belleza.
             </p>
