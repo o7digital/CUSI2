@@ -1,8 +1,23 @@
+import type { Metadata } from 'next'
+
 const legalLinks = [
   { label: 'Aviso de Privacidad', href: '/aviso-de-privacidad' },
   { label: 'Pago de Impuestos', href: '/pago-de-impuestos' },
   { label: 'Condiciones Generales de Uso', href: '/condiciones-generales-de-uso' },
 ]
+
+export const metadata: Metadata = {
+  title: 'Pago de Impuestos | CUSI Flores',
+  description:
+    'Informacion fiscal de CUSI Flores: facturacion CFDI, requisitos de datos fiscales y acreditacion de pagos.',
+  alternates: {
+    canonical: 'https://www.cusiflores.com/pago-de-impuestos',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
 
 export default function PagoDeImpuestosPage() {
   return (
@@ -10,7 +25,16 @@ export default function PagoDeImpuestosPage() {
       <header className="sticky top-0 z-40 border-b border-[#ead8cf] bg-[#fffaf7]/90 backdrop-blur-md">
         <div className="mx-auto flex w-[92%] max-w-7xl items-center justify-between py-4">
           <a href="/" className="text-sm font-semibold tracking-[0.16em] text-[#2a1c19]">CUSI</a>
-          <a href="/" className="rounded-full border border-[#d8c7be] px-4 py-2 text-xs font-semibold text-[#2e231f]">Volver al inicio</a>
+          <div className="flex items-center gap-2">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#d8c7be] bg-white px-3 py-1 text-xs font-semibold text-[#2e231f]">
+              <span>ES</span>
+              <span className="text-[#b8a9a2]">|</span>
+              <a href="/en/tax-information" className="underline underline-offset-2 hover:opacity-75">
+                EN
+              </a>
+            </div>
+            <a href="/" className="rounded-full border border-[#d8c7be] px-4 py-2 text-xs font-semibold text-[#2e231f]">Volver al inicio</a>
+          </div>
         </div>
       </header>
 
