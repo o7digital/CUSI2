@@ -394,8 +394,6 @@ export default function CusiFloresMockup() {
               {[
                 '1. Saber para quien es el arreglo',
                 '2. Texto de sobre, tarjeta y firma',
-                '3. Direccion, telefono y dia de entrega',
-                '4. Enviar comprobante de transferencia',
               ].map((step) => (
                 <p key={step} className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white/90">
                   {step}
