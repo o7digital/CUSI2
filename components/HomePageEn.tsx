@@ -262,7 +262,7 @@ export default function CusiFloresEnPage() {
                 {[
                   ['Delivery in CDMX', ''],
                   ['Editorial design', 'Floral composition with refined visual language'],
-                  ['Boutique service', 'Experiencia calida, elegante y personalizada'],
+                  ['Boutique service', 'A warm, elegant, and personalized experience'],
                 ].map(([title, desc]) => (
                   <div key={title} className="rounded-[24px] border border-white/20 bg-white/10 p-4 text-white backdrop-blur-md md:rounded-[28px] md:p-5">
                     <p className="font-[var(--font-display)] text-base font-medium md:text-lg">{title}</p>
@@ -277,7 +277,7 @@ export default function CusiFloresEnPage() {
                 &ldquo;To ensure flower quality, orders should be confirmed at least 10 days in advance.&rdquo;
               </p>
               <p className="-translate-y-[1.5cm] font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Las entregas se realizaran el 7, 8 y 9 de mayo. El 10 de mayo se atendera solo de forma excepcional, sujeto a disponibilidad.&rdquo;
+                &ldquo;Deliveries will be made on May 7, 8, and 9. On May 10, orders will be accepted only exceptionally, subject to availability.&rdquo;
               </p>
             </div>
           </div>
