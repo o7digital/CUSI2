@@ -389,7 +389,7 @@ export default function CusiFloresMockup() {
 
         <section id="pedidos" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-12 md:py-16">
           <div className="rounded-[2rem] bg-[#2a1d1a] p-7 text-white shadow-[0_28px_70px_rgba(42,29,26,0.34)] md:p-10">
-            <h2 className="text-3xl leading-tight md:text-5xl">Haz tu pedido en menos de 3 minutos</h2>
+            <h2 className="text-3xl leading-tight md:text-5xl">Requisitos para entrega de tu Arreglo</h2>
             <div className="mt-6 grid gap-3 md:grid-cols-2">
               {[
                 'Arreglo',
