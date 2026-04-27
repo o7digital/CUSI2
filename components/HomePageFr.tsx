@@ -415,11 +415,11 @@ export default function CusiFloresFrPage() {
 
         <section id="pedidos" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-12 md:py-16">
           <div className="rounded-[2rem] bg-[#2a1d1a] p-7 text-white shadow-[0_28px_70px_rgba(42,29,26,0.34)] md:p-10">
-            <h2 className="text-3xl leading-tight md:text-5xl">Requirements for your arrangement delivery</h2>
+            <h2 className="text-3xl leading-tight md:text-5xl">Informations pour la livraison de votre arrangement</h2>
             <div className="mt-6 grid gap-3 md:grid-cols-2">
               {[
                 'Arrangement',
-                'Transfer slip copy',
+                'Copie du justificatif de virement',
               ].map((step) => (
                 <p key={step} className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white/90">
                   {step}
@@ -430,7 +430,7 @@ export default function CusiFloresFrPage() {
             <form action="https://formspree.io/f/xqewoabn" method="POST" encType="multipart/form-data" className="mt-7 grid gap-3 md:grid-cols-2">
               <div className="md:col-span-2">
                 <label htmlFor="comprobante_transferencia_pdf" className="mb-2 block text-sm font-medium text-white/90">
-                  Transfer slip copy (PDF) * Required field
+                  Copie du justificatif de virement (PDF) * Champ obligatoire
                 </label>
                 <input
                   id="comprobante_transferencia_pdf"
@@ -441,28 +441,28 @@ export default function CusiFloresFrPage() {
                   className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white file:mr-4 file:rounded-full file:border-0 file:bg-[#f4ddd2] file:px-4 file:py-2 file:text-sm file:font-semibold file:text-[#2a1d1a] hover:file:bg-[#efcfc1]"
                 />
               </div>
-              <input type="text" name="nombre" required placeholder="Name of the person placing the order" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
-              <input type="text" name="para_quien" required placeholder="Recipient name" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
-              <input type="text" name="que_debe_decir_el_sobre" placeholder="Envelope text" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
-              <input type="text" name="texto_tarjeta" required placeholder="Card message" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
-              <input type="text" name="quien_firma" required placeholder="Quien firma" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
-              <input type="text" name="direccion_entrega" required placeholder="Full delivery address * Required field" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45 md:col-span-2" />
-              <input type="tel" name="telefono_entrega" required placeholder="Delivery contact phone" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
+              <input type="text" name="nombre" required placeholder="Nom de la personne qui passe la commande" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
+              <input type="text" name="para_quien" required placeholder="Nom du destinataire" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
+              <input type="text" name="que_debe_decir_el_sobre" placeholder="Texte de l'enveloppe" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
+              <input type="text" name="texto_tarjeta" required placeholder="Message de la carte" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
+              <input type="text" name="quien_firma" required placeholder="Qui signe" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
+              <input type="text" name="direccion_entrega" required placeholder="Adresse complete de livraison * Champ obligatoire" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45 md:col-span-2" />
+              <input type="tel" name="telefono_entrega" required placeholder="Telephone de contact pour la livraison" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
               <div>
                 <label htmlFor="dia_entrega" className="mb-2 block text-sm font-medium text-white/90">
-                  Delivery date
+                  Date de livraison
                 </label>
                 <input id="dia_entrega" type="date" name="dia_entrega" required className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white outline-none ring-0 focus:border-white/45" />
               </div>
-              <textarea name="mensaje" placeholder="Additional order details" rows={3} className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45 md:col-span-2" />
-              <input type="hidden" name="_subject" value="New CUSI order" />
+              <textarea name="mensaje" placeholder="Details supplementaires de la commande" rows={3} className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45 md:col-span-2" />
+              <input type="hidden" name="_subject" value="Nouvelle commande CUSI" />
               <button type="submit" className="inline-flex items-center justify-center rounded-full bg-[#f4ddd2] px-6 py-3 text-sm font-semibold text-[#2a1d1a] transition duration-300 hover:bg-[#efcfc1] md:col-span-2 md:justify-self-start">
-                Submit order
+                Envoyer la commande
               </button>
             </form>
 
             <ul className="mt-4 list-disc space-y-1 pl-5 text-xs text-white/80 md:text-sm">
-              <li>After 5 km from Bosques de las Lomas, an extra trusted-courier fee applies and is added to the arrangement price.</li>
+              <li>Au-dela de 5 km de Bosques de las Lomas, des frais de coursier supplementaires s'ajoutent au prix de l'arrangement.</li>
             </ul>
 
           </div>
