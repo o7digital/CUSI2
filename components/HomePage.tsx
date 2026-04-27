@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from 'react'
 
-type Lang = 'es' | 'en' | 'fr' | 'it'
-
 const BRAND = {
   name: 'CUSI',
   city: 'Ciudad de Mexico',
@@ -166,12 +164,6 @@ const translations = {
   },
 } as const
 
-const languageOptions: Array<{ code: Lang; label: string; href: string }> = [
-  { code: 'es', label: 'ES', href: '/' },
-  { code: 'en', label: 'EN', href: '/en' },
-  { code: 'fr', label: 'FR', href: '/fr' },
-  { code: 'it', label: 'IT', href: '/it' },
-]
 
 const footerSeoKeywords = [
   'floreria en cdmx bosques de las lomas cdmx',
@@ -202,13 +194,13 @@ const ctaPrimary =
 const ctaSoft =
   'inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition duration-300 hover:bg-white/20'
 
-export default function HomePage({ lang = 'es' }: { lang?: Lang }) {
+export default function HomePage() {
   const [menuVisible, setMenuVisible] = useState(true)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [products, setProducts] = useState<ProductCard[]>([])
   const [productsLoading, setProductsLoading] = useState(true)
   const [productsError, setProductsError] = useState<string | null>(null)
-  const t = translations[lang]
+  const t = translations.es
   const emotionalPillars = [
     { title: 'Flores seleccionadas', text: 'Curaduria floral con foco en calidad, frescura y armonia visual.' },
     { title: 'Diseno con intencion', text: 'Cada arreglo se construye para comunicar emocion y elegancia.' },
@@ -290,31 +282,18 @@ export default function HomePage({ lang = 'es' }: { lang?: Lang }) {
         <div className="mx-auto mt-3 flex w-[94%] max-w-7xl items-center justify-between rounded-full border border-white/70 bg-[#fffaf7]/85 px-4 py-3 shadow-[0_15px_45px_rgba(62,38,31,0.15)] backdrop-blur-xl md:mt-5 md:px-6">
           <a href="#inicio" className="min-w-0">
             <p className="text-[10px] uppercase tracking-[0.28em] text-[#94736a] md:text-[11px]">Floreria premium CDMX</p>
-            <p className="truncate text-base tracking-[0.14em] text-[#2a1c19] md:text-xl">{BRAND.name}</p>
+            <p className="truncate text-[1.3rem] tracking-[0.14em] text-[#2a1c19] md:text-[1.625rem]">{BRAND.name}</p>
           </a>
 
           <nav className="hidden items-center gap-5 text-base text-[#3c2a25] lg:flex">
               {t.navLinks.map((item) => (
-              <a key={item.label} href={item.href.startsWith('/') && lang !== 'es' ? `/${lang}${item.href}` : item.href} className="transition duration-300 hover:opacity-60">
+              <a key={item.label} href={item.href} className="transition duration-300 hover:opacity-60">
                 {item.label}
               </a>
             ))}
           </nav>
 
           <div className="flex items-center gap-2">
-            <div className="hidden items-center rounded-full border border-[#d8c7be] bg-white p-1 lg:flex">
-              {languageOptions.map((option) => (
-                <a
-                  key={option.code}
-                  href={option.href}
-                  className={`rounded-full px-2.5 py-1 text-[11px] font-semibold tracking-[0.08em] transition ${
-                    option.code === lang ? 'bg-[#2b1a17] text-white' : 'text-[#5a433d] hover:bg-[#f1e4dc]'
-                  }`}
-                >
-                  {option.label}
-                </a>
-              ))}
-            </div>
             <button
               type="button"
               aria-label="Abrir menu"
@@ -337,24 +316,10 @@ export default function HomePage({ lang = 'es' }: { lang?: Lang }) {
           <div className="mx-auto mt-2 w-[94%] max-w-7xl rounded-3xl border border-[#e4d2c9] bg-[#fffaf7] p-4 shadow-[0_20px_45px_rgba(62,38,31,0.12)] lg:hidden">
             <nav className="flex flex-col gap-2 text-base text-[#3c2a25]">
               {t.navLinks.map((item) => (
-                <a key={item.label} href={item.href.startsWith('/') && lang !== 'es' ? `/${lang}${item.href}` : item.href} onClick={() => setMobileMenuOpen(false)} className="rounded-xl px-3 py-2 transition hover:bg-[#f7eee9]">
+                <a key={item.label} href={item.href} onClick={() => setMobileMenuOpen(false)} className="rounded-xl px-3 py-2 transition hover:bg-[#f7eee9]">
                   {item.label}
                 </a>
               ))}
-              <div className="mt-2 flex items-center gap-2">
-                {languageOptions.map((option) => (
-                  <a
-                    key={option.code}
-                    href={option.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`rounded-full px-3 py-1 text-xs font-semibold tracking-[0.08em] ${
-                      option.code === lang ? 'bg-[#2b1a17] text-white' : 'border border-[#d8c7be] text-[#5a433d]'
-                    }`}
-                  >
-                    {option.label}
-                  </a>
-                ))}
-              </div>
               <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" onClick={() => setMobileMenuOpen(false)} className="mt-2 inline-flex items-center justify-center rounded-full bg-[#2b1a17] px-5 py-2.5 text-sm font-medium text-white">
                 {t.orderNow}
               </a>
@@ -369,7 +334,7 @@ export default function HomePage({ lang = 'es' }: { lang?: Lang }) {
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(28,17,15,0.88)_0%,rgba(28,17,15,0.58)_40%,rgba(28,17,15,0.2)_100%)]" />
           <div className="relative mx-auto grid min-h-[100svh] w-[92%] max-w-7xl items-center gap-8 pt-28 pb-20 md:pt-36 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="max-w-3xl font-[var(--font-sans)]">
-              <h1 className="max-w-2xl font-[var(--font-display)] text-3xl leading-[0.98] text-white sm:text-4xl md:text-6xl xl:text-[74px]">
+              <h1 className="max-w-2xl font-[var(--font-display)] text-[1.7rem] leading-[0.98] text-white sm:text-[2.25rem] md:text-[3.375rem] xl:text-[67px]">
                 {t.heroTitle}
               </h1>
 
