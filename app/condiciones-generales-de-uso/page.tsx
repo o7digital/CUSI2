@@ -1,8 +1,23 @@
+import type { Metadata } from 'next'
+
 const legalLinks = [
   { label: 'Aviso de Privacidad', href: '/aviso-de-privacidad' },
   { label: 'Pago de Impuestos', href: '/pago-de-impuestos' },
   { label: 'Condiciones Generales de Uso', href: '/condiciones-generales-de-uso' },
 ]
+
+export const metadata: Metadata = {
+  title: 'Condiciones Generales de Uso | CUSI Flores',
+  description:
+    'Terminos y condiciones generales de uso del sitio de CUSI Flores: pedidos, entregas, disponibilidad, cancelaciones y responsabilidad.',
+  alternates: {
+    canonical: 'https://www.cusiflores.com/condiciones-generales-de-uso',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
 
 export default function CondicionesGeneralesDeUsoPage() {
   return (
@@ -10,7 +25,16 @@ export default function CondicionesGeneralesDeUsoPage() {
       <header className="sticky top-0 z-40 border-b border-[#ead8cf] bg-[#fffaf7]/90 backdrop-blur-md">
         <div className="mx-auto flex w-[92%] max-w-7xl items-center justify-between py-4">
           <a href="/" className="text-sm font-semibold tracking-[0.16em] text-[#2a1c19]">CUSI</a>
-          <a href="/" className="rounded-full border border-[#d8c7be] px-4 py-2 text-xs font-semibold text-[#2e231f]">Volver al inicio</a>
+          <div className="flex items-center gap-2">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#d8c7be] bg-white px-3 py-1 text-xs font-semibold text-[#2e231f]">
+              <span>FR</span>
+              <span className="text-[#b8a9a2]">|</span>
+              <a href="/en/terms-of-use" className="underline underline-offset-2 hover:opacity-75">
+                EN
+              </a>
+            </div>
+            <a href="/" className="rounded-full border border-[#d8c7be] px-4 py-2 text-xs font-semibold text-[#2e231f]">Volver al inicio</a>
+          </div>
         </div>
       </header>
 
@@ -179,7 +203,7 @@ export default function CondicionesGeneralesDeUsoPage() {
               </a>
             </p>
             <p className="mt-3 text-base leading-8 text-[#5d4740]">Correo electronico:</p>
-            <p className="text-base leading-8 text-[#5d4740]">[AGREGAR CORREO DE CONTACTO]</p>
+            <p className="text-base leading-8 text-[#5d4740]">contacto@cusiflores.com</p>
           </article>
         </section>
       </main>
