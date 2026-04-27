@@ -274,10 +274,10 @@ export default function CusiFloresItPage() {
 
             <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-[#e4d1c7] bg-white/95 p-8 shadow-[0_26px_65px_rgba(71,44,35,0.15)] backdrop-blur-sm lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
               <p className="font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;To ensure flower quality, orders should be confirmed at least 10 days in advance.&rdquo;
+                &ldquo;Per garantire la qualita dei fiori, gli ordini devono essere confermati con almeno 10 giorni di anticipo.&rdquo;
               </p>
               <p className="-translate-y-[1.5cm] font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Las entregas se realizaran el 7, 8 y 9 de mayo. El 10 de mayo se atendera solo de forma excepcional, sujeto a disponibilidad.&rdquo;
+                &ldquo;Le consegne saranno effettuate il 7, 8 e 9 maggio. Il 10 maggio si accetteranno ordini solo in via eccezionale, in base alla disponibilita.&rdquo;
               </p>
             </div>
           </div>
