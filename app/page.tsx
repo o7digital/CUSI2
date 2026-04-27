@@ -204,7 +204,7 @@ export default function CusiFloresMockup() {
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(28,17,15,0.88)_0%,rgba(28,17,15,0.58)_40%,rgba(28,17,15,0.2)_100%)]" />
           <div className="relative mx-auto grid min-h-[100svh] w-[92%] max-w-7xl items-center gap-8 pt-28 pb-20 md:pt-36 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="max-w-3xl">
-              <h1 className="max-w-2xl text-4xl leading-[0.98] text-white sm:text-5xl md:text-7xl xl:text-[92px]">
+              <h1 className="max-w-2xl text-3xl leading-[0.98] text-white sm:text-4xl md:text-6xl xl:text-[74px]">
                 Permite que las Flores de CUSI sean las embajadoras de tu cariño el 10 de mayo
               </h1>
 
@@ -249,7 +249,7 @@ export default function CusiFloresMockup() {
 
         <section id="coleccion" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10 md:py-14">
           <div className="mb-8 md:mb-10">
-            <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Coleccion Dia de las Madres</p>
+            <p className="text-sm uppercase tracking-[0.24em] text-[#94736a] md:text-base">Coleccion Dia de las Madres</p>
             <h2 className="mt-3 max-w-3xl text-2xl leading-tight md:text-[2.55rem]">Arreglos disenados para decir gracias con flores, belleza y presencia.</h2>
             {productsLoading ? <p className="mt-3 text-sm text-[#6f5851]">Cargando productos...</p> : null}
             {productsError ? <p className="mt-3 text-sm text-[#6f5851]">{productsError}</p> : null}
