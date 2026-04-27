@@ -239,7 +239,7 @@ export default function CusiFloresMockup() {
               <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3 md:mt-14 md:gap-4">
                 {[
                   ['Entrega en CDMX', ''],
-                  ['Diseno editorial', 'Composicion floral con lenguaje visual refinado'],
+                  ['Diseño editorial', 'Composicion floral con lenguaje visual refinado'],
                   ['Atencion boutique', 'Experiencia calida, elegante y personalizada'],
                 ].map(([title, desc]) => (
                   <div key={title} className="rounded-[24px] border border-white/20 bg-white/10 p-4 text-white backdrop-blur-md md:rounded-[28px] md:p-5">
@@ -264,7 +264,7 @@ export default function CusiFloresMockup() {
         <section id="coleccion" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10 md:py-14">
           <div className="mb-8 md:mb-10">
             <p className="text-sm uppercase tracking-[0.24em] text-[#94736a] md:text-base">Coleccion Dia de las Madres</p>
-            <h2 className="mt-3 max-w-3xl text-2xl leading-tight md:text-[2.55rem]">Arreglos disenados para decir gracias con flores, belleza y presencia.</h2>
+            <h2 className="mt-3 max-w-3xl text-2xl leading-tight md:text-[2.55rem]">Arreglos diseñados para decir gracias con flores, belleza y presencia.</h2>
             {productsLoading ? <p className="mt-3 text-sm text-[#6f5851]">Cargando productos...</p> : null}
             {productsError ? <p className="mt-3 text-sm text-[#6f5851]">{productsError}</p> : null}
           </div>
