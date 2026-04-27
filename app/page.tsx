@@ -375,10 +375,10 @@ export default function CusiFloresMockup() {
             <h2 className="text-3xl leading-tight md:text-5xl">Haz tu pedido en menos de 2 minutos</h2>
             <div className="mt-6 grid gap-3 md:grid-cols-2">
               {[
-                '1. Elige tu arreglo',
-                '2. Confirma zona y horario de entrega',
-                '3. Personalizamos tu pedido',
-                '4. Recibe confirmacion por WhatsApp',
+                '1. Saber para quien es el arreglo',
+                '2. Texto de sobre, tarjeta y firma',
+                '3. Direccion, telefono y dia de entrega',
+                '4. Enviar comprobante de transferencia',
               ].map((step) => (
                 <p key={step} className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white/90">
                   {step}
@@ -387,16 +387,27 @@ export default function CusiFloresMockup() {
             </div>
 
             <form action="https://formspree.io/f/xqewoabn" method="POST" className="mt-7 grid gap-3 md:grid-cols-2">
-              <input type="text" name="nombre" required placeholder="Nombre" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
-              <input type="tel" name="telefono" required placeholder="Telefono" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
-              <input type="email" name="email" placeholder="Email (opcional)" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
+              <input type="text" name="nombre" required placeholder="Nombre de quien hace el pedido" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
+              <input type="text" name="para_quien" required placeholder="Para quien es el arreglo" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
+              <input type="text" name="que_debe_decir_el_sobre" placeholder="Que debe decir el sobre" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
+              <input type="text" name="texto_tarjeta" required placeholder="Texto de la tarjeta" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
+              <input type="text" name="quien_firma" required placeholder="Quien firma" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
               <input type="text" name="arreglo" required placeholder="Arreglo o producto" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
-              <textarea name="mensaje" required placeholder="Zona de entrega, fecha, horario y detalles del pedido" rows={4} className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45 md:col-span-2" />
+              <input type="text" name="direccion_entrega" required placeholder="Direccion completa de entrega" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45 md:col-span-2" />
+              <input type="tel" name="telefono_entrega" required placeholder="Telefono de contacto para la entrega" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
+              <input type="date" name="dia_entrega" required className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white outline-none ring-0 focus:border-white/45" />
+              <input type="text" name="comprobante_transferencia" placeholder="Copia ficha transferencia (folio o referencia)" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45 md:col-span-2" />
+              <textarea name="mensaje" placeholder="Detalles adicionales del pedido" rows={3} className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45 md:col-span-2" />
               <input type="hidden" name="_subject" value="Nuevo pedido CUSI" />
               <button type="submit" className="inline-flex items-center justify-center rounded-full bg-[#f4ddd2] px-6 py-3 text-sm font-semibold text-[#2a1d1a] transition duration-300 hover:bg-[#efcfc1] md:col-span-2 md:justify-self-start">
                 Enviar pedido
               </button>
             </form>
+
+            <ul className="mt-4 list-disc space-y-1 pl-5 text-xs text-white/80 md:text-sm">
+              <li>Despues de 5 km de Bosques de las Lomas habra un cargo por envio con taxi de confianza, que se anade al precio del arreglo.</li>
+              <li>Por ahora nuestros arreglos van sanitizados.</li>
+            </ul>
 
             <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center justify-center rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white/95 transition duration-300 hover:bg-white/10">
               O pedir por WhatsApp
