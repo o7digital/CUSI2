@@ -9,7 +9,7 @@ export default function AvisoDePrivacidadPage() {
     <div className="min-h-screen bg-[#f6efe9] text-[#241715]">
       <header className="sticky top-0 z-40 border-b border-[#ead8cf] bg-[#fffaf7]/90 backdrop-blur-md">
         <div className="mx-auto flex w-[92%] max-w-7xl items-center justify-between py-4">
-          <a href="/" className="text-sm font-semibold tracking-[0.16em] text-[#2a1c19]">CUSI FLORES</a>
+          <a href="/" className="text-sm font-semibold tracking-[0.16em] text-[#2a1c19]">CUSI</a>
           <a href="/" className="rounded-full border border-[#d8c7be] px-4 py-2 text-xs font-semibold text-[#2e231f]">Volver al inicio</a>
         </div>
       </header>
@@ -19,7 +19,7 @@ export default function AvisoDePrivacidadPage() {
           <h1 className="text-3xl leading-tight md:text-5xl">Aviso de Privacidad Integral</h1>
           <p className="mt-4 text-sm text-[#6f5851]">Ultima actualizacion: Abril 2026</p>
           <p className="mt-5 text-base leading-8 text-[#4e3a34]">
-            En cumplimiento con la Ley Federal de Proteccion de Datos Personales en Posesion de los Particulares, CUSI FLORES pone a disposicion de sus clientes, usuarios y visitantes el presente Aviso de Privacidad, con el fin de informar de manera clara como se recaban, utilizan, protegen y, en su caso, comparten sus datos personales.
+            En cumplimiento con la Ley Federal de Proteccion de Datos Personales en Posesion de los Particulares, CUSI pone a disposicion de sus clientes, usuarios y visitantes el presente Aviso de Privacidad, con el fin de informar de manera clara como se recaban, utilizan, protegen y, en su caso, comparten sus datos personales.
           </p>
         </section>
 
@@ -27,7 +27,7 @@ export default function AvisoDePrivacidadPage() {
         <article>
           <h2 className="text-2xl md:text-3xl">1. Responsable del tratamiento de datos personales</h2>
           <p className="mt-3 text-base leading-8 text-[#4e3a34]">
-            CUSI FLORES, con RFC CUGC470830RU2, con domicilio en C. Monte Carpatos 990 Int. 2, Colonia Lomas Virreyes, C.P. 11000, Ciudad de Mexico, Mexico, es responsable del tratamiento de los datos personales que usted proporcione a traves de este sitio web, formularios de contacto, llamadas telefonicas, mensajes por WhatsApp, redes sociales, correo electronico o cualquier otro medio de comunicacion relacionado con nuestros productos y servicios.
+            CUSI, con RFC CUGC470830RU2, con domicilio en C. Monte Carpatos 990 Int. 2, Colonia Lomas Virreyes, C.P. 11000, Ciudad de Mexico, Mexico, es responsable del tratamiento de los datos personales que usted proporcione a traves de este sitio web, formularios de contacto, llamadas telefonicas, mensajes por WhatsApp, redes sociales, correo electronico o cualquier otro medio de comunicacion relacionado con nuestros productos y servicios.
           </p>
           <p className="mt-3 text-base leading-8 text-[#4e3a34]">
             Telefono de contacto:{' '}
@@ -41,7 +41,7 @@ export default function AvisoDePrivacidadPage() {
         <article>
           <h2 className="text-2xl md:text-3xl">2. Datos personales que podemos recabar</h2>
           <p className="mt-3 text-base leading-8 text-[#4e3a34]">
-            CUSI FLORES podra recabar los siguientes datos personales, dependiendo del medio de contacto y del tipo de solicitud realizada:
+            CUSI podra recabar los siguientes datos personales, dependiendo del medio de contacto y del tipo de solicitud realizada:
           </p>
           <ul className="mt-3 list-disc space-y-2 pl-6 text-base leading-8 text-[#4e3a34]">
             <li>Nombre completo</li>
@@ -54,7 +54,7 @@ export default function AvisoDePrivacidadPage() {
             <li>Informacion proporcionada voluntariamente a traves de formularios, WhatsApp, redes sociales o correo electronico</li>
           </ul>
           <p className="mt-3 text-base leading-8 text-[#4e3a34]">
-            CUSI FLORES no solicita datos personales sensibles de forma ordinaria. En caso de que el cliente incluya de manera voluntaria informacion personal dentro de mensajes, dedicatorias o solicitudes especiales, dicha informacion sera tratada unicamente para cumplir con el pedido o servicio solicitado.
+            CUSI no solicita datos personales sensibles de forma ordinaria. En caso de que el cliente incluya de manera voluntaria informacion personal dentro de mensajes, dedicatorias o solicitudes especiales, dicha informacion sera tratada unicamente para cumplir con el pedido o servicio solicitado.
           </p>
         </article>
 
@@ -83,7 +83,7 @@ export default function AvisoDePrivacidadPage() {
             <li>Envio de promociones, campanas especiales o novedades de temporada</li>
             <li>Invitaciones a eventos, lanzamientos o fechas especiales</li>
             <li>Encuestas de satisfaccion</li>
-            <li>Comunicacion de nuevos productos o servicios de CUSI FLORES</li>
+            <li>Comunicacion de nuevos productos o servicios de CUSI</li>
             <li>Acciones de mercadotecnia y prospeccion comercial</li>
           </ul>
           <p className="mt-3 text-base leading-8 text-[#4e3a34]">
@@ -96,7 +96,7 @@ export default function AvisoDePrivacidadPage() {
 
         <article>
           <h2 className="text-2xl md:text-3xl">5. Transferencia de datos personales</h2>
-          <p className="mt-3 text-base leading-8 text-[#4e3a34]">CUSI FLORES no vendera, rentara ni comercializara sus datos personales.</p>
+          <p className="mt-3 text-base leading-8 text-[#4e3a34]">CUSI no vendera, rentara ni comercializara sus datos personales.</p>
           <p className="mt-3 text-base leading-8 text-[#4e3a34]">
             Sus datos podran ser compartidos unicamente cuando sea necesario para cumplir con las finalidades descritas en este Aviso de Privacidad, por ejemplo:
           </p>
@@ -108,14 +108,14 @@ export default function AvisoDePrivacidadPage() {
             <li>Autoridades competentes, cuando exista una obligacion legal o requerimiento fundado</li>
           </ul>
           <p className="mt-3 text-base leading-8 text-[#4e3a34]">
-            En todos los casos, CUSI FLORES procurara que los terceros que tengan acceso a datos personales mantengan medidas de confidencialidad y seguridad adecuadas.
+            En todos los casos, CUSI procurara que los terceros que tengan acceso a datos personales mantengan medidas de confidencialidad y seguridad adecuadas.
           </p>
         </article>
 
         <article>
           <h2 className="text-2xl md:text-3xl">6. Uso de medios digitales, cookies y tecnologias similares</h2>
           <p className="mt-3 text-base leading-8 text-[#4e3a34]">
-            El sitio web de CUSI FLORES podra utilizar cookies, herramientas de analisis, formularios de contacto, enlaces a redes sociales o tecnologias similares para mejorar la experiencia de navegacion, conocer el uso del sitio y facilitar la comunicacion con los usuarios.
+            El sitio web de CUSI podra utilizar cookies, herramientas de analisis, formularios de contacto, enlaces a redes sociales o tecnologias similares para mejorar la experiencia de navegacion, conocer el uso del sitio y facilitar la comunicacion con los usuarios.
           </p>
           <p className="mt-3 text-base leading-8 text-[#4e3a34]">
             El usuario puede configurar su navegador para bloquear o eliminar cookies. Sin embargo, algunas funciones del sitio podrian verse afectadas.
@@ -125,7 +125,7 @@ export default function AvisoDePrivacidadPage() {
         <article>
           <h2 className="text-2xl md:text-3xl">7. Medidas de seguridad</h2>
           <p className="mt-3 text-base leading-8 text-[#4e3a34]">
-            CUSI FLORES implementa medidas administrativas, tecnicas y fisicas razonables para proteger los datos personales contra dano, perdida, alteracion, destruccion, uso, acceso o tratamiento no autorizado.
+            CUSI implementa medidas administrativas, tecnicas y fisicas razonables para proteger los datos personales contra dano, perdida, alteracion, destruccion, uso, acceso o tratamiento no autorizado.
           </p>
           <p className="mt-3 text-base leading-8 text-[#4e3a34]">Estas medidas pueden incluir:</p>
           <ul className="mt-3 list-disc space-y-2 pl-6 text-base leading-8 text-[#4e3a34]">
@@ -143,7 +143,7 @@ export default function AvisoDePrivacidadPage() {
             Los datos personales seran conservados unicamente durante el tiempo necesario para cumplir con las finalidades descritas en este Aviso de Privacidad, asi como para atender obligaciones legales, fiscales, administrativas o comerciales.
           </p>
           <p className="mt-3 text-base leading-8 text-[#4e3a34]">
-            Una vez que los datos dejen de ser necesarios, CUSI FLORES podra eliminarlos, bloquearlos o conservarlos unicamente en los casos permitidos por la legislacion aplicable.
+            Una vez que los datos dejen de ser necesarios, CUSI podra eliminarlos, bloquearlos o conservarlos unicamente en los casos permitidos por la legislacion aplicable.
           </p>
         </article>
 
@@ -172,7 +172,7 @@ export default function AvisoDePrivacidadPage() {
             <li>Cualquier documento o informacion que facilite la localizacion de sus datos</li>
           </ul>
           <p className="mt-3 text-base leading-8 text-[#4e3a34]">
-            CUSI FLORES dara respuesta a su solicitud dentro de los plazos establecidos por la legislacion aplicable.
+            CUSI dara respuesta a su solicitud dentro de los plazos establecidos por la legislacion aplicable.
           </p>
         </article>
 
@@ -189,7 +189,7 @@ export default function AvisoDePrivacidadPage() {
         <article>
           <h2 className="text-2xl md:text-3xl">11. Cambios al Aviso de Privacidad</h2>
           <p className="mt-3 text-base leading-8 text-[#4e3a34]">
-            CUSI FLORES podra modificar o actualizar este Aviso de Privacidad en cualquier momento, derivado de cambios legales, nuevos requerimientos internos, mejoras en el sitio web, actualizacion de servicios o cambios en nuestras practicas comerciales.
+            CUSI podra modificar o actualizar este Aviso de Privacidad en cualquier momento, derivado de cambios legales, nuevos requerimientos internos, mejoras en el sitio web, actualizacion de servicios o cambios en nuestras practicas comerciales.
           </p>
           <p className="mt-3 text-base leading-8 text-[#4e3a34]">Cualquier modificacion sera publicada en esta misma seccion del sitio web: /aviso-de-privacidad</p>
           <p className="mt-3 text-base leading-8 text-[#4e3a34]">Se recomienda revisar periodicamente este Aviso de Privacidad para conocer cualquier actualizacion.</p>
@@ -197,9 +197,9 @@ export default function AvisoDePrivacidadPage() {
 
         <article>
           <h2 className="text-2xl md:text-3xl">12. Contacto</h2>
-          <p className="mt-3 text-base leading-8 text-[#4e3a34]">Para cualquier duda, aclaracion o solicitud relacionada con este Aviso de Privacidad, puede contactar a CUSI FLORES a traves de:</p>
+          <p className="mt-3 text-base leading-8 text-[#4e3a34]">Para cualquier duda, aclaracion o solicitud relacionada con este Aviso de Privacidad, puede contactar a CUSI a traves de:</p>
           <ul className="mt-3 list-none space-y-2 text-base leading-8 text-[#4e3a34]">
-            <li>CUSI FLORES</li>
+            <li>CUSI</li>
             <li>RFC: CUGC470830RU2</li>
             <li>Domicilio: C. Monte Carpatos 990 Int. 2, Colonia Lomas Virreyes, C.P. 11000, Ciudad de Mexico, Mexico</li>
             <li>
@@ -210,7 +210,7 @@ export default function AvisoDePrivacidadPage() {
             </li>
             <li>Correo electronico: contacto@cusiflores.com</li>
           </ul>
-          <p className="mt-5 text-sm text-[#6f5851]">CUSI FLORES - Aviso de Privacidad actualizado en Abril 2026.</p>
+          <p className="mt-5 text-sm text-[#6f5851]">CUSI - Aviso de Privacidad actualizado en Abril 2026.</p>
         </article>
         </section>
       </main>

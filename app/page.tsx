@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 
 const BRAND = {
-  name: 'CUSI FLORES',
+  name: 'CUSI',
   city: 'Ciudad de Mexico',
   whatsappUrl: 'https://wa.me/5215512345678?text=Hola%20CUSI%20FLORES%2C%20quiero%20hacer%20un%20pedido%20premium.',
   instagramUrl: 'https://instagram.com/cusiflores',
@@ -305,7 +305,7 @@ export default function CusiFloresMockup() {
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-[#9b766a]">Momentos especiales</p>
               <h2 className="mt-4 text-3xl leading-tight md:text-5xl">
-                Para cada ocasion, una propuesta floral elegante y deseable.
+                Para cada ocasion, una propuesta floral fina y elegante.
               </h2>
               <p className="mt-6 max-w-xl text-base leading-8 text-[#5c4842]">
                 Desde un detalle romantico hasta una ambientacion boutique, cada arreglo busca transmitir emocion, belleza y un lujo sutil pero evidente.
@@ -322,7 +322,7 @@ export default function CusiFloresMockup() {
                 Eventos con direccion floral de nivel boutique.
               </h2>
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/80">
-                Cenas privadas, hoteles boutique, bodas intimas, gifts corporativos y experiencias especiales. {BRAND.name} puede convertirse en una marca con lenguaje visual fuerte y muy aspiracional.
+                Cenas privadas, hoteles boutique, bodas intimas, gifts corporativos y experiencias especiales.
               </p>
               <div className="mt-8 flex flex-wrap gap-3 md:gap-4">
                 <a href="#contacto" className="inline-flex items-center justify-center rounded-full bg-[#f2ddd4] px-6 py-3 text-sm font-medium text-[#2b1a17] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edd2c6]">
@@ -354,10 +354,10 @@ export default function CusiFloresMockup() {
 
         <section className="mx-auto w-[92%] max-w-7xl py-6 md:py-10">
           <div className="rounded-[2rem] border border-[#e4d2c9] bg-white p-6 md:p-10">
-            <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Experiencia CUSI FLORES</p>
+            <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Experiencia CUSI</p>
             <h2 className="mt-3 text-3xl leading-tight md:text-5xl">Un detalle que Mama no olvida.</h2>
             <p className="mt-5 max-w-4xl text-base leading-8 text-[#5d4740]">
-              Cada arreglo CUSI FLORES esta pensado como una experiencia: flores seleccionadas, composicion cuidada, presentacion elegante y atencion personalizada para que tu regalo llegue con intencion y belleza.
+              Cada arreglo CUSI esta pensado como una experiencia: flores seleccionadas, composicion cuidada, presentacion elegante y atencion personalizada para que tu regalo llegue con intencion y belleza.
             </p>
             <div className="mt-7 grid gap-4 md:grid-cols-3">
               {emotionalPillars.map((item) => (
@@ -392,7 +392,7 @@ export default function CusiFloresMockup() {
               <input type="email" name="email" placeholder="Email (opcional)" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
               <input type="text" name="arreglo" required placeholder="Arreglo o producto" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
               <textarea name="mensaje" required placeholder="Zona de entrega, fecha, horario y detalles del pedido" rows={4} className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45 md:col-span-2" />
-              <input type="hidden" name="_subject" value="Nuevo pedido CUSI FLORES" />
+              <input type="hidden" name="_subject" value="Nuevo pedido CUSI" />
               <button type="submit" className="inline-flex items-center justify-center rounded-full bg-[#f4ddd2] px-6 py-3 text-sm font-semibold text-[#2a1d1a] transition duration-300 hover:bg-[#efcfc1] md:col-span-2 md:justify-self-start">
                 Enviar pedido
               </button>
@@ -468,7 +468,7 @@ export default function CusiFloresMockup() {
         </div>
 
         <div className="md:justify-self-end">
-          <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram CUSI FLORES" className="inline-flex items-center justify-center rounded-full border border-[#d8c7be] p-3 transition hover:opacity-80">
+          <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram CUSI" className="inline-flex items-center justify-center rounded-full border border-[#d8c7be] p-3 transition hover:opacity-80">
             <svg viewBox="0 0 24 24" aria-hidden="true" className="h-14 w-14">
               <defs>
                 <linearGradient id="instagram-gradient" x1="0%" y1="100%" x2="100%" y2="0%">

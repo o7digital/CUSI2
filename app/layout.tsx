@@ -15,7 +15,7 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
-  title: 'CUSI FLORES | Dia de las Madres 2026 | Floreria premium CDMX',
+  title: 'CUSI | Dia de las Madres 2026 | Floreria premium CDMX',
   description:
     'Coleccion especial 10 de mayo: flores para el Dia de las Madres, arreglos florales premium y entrega de flores en CDMX por CUSI Flores.',
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     'CUSI Flores',
   ],
   openGraph: {
-    title: 'CUSI FLORES | Coleccion 10 de mayo 2026',
+    title: 'CUSI | Coleccion 10 de mayo 2026',
     description:
       'Landing premium para pedidos de flores del Dia de las Madres en CDMX. WhatsApp directo y entregas programadas.',
     type: 'website',

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 
 const BRAND = {
-  name: 'CUSI FLORES',
+  name: 'CUSI',
   city: 'Ciudad de Mexico',
   whatsappUrl: 'https://wa.me/5215512345678?text=Hola%20CUSI%20FLORES%2C%20quiero%20hacer%20un%20pedido%20premium.',
   instagramUrl: 'https://instagram.com/cusiflores',
@@ -123,7 +123,7 @@ export default function QuienesSomosPage() {
           <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Nuestra esencia</p>
           <h1 className="mt-3 max-w-4xl text-4xl leading-tight text-[#2a1c19] md:text-6xl">Flores con intencion, belleza y presencia.</h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-[#5d4740] md:text-xl">
-            CUSI FLORES nace como una boutique floral pensada para quienes buscan regalar algo mas que flores: una experiencia delicada, elegante y memorable.
+            CUSI nace como una boutique floral pensada para quienes buscan regalar algo mas que flores: una experiencia delicada, elegante y memorable.
           </p>
         </section>
 
@@ -131,7 +131,7 @@ export default function QuienesSomosPage() {
           <h2 className="text-3xl leading-tight text-[#2a1c19] md:text-5xl">Una boutique floral con sensibilidad contemporanea</h2>
           <div className="mt-5 space-y-4 text-base leading-8 text-[#5d4740]">
             <p>
-              En CUSI FLORES creemos que cada arreglo debe transmitir una emocion. Nuestro trabajo combina flores de temporada, composicion estetica, paletas suaves y una atencion cuidada para crear piezas florales con personalidad propia.
+              En CUSI creemos que cada arreglo debe transmitir una emocion. Nuestro trabajo combina flores de temporada, composicion estetica, paletas suaves y una atencion cuidada para crear piezas florales con personalidad propia.
             </p>
             <p>
               Cada ramo, caja o arreglo se disena con intencion: cuidar el color, la textura, el equilibrio visual y la forma en que sera recibido. No buscamos hacer arreglos comunes, sino detalles florales que se sientan especiales desde el primer momento.
@@ -168,7 +168,7 @@ export default function QuienesSomosPage() {
           <article className="rounded-[1.8rem] border border-[#e4d2c9] bg-white p-7 md:p-10">
             <h2 className="text-3xl text-[#2a1c19] md:text-4xl">Nuestra vision</h2>
             <p className="mt-4 text-base leading-8 text-[#5d4740]">
-              Queremos posicionar a CUSI FLORES como una referencia de diseno floral premium en Ciudad de Mexico, reconocida por su estilo delicado, su atencion personalizada y su capacidad para crear momentos especiales a traves de las flores.
+              Queremos posicionar a CUSI como una referencia de diseno floral premium en Ciudad de Mexico, reconocida por su estilo delicado, su atencion personalizada y su capacidad para crear momentos especiales a traves de las flores.
             </p>
           </article>
         </section>
@@ -176,7 +176,7 @@ export default function QuienesSomosPage() {
         <section className="rounded-[2rem] bg-[#2a1d1a] p-7 text-white shadow-[0_28px_70px_rgba(42,29,26,0.34)] md:p-10">
           <h2 className="text-3xl leading-tight md:text-5xl">Quieres crear un arreglo especial?</h2>
           <p className="mt-4 max-w-3xl text-base leading-8 text-white/85">
-            Cuentanos la ocasion, el estilo y el mensaje que quieres transmitir. En CUSI FLORES podemos ayudarte a disenar una propuesta floral personalizada.
+            Cuentanos la ocasion, el estilo y el mensaje que quieres transmitir. En CUSI podemos ayudarte a disenar una propuesta floral personalizada.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-[#f4ddd2] px-6 py-3 text-sm font-semibold text-[#2a1d1a] transition duration-300 hover:bg-[#efcfc1]">
@@ -225,7 +225,7 @@ export default function QuienesSomosPage() {
         </div>
 
         <div className="md:justify-self-end">
-          <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram CUSI FLORES" className="inline-flex items-center justify-center rounded-full border border-[#d8c7be] p-3 transition hover:opacity-80">
+          <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram CUSI" className="inline-flex items-center justify-center rounded-full border border-[#d8c7be] p-3 transition hover:opacity-80">
             <svg viewBox="0 0 24 24" aria-hidden="true" className="h-14 w-14">
               <defs>
                 <linearGradient id="instagram-gradient-quienes" x1="0%" y1="100%" x2="100%" y2="0%">

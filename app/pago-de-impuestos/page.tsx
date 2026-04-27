@@ -9,7 +9,7 @@ export default function PagoDeImpuestosPage() {
     <div className="min-h-screen bg-[#f6efe9] text-[#241715]">
       <header className="sticky top-0 z-40 border-b border-[#ead8cf] bg-[#fffaf7]/90 backdrop-blur-md">
         <div className="mx-auto flex w-[92%] max-w-7xl items-center justify-between py-4">
-          <a href="/" className="text-sm font-semibold tracking-[0.16em] text-[#2a1c19]">CUSI FLORES</a>
+          <a href="/" className="text-sm font-semibold tracking-[0.16em] text-[#2a1c19]">CUSI</a>
           <a href="/" className="rounded-full border border-[#d8c7be] px-4 py-2 text-xs font-semibold text-[#2e231f]">Volver al inicio</a>
         </div>
       </header>
@@ -19,7 +19,7 @@ export default function PagoDeImpuestosPage() {
           <p className="text-xs uppercase tracking-[0.22em] text-[#94736a]">Informacion fiscal</p>
           <h1 className="mt-3 text-3xl leading-tight md:text-5xl">Pago de Impuestos</h1>
           <p className="mt-4 text-base leading-8 text-[#5d4740]">
-            CUSI FLORES cumple con sus obligaciones fiscales conforme a la legislacion mexicana vigente. Esta seccion informa de manera clara como se realiza la emision de comprobantes fiscales y el tratamiento de datos necesarios para facturacion.
+            CUSI cumple con sus obligaciones fiscales conforme a la legislacion mexicana vigente. Esta seccion informa de manera clara como se realiza la emision de comprobantes fiscales y el tratamiento de datos necesarios para facturacion.
           </p>
         </section>
 
@@ -37,16 +37,16 @@ export default function PagoDeImpuestosPage() {
           <h2 className="text-2xl md:text-3xl">2. Pagos y acreditacion</h2>
           <ul className="mt-4 list-disc space-y-2 pl-6 text-base leading-8 text-[#5d4740]">
             <li>El pedido se considera confirmado una vez validado el pago correspondiente.</li>
-            <li>Los pagos pueden realizarse por los medios habilitados por CUSI FLORES.</li>
+            <li>Los pagos pueden realizarse por los medios habilitados por CUSI.</li>
             <li>Cuando aplique, se emitira el comprobante fiscal y/o recibo del servicio.</li>
             <li>En caso de aclaraciones, el cliente puede contactar directamente al area administrativa.</li>
           </ul>
         </section>
 
         <section className="mt-6 rounded-3xl border border-[#ead8cf] bg-white p-6 md:p-10">
-          <h2 className="text-2xl md:text-3xl">3. Datos fiscales de CUSI FLORES</h2>
+          <h2 className="text-2xl md:text-3xl">3. Datos fiscales de CUSI</h2>
           <div className="mt-4 rounded-2xl border border-[#ead8cf] bg-[#fdf8f4] p-5 text-base leading-8 text-[#5d4740]">
-            <p className="font-semibold text-[#2a1c19]">CUSI FLORES</p>
+            <p className="font-semibold text-[#2a1c19]">CUSI</p>
             <p>RFC: CUGC470830RU2</p>
             <p>C. Monte Carpatos 990 Int. 2</p>
             <p>Colonia Lomas Virreyes</p>
