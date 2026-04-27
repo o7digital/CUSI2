@@ -33,137 +33,27 @@ type ProductCard = {
   image: string
 }
 
-const translations = {
-  es: {
-    locale: 'es-MX',
-    languageLabel: 'ES',
-    navLinks: [
-      { label: 'Inicio', href: '#inicio' },
-      { label: 'Coleccion 10 de mayo', href: '#coleccion' },
-      { label: 'Quienes Somos', href: '/quienes-somos' },
-      { label: 'Contacto', href: '#contacto' },
-    ],
-    orderNow: 'Pedir ahora',
-    heroTitle: 'Permite que las Flores de CUSI sean las embajadoras de tu cariño el 10 de mayo',
-    heroText: 'Coleccion especial Dia de las Madres 2026. Ramos y arreglos premium con entrega en zonas seleccionadas de CDMX.',
-    heroBadge: 'Agenda tu pedido antes del 5 de mayo',
-    requestArrangement: 'Solicitar Arreglo',
-    heroFeatures: [
-      ['Entrega en CDMX', ''],
-      ['Diseno editorial', 'Composicion floral con lenguaje visual refinado'],
-      ['Atencion boutique', 'Experiencia calida, elegante y personalizada'],
-    ],
-    quote1: 'Para asegurar la calidad de nuestras flores, los pedidos deben quedar confirmados con 10 dias de anticipacion.',
-    quote2: 'Las entregas se realizaran el 7, 8 y 9 de mayo. El 10 de mayo se atendera solo de forma excepcional, sujeto a disponibilidad.',
-    collectionLabel: 'Coleccion Dia de las Madres',
-    collectionTitle: 'Arreglos disenados para decir gracias con flores, belleza y presencia.',
-    loadingProducts: 'Cargando productos...',
-    productsError: 'No pudimos cargar los productos por el momento. Intenta de nuevo en unos minutos.',
-    noProducts: 'No hay productos disponibles para mostrar en este momento.',
-    buy: 'Comprar',
-    momentsLabel: 'Momentos especiales',
-    momentsTitle: 'Para cada ocasion, una propuesta floral fina y elegante.',
-    momentsText: 'Desde un detalle romantico hasta una ambientacion boutique, cada arreglo busca transmitir emocion, belleza y un lujo sutil pero evidente.',
-    signature: 'Diseno floral con presencia',
-  },
-  en: {
-    locale: 'en-US',
-    languageLabel: 'EN',
-    navLinks: [
-      { label: 'Home', href: '#inicio' },
-      { label: 'May 10 Collection', href: '#coleccion' },
-      { label: 'About Us', href: '/quienes-somos' },
-      { label: 'Contact', href: '#contacto' },
-    ],
-    orderNow: 'Order now',
-    heroTitle: 'Let CUSI flowers become the ambassadors of your love this May 10th',
-    heroText: "Mother's Day 2026 special collection. Premium bouquets and floral arrangements with delivery in selected CDMX zones.",
-    heroBadge: 'Book your order before May 5th',
-    requestArrangement: 'Request arrangement',
-    heroFeatures: [
-      ['Delivery in CDMX', ''],
-      ['Editorial design', 'Floral composition with a refined visual language'],
-      ['Boutique attention', 'Warm, elegant and personalized experience'],
-    ],
-    quote1: 'To ensure flower quality, orders should be confirmed at least 10 days in advance.',
-    quote2: 'Deliveries will be made on May 7, 8 and 9. May 10 service is exceptional and subject to availability.',
-    collectionLabel: "Mother's Day Collection",
-    collectionTitle: 'Floral designs created to say thank you with beauty and presence.',
-    loadingProducts: 'Loading products...',
-    productsError: 'We could not load products right now. Please try again in a few minutes.',
-    noProducts: 'There are no products available at this moment.',
-    buy: 'Buy',
-    momentsLabel: 'Special moments',
-    momentsTitle: 'For every occasion, a refined and elegant floral proposal.',
-    momentsText: 'From a romantic detail to a boutique ambience, each arrangement is designed to express emotion, beauty and subtle luxury.',
-    signature: 'Floral design with presence',
-  },
-  fr: {
-    locale: 'fr-FR',
-    languageLabel: 'FR',
-    navLinks: [
-      { label: 'Accueil', href: '#inicio' },
-      { label: 'Collection 10 mai', href: '#coleccion' },
-      { label: 'Qui sommes-nous', href: '/quienes-somos' },
-      { label: 'Contact', href: '#contacto' },
-    ],
-    orderNow: 'Commander',
-    heroTitle: 'Laissez les fleurs CUSI devenir les ambassadrices de votre tendresse pour le 10 mai',
-    heroText: 'Collection speciale Fete des Meres 2026. Bouquets et compositions premium avec livraison dans des zones selectes de CDMX.',
-    heroBadge: 'Planifiez votre commande avant le 5 mai',
-    requestArrangement: 'Demander un arrangement',
-    heroFeatures: [
-      ['Livraison a CDMX', ''],
-      ['Design editorial', 'Composition florale au langage visuel raffine'],
-      ['Service boutique', 'Experience chaleureuse, elegante et personnalisee'],
-    ],
-    quote1: 'Pour garantir la qualite des fleurs, les commandes doivent etre confirmees 10 jours a l avance.',
-    quote2: 'Les livraisons auront lieu les 7, 8 et 9 mai. Le 10 mai est exceptionnel et sous reserve de disponibilite.',
-    collectionLabel: 'Collection Fete des Meres',
-    collectionTitle: 'Des arrangements concus pour dire merci avec des fleurs, de la beaute et de la presence.',
-    loadingProducts: 'Chargement des produits...',
-    productsError: "Impossible de charger les produits pour le moment. Veuillez reessayer d'ici quelques minutes.",
-    noProducts: "Aucun produit n'est disponible pour le moment.",
-    buy: 'Acheter',
-    momentsLabel: 'Moments speciaux',
-    momentsTitle: 'Pour chaque occasion, une proposition florale fine et elegante.',
-    momentsText: 'D un detail romantique a une ambiance boutique, chaque arrangement transmet emotion, beaute et luxe subtil.',
-    signature: 'Design floral avec presence',
-  },
-  it: {
-    locale: 'it-IT',
-    languageLabel: 'IT',
-    navLinks: [
-      { label: 'Home', href: '#inicio' },
-      { label: 'Collezione 10 maggio', href: '#coleccion' },
-      { label: 'Chi siamo', href: '/quienes-somos' },
-      { label: 'Contatto', href: '#contacto' },
-    ],
-    orderNow: 'Ordina ora',
-    heroTitle: 'Lascia che i fiori di CUSI siano ambasciatori del tuo affetto per il 10 maggio',
-    heroText: 'Collezione speciale Festa della Mamma 2026. Bouquet e composizioni premium con consegna in zone selezionate di CDMX.',
-    heroBadge: 'Prenota il tuo ordine prima del 5 maggio',
-    requestArrangement: 'Richiedi composizione',
-    heroFeatures: [
-      ['Consegna a CDMX', ''],
-      ['Design editoriale', 'Composizione floreale con linguaggio visivo raffinato'],
-      ['Servizio boutique', 'Esperienza calda, elegante e personalizzata'],
-    ],
-    quote1: 'Per garantire la qualita dei fiori, gli ordini devono essere confermati con 10 giorni di anticipo.',
-    quote2: "Le consegne saranno effettuate il 7, 8 e 9 maggio. Il 10 maggio solo in via eccezionale, secondo disponibilita.",
-    collectionLabel: 'Collezione Festa della Mamma',
-    collectionTitle: 'Composizioni pensate per dire grazie con fiori, bellezza e presenza.',
-    loadingProducts: 'Caricamento prodotti...',
-    productsError: 'Impossibile caricare i prodotti al momento. Riprova tra qualche minuto.',
-    noProducts: 'Nessun prodotto disponibile in questo momento.',
-    buy: 'Compra',
-    momentsLabel: 'Momenti speciali',
-    momentsTitle: 'Per ogni occasione, una proposta floreale raffinata ed elegante.',
-    momentsText: 'Da un dettaglio romantico a un ambiente boutique, ogni composizione comunica emozione, bellezza e lusso discreto.',
-    signature: 'Design floreale con presenza',
-  },
-} as const
+const emotionalPillars = [
+  { title: 'Flores seleccionadas', text: 'Curaduria floral con foco en calidad, frescura y armonia visual.' },
+  { title: 'Diseno con intencion', text: 'Cada arreglo se construye para comunicar emocion y elegancia.' },
+  { title: 'Entrega cuidada', text: 'Atencion personalizada y entrega programada en zonas seleccionadas.' },
+]
 
+const occasions = [
+  'Cumpleanos',
+  'Aniversarios',
+  'Nacimiento',
+  'Pedidas especiales',
+  'Eventos corporativos',
+  'Luxury gifting',
+]
+
+const navLinks = [
+  { label: 'Inicio', href: '#inicio' },
+  { label: 'Coleccion 10 de mayo', href: '#coleccion' },
+  { label: 'Quienes Somos', href: '/quienes-somos' },
+  { label: 'Contacto', href: '#contacto' },
+]
 
 const footerSeoKeywords = [
   'floreria en cdmx bosques de las lomas cdmx',
@@ -194,32 +84,12 @@ const ctaPrimary =
 const ctaSoft =
   'inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition duration-300 hover:bg-white/20'
 
-export default function HomePage() {
+export default function CusiFloresMockup() {
   const [menuVisible, setMenuVisible] = useState(true)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [products, setProducts] = useState<ProductCard[]>([])
   const [productsLoading, setProductsLoading] = useState(true)
   const [productsError, setProductsError] = useState<string | null>(null)
-  const t = translations.es
-  const emotionalPillars = [
-    { title: 'Flores seleccionadas', text: 'Curaduria floral con foco en calidad, frescura y armonia visual.' },
-    { title: 'Diseno con intencion', text: 'Cada arreglo se construye para comunicar emocion y elegancia.' },
-    { title: 'Entrega cuidada', text: 'Atencion personalizada y entrega programada en zonas seleccionadas.' },
-  ]
-  const occasions = ['Cumpleanos', 'Aniversarios', 'Nacimiento', 'Pedidas especiales', 'Eventos corporativos', 'Luxury gifting']
-  const formatProductPrice = (price: string) => {
-    const cleaned = price.replace(/\s*\+\s*IVA$/i, '').trim()
-    const numeric = Number(cleaned.replace(/[^\d.,]/g, '').replace(/,/g, ''))
-    if (!Number.isNaN(numeric) && cleaned.startsWith('$')) {
-      return new Intl.NumberFormat(t.locale, {
-        style: 'currency',
-        currency: 'MXN',
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      }).format(numeric)
-    }
-    return cleaned
-  }
 
   useEffect(() => {
     let lastY = window.scrollY
@@ -239,7 +109,7 @@ export default function HomePage() {
 
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [t.productsError])
+  }, [])
 
   useEffect(() => {
     let isMounted = true
@@ -259,7 +129,7 @@ export default function HomePage() {
       } catch (error) {
         if (isMounted) {
           setProducts([])
-          setProductsError(t.productsError)
+          setProductsError('No pudimos cargar los productos por el momento. Intenta de nuevo en unos minutos.')
         }
         console.error(error)
       } finally {
@@ -286,7 +156,7 @@ export default function HomePage() {
           </a>
 
           <nav className="hidden items-center gap-5 text-base text-[#3c2a25] lg:flex">
-              {t.navLinks.map((item) => (
+            {navLinks.map((item) => (
               <a key={item.label} href={item.href} className="transition duration-300 hover:opacity-60">
                 {item.label}
               </a>
@@ -307,7 +177,7 @@ export default function HomePage() {
             </button>
 
             <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className={`${ctaPrimary} hidden px-4 py-2 text-xs md:text-sm lg:inline-flex`}>
-              {t.orderNow}
+              Pedir ahora
             </a>
           </div>
         </div>
@@ -315,13 +185,13 @@ export default function HomePage() {
         {mobileMenuOpen && (
           <div className="mx-auto mt-2 w-[94%] max-w-7xl rounded-3xl border border-[#e4d2c9] bg-[#fffaf7] p-4 shadow-[0_20px_45px_rgba(62,38,31,0.12)] lg:hidden">
             <nav className="flex flex-col gap-2 text-base text-[#3c2a25]">
-              {t.navLinks.map((item) => (
+              {navLinks.map((item) => (
                 <a key={item.label} href={item.href} onClick={() => setMobileMenuOpen(false)} className="rounded-xl px-3 py-2 transition hover:bg-[#f7eee9]">
                   {item.label}
                 </a>
               ))}
               <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" onClick={() => setMobileMenuOpen(false)} className="mt-2 inline-flex items-center justify-center rounded-full bg-[#2b1a17] px-5 py-2.5 text-sm font-medium text-white">
-                {t.orderNow}
+                Pedir ahora
               </a>
             </nav>
           </div>
@@ -335,25 +205,29 @@ export default function HomePage() {
           <div className="relative mx-auto grid min-h-[100svh] w-[92%] max-w-7xl items-center gap-8 pt-28 pb-20 md:pt-36 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="max-w-3xl font-[var(--font-sans)]">
               <h1 className="max-w-2xl font-[var(--font-display)] text-[1.7rem] leading-[0.98] text-white sm:text-[2.25rem] md:text-[3.375rem] xl:text-[67px]">
-                {t.heroTitle}
+                Permite que las Flores de CUSI sean las embajadoras de tu cariño el 10 de mayo
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-7 text-white/85 md:text-xl md:leading-8">
-                {t.heroText}
+                Coleccion especial Dia de las Madres 2026. Ramos y arreglos premium con entrega en zonas seleccionadas de CDMX.
               </p>
 
               <p className="mt-4 inline-flex rounded-full bg-[#efe0d8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#60473f] md:text-sm">
-                {t.heroBadge}
+                Agenda tu pedido antes del 5 de mayo
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3 md:gap-4">
                 <a href="#pedidos" className={ctaSoft}>
-                  {t.requestArrangement}
+                  Solicitar Arreglo
                 </a>
               </div>
 
               <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3 md:mt-14 md:gap-4">
-                {t.heroFeatures.map(([title, desc]) => (
+                {[
+                  ['Entrega en CDMX', ''],
+                  ['Diseno editorial', 'Composicion floral con lenguaje visual refinado'],
+                  ['Atencion boutique', 'Experiencia calida, elegante y personalizada'],
+                ].map(([title, desc]) => (
                   <div key={title} className="rounded-[24px] border border-white/20 bg-white/10 p-4 text-white backdrop-blur-md md:rounded-[28px] md:p-5">
                     <p className="font-[var(--font-display)] text-base font-medium md:text-lg">{title}</p>
                     {desc ? <p className="mt-2 text-sm leading-6 text-white/75">{desc}</p> : null}
@@ -364,10 +238,10 @@ export default function HomePage() {
 
             <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-[#e4d1c7] bg-white/95 p-8 shadow-[0_26px_65px_rgba(71,44,35,0.15)] backdrop-blur-sm lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
               <p className="font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;{t.quote1}&rdquo;
+                &ldquo;Para asegurar la calidad de nuestras flores, los pedidos deben quedar confirmados con 10 dias de anticipacion.&rdquo;
               </p>
               <p className="-translate-y-[1.5cm] font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;{t.quote2}&rdquo;
+                &ldquo;Las entregas se realizaran el 7, 8 y 9 de mayo. El 10 de mayo se atendera solo de forma excepcional, sujeto a disponibilidad.&rdquo;
               </p>
             </div>
           </div>
@@ -375,10 +249,10 @@ export default function HomePage() {
 
         <section id="coleccion" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10 md:py-14">
           <div className="mb-8 md:mb-10">
-            <p className="text-sm uppercase tracking-[0.24em] text-[#94736a] md:text-base">{t.collectionLabel}</p>
-            <h2 className="mt-3 max-w-3xl text-2xl leading-tight md:text-[2.55rem]">{t.collectionTitle}</h2>
-            {productsLoading ? <p className="mt-3 text-sm text-[#6f5851]">{t.loadingProducts}</p> : null}
-            {productsError ? <p className="mt-3 text-sm text-[#6f5851]">{t.productsError}</p> : null}
+            <p className="text-sm uppercase tracking-[0.24em] text-[#94736a] md:text-base">Coleccion Dia de las Madres</p>
+            <h2 className="mt-3 max-w-3xl text-2xl leading-tight md:text-[2.55rem]">Arreglos disenados para decir gracias con flores, belleza y presencia.</h2>
+            {productsLoading ? <p className="mt-3 text-sm text-[#6f5851]">Cargando productos...</p> : null}
+            {productsError ? <p className="mt-3 text-sm text-[#6f5851]">{productsError}</p> : null}
           </div>
 
           <div className="grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -395,14 +269,14 @@ export default function HomePage() {
                   {item.title === 'Tulipanes en ramo' ? <p className="text-sm font-medium text-[#664f48]">2 docenas</p> : null}
                   {item.title === 'Tulipanes en cilindro' ? <p className="text-sm font-medium text-[#664f48]">4 Decenas</p> : null}
                   <div className="mt-auto space-y-2">
-                    <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{formatProductPrice(item.price)} + IVA</p>
+                    <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price} + IVA</p>
                     <a
                       href={BRAND.whatsappUrl}
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex w-full items-center justify-center rounded-full border border-[#c8ada3] bg-white px-6 py-2.5 text-sm font-semibold text-[#2e231f] transition duration-300 hover:border-[#b4988e] hover:bg-[#fff8f5]"
                     >
-                      {t.buy}
+                      Comprar
                     </a>
                   </div>
                 </div>
@@ -412,7 +286,7 @@ export default function HomePage() {
 
           {!productsLoading && !products.length ? (
             <div className="mt-4 rounded-2xl border border-[#ead8cf] bg-[#fffdfa] p-5 text-sm text-[#6f5851]">
-              {t.noProducts}
+              No hay productos disponibles para mostrar en este momento.
             </div>
           ) : null}
         </section>
@@ -424,17 +298,17 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent" />
               <div className="absolute bottom-6 left-6 rounded-[1.5rem] bg-white/85 p-5 backdrop-blur-md">
                 <p className="text-xs uppercase tracking-[0.28em] text-[#9b766a]">Signature gifting</p>
-                <p className="mt-2 text-2xl text-[#2b1a17]">{t.signature}</p>
+                <p className="mt-2 text-2xl text-[#2b1a17]">Diseno floral con presencia</p>
               </div>
             </div>
 
             <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-[#9b766a]">{t.momentsLabel}</p>
+              <p className="text-sm uppercase tracking-[0.3em] text-[#9b766a]">Momentos especiales</p>
               <h2 className="mt-4 text-3xl leading-tight md:text-5xl">
-                {t.momentsTitle}
+                Para cada ocasion, una propuesta floral fina y elegante.
               </h2>
               <p className="mt-6 max-w-xl text-base leading-8 text-[#5c4842]">
-                {t.momentsText}
+                Desde un detalle romantico hasta una ambientacion boutique, cada arreglo busca transmitir emocion, belleza y un lujo sutil pero evidente.
               </p>
             </div>
           </div>
