@@ -84,6 +84,20 @@ const ctaPrimary =
 const ctaSoft =
   'inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition duration-300 hover:bg-white/20'
 
+const handwrittenDescriptions: Record<string, string> = {
+  'Caja Rosas Amarillas': '16 rosas en caja, alegria luminosa.',
+  'Rosas Premium en Ramo': 'Ramo clasico de rosas, presencia elegante.',
+  'Tulipanes en ramo': '2 docenas de tulipanes, frescura delicada.',
+  'Tulipanes en cilindro': '4 decenas de tulipanes, diseno con altura.',
+  'Indonesia Orquídea Phalenopsis': 'Orquidea premium con gesto refinado.',
+  'Orquídea Phalenopsis En Escultura de Piedra': 'Escultura floral para espacios con caracter.',
+  'Orquídea en cilindro d e vidrio': 'Orquidea en cilindro de vidrio, minimalismo botanico.',
+  'Orquídea Phalenopsis 8 Varas': 'Composicion de 8 varas, impacto sofisticado.',
+  'Orquídea Phalenopsis En Escultura de Piedra 3 varas': '3 varas en escultura, trazo artistico.',
+  'Orquídea Phalenopsis En Cilindro de Cristal': 'Orquidea en cristal, elegancia atemporal.',
+  'Orquídea Fiusha Phalenopsis': 'Fiusha vibrante para un detalle inolvidable.',
+}
+
 export default function CusiFloresMockup() {
   const [menuVisible, setMenuVisible] = useState(true)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -152,7 +166,7 @@ export default function CusiFloresMockup() {
         <div className="mx-auto mt-3 flex w-[94%] max-w-7xl items-center justify-between rounded-full border border-white/70 bg-[#fffaf7]/85 px-4 py-3 shadow-[0_15px_45px_rgba(62,38,31,0.15)] backdrop-blur-xl md:mt-5 md:px-6">
           <a href="#inicio" className="min-w-0">
             <p className="text-[10px] uppercase tracking-[0.28em] text-[#94736a] md:text-[11px]">Floreria premium CDMX</p>
-            <p className="truncate text-[1.3rem] tracking-[0.14em] text-[#2a1c19] md:text-[1.625rem]">{BRAND.name}</p>
+            <p className="truncate text-[1.7rem] tracking-[0.14em] text-[#2a1c19] md:text-[2.1rem]">{BRAND.name}</p>
           </a>
 
           <nav className="hidden items-center gap-5 text-base text-[#3c2a25] lg:flex">
@@ -204,7 +218,7 @@ export default function CusiFloresMockup() {
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(28,17,15,0.88)_0%,rgba(28,17,15,0.58)_40%,rgba(28,17,15,0.2)_100%)]" />
           <div className="relative mx-auto grid min-h-[100svh] w-[92%] max-w-7xl items-center gap-8 pt-28 pb-20 md:pt-36 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="max-w-3xl font-[var(--font-sans)]">
-              <h1 className="max-w-2xl font-[var(--font-display)] text-[1.7rem] leading-[0.98] text-white sm:text-[2.25rem] md:text-[3.375rem] xl:text-[67px]">
+              <h1 className="max-w-2xl font-[var(--font-display)] text-[1.55rem] leading-[0.98] text-white sm:text-[2.05rem] md:text-[3.05rem] xl:text-[60px]">
                 Permite que las Flores de CUSI sean las embajadoras de tu cariño el 10 de mayo
               </h1>
 
@@ -265,6 +279,9 @@ export default function CusiFloresMockup() {
                   <h3 className="min-h-[3.4rem] text-[1.6rem] leading-[1.05] text-[#2a1c19] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden">
                     {item.title}
                   </h3>
+                  <p className="text-[1.35rem] leading-tight text-[#8d6c62] italic tracking-[0.01em] [font-family:var(--font-script)]">
+                    {handwrittenDescriptions[item.title] || 'Diseno floral con sello CUSI.'}
+                  </p>
                   {item.title === 'Caja Rosas Amarillas' ? <p className="text-sm font-medium text-[#664f48]">16 Rosas</p> : null}
                   {item.title === 'Tulipanes en ramo' ? <p className="text-sm font-medium text-[#664f48]">2 docenas</p> : null}
                   {item.title === 'Tulipanes en cilindro' ? <p className="text-sm font-medium text-[#664f48]">4 Decenas</p> : null}
@@ -294,7 +311,7 @@ export default function CusiFloresMockup() {
         <section id="ocasiones" className="scroll-mt-32 bg-white py-16 md:py-24">
           <div className="mx-auto grid w-[92%] max-w-7xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
             <div className="relative h-[460px] overflow-hidden rounded-[2.4rem] shadow-[0_30px_90px_rgba(83,48,37,0.12)] md:h-[560px]">
-              <img src={images.occasions} alt="Arreglo floral premium" className="h-full w-full object-cover" />
+              <img src={images.occasions} alt="Arreglo floral premium" className="h-full w-full object-cover scale-[0.7]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent" />
               <div className="absolute bottom-6 left-6 rounded-[1.5rem] bg-white/85 p-5 backdrop-blur-md">
                 <p className="text-xs uppercase tracking-[0.28em] text-[#9b766a]">Signature gifting</p>
