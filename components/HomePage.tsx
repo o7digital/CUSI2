@@ -401,7 +401,20 @@ export default function CusiFloresMockup() {
               ))}
             </div>
 
-            <form action="https://formspree.io/f/xqewoabn" method="POST" className="mt-7 grid gap-3 md:grid-cols-2">
+            <form action="https://formspree.io/f/xqewoabn" method="POST" encType="multipart/form-data" className="mt-7 grid gap-3 md:grid-cols-2">
+              <div className="md:col-span-2">
+                <label htmlFor="comprobante_transferencia_pdf" className="mb-2 block text-sm font-medium text-white/90">
+                  Copia ficha de Transferencia (PDF)
+                </label>
+                <input
+                  id="comprobante_transferencia_pdf"
+                  type="file"
+                  name="comprobante_transferencia_pdf"
+                  accept="application/pdf"
+                  required
+                  className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white file:mr-4 file:rounded-full file:border-0 file:bg-[#f4ddd2] file:px-4 file:py-2 file:text-sm file:font-semibold file:text-[#2a1d1a] hover:file:bg-[#efcfc1]"
+                />
+              </div>
               <input type="text" name="nombre" required placeholder="Nombre de quien hace el pedido" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
               <input type="text" name="para_quien" required placeholder="Para quien es el arreglo" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
               <input type="text" name="que_debe_decir_el_sobre" placeholder="Que debe decir el sobre" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
@@ -409,13 +422,12 @@ export default function CusiFloresMockup() {
               <input type="text" name="quien_firma" required placeholder="Quien firma" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
               <input type="text" name="direccion_entrega" required placeholder="Direccion completa de entrega" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45 md:col-span-2" />
               <input type="tel" name="telefono_entrega" required placeholder="Telefono de contacto para la entrega" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
-              <input type="date" name="dia_entrega" required className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white outline-none ring-0 focus:border-white/45" />
-              <input
-                type="file"
-                name="comprobante_transferencia_pdf"
-                accept="application/pdf"
-                className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white file:mr-4 file:rounded-full file:border-0 file:bg-[#f4ddd2] file:px-4 file:py-2 file:text-sm file:font-semibold file:text-[#2a1d1a] hover:file:bg-[#efcfc1] md:col-span-2"
-              />
+              <div>
+                <label htmlFor="dia_entrega" className="mb-2 block text-sm font-medium text-white/90">
+                  Fecha de entrega
+                </label>
+                <input id="dia_entrega" type="date" name="dia_entrega" required className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white outline-none ring-0 focus:border-white/45" />
+              </div>
               <textarea name="mensaje" placeholder="Detalles adicionales del pedido" rows={3} className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45 md:col-span-2" />
               <input type="hidden" name="_subject" value="Nuevo pedido CUSI" />
               <button type="submit" className="inline-flex items-center justify-center rounded-full bg-[#f4ddd2] px-6 py-3 text-sm font-semibold text-[#2a1d1a] transition duration-300 hover:bg-[#efcfc1] md:col-span-2 md:justify-self-start">
