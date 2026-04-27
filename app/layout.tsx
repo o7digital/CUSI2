@@ -32,6 +32,15 @@ export const metadata: Metadata = {
       'Landing premium para pedidos de flores del Dia de las Madres en CDMX. WhatsApp directo y entregas programadas.',
     type: 'website',
   },
+  alternates: {
+    canonical: '/',
+    languages: {
+      es: '/',
+      en: '/en',
+      fr: '/fr',
+      it: '/it',
+    },
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
