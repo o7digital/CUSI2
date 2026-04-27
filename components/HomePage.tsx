@@ -393,7 +393,7 @@ export default function CusiFloresMockup() {
             <div className="mt-6 grid gap-3 md:grid-cols-2">
               {[
                 'Arreglo',
-                'Copia ficha de Transferencia (Upload PDF)',
+                'Copia ficha de Transferencia',
               ].map((step) => (
                 <p key={step} className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white/90">
                   {step}
@@ -404,7 +404,7 @@ export default function CusiFloresMockup() {
             <form action="https://formspree.io/f/xqewoabn" method="POST" encType="multipart/form-data" className="mt-7 grid gap-3 md:grid-cols-2">
               <div className="md:col-span-2">
                 <label htmlFor="comprobante_transferencia_pdf" className="mb-2 block text-sm font-medium text-white/90">
-                  Copia ficha de Transferencia (PDF)
+                  Copia ficha de Transferencia (PDF) * Campo Obligatorio
                 </label>
                 <input
                   id="comprobante_transferencia_pdf"
@@ -420,7 +420,7 @@ export default function CusiFloresMockup() {
               <input type="text" name="que_debe_decir_el_sobre" placeholder="Que debe decir el sobre" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
               <input type="text" name="texto_tarjeta" required placeholder="Texto de la tarjeta" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
               <input type="text" name="quien_firma" required placeholder="Quien firma" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
-              <input type="text" name="direccion_entrega" required placeholder="Direccion completa de entrega" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45 md:col-span-2" />
+              <input type="text" name="direccion_entrega" required placeholder="Direccion completa de entrega * Campo Obligatorio" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45 md:col-span-2" />
               <input type="tel" name="telefono_entrega" required placeholder="Telefono de contacto para la entrega" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
               <div>
                 <label htmlFor="dia_entrega" className="mb-2 block text-sm font-medium text-white/90">
