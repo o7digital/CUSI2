@@ -192,14 +192,15 @@ export default function QuienesSomosPage() {
       <footer className="mx-auto grid w-[92%] max-w-7xl gap-6 border-t border-[#e6d5cc] py-8 text-sm text-[#6f5851] md:grid-cols-[220px_1fr_1.2fr_auto] md:items-start">
         <div>
           <img src="/cusi-logo.webp" alt="Logo CUSI" className="h-auto w-[220px] max-w-full" />
-          <p>Floreria premium en Ciudad de Mexico</p>
+          <div className="h-3" aria-hidden="true" />
+          <p>Floreria premium CDMX</p>
           <p>Coleccion Dia de las Madres 2026</p>
         </div>
 
         <div className="text-[#b48700]">
           <p className="font-semibold">Telefonos de contacto</p>
           <ul className="mt-2 list-disc space-y-2 pl-5">
-            <li className="font-semibold">Pedidos y cotizaciones: +52 55 2109 2665 / +52 55 6157 9500</li>
+            <li className="font-semibold">Pedidos y cotizaciones: +52 55 2109 2665 / telefono Alterno +52 55 6157 9500</li>
             <li className="font-semibold">Estado de pedido: +52 56 1923 2940</li>
             <li className="font-semibold">Emergencias: +52 55 5596 9871</li>
           </ul>
@@ -210,8 +211,9 @@ export default function QuienesSomosPage() {
           <ul className="list-disc space-y-2 pl-5">
             <li>Pedidos por WhatsApp con confirmacion telefonica.</li>
             <li>Entrega a domicilio desde $600 en CDMX y area metropolitana.</li>
-            <li>Cargo adicional para distancias mayores a 5 km de Lomas Virreyes.</li>
-            <li>Arreglos semanales para casas, oficinas y eventos de todos los tamanos.</li>
+            <li>Cargo adicional para distancias mayores a 5 km de Bosques de las Lomas.</li>
+            <li>Arreglos semanales para casas, oficinas.</li>
+            <li>Eventos de todos los tamanos.</li>
           </ul>
           <p className="pt-1 text-xs text-[#6f5851]">Pedidos sujetos a disponibilidad y zona de entrega.</p>
           <div className="pt-1">
