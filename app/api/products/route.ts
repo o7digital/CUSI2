@@ -57,6 +57,12 @@ const normalizeTitle = (title: string) => {
   if (title === 'Rosas e n Ramo Rosas o Rojas 2 docenas') {
     return 'Rosas Premium en Ramo'
   }
+  if (title === 'Orquídea Phalenopsis' || title === 'Orqu\u00eddea Phalenopsis') {
+    return 'Indonesia Orquídea Phalenopsis'
+  }
+  if (title === 'Orquídea Phalenopsis En Escultura de Piedra' || title === 'Orqu\u00eddea Phalenopsis En Escultura de Piedra') {
+    return 'Una Orquídea Phalenopsis En Cilindo de Vidrio'
+  }
   return title
 }
 
