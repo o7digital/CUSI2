@@ -332,7 +332,7 @@ export default function CusiFloresMockup() {
             <div className="rounded-[2.2rem] bg-[#2b1a17] p-8 text-white shadow-[0_30px_80px_rgba(43,29,26,0.24)] md:p-12">
               <p className="text-sm uppercase tracking-[0.3em] text-[#d8b8ab]">Eventos & decoracion floral</p>
               <h2 className="mt-4 max-w-xl text-3xl leading-tight md:text-5xl">
-                Eventos con direccion floral de nivel boutique.
+                Eventos con diseño floral de nivel boutique.
               </h2>
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/80">
                 Cenas privadas, hoteles boutique, bodas intimas, gifts corporativos y experiencias especiales.
