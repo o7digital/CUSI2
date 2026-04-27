@@ -5,44 +5,44 @@ import { useEffect, useState } from 'react'
 const BRAND = {
   name: 'CUSI',
   city: 'Mexico City',
-  whatsappUrl: 'https://wa.me/5215512345678?text=Hello%20CUSI%20FLOWERS%2C%20I%20would%20like%20to%20place%20a%20premium%20order.',
+  whatsappUrl: 'https://wa.me/5215512345678?text=Ciao%20CUSI%20FLOWERS%2C%20vorrei%20fare%20un%20ordine%20premium.',
   instagramUrl: 'https://instagram.com/cusiflores',
 }
 
 const navLinks = [
-  { label: 'Home', href: '/en/#inicio' },
-  { label: "Mother's Day Collection", href: '/en/#coleccion' },
-  { label: 'About Us', href: '/en/about' },
-  { label: 'Contact', href: '/en/#contacto' },
+  { label: 'Home', href: '/it/#inicio' },
+  { label: 'Collezione Festa della Mamma', href: '/it/#coleccion' },
+  { label: 'Chi siamo', href: '/it/about' },
+  { label: 'Contatto', href: '/it/#contacto' },
 ]
 
 const footerSeoKeywords = [
-  'flower shop in cdmx bosques de las lomas cdmx',
-  'premium flower shop cdmx bosques de las lomas cdmx',
-  'flower delivery cdmx bosques de las lomas cdmx',
-  'floral arrangements cdmx bosques de las lomas cdmx',
-  'flower bouquets cdmx bosques de las lomas cdmx',
-  'flowers for mom bosques de las lomas cdmx',
-  "mother's day flowers bosques de las lomas cdmx",
-  "mother's day arrangements bosques de las lomas cdmx",
-  "mother's day gifts bosques de las lomas cdmx",
-  'birthday flowers bosques de las lomas cdmx',
-  'anniversary bouquets bosques de las lomas cdmx',
-  'orchid delivery bosques de las lomas cdmx',
-  'tulip bouquet bosques de las lomas cdmx',
-  'yellow rose box bosques de las lomas cdmx',
-  'red roses delivery bosques de las lomas cdmx',
-  'elegant floral arrangements bosques de las lomas cdmx',
-  'flower shop bosques de las lomas cdmx',
-  'flowers in mexico city bosques de las lomas cdmx',
-  'send flowers cdmx bosques de las lomas cdmx',
-  'order flowers on whatsapp bosques de las lomas cdmx',
+  'fioreria a cdmx bosques de las lomas cdmx',
+  'fioreria premium cdmx bosques de las lomas cdmx',
+  'consegna fiori cdmx bosques de las lomas cdmx',
+  'composizioni floreali cdmx bosques de las lomas cdmx',
+  'bouquet di fiori cdmx bosques de las lomas cdmx',
+  'fiori per la mamma bosques de las lomas cdmx',
+  'fiori festa della mamma bosques de las lomas cdmx',
+  'composizioni festa della mamma bosques de las lomas cdmx',
+  'regali festa della mamma bosques de las lomas cdmx',
+  'fiori di compleanno bosques de las lomas cdmx',
+  'bouquet anniversario bosques de las lomas cdmx',
+  'consegna orchidee bosques de las lomas cdmx',
+  'bouquet di tulipani bosques de las lomas cdmx',
+  'scatola di rose gialle bosques de las lomas cdmx',
+  'consegna rose rosse bosques de las lomas cdmx',
+  'composizioni floreali eleganti bosques de las lomas cdmx',
+  'fioreria bosques de las lomas cdmx',
+  'fiori a citta del messico bosques de las lomas cdmx',
+  'inviare fiori cdmx bosques de las lomas cdmx',
+  'ordinare fiori su whatsapp bosques de las lomas cdmx',
 ]
 
 const ctaPrimary =
   'inline-flex items-center justify-center rounded-full bg-[#2b1a17] px-6 py-3 text-sm font-medium text-white shadow-[0_16px_40px_rgba(43,29,26,0.24)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#1d100e]'
 
-export default function AboutPageEnClient() {
+export default function AboutPageItClient() {
   const [menuVisible, setMenuVisible] = useState(true)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -70,14 +70,14 @@ export default function AboutPageEnClient() {
     <div className="min-h-screen bg-[#f6efe9] text-[#241715] selection:bg-[#dcc1b7] selection:text-[#2b1a17]">
       <header className={`fixed inset-x-0 top-0 z-50 transition-transform duration-300 ${menuVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="mx-auto mt-3 flex w-[94%] max-w-7xl items-center justify-between rounded-full border border-white/70 bg-[#fffaf7]/85 px-4 py-3 shadow-[0_15px_45px_rgba(62,38,31,0.15)] backdrop-blur-xl md:mt-5 md:px-6">
-          <a href="/en/#inicio" className="min-w-0">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-[#94736a] md:text-[11px]">Premium flower studio CDMX</p>
+          <a href="/it/#inicio" className="min-w-0">
+            <p className="text-[10px] uppercase tracking-[0.28em] text-[#94736a] md:text-[11px]">Studio floreale premium CDMX</p>
             <p className="truncate text-[1.3rem] tracking-[0.14em] text-[#2a1c19] md:text-[1.625rem]">{BRAND.name}</p>
           </a>
 
           <nav className="hidden items-center gap-5 text-base text-[#3c2a25] lg:flex">
             {navLinks.map((item) => (
-              <a key={item.label} href={item.href} className={`transition duration-300 hover:opacity-60 ${item.label === 'About Us' ? 'font-semibold' : ''}`}>
+              <a key={item.label} href={item.href} className={`transition duration-300 hover:opacity-60 ${item.label === 'Chi siamo' ? 'font-semibold' : ''}`}>
                 {item.label}
               </a>
             ))}
@@ -89,11 +89,15 @@ export default function AboutPageEnClient() {
                 ES
               </a>
               <span className="text-[#b8a9a2]">|</span>
-              <span>EN</span>
+              <a href="/en/about" className="underline underline-offset-2 hover:opacity-75">
+                EN
+              </a>
+              <span className="text-[#b8a9a2]">|</span>
+              <span>IT</span>
             </div>
             <button
               type="button"
-              aria-label="Open menu"
+              aria-label="Apri menu"
               aria-expanded={mobileMenuOpen}
               onClick={() => setMobileMenuOpen((open) => !open)}
               className="inline-flex items-center justify-center rounded-full border border-[#d8c7be] bg-white px-3 py-2 text-[#2b1a17] lg:hidden"
@@ -104,7 +108,7 @@ export default function AboutPageEnClient() {
             </button>
 
             <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className={`${ctaPrimary} hidden px-4 py-2 text-xs md:text-sm lg:inline-flex`}>
-              Order Now
+              Ordina ora
             </a>
           </div>
         </div>
@@ -117,15 +121,19 @@ export default function AboutPageEnClient() {
                   ES
                 </a>
                 <span className="text-[#b8a9a2]">|</span>
-                <span>EN</span>
+                <a href="/en/about" className="underline underline-offset-2 hover:opacity-75">
+                  EN
+                </a>
+                <span className="text-[#b8a9a2]">|</span>
+                <span>IT</span>
               </div>
               {navLinks.map((item) => (
-                <a key={item.label} href={item.href} onClick={() => setMobileMenuOpen(false)} className={`rounded-xl px-3 py-2 transition hover:bg-[#f7eee9] ${item.label === 'About Us' ? 'font-semibold' : ''}`}>
+                <a key={item.label} href={item.href} onClick={() => setMobileMenuOpen(false)} className={`rounded-xl px-3 py-2 transition hover:bg-[#f7eee9] ${item.label === 'Chi siamo' ? 'font-semibold' : ''}`}>
                   {item.label}
                 </a>
               ))}
               <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" onClick={() => setMobileMenuOpen(false)} className="mt-2 inline-flex items-center justify-center rounded-full bg-[#2b1a17] px-5 py-2.5 text-sm font-medium text-white">
-                Order Now
+                Ordina ora
               </a>
             </nav>
           </div>
@@ -134,70 +142,70 @@ export default function AboutPageEnClient() {
 
       <main className="mx-auto w-[92%] max-w-7xl space-y-8 py-28 md:space-y-10 md:py-36">
         <section className="rounded-[2rem] border border-[#e4d2c9] bg-[#fffdfa] p-7 md:p-12">
-          <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Our essence</p>
-          <h1 className="mt-3 max-w-4xl text-4xl leading-tight text-[#2a1c19] md:text-6xl">Flowers with intention, beauty, and presence.</h1>
+          <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">La nostra essenza</p>
+          <h1 className="mt-3 max-w-4xl text-4xl leading-tight text-[#2a1c19] md:text-6xl">Fiori con intenzione, bellezza e presenza.</h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-[#5d4740] md:text-xl">
-            CUSI was born as a floral boutique for people who want to gift more than flowers: a delicate, elegant, and memorable experience.
+            CUSI nasce come boutique floreale per chi desidera regalare piu di fiori: un'esperienza delicata, elegante e memorabile.
           </p>
         </section>
 
         <section className="rounded-[2rem] border border-[#e4d2c9] bg-white p-7 md:p-12">
-          <h2 className="text-3xl leading-tight text-[#2a1c19] md:text-5xl">A contemporary boutique floral studio</h2>
+          <h2 className="text-3xl leading-tight text-[#2a1c19] md:text-5xl">Una boutique floreale contemporanea</h2>
           <div className="mt-5 space-y-4 text-base leading-8 text-[#5d4740]">
             <p>
-              At CUSI, we believe every arrangement should communicate emotion. Our work combines seasonal flowers, aesthetic composition, soft palettes, and careful attention to create floral pieces with a distinct identity.
+              In CUSI crediamo che ogni composizione debba comunicare emozione. Il nostro lavoro combina fiori stagionali, composizione estetica, palette delicate e attenzione ai dettagli per creare pezzi floreali con identita propria.
             </p>
             <p>
-              Each bouquet, box, or arrangement is intentionally designed by balancing color, texture, visual harmony, and the way it will be received. We do not aim for ordinary arrangements, but for floral details that feel special from the first moment.
+              Ogni bouquet, box o composizione e progettato con intenzione: equilibrio di colori, texture e armonia visiva. Non cerchiamo composizioni ordinarie, ma dettagli floreali che risultino speciali fin dal primo istante.
             </p>
           </div>
         </section>
 
         <section className="rounded-[2rem] border border-[#e4d2c9] bg-[#fffdfa] p-7 md:p-12">
-          <h2 className="text-3xl leading-tight text-[#2a1c19] md:text-5xl">Our values</h2>
+          <h2 className="text-3xl leading-tight text-[#2a1c19] md:text-5xl">I nostri valori</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             <article className="rounded-[1.5rem] border border-[#ead8cf] bg-white p-5">
-              <h3 className="text-2xl text-[#2a1c19]">Design with intention</h3>
-              <p className="mt-2 text-sm leading-7 text-[#664f48]">Each composition is designed as a visual piece: harmony, color, texture, and presence.</p>
+              <h3 className="text-2xl text-[#2a1c19]">Design con intenzione</h3>
+              <p className="mt-2 text-sm leading-7 text-[#664f48]">Ogni composizione e pensata come un pezzo visivo: armonia, colore, texture e presenza.</p>
             </article>
             <article className="rounded-[1.5rem] border border-[#ead8cf] bg-white p-5">
-              <h3 className="text-2xl text-[#2a1c19]">Boutique attention</h3>
-              <p className="mt-2 text-sm leading-7 text-[#664f48]">We provide a close, personalized, and carefully curated experience for every order.</p>
+              <h3 className="text-2xl text-[#2a1c19]">Attenzione boutique</h3>
+              <p className="mt-2 text-sm leading-7 text-[#664f48]">Offriamo un'esperienza vicina, personalizzata e curata per ogni ordine.</p>
             </article>
             <article className="rounded-[1.5rem] border border-[#ead8cf] bg-white p-5">
-              <h3 className="text-2xl text-[#2a1c19]">Natural elegance</h3>
-              <p className="mt-2 text-sm leading-7 text-[#664f48]">We work with a soft, contemporary aesthetic while preserving freshness and natural elegance.</p>
+              <h3 className="text-2xl text-[#2a1c19]">Eleganza naturale</h3>
+              <p className="mt-2 text-sm leading-7 text-[#664f48]">Lavoriamo con un'estetica morbida e contemporanea, preservando freschezza ed eleganza naturale.</p>
             </article>
           </div>
         </section>
 
         <section className="grid gap-4 md:grid-cols-2">
           <article className="rounded-[1.8rem] border border-[#e4d2c9] bg-white p-7 md:p-10">
-            <h2 className="text-3xl text-[#2a1c19] md:text-4xl">Our mission</h2>
+            <h2 className="text-3xl text-[#2a1c19] md:text-4xl">La nostra missione</h2>
             <p className="mt-4 text-base leading-8 text-[#5d4740]">
-              Our mission is to turn every floral delivery into a memorable experience. We want every customer to feel they are gifting beauty, care, and emotion with reliable service and impeccable presentation.
+              La nostra missione e trasformare ogni consegna floreale in un'esperienza memorabile. Vogliamo che ogni cliente senta di regalare bellezza, cura ed emozione con un servizio affidabile e una presentazione impeccabile.
             </p>
           </article>
 
           <article className="rounded-[1.8rem] border border-[#e4d2c9] bg-white p-7 md:p-10">
-            <h2 className="text-3xl text-[#2a1c19] md:text-4xl">Our vision</h2>
+            <h2 className="text-3xl text-[#2a1c19] md:text-4xl">La nostra visione</h2>
             <p className="mt-4 text-base leading-8 text-[#5d4740]">
-              We aim to position CUSI as a premium floral design reference in Mexico City, recognized for delicate style, personalized attention, and the ability to create special moments through flowers.
+              Vogliamo posizionare CUSI come riferimento del design floreale premium a Citta del Messico, riconosciuto per stile delicato, attenzione personalizzata e capacita di creare momenti speciali attraverso i fiori.
             </p>
           </article>
         </section>
 
         <section className="rounded-[2rem] bg-[#2a1d1a] p-7 text-white shadow-[0_28px_70px_rgba(42,29,26,0.34)] md:p-10">
-          <h2 className="text-3xl leading-tight md:text-5xl">Want to create a special arrangement?</h2>
+          <h2 className="text-3xl leading-tight md:text-5xl">Vuoi creare una composizione speciale?</h2>
           <p className="mt-4 max-w-3xl text-base leading-8 text-white/85">
-            Tell us the occasion, style, and message you want to share. CUSI can help you design a personalized floral proposal.
+            Raccontaci l'occasione, lo stile e il messaggio che vuoi trasmettere. CUSI puo aiutarti a progettare una proposta floreale personalizzata.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-[#f4ddd2] px-6 py-3 text-sm font-semibold text-[#2a1d1a] transition duration-300 hover:bg-[#efcfc1]">
-              Write us on WhatsApp
+              Scrivici su WhatsApp
             </a>
-            <a href="/en/#coleccion" className="inline-flex items-center justify-center rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-white/90 transition duration-300 hover:bg-white/10">
-              View collection
+            <a href="/it/#coleccion" className="inline-flex items-center justify-center rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-white/90 transition duration-300 hover:bg-white/10">
+              Vedi collezione
             </a>
           </div>
         </section>
@@ -207,35 +215,35 @@ export default function AboutPageEnClient() {
         <div>
           <img src="/cusi-logo.webp" alt="Logo CUSI" className="h-auto w-[220px] max-w-full" />
           <div className="h-3" aria-hidden="true" />
-          <p>Premium flower studio CDMX</p>
-          <p>Mother's Day collection 2026</p>
+          <p>Studio floreale premium CDMX</p>
+          <p>Collezione Festa della Mamma 2026</p>
         </div>
 
         <div className="text-[#b48700]">
-          <p className="font-semibold">Contact phone numbers</p>
+          <p className="font-semibold">Telefoni di contatto</p>
           <ul className="mt-2 list-disc space-y-2 pl-5">
-            <li className="font-semibold">Orders and quotes: +52 55 2109 2665 / alternate phone +52 55 6157 9500</li>
-            <li className="font-semibold">Order status: +52 56 1923 2940</li>
-            <li className="font-semibold">Emergencies: +52 55 5596 9871</li>
+            <li className="font-semibold">Ordini e preventivi: +52 55 2109 2665 / telefono alternativo +52 55 6157 9500</li>
+            <li className="font-semibold">Stato ordine: +52 56 1923 2940</li>
+            <li className="font-semibold">Emergenze: +52 55 5596 9871</li>
           </ul>
         </div>
 
         <div className="space-y-3 text-[#8a6a00]">
-          <p className="font-semibold text-[#6f5851]">Service information</p>
+          <p className="font-semibold text-[#6f5851]">Informazioni di servizio</p>
           <ul className="list-disc space-y-2 pl-5">
-            <li>Orders via WhatsApp with phone confirmation.</li>
-            <li>Home delivery starting at $600 in CDMX and the metropolitan area.</li>
-            <li>Additional charge for distances over 5 km from Bosques de las Lomas.</li>
-            <li>Weekly arrangements for homes and offices.</li>
-            <li>Events of all sizes.</li>
+            <li>Ordini via WhatsApp con conferma telefonica.</li>
+            <li>Consegna a domicilio a partire da $600 a CDMX e nell'area metropolitana.</li>
+            <li>Supplemento per distanze superiori a 5 km da Bosques de las Lomas.</li>
+            <li>Composizioni settimanali per case e uffici.</li>
+            <li>Eventi di tutte le dimensioni.</li>
           </ul>
-          <p className="pt-1 text-xs text-[#6f5851]">Orders are subject to availability and delivery zone.</p>
+          <p className="pt-1 text-xs text-[#6f5851]">Gli ordini sono soggetti a disponibilita e zona di consegna.</p>
           <div className="pt-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6f5851]">Legal information</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6f5851]">Informazioni legali</p>
             <div className="mt-2 flex flex-col gap-1.5 text-xs font-semibold text-[#6f5851]">
-              <a href="/en/privacy-policy" className="underline underline-offset-2 transition hover:opacity-70">Privacy Policy</a>
-              <a href="/en/tax-information" className="underline underline-offset-2 transition hover:opacity-70">Tax Information</a>
-              <a href="/en/terms-of-use" className="underline underline-offset-2 transition hover:opacity-70">Terms of Use</a>
+              <a href="/it/privacy-policy" className="underline underline-offset-2 transition hover:opacity-70">Informativa sulla privacy</a>
+              <a href="/it/tax-information" className="underline underline-offset-2 transition hover:opacity-70">Informazioni fiscali</a>
+              <a href="/it/terms-of-use" className="underline underline-offset-2 transition hover:opacity-70">Termini di utilizzo</a>
             </div>
           </div>
         </div>
@@ -268,7 +276,11 @@ export default function AboutPageEnClient() {
             ES
           </a>
           <span className="text-[#b8a9a2]">|</span>
-          <span>EN</span>
+          <a href="/en/about" className="underline underline-offset-2 hover:opacity-75">
+            EN
+          </a>
+          <span className="text-[#b8a9a2]">|</span>
+          <span>IT</span>
         </div>
       </div>
     </div>

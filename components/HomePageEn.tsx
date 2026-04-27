@@ -56,26 +56,26 @@ const navLinks = [
 ]
 
 const footerSeoKeywords = [
-  'floreria en cdmx bosques de las lomas cdmx',
-  'floreria premium cdmx bosques de las lomas cdmx',
-  'flores a domicilio cdmx bosques de las lomas cdmx',
-  'arreglos florales cdmx bosques de las lomas cdmx',
-  'ramos de flores cdmx bosques de las lomas cdmx',
-  'flores para mama bosques de las lomas cdmx',
-  'flores dia de las madres bosques de las lomas cdmx',
-  'arreglos dia de las madres bosques de las lomas cdmx',
-  'regalos dia de las madres bosques de las lomas cdmx',
-  'flores para cumpleanos bosques de las lomas cdmx',
-  'ramos para aniversario bosques de las lomas cdmx',
-  'orquideas a domicilio bosques de las lomas cdmx',
-  'tulipanes en ramo bosques de las lomas cdmx',
-  'caja de rosas amarillas bosques de las lomas cdmx',
-  'rosas rojas a domicilio bosques de las lomas cdmx',
-  'arreglos florales elegantes bosques de las lomas cdmx',
-  'floreria bosques de las lomas cdmx',
-  'flores en ciudad de mexico bosques de las lomas cdmx',
-  'envio de flores cdmx bosques de las lomas cdmx',
-  'pedir flores por whatsapp bosques de las lomas cdmx',
+  'flower shop in cdmx bosques de las lomas cdmx',
+  'premium flower shop cdmx bosques de las lomas cdmx',
+  'flower delivery cdmx bosques de las lomas cdmx',
+  'floral arrangements cdmx bosques de las lomas cdmx',
+  'flower bouquets cdmx bosques de las lomas cdmx',
+  'flowers for mom bosques de las lomas cdmx',
+  "mother's day flowers bosques de las lomas cdmx",
+  "mother's day arrangements bosques de las lomas cdmx",
+  "mother's day gifts bosques de las lomas cdmx",
+  'birthday flowers bosques de las lomas cdmx',
+  'anniversary bouquets bosques de las lomas cdmx',
+  'orchid delivery bosques de las lomas cdmx',
+  'tulip bouquet bosques de las lomas cdmx',
+  'yellow rose box bosques de las lomas cdmx',
+  'red roses delivery bosques de las lomas cdmx',
+  'elegant floral arrangements bosques de las lomas cdmx',
+  'flower shop bosques de las lomas cdmx',
+  'flowers in mexico city bosques de las lomas cdmx',
+  'send flowers cdmx bosques de las lomas cdmx',
+  'order flowers on whatsapp bosques de las lomas cdmx',
 ]
 
 const ctaPrimary =
@@ -184,6 +184,10 @@ export default function CusiFloresEnPage() {
               </a>
               <span className="text-[#b8a9a2]">|</span>
               <span>EN</span>
+              <span className="text-[#b8a9a2]">|</span>
+              <a href="/it" className="underline underline-offset-2 hover:opacity-75">
+                IT
+              </a>
             </div>
             <button
               type="button"
@@ -212,6 +216,10 @@ export default function CusiFloresEnPage() {
                 </a>
                 <span className="text-[#b8a9a2]">|</span>
                 <span>EN</span>
+                <span className="text-[#b8a9a2]">|</span>
+                <a href="/it" className="underline underline-offset-2 hover:opacity-75">
+                  IT
+                </a>
               </div>
               {navLinks.map((item) => (
                 <a key={item.label} href={item.href} onClick={() => setMobileMenuOpen(false)} className="rounded-xl px-3 py-2 transition hover:bg-[#f7eee9]">
@@ -487,7 +495,7 @@ export default function CusiFloresEnPage() {
           <p className="font-semibold text-[#6f5851]">Service information</p>
           <ul className="list-disc space-y-2 pl-5">
             <li>Orders via WhatsApp with phone confirmation.</li>
-            <li>Entrega a domicilio desde $600 en CDMX y area metropolitana.</li>
+            <li>Home delivery starting at $600 in CDMX and the metropolitan area.</li>
             <li>Additional charge for distances over 5 km from Bosques de las Lomas.</li>
               <li>Weekly arrangements for homes and offices</li>
               <li>Events of all sizes.</li>
@@ -538,6 +546,10 @@ export default function CusiFloresEnPage() {
           </a>
           <span className="text-[#b8a9a2]">|</span>
           <span>EN</span>
+          <span className="text-[#b8a9a2]">|</span>
+          <a href="/it" className="underline underline-offset-2 hover:opacity-75">
+            IT
+          </a>
         </div>
       </div>
     </div>
