@@ -479,8 +479,8 @@ export default function CusiFloresMockup() {
             <li>Pedidos por WhatsApp con confirmacion telefonica.</li>
             <li>Entrega a domicilio desde $600 en CDMX y area metropolitana.</li>
             <li>Cargo adicional para distancias mayores a 5 km de Bosques de las Lomas.</li>
-            <li>Arreglos semanales para casas, oficinas.</li>
-            <li>Eventos de todos los tamanos.</li>
+              <li>Arreglos semanales para casas y oficinas</li>
+              <li>Eventos de todos los tamaños.</li>
           </ul>
           <p className="pt-1 text-xs text-[#6f5851]">Pedidos sujetos a disponibilidad y zona de entrega.</p>
           <div className="pt-1">
