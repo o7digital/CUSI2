@@ -276,7 +276,7 @@ export default function CusiFloresMockup() {
                   <img src={item.image} alt={item.title} className="h-full w-full object-contain" loading="lazy" />
                 </div>
                 <div className="flex flex-1 flex-col gap-2 p-4">
-                  <h3 className="min-h-[3.4rem] text-[1.6rem] leading-[1.05] text-[#2a1c19] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden">
+                  <h3 className="min-h-[3.4rem] text-[2.1rem] leading-[1.02] text-[#2a1c19] [font-family:var(--font-script)] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden">
                     {item.title}
                   </h3>
                   <p className="text-[1.35rem] leading-tight text-[#8d6c62] italic tracking-[0.01em] [font-family:var(--font-script)]">
