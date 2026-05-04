@@ -7,6 +7,13 @@ export const metadata: Metadata = {
     'Studio floreale premium a CDMX. Bouquet e composizioni floreali per Festa della Mamma, compleanni ed eventi. Ordini via WhatsApp e consegna programmata.',
   alternates: {
     canonical: 'https://www.cusiflores.com/it',
+    languages: {
+      'es-MX': 'https://www.cusiflores.com/',
+      en: 'https://www.cusiflores.com/en',
+      it: 'https://www.cusiflores.com/it',
+      fr: 'https://www.cusiflores.com/fr',
+      'x-default': 'https://www.cusiflores.com/',
+    },
   },
   openGraph: {
     title: 'CUSI | Consegna fiori premium a CDMX',
