@@ -7,6 +7,13 @@ export const metadata: Metadata = {
     'Premium flower studio in CDMX. Bouquets and floral arrangements for Mother\'s Day, birthdays, and events. WhatsApp orders and scheduled delivery.',
   alternates: {
     canonical: 'https://www.cusiflores.com/en',
+    languages: {
+      'es-MX': 'https://www.cusiflores.com/',
+      en: 'https://www.cusiflores.com/en',
+      it: 'https://www.cusiflores.com/it',
+      fr: 'https://www.cusiflores.com/fr',
+      'x-default': 'https://www.cusiflores.com/',
+    },
   },
   openGraph: {
     title: 'CUSI | Premium flower delivery in CDMX',

@@ -22,6 +22,7 @@ const dancingScript = Dancing_Script({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.cusiflores.com'),
   title: 'CUSI | Dia de las Madres 2026 | Floreria premium CDMX',
   description:
     'Coleccion especial 10 de mayo: flores para el Dia de las Madres, arreglos florales premium y entrega de flores en CDMX por CUSI Flores.',
@@ -38,13 +39,45 @@ export const metadata: Metadata = {
     description:
       'Landing premium para pedidos de flores del Dia de las Madres en CDMX. WhatsApp directo y entregas programadas.',
     type: 'website',
+    url: 'https://www.cusiflores.com/',
+    siteName: 'CUSI Flores',
+    locale: 'es_MX',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
   alternates: {
-    canonical: '/',
+    canonical: 'https://www.cusiflores.com/',
   },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const organizationJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'CUSI Flores',
+    url: 'https://www.cusiflores.com',
+    logo: 'https://www.cusiflores.com/cusi-logo.webp',
+    sameAs: ['https://instagram.com/cusiflores'],
+  }
+
+  const localBusinessJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Florist',
+    name: 'CUSI Flores',
+    image: 'https://www.cusiflores.com/cusi-logo.webp',
+    url: 'https://www.cusiflores.com',
+    telephone: '+52 55 2109 2665',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Ciudad de Mexico',
+      addressRegion: 'CDMX',
+      addressCountry: 'MX',
+    },
+    areaServed: 'Ciudad de Mexico',
+  }
+
   return (
     <html lang="es">
       <body className={`${manrope.variable} ${cormorant.variable} ${dancingScript.variable}`}>
@@ -60,6 +93,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-5NB55HC1FZ');
           `}
         </Script>
+        <Script
+          id="organization-jsonld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <Script
+          id="local-business-jsonld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
         {children}
       </body>
     </html>
