@@ -16,28 +16,8 @@ const navLinks = [
   { label: 'Contacto', href: '/#contacto' },
 ]
 
-const footerSeoKeywords = [
-  'floreria en cdmx bosques de las lomas cdmx',
-  'floreria premium cdmx bosques de las lomas cdmx',
-  'flores a domicilio cdmx bosques de las lomas cdmx',
-  'arreglos florales cdmx bosques de las lomas cdmx',
-  'ramos de flores cdmx bosques de las lomas cdmx',
-  'flores para mama bosques de las lomas cdmx',
-  'flores dia de las madres bosques de las lomas cdmx',
-  'arreglos dia de las madres bosques de las lomas cdmx',
-  'regalos dia de las madres bosques de las lomas cdmx',
-  'flores para cumpleanos bosques de las lomas cdmx',
-  'ramos para aniversario bosques de las lomas cdmx',
-  'orquideas a domicilio bosques de las lomas cdmx',
-  'tulipanes en ramo bosques de las lomas cdmx',
-  'caja de rosas amarillas bosques de las lomas cdmx',
-  'rosas rojas a domicilio bosques de las lomas cdmx',
-  'arreglos florales elegantes bosques de las lomas cdmx',
-  'floreria bosques de las lomas cdmx',
-  'flores en ciudad de mexico bosques de las lomas cdmx',
-  'envio de flores cdmx bosques de las lomas cdmx',
-  'pedir flores por whatsapp bosques de las lomas cdmx',
-]
+const footerSeoText =
+  'florería premium CDMX · flores premium a domicilio en CDMX · entrega de flores CDMX · arreglos florales CDMX · ramos de flores CDMX · Día de las Madres flores Lomas de Chapultepec CDMX · arreglos florales 10 de mayo Lomas de Chapultepec CDMX · flores para mamá CDMX · bouquets premium CDMX · orquídeas a domicilio CDMX · tulipanes en ramo Lomas de Chapultepec CDMX · tulipanes en cilindro Lomas de Chapultepec CDMX · rosas premium en ramo Lomas de Chapultepec CDMX · caja rosas amarillas Lomas de Chapultepec CDMX · arreglos para cumpleaños Lomas de Chapultepec CDMX · arreglos para aniversario Lomas de Chapultepec CDMX · regalos florales CDMX · florería Bosques de las Lomas · pedidos de flores por WhatsApp Lomas de Chapultepec CDMX · CUSI Flores Lomas de Chapultepec CDMX · flores 10 de Mayo para mamá CDMX · arreglos florales 10 de Mayo para mamá CDMX · ramos de flores 10 de Mayo para mamá CDMX · regalos florales 10 de Mayo para mamá CDMX · flores para mamá 10 de Mayo CDMX'
 
 const ctaPrimary =
   'inline-flex items-center justify-center rounded-full bg-[#2b1a17] px-6 py-3 text-sm font-medium text-white shadow-[0_16px_40px_rgba(43,29,26,0.24)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#1d100e]'
@@ -219,63 +199,30 @@ export default function QuienesSomosPageClient() {
         </section>
       </main>
 
-      <footer className="mx-auto grid w-[92%] max-w-7xl gap-6 border-t border-[#e6d5cc] py-8 text-sm text-[#6f5851] md:grid-cols-[220px_1fr_1.2fr_auto] md:items-start">
-        <div>
-          <img src="/cusi-logo.webp" alt="Logo CUSI" className="h-auto w-[220px] max-w-full" />
-          <div className="h-3" aria-hidden="true" />
-          <p>Floreria premium CDMX</p>
-          <p>Coleccion Dia de las Madres 2026</p>
-        </div>
-
-        <div className="text-[#b48700]">
-          <p className="font-semibold">Telefonos de contacto</p>
-          <ul className="mt-2 list-disc space-y-2 pl-5">
-            <li className="font-semibold">Pedidos y cotizaciones: +52 55 2109 2665 / telefono Alterno +52 55 6157 9500</li>
-            <li className="font-semibold">Estado de pedido: +52 56 1923 2940</li>
-            <li className="font-semibold">Emergencias: +52 55 5596 9871</li>
-          </ul>
-        </div>
-
-        <div className="space-y-3 text-[#8a6a00]">
-          <p className="font-semibold text-[#6f5851]">Informacion de servicio</p>
-          <ul className="list-disc space-y-2 pl-5">
-            <li>Pedidos por WhatsApp con confirmacion telefonica.</li>
-            <li>Entrega a domicilio desde $600 en CDMX y area metropolitana.</li>
-            <li>Cargo adicional para distancias mayores a 5 km de Bosques de las Lomas.</li>
-            <li>Arreglos semanales para casas, oficinas.</li>
-            <li>Eventos de todos los tamanos.</li>
-          </ul>
-          <p className="pt-1 text-xs text-[#6f5851]">Pedidos sujetos a disponibilidad y zona de entrega.</p>
-          <div className="pt-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6f5851]">Informacion legal</p>
-            <div className="mt-2 flex flex-col gap-1.5 text-xs font-semibold text-[#6f5851]">
-              <a href="/aviso-de-privacidad" className="underline underline-offset-2 transition hover:opacity-70">Aviso de Privacidad</a>
-              <a href="/pago-de-impuestos" className="underline underline-offset-2 transition hover:opacity-70">Pago de Impuestos</a>
-              <a href="/condiciones-generales-de-uso" className="underline underline-offset-2 transition hover:opacity-70">Condiciones Generales de Uso</a>
-            </div>
+            <footer className="mt-10 bg-[#1f2024] text-white">
+        <div className="mx-auto w-[92%] max-w-7xl py-14 md:py-16">
+          <div className="grid gap-5 md:grid-cols-3">
+            <a href="/#coleccion" className="group block min-h-[180px] rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30"><span className="text-3xl font-light tracking-wide text-white/95">COLECCION</span></a>
+            <a href="/#pedido" className="group block min-h-[180px] rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30"><span className="text-3xl font-light tracking-wide text-white/95">PEDIDOS</span></a>
+            <a href="/#contacto" className="group block min-h-[180px] rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30"><span className="text-3xl font-light tracking-wide text-white/95">CONTACTO</span></a>
+          </div>
+          <div className="mt-12 border-t border-white/15 pt-10 text-center">
+            <p className="text-4xl text-[#b99657] md:text-6xl">Haz tu Pedido</p>
+            <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="mx-auto mt-7 inline-flex min-h-[58px] min-w-[320px] items-center justify-center rounded-sm bg-[#b99657] px-8 text-sm font-semibold uppercase tracking-[0.04em] text-white transition hover:bg-[#a7864d]">Haz tu pedido por WhatsApp ahora</a>
           </div>
         </div>
-
-        <div className="md:justify-self-end">
-          <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram CUSI" className="inline-flex items-center justify-center rounded-full border border-[#d8c7be] p-3 transition hover:opacity-80">
-            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-14 w-14">
-              <defs>
-                <linearGradient id="instagram-gradient-quienes" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#ff0033" />
-                  <stop offset="45%" stopColor="#ff1744" />
-                  <stop offset="75%" stopColor="#e1306c" />
-                  <stop offset="100%" stopColor="#c2185b" />
-                </linearGradient>
-              </defs>
-              <path fill="url(#instagram-gradient-quienes)" d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5Zm8.9 2.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" />
-            </svg>
-          </a>
-        </div>
-
-        <div className="md:col-span-4">
-          <p className="mt-2 border-t border-[#e6d5cc] pt-5 text-[11px] leading-6 text-[#907972] md:text-xs">
-            {footerSeoKeywords.join(' · ')}
-          </p>
+        <div className="bg-black py-6">
+          <div className="mx-auto flex w-[92%] max-w-7xl flex-col gap-5">
+            <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-white/90">
+              <p>© Copyright 2026 CUSI Flores |</p>
+              <div className="flex items-center gap-3">
+                <a href="/aviso-de-privacidad" className="transition hover:text-white">Aviso de Privacidad</a>
+                <a href="/pago-de-impuestos" className="transition hover:text-white">Pago de Impuestos</a>
+                <a href="/condiciones-generales-de-uso" className="transition hover:text-white">Condiciones de Uso</a>
+              </div>
+            </div>
+            <div className="mx-auto mt-5 max-w-[1200px] px-5 text-center text-[11px] leading-[1.8] text-white/45 md:text-[12px]">{footerSeoText}</div>
+          </div>
         </div>
       </footer>
       <div className="fixed bottom-4 left-4 z-50">

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
 
 const BRAND = {
@@ -59,6 +59,9 @@ const navLinks = [
 const ctaPrimary =
   'inline-flex items-center justify-center rounded-full bg-[#2b1a17] px-6 py-3 text-sm font-medium text-white shadow-[0_16px_40px_rgba(43,29,26,0.24)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#1d100e]'
 
+const footerSeoText =
+  'florería premium CDMX · flores premium a domicilio en CDMX · entrega de flores CDMX · arreglos florales CDMX · ramos de flores CDMX · Día de las Madres flores Lomas de Chapultepec CDMX · arreglos florales 10 de mayo Lomas de Chapultepec CDMX · flores para mamá CDMX · bouquets premium CDMX · orquídeas a domicilio CDMX · tulipanes en ramo Lomas de Chapultepec CDMX · tulipanes en cilindro Lomas de Chapultepec CDMX · rosas premium en ramo Lomas de Chapultepec CDMX · caja rosas amarillas Lomas de Chapultepec CDMX · arreglos para cumpleaños Lomas de Chapultepec CDMX · arreglos para aniversario Lomas de Chapultepec CDMX · regalos florales CDMX · florería Bosques de las Lomas · pedidos de flores por WhatsApp Lomas de Chapultepec CDMX · CUSI Flores Lomas de Chapultepec CDMX · flores 10 de Mayo para mamá CDMX · arreglos florales 10 de Mayo para mamá CDMX · ramos de flores 10 de Mayo para mamá CDMX · regalos florales 10 de Mayo para mamá CDMX · flores para mamá 10 de Mayo CDMX'
+
 const ctaSoft =
   'inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition duration-300 hover:bg-white/20'
 
@@ -87,6 +90,29 @@ export default function CusiFloresMockup() {
   const [products, setProducts] = useState<ProductCard[]>([])
   const [productsLoading, setProductsLoading] = useState(true)
   const [productsError, setProductsError] = useState<string | null>(null)
+  const productsJsonLd = useMemo(
+    () => ({
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      itemListElement: products.slice(0, 12).map((product, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'Product',
+          name: product.title,
+          image: product.image.startsWith('http') ? product.image : `https://www.cusiflores.com${product.image}`,
+          description: handwrittenDescriptions[product.title] || product.desc,
+          offers: {
+            '@type': 'Offer',
+            priceCurrency: 'MXN',
+            price: product.price.replace(/[^0-9.]/g, ''),
+            availability: 'https://schema.org/InStock',
+          },
+        },
+      })),
+    }),
+    [products]
+  )
 
   useEffect(() => {
     let lastY = window.scrollY
@@ -153,7 +179,7 @@ export default function CusiFloresMockup() {
       <header className={`fixed inset-x-0 top-0 z-50 transition-transform duration-300 ${menuVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="mx-auto mt-3 flex w-[94%] max-w-7xl items-center justify-between rounded-full border border-white/70 bg-[#fffaf7]/85 px-4 py-3 shadow-[0_15px_45px_rgba(62,38,31,0.15)] backdrop-blur-xl md:mt-5 md:px-6">
           <a href="#inicio" className="min-w-0">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-[#94736a] md:text-[11px]">Floreria premium CDMX</p>
+            <p className="text-[10px] uppercase tracking-[0.28em] text-[#94736a] md:text-[11px]">Florería premium CDMX</p>
             <p className="truncate text-[1.7rem] tracking-[0.14em] text-[#2a1c19] md:text-[2.1rem]">{BRAND.name}</p>
           </a>
 
@@ -241,7 +267,7 @@ export default function CusiFloresMockup() {
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-7 text-white/85 md:text-xl md:leading-8">
-                Coleccion especial Dia de las Madres 2026. Ramos y arreglos premium con entrega en zonas seleccionadas de CDMX.
+                Colección especial Día de las Madres 2026. Ramos y arreglos premium con entrega en zonas seleccionadas de CDMX.
               </p>
 
               <p className="mt-4 inline-flex rounded-full bg-[#efe0d8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#60473f] md:text-sm">
@@ -270,7 +296,7 @@ export default function CusiFloresMockup() {
 
             <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-[#e4d1c7] bg-white/95 p-8 shadow-[0_26px_65px_rgba(71,44,35,0.15)] backdrop-blur-sm lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
               <p className="font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Para asegurar la calidad de nuestras flores, los pedidos deben quedar confirmados con 10 dias de anticipacion.&rdquo;
+                &ldquo;Para asegurar la calidad de nuestras flores, los pedidos deben quedar confirmados con 10 días de anticipación.&rdquo;
               </p>
               <p className="-translate-y-[1.5cm] font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
                 &ldquo;Las entregas se realizaran el 7, 8 y 9 de mayo. El 10 de mayo se atendera solo de forma excepcional, sujeto a disponibilidad.&rdquo;
@@ -281,7 +307,7 @@ export default function CusiFloresMockup() {
 
         <section id="coleccion" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10 md:py-14">
           <div className="mb-8 md:mb-10">
-            <p className="text-sm uppercase tracking-[0.24em] text-[#94736a] md:text-base">Coleccion Dia de las Madres</p>
+            <p className="text-sm uppercase tracking-[0.24em] text-[#94736a] md:text-base">Colección Día de las Madres</p>
             <h2 className="mt-3 max-w-3xl text-[1.35rem] leading-tight [font-family:Arial,sans-serif] md:text-[2.295rem]">Arreglos para decir gracias con belleza y presencia.</h2>
             {productsLoading ? <p className="mt-3 text-sm text-[#6f5851]">Cargando productos...</p> : null}
             {productsError ? <p className="mt-3 text-sm text-[#6f5851]">{productsError}</p> : null}
@@ -460,83 +486,65 @@ export default function CusiFloresMockup() {
 
         <section className="mx-auto w-[92%] max-w-7xl py-10 md:py-14">
           <div className="rounded-[2rem] border border-[#e4d2c9] bg-white p-6 md:p-10">
-            <h2 className="text-3xl leading-tight md:text-5xl">Floreria en CDMX: entrega, zonas y tiempos</h2>
+            <h2 className="text-3xl leading-tight md:text-5xl">Florería en CDMX: entrega, zonas y tiempos</h2>
             <p className="mt-4 max-w-4xl text-base leading-8 text-[#5d4740]">
-              Atendemos pedidos en Ciudad de Mexico y zona metropolitana con cobertura selectiva. Gestionamos entregas programadas, arreglos para cumpleanos, aniversario, nacimientos y eventos corporativos.
+              Atendemos pedidos en Ciudad de México y zona metropolitana con cobertura selectiva. Gestionamos entregas programadas, arreglos para cumpleaños, aniversario, nacimientos y eventos corporativos.
             </p>
             <ul className="mt-5 list-disc space-y-2 pl-6 text-base leading-8 text-[#5d4740]">
               <li>Zonas frecuentes: Bosques de las Lomas, Polanco, Lomas, Santa Fe, Roma, Condesa y zonas cercanas.</li>
-              <li>Tiempo de respuesta: confirmacion por WhatsApp y validacion de disponibilidad el mismo dia.</li>
+              <li>Tiempo de respuesta: confirmación por WhatsApp y validación de disponibilidad el mismo día.</li>
               <li>Entrega: costo final segun distancia, horario y tipo de arreglo.</li>
             </ul>
           </div>
         </section>
       </main>
 
-      <footer className="mx-auto grid w-[92%] max-w-7xl gap-6 border-t border-[#e6d5cc] py-8 text-sm text-[#6f5851] md:grid-cols-[220px_1fr_1.2fr_auto] md:items-start">
-        <div>
-          <img src="/cusi-logo.webp" alt="Logo CUSI" className="h-auto w-[220px] max-w-full" />
-          <div className="h-3" aria-hidden="true" />
-          <p>Floreria premium CDMX</p>
-          <p>Coleccion Dia de las Madres 2026</p>
-        </div>
+      <footer className="mt-10 bg-[#1f2024] text-white">
+        <div className="mx-auto w-[92%] max-w-7xl py-14 md:py-16">
+          <div className="grid gap-5 md:grid-cols-3">
+            <a href="#coleccion" className="group relative block min-h-[180px] overflow-hidden rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30">
+              <span className="text-3xl font-light tracking-wide text-white/95">COLECCION</span>
+              <span className="mt-3 block text-sm text-white/70">Arreglos premium y temporada</span>
+            </a>
+            <a href="#pedido" className="group relative block min-h-[180px] overflow-hidden rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30">
+              <span className="text-3xl font-light tracking-wide text-white/95">PEDIDOS</span>
+              <span className="mt-3 block text-sm text-white/70">Cotiza y confirma por WhatsApp</span>
+            </a>
+            <a href="#contacto" className="group relative block min-h-[180px] overflow-hidden rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30">
+              <span className="text-3xl font-light tracking-wide text-white/95">CONTACTO</span>
+              <span className="mt-3 block text-sm text-white/70">Atencion personalizada en CDMX</span>
+            </a>
+          </div>
 
-        <div className="text-[#b48700]">
-          <p className="font-semibold">Telefonos de contacto</p>
-          <ul className="mt-2 list-disc space-y-2 pl-5">
-            <li className="font-semibold">
-              Pedidos y cotizaciones:{' '}
-              <a href="tel:+525521092665" className="underline underline-offset-2 hover:opacity-80">+52 55 2109 2665</a>
-              {' / telefono Alterno '}
-              <a href="tel:+525561579500" className="underline underline-offset-2 hover:opacity-80">+52 55 6157 9500</a>
-            </li>
-            <li className="font-semibold">
-              Estado de pedido:{' '}
-              <a href="tel:+525619232940" className="underline underline-offset-2 hover:opacity-80">+52 56 1923 2940</a>
-            </li>
-            <li className="font-semibold">
-              Emergencias:{' '}
-              <a href="tel:+525555969871" className="underline underline-offset-2 hover:opacity-80">+52 55 5596 9871</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="space-y-3 text-[#8a6a00]">
-          <p className="font-semibold text-[#6f5851]">Informacion de servicio</p>
-          <ul className="list-disc space-y-2 pl-5">
-            <li>Pedidos por WhatsApp con confirmacion telefonica.</li>
-            <li>Entrega a domicilio desde $600 en CDMX y area metropolitana.</li>
-            <li>Cargo adicional para distancias mayores a 5 km de Bosques de las Lomas.</li>
-              <li>Arreglos semanales para casas y oficinas</li>
-              <li>Eventos de todos los tamaños.</li>
-          </ul>
-          <p className="pt-1 text-xs text-[#6f5851]">Pedidos sujetos a disponibilidad y zona de entrega.</p>
-          <div className="pt-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6f5851]">Informacion legal</p>
-            <div className="mt-2 flex flex-col gap-1.5 text-xs font-semibold text-[#6f5851]">
-              <a href="/aviso-de-privacidad" className="underline underline-offset-2 transition hover:opacity-70">Aviso de Privacidad</a>
-              <a href="/pago-de-impuestos" className="underline underline-offset-2 transition hover:opacity-70">Pago de Impuestos</a>
-              <a href="/condiciones-generales-de-uso" className="underline underline-offset-2 transition hover:opacity-70">Condiciones Generales de Uso</a>
-            </div>
+          <div className="mt-12 border-t border-white/15 pt-10 text-center">
+            <p className="text-4xl text-[#b99657] md:text-6xl">Haz tu Pedido</p>
+            <a
+              href={BRAND.whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mx-auto mt-7 inline-flex min-h-[58px] min-w-[320px] items-center justify-center rounded-sm bg-[#b99657] px-8 text-sm font-semibold uppercase tracking-[0.04em] text-white transition hover:bg-[#a7864d]"
+            >
+              Haz tu pedido por WhatsApp ahora
+            </a>
           </div>
         </div>
 
-        <div className="md:justify-self-end">
-          <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram CUSI" className="inline-flex items-center justify-center rounded-full border border-[#d8c7be] p-3 transition hover:opacity-80">
-            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-14 w-14">
-              <defs>
-                <linearGradient id="instagram-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#ff0033" />
-                  <stop offset="45%" stopColor="#ff1744" />
-                  <stop offset="75%" stopColor="#e1306c" />
-                  <stop offset="100%" stopColor="#c2185b" />
-                </linearGradient>
-              </defs>
-              <path fill="url(#instagram-gradient)" d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5Zm8.9 2.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" />
-            </svg>
-          </a>
+        <div className="bg-black py-6">
+          <div className="mx-auto flex w-[92%] max-w-7xl flex-col gap-5">
+            <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-white/90">
+              <p>© Copyright 2026 CUSI Flores |</p>
+              <div className="flex items-center gap-3">
+                <a href="/aviso-de-privacidad" className="transition hover:text-white">Aviso de Privacidad</a>
+                <a href="/pago-de-impuestos" className="transition hover:text-white">Pago de Impuestos</a>
+                <a href="/condiciones-generales-de-uso" className="transition hover:text-white">Condiciones de Uso</a>
+                <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram CUSI" className="transition hover:opacity-80">Instagram</a>
+              </div>
+            </div>
+            <div className="mx-auto mt-5 max-w-[1200px] px-5 text-center text-[11px] leading-[1.8] text-white/45 md:text-[12px]">
+              {footerSeoText}
+            </div>
+          </div>
         </div>
-
       </footer>
 
       <div className="fixed bottom-4 right-4 z-50 md:hidden">
@@ -561,6 +569,8 @@ export default function CusiFloresMockup() {
           </a>
         </div>
       </div>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productsJsonLd) }} />
     </div>
   )
 }

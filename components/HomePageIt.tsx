@@ -463,74 +463,30 @@ export default function CusiFloresItPage() {
         <section id="contacto" className="scroll-mt-32" />
       </main>
 
-      <footer className="mx-auto grid w-[92%] max-w-7xl gap-6 border-t border-[#e6d5cc] py-8 text-sm text-[#6f5851] md:grid-cols-[220px_1fr_1.2fr_auto] md:items-start">
-        <div>
-          <img src="/cusi-logo.webp" alt="Logo CUSI" className="h-auto w-[220px] max-w-full" />
-          <div className="h-3" aria-hidden="true" />
-          <p>Studio floreale premium CDMX</p>
-          <p>Collezione Festa della Mamma 2026</p>
-        </div>
-
-        <div className="text-[#b48700]">
-          <p className="font-semibold">Telefoni di contatto</p>
-          <ul className="mt-2 list-disc space-y-2 pl-5">
-            <li className="font-semibold">
-              Ordini e preventivi:{' '}
-              <a href="tel:+525521092665" className="underline underline-offset-2 hover:opacity-80">+52 55 2109 2665</a>
-              {' / telefono alternativo '}
-              <a href="tel:+525561579500" className="underline underline-offset-2 hover:opacity-80">+52 55 6157 9500</a>
-            </li>
-            <li className="font-semibold">
-              Stato ordine:{' '}
-              <a href="tel:+525619232940" className="underline underline-offset-2 hover:opacity-80">+52 56 1923 2940</a>
-            </li>
-            <li className="font-semibold">
-              Emergenze:{' '}
-              <a href="tel:+525555969871" className="underline underline-offset-2 hover:opacity-80">+52 55 5596 9871</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="space-y-3 text-[#8a6a00]">
-          <p className="font-semibold text-[#6f5851]">Informazioni di servizio</p>
-          <ul className="list-disc space-y-2 pl-5">
-            <li>Ordini via WhatsApp con conferma telefonica.</li>
-            <li>Consegna a domicilio a partire da $600 a CDMX e nell'area metropolitana.</li>
-            <li>Supplemento per distanze superiori a 5 km da Bosques de las Lomas.</li>
-              <li>Composizioni settimanali per case e uffici</li>
-              <li>Eventi di tutte le dimensioni.</li>
-          </ul>
-          <p className="pt-1 text-xs text-[#6f5851]">Gli ordini sono soggetti a disponibilita e zona di consegna.</p>
-          <div className="pt-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6f5851]">Informazioni legali</p>
-            <div className="mt-2 flex flex-col gap-1.5 text-xs font-semibold text-[#6f5851]">
-              <a href="/it/privacy-policy" className="underline underline-offset-2 transition hover:opacity-70">Informativa sulla privacy</a>
-              <a href="/it/tax-information" className="underline underline-offset-2 transition hover:opacity-70">Informazioni fiscali</a>
-              <a href="/it/terms-of-use" className="underline underline-offset-2 transition hover:opacity-70">Termini di utilizzo</a>
-            </div>
+            <footer className="mt-10 bg-[#1f2024] text-white">
+        <div className="mx-auto w-[92%] max-w-7xl py-14 md:py-16">
+          <div className="grid gap-5 md:grid-cols-3">
+            <a href="#coleccion" className="group block min-h-[180px] rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30"><span className="text-3xl font-light tracking-wide text-white/95">COLLEZIONE</span></a>
+            <a href="#pedido" className="group block min-h-[180px] rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30"><span className="text-3xl font-light tracking-wide text-white/95">ORDINI</span></a>
+            <a href="#contacto" className="group block min-h-[180px] rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30"><span className="text-3xl font-light tracking-wide text-white/95">CONTATTO</span></a>
+          </div>
+          <div className="mt-12 border-t border-white/15 pt-10 text-center">
+            <p className="text-4xl text-[#b99657] md:text-6xl">Prenota il tuo ordine</p>
+            <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="mx-auto mt-7 inline-flex min-h-[58px] min-w-[320px] items-center justify-center rounded-sm bg-[#b99657] px-8 text-sm font-semibold uppercase tracking-[0.04em] text-white transition hover:bg-[#a7864d]">Ordina su WhatsApp</a>
           </div>
         </div>
-
-        <div className="md:justify-self-end">
-          <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram CUSI" className="inline-flex items-center justify-center rounded-full border border-[#d8c7be] p-3 transition hover:opacity-80">
-            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-14 w-14">
-              <defs>
-                <linearGradient id="instagram-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#ff0033" />
-                  <stop offset="45%" stopColor="#ff1744" />
-                  <stop offset="75%" stopColor="#e1306c" />
-                  <stop offset="100%" stopColor="#c2185b" />
-                </linearGradient>
-              </defs>
-              <path fill="url(#instagram-gradient)" d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5Zm8.9 2.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" />
-            </svg>
-          </a>
-        </div>
-
-        <div className="md:col-span-4">
-          <p className="mt-2 border-t border-[#e6d5cc] pt-5 text-[11px] leading-6 text-[#907972] md:text-xs">
-            {footerSeoKeywords.join(' · ')}
-          </p>
+        <div className="bg-black py-6">
+          <div className="mx-auto flex w-[92%] max-w-7xl flex-col gap-5">
+            <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-white/90">
+              <p>© Copyright 2026 CUSI Flores |</p>
+              <div className="flex items-center gap-3">
+                <a href="/it/privacy-policy" className="transition hover:text-white">Privacy</a>
+                <a href="/it/tax-information" className="transition hover:text-white">Tax</a>
+                <a href="/it/terms-of-use" className="transition hover:text-white">Terms</a>
+              </div>
+            </div>
+            <div className="text-center text-[12px] leading-6 text-white/55">{footerSeoKeywords.join(' · ')}</div>
+          </div>
         </div>
       </footer>
 
