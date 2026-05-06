@@ -110,7 +110,7 @@ export default function CusiFloresEnPage() {
 
     const loadProducts = async () => {
       try {
-        const response = await fetch('/api/products')
+        const response = await fetch(`/api/products?t=${Date.now()}`, { cache: 'no-store' })
         if (!response.ok) {
           throw new Error(`Products API failed with ${response.status}`)
         }
@@ -288,7 +288,7 @@ export default function CusiFloresEnPage() {
                   {item.title === 'Tulipanes en ramo' ? <p className="text-sm font-medium text-[#664f48]">2 dozen</p> : null}
                   {item.title === 'Tulipanes en cilindro' ? <p className="text-sm font-medium text-[#664f48]">40 stems</p> : null}
                   <div className="mt-auto space-y-2">
-                    <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price} + IVA</p>
+                    <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price}</p>
                     <a
                       href={BRAND.whatsappUrl}
                       target="_blank"
