@@ -77,6 +77,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     },
     areaServed: 'Ciudad de Mexico',
   }
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'CUSI Flores',
+    url: 'https://www.cusiflores.com',
+    inLanguage: ['es-MX', 'en', 'it', 'fr'],
+  }
 
   return (
     <html lang="es">
@@ -102,6 +109,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           id="local-business-jsonld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
+        <Script
+          id="website-jsonld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         {children}
       </body>

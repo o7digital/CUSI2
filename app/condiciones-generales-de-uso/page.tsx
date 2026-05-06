@@ -12,6 +12,13 @@ export const metadata: Metadata = {
     'Terminos y condiciones generales de uso del sitio de CUSI Flores: pedidos, entregas, disponibilidad, cancelaciones y responsabilidad.',
   alternates: {
     canonical: 'https://www.cusiflores.com/condiciones-generales-de-uso',
+    languages: {
+      'es-MX': 'https://www.cusiflores.com/condiciones-generales-de-uso',
+      en: 'https://www.cusiflores.com/en/terms-of-use',
+      it: 'https://www.cusiflores.com/it/terms-of-use',
+      fr: 'https://www.cusiflores.com/fr/terms-of-use',
+      'x-default': 'https://www.cusiflores.com/condiciones-generales-de-uso',
+    },
   },
   robots: {
     index: true,

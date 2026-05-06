@@ -56,29 +56,6 @@ const navLinks = [
   { label: 'Contacto', href: '#contacto' },
 ]
 
-const footerSeoKeywords = [
-  'floreria en cdmx bosques de las lomas cdmx',
-  'floreria premium cdmx bosques de las lomas cdmx',
-  'flores a domicilio cdmx bosques de las lomas cdmx',
-  'arreglos florales cdmx bosques de las lomas cdmx',
-  'ramos de flores cdmx bosques de las lomas cdmx',
-  'flores para mama bosques de las lomas cdmx',
-  'flores dia de las madres bosques de las lomas cdmx',
-  'arreglos dia de las madres bosques de las lomas cdmx',
-  'regalos dia de las madres bosques de las lomas cdmx',
-  'flores para cumpleanos bosques de las lomas cdmx',
-  'ramos para aniversario bosques de las lomas cdmx',
-  'orquideas a domicilio bosques de las lomas cdmx',
-  'tulipanes en ramo bosques de las lomas cdmx',
-  'caja de rosas amarillas bosques de las lomas cdmx',
-  'rosas rojas a domicilio bosques de las lomas cdmx',
-  'arreglos florales elegantes bosques de las lomas cdmx',
-  'floreria bosques de las lomas cdmx',
-  'flores en ciudad de mexico bosques de las lomas cdmx',
-  'envio de flores cdmx bosques de las lomas cdmx',
-  'pedir flores por whatsapp bosques de las lomas cdmx',
-]
-
 const ctaPrimary =
   'inline-flex items-center justify-center rounded-full bg-[#2b1a17] px-6 py-3 text-sm font-medium text-white shadow-[0_16px_40px_rgba(43,29,26,0.24)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#1d100e]'
 
@@ -97,6 +74,11 @@ const handwrittenDescriptions: Record<string, string> = {
   'Orquídea Phalenopsis En Escultura de Piedra 3 varas': '3 varas en escultura, trazo artistico.',
   'Orquídea Phalenopsis En Cilindro de Cristal': 'Orquidea en cristal, elegancia atemporal.',
   'Orquídea Fiusha Phalenopsis': 'Fiusha vibrante para un detalle inolvidable.',
+}
+
+const productImageOverrides: Record<string, string> = {
+  'Tulipanes en ramo': '/fotos/tulipe.jpg',
+  'Tulipanes en cilindro': '/mothers-day-2026/image-4-1.webp',
 }
 
 export default function CusiFloresMockup() {
@@ -138,7 +120,12 @@ export default function CusiFloresMockup() {
 
         const data = (await response.json()) as { products?: ProductCard[] }
         if (isMounted && Array.isArray(data.products) && data.products.length > 0) {
-          setProducts(data.products)
+          setProducts(
+            data.products.map((product) => ({
+              ...product,
+              image: productImageOverrides[product.title] || product.image,
+            }))
+          )
           setProductsError(null)
         }
       } catch (error) {
@@ -258,7 +245,7 @@ export default function CusiFloresMockup() {
               </p>
 
               <p className="mt-4 inline-flex rounded-full bg-[#efe0d8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#60473f] md:text-sm">
-                Agenda tu pedido antes del 5 de mayo
+                Agenda tu pedido antes del 8 de mayo
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3 md:gap-4">
@@ -304,20 +291,20 @@ export default function CusiFloresMockup() {
             {products.map((item) => (
               <article key={item.title} className="flex h-full flex-col overflow-hidden rounded-[1.6rem] border border-[#ead8cf] bg-[#fffdfa] shadow-[0_16px_42px_rgba(74,46,37,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_58px_rgba(74,46,37,0.14)]">
                 <div className="flex h-52 items-center justify-center bg-[#f7efea] px-4 py-3 md:h-56">
-                  <Image src={item.image} alt={item.title} width={480} height={480} className="h-full w-full object-contain scale-[1.2]" loading="lazy" />
+                  <img src={item.image} alt={item.title} className="h-full w-full object-contain scale-[1.2]" loading="lazy" />
                 </div>
                 <div className="flex flex-1 flex-col gap-2 p-4">
-                  <h3 className={`min-h-[3.4rem] leading-[1.02] text-[#2a1c19] [font-family:var(--font-script)] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden ${item.title === 'Orquídea Phalenopsis En Escultura de Piedra 3 varas' ? 'text-[1.512rem]' : 'text-[1.89rem]'}`}>
+                  <h3 className="min-h-[3.4rem] text-[1.512rem] leading-[1.02] text-[#2a1c19] [font-family:var(--font-script)] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden">
                     {item.title}
                   </h3>
-                  <p className={`leading-tight text-[#8d6c62] italic tracking-[0.01em] [font-family:Arial,sans-serif] ${item.title === 'Orquídea Phalenopsis En Escultura de Piedra 3 varas' ? 'text-[1.08rem]' : 'text-[1.35rem]'}`}>
+                  <p className="text-[1.08rem] leading-tight text-[#8d6c62] italic tracking-[0.01em] [font-family:Arial,sans-serif]">
                     {handwrittenDescriptions[item.title] || 'Diseno floral con sello CUSI.'}
                   </p>
                   {item.title === 'Caja Rosas Amarillas' ? <p className="text-sm font-medium text-[#664f48]">16 Rosas</p> : null}
                   {item.title === 'Tulipanes en ramo' ? <p className="text-sm font-medium text-[#664f48]">2 docenas</p> : null}
                   {item.title === 'Tulipanes en cilindro' ? <p className="text-sm font-medium text-[#664f48]">4 Decenas</p> : null}
                   <div className="mt-auto space-y-2">
-                    <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price} + IVA</p>
+                    <p className="text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price} + IVA</p>
                     <a
                       href={BRAND.whatsappUrl}
                       target="_blank"
@@ -470,6 +457,20 @@ export default function CusiFloresMockup() {
         </section>
 
         <section id="contacto" className="scroll-mt-32" />
+
+        <section className="mx-auto w-[92%] max-w-7xl py-10 md:py-14">
+          <div className="rounded-[2rem] border border-[#e4d2c9] bg-white p-6 md:p-10">
+            <h2 className="text-3xl leading-tight md:text-5xl">Floreria en CDMX: entrega, zonas y tiempos</h2>
+            <p className="mt-4 max-w-4xl text-base leading-8 text-[#5d4740]">
+              Atendemos pedidos en Ciudad de Mexico y zona metropolitana con cobertura selectiva. Gestionamos entregas programadas, arreglos para cumpleanos, aniversario, nacimientos y eventos corporativos.
+            </p>
+            <ul className="mt-5 list-disc space-y-2 pl-6 text-base leading-8 text-[#5d4740]">
+              <li>Zonas frecuentes: Bosques de las Lomas, Polanco, Lomas, Santa Fe, Roma, Condesa y zonas cercanas.</li>
+              <li>Tiempo de respuesta: confirmacion por WhatsApp y validacion de disponibilidad el mismo dia.</li>
+              <li>Entrega: costo final segun distancia, horario y tipo de arreglo.</li>
+            </ul>
+          </div>
+        </section>
       </main>
 
       <footer className="mx-auto grid w-[92%] max-w-7xl gap-6 border-t border-[#e6d5cc] py-8 text-sm text-[#6f5851] md:grid-cols-[220px_1fr_1.2fr_auto] md:items-start">
@@ -536,11 +537,6 @@ export default function CusiFloresMockup() {
           </a>
         </div>
 
-        <div className="md:col-span-4">
-          <p className="mt-2 border-t border-[#e6d5cc] pt-5 text-[11px] leading-6 text-[#907972] md:text-xs">
-            {footerSeoKeywords.join(' · ')}
-          </p>
-        </div>
       </footer>
 
       <div className="fixed bottom-4 right-4 z-50 md:hidden">
