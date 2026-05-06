@@ -55,28 +55,8 @@ const navLinks = [
   { label: 'Contatto', href: '#contacto' },
 ]
 
-const footerSeoKeywords = [
-  'fioreria a cdmx bosques de las lomas cdmx',
-  'fioreria premium cdmx bosques de las lomas cdmx',
-  'consegna fiori cdmx bosques de las lomas cdmx',
-  'composizioni floreali cdmx bosques de las lomas cdmx',
-  'bouquet di fiori cdmx bosques de las lomas cdmx',
-  'fiori per la mamma bosques de las lomas cdmx',
-  'fiori festa della mamma bosques de las lomas cdmx',
-  'composizioni festa della mamma bosques de las lomas cdmx',
-  'regali festa della mamma bosques de las lomas cdmx',
-  'fiori di compleanno bosques de las lomas cdmx',
-  'bouquet anniversario bosques de las lomas cdmx',
-  'consegna orchidee bosques de las lomas cdmx',
-  'bouquet di tulipani bosques de las lomas cdmx',
-  'scatola di rose gialle bosques de las lomas cdmx',
-  'consegna rose rosse bosques de las lomas cdmx',
-  'composizioni floreali eleganti bosques de las lomas cdmx',
-  'fioreria bosques de las lomas cdmx',
-  'fiori a citta del messico bosques de las lomas cdmx',
-  'inviare fiori cdmx bosques de las lomas cdmx',
-  'ordinare fiori su whatsapp bosques de las lomas cdmx',
-]
+const footerSeoText =
+  'florería premium CDMX · flores premium a domicilio en CDMX · entrega de flores CDMX · arreglos florales CDMX · ramos de flores CDMX · Día de las Madres flores Lomas de Chapultepec CDMX · arreglos florales 10 de mayo Lomas de Chapultepec CDMX · flores para mamá CDMX · bouquets premium CDMX · orquídeas a domicilio CDMX · tulipanes en ramo Lomas de Chapultepec CDMX · tulipanes en cilindro Lomas de Chapultepec CDMX · rosas premium en ramo Lomas de Chapultepec CDMX · caja rosas amarillas Lomas de Chapultepec CDMX · arreglos para cumpleaños Lomas de Chapultepec CDMX · arreglos para aniversario Lomas de Chapultepec CDMX · regalos florales CDMX · florería Bosques de las Lomas · pedidos de flores por WhatsApp Lomas de Chapultepec CDMX · CUSI Flores Lomas de Chapultepec CDMX · flores 10 de Mayo para mamá CDMX · arreglos florales 10 de Mayo para mamá CDMX · ramos de flores 10 de Mayo para mamá CDMX · regalos florales 10 de Mayo para mamá CDMX · flores para mamá 10 de Mayo CDMX'
 
 const ctaPrimary =
   'inline-flex items-center justify-center rounded-full bg-[#2b1a17] px-6 py-3 text-sm font-medium text-white shadow-[0_16px_40px_rgba(43,29,26,0.24)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#1d100e]'
@@ -485,7 +465,7 @@ export default function CusiFloresItPage() {
                 <a href="/it/terms-of-use" className="transition hover:text-white">Terms</a>
               </div>
             </div>
-            <div className="text-center text-[12px] leading-6 text-white/55">{footerSeoKeywords.join(' · ')}</div>
+            <div className="mx-auto mt-5 max-w-[1200px] border-t border-white/10 px-5 pt-5 text-center text-[12px] leading-[1.8] text-white/65">{footerSeoText}</div>
           </div>
         </div>
       </footer>
