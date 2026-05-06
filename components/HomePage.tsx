@@ -139,7 +139,7 @@ export default function CusiFloresMockup() {
 
     const loadProducts = async () => {
       try {
-        const response = await fetch('/api/products')
+        const response = await fetch(`/api/products?t=${Date.now()}`, { cache: 'no-store' })
         if (!response.ok) {
           throw new Error(`Products API failed with ${response.status}`)
         }
@@ -330,7 +330,7 @@ export default function CusiFloresMockup() {
                   {item.title === 'Tulipanes en ramo' ? <p className="text-sm font-medium text-[#664f48]">2 docenas</p> : null}
                   {item.title === 'Tulipanes en cilindro' ? <p className="text-sm font-medium text-[#664f48]">4 Decenas</p> : null}
                   <div className="mt-auto space-y-2">
-                    <p className="text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price} + IVA</p>
+                    <p className="text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price}</p>
                     <a
                       href={BRAND.whatsappUrl}
                       target="_blank"
@@ -537,6 +537,8 @@ export default function CusiFloresMockup() {
                 <a href="/aviso-de-privacidad" className="transition hover:text-white">Aviso de Privacidad</a>
                 <a href="/pago-de-impuestos" className="transition hover:text-white">Pago de Impuestos</a>
                 <a href="/condiciones-generales-de-uso" className="transition hover:text-white">Condiciones de Uso</a>
+                <a href="/flores-lomas-de-chapultepec" className="transition hover:text-white">Lomas de Chapultepec</a>
+                <a href="/flores-bosques-de-las-lomas" className="transition hover:text-white">Bosques de las Lomas</a>
                 <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram CUSI" className="transition hover:opacity-80">Instagram</a>
               </div>
             </div>

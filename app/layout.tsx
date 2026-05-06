@@ -42,6 +42,21 @@ export const metadata: Metadata = {
     url: 'https://www.cusiflores.com/',
     siteName: 'CUSI Flores',
     locale: 'es_MX',
+    images: [
+      {
+        url: '/cusi-logo.webp',
+        width: 1200,
+        height: 630,
+        alt: 'CUSI Flores',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CUSI | Coleccion 10 de mayo 2026',
+    description:
+      'Arreglos florales premium y entrega de flores en CDMX. Pedidos por WhatsApp.',
+    images: ['/cusi-logo.webp'],
   },
   robots: {
     index: true,
@@ -49,6 +64,13 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.cusiflores.com/',
+    languages: {
+      'es-MX': 'https://www.cusiflores.com/',
+      en: 'https://www.cusiflores.com/en',
+      it: 'https://www.cusiflores.com/it',
+      fr: 'https://www.cusiflores.com/fr',
+      'x-default': 'https://www.cusiflores.com/',
+    },
   },
 }
 
@@ -84,6 +106,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     url: 'https://www.cusiflores.com',
     inLanguage: ['es-MX', 'en', 'it', 'fr'],
   }
+  const servicesJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Store',
+    name: 'CUSI Flores',
+    url: 'https://www.cusiflores.com',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Servicios florales en CDMX',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Entrega de flores en CDMX' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Arreglos florales premium' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Ramos para Dia de las Madres' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Pedidos por WhatsApp' } },
+      ],
+    },
+  }
 
   return (
     <html lang="es">
@@ -114,6 +152,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           id="website-jsonld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <Script
+          id="services-jsonld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
         />
         {children}
       </body>
