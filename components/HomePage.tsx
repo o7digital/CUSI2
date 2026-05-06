@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
 
 const BRAND = {
@@ -87,6 +87,29 @@ export default function CusiFloresMockup() {
   const [products, setProducts] = useState<ProductCard[]>([])
   const [productsLoading, setProductsLoading] = useState(true)
   const [productsError, setProductsError] = useState<string | null>(null)
+  const productsJsonLd = useMemo(
+    () => ({
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      itemListElement: products.slice(0, 12).map((product, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'Product',
+          name: product.title,
+          image: product.image.startsWith('http') ? product.image : `https://www.cusiflores.com${product.image}`,
+          description: handwrittenDescriptions[product.title] || product.desc,
+          offers: {
+            '@type': 'Offer',
+            priceCurrency: 'MXN',
+            price: product.price.replace(/[^0-9.]/g, ''),
+            availability: 'https://schema.org/InStock',
+          },
+        },
+      })),
+    }),
+    [products]
+  )
 
   useEffect(() => {
     let lastY = window.scrollY
@@ -153,7 +176,7 @@ export default function CusiFloresMockup() {
       <header className={`fixed inset-x-0 top-0 z-50 transition-transform duration-300 ${menuVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="mx-auto mt-3 flex w-[94%] max-w-7xl items-center justify-between rounded-full border border-white/70 bg-[#fffaf7]/85 px-4 py-3 shadow-[0_15px_45px_rgba(62,38,31,0.15)] backdrop-blur-xl md:mt-5 md:px-6">
           <a href="#inicio" className="min-w-0">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-[#94736a] md:text-[11px]">Floreria premium CDMX</p>
+            <p className="text-[10px] uppercase tracking-[0.28em] text-[#94736a] md:text-[11px]">Florería premium CDMX</p>
             <p className="truncate text-[1.7rem] tracking-[0.14em] text-[#2a1c19] md:text-[2.1rem]">{BRAND.name}</p>
           </a>
 
@@ -241,7 +264,7 @@ export default function CusiFloresMockup() {
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-7 text-white/85 md:text-xl md:leading-8">
-                Coleccion especial Dia de las Madres 2026. Ramos y arreglos premium con entrega en zonas seleccionadas de CDMX.
+                Colección especial Día de las Madres 2026. Ramos y arreglos premium con entrega en zonas seleccionadas de CDMX.
               </p>
 
               <p className="mt-4 inline-flex rounded-full bg-[#efe0d8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#60473f] md:text-sm">
@@ -270,7 +293,7 @@ export default function CusiFloresMockup() {
 
             <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-[#e4d1c7] bg-white/95 p-8 shadow-[0_26px_65px_rgba(71,44,35,0.15)] backdrop-blur-sm lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
               <p className="font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Para asegurar la calidad de nuestras flores, los pedidos deben quedar confirmados con 10 dias de anticipacion.&rdquo;
+                &ldquo;Para asegurar la calidad de nuestras flores, los pedidos deben quedar confirmados con 10 días de anticipación.&rdquo;
               </p>
               <p className="-translate-y-[1.5cm] font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
                 &ldquo;Las entregas se realizaran el 7, 8 y 9 de mayo. El 10 de mayo se atendera solo de forma excepcional, sujeto a disponibilidad.&rdquo;
@@ -281,7 +304,7 @@ export default function CusiFloresMockup() {
 
         <section id="coleccion" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10 md:py-14">
           <div className="mb-8 md:mb-10">
-            <p className="text-sm uppercase tracking-[0.24em] text-[#94736a] md:text-base">Coleccion Dia de las Madres</p>
+            <p className="text-sm uppercase tracking-[0.24em] text-[#94736a] md:text-base">Colección Día de las Madres</p>
             <h2 className="mt-3 max-w-3xl text-[1.35rem] leading-tight [font-family:Arial,sans-serif] md:text-[2.295rem]">Arreglos para decir gracias con belleza y presencia.</h2>
             {productsLoading ? <p className="mt-3 text-sm text-[#6f5851]">Cargando productos...</p> : null}
             {productsError ? <p className="mt-3 text-sm text-[#6f5851]">{productsError}</p> : null}
@@ -460,13 +483,13 @@ export default function CusiFloresMockup() {
 
         <section className="mx-auto w-[92%] max-w-7xl py-10 md:py-14">
           <div className="rounded-[2rem] border border-[#e4d2c9] bg-white p-6 md:p-10">
-            <h2 className="text-3xl leading-tight md:text-5xl">Floreria en CDMX: entrega, zonas y tiempos</h2>
+            <h2 className="text-3xl leading-tight md:text-5xl">Florería en CDMX: entrega, zonas y tiempos</h2>
             <p className="mt-4 max-w-4xl text-base leading-8 text-[#5d4740]">
-              Atendemos pedidos en Ciudad de Mexico y zona metropolitana con cobertura selectiva. Gestionamos entregas programadas, arreglos para cumpleanos, aniversario, nacimientos y eventos corporativos.
+              Atendemos pedidos en Ciudad de México y zona metropolitana con cobertura selectiva. Gestionamos entregas programadas, arreglos para cumpleaños, aniversario, nacimientos y eventos corporativos.
             </p>
             <ul className="mt-5 list-disc space-y-2 pl-6 text-base leading-8 text-[#5d4740]">
               <li>Zonas frecuentes: Bosques de las Lomas, Polanco, Lomas, Santa Fe, Roma, Condesa y zonas cercanas.</li>
-              <li>Tiempo de respuesta: confirmacion por WhatsApp y validacion de disponibilidad el mismo dia.</li>
+              <li>Tiempo de respuesta: confirmación por WhatsApp y validación de disponibilidad el mismo día.</li>
               <li>Entrega: costo final segun distancia, horario y tipo de arreglo.</li>
             </ul>
           </div>
@@ -561,6 +584,8 @@ export default function CusiFloresMockup() {
           </a>
         </div>
       </div>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productsJsonLd) }} />
     </div>
   )
 }
