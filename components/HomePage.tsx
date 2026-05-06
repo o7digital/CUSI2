@@ -284,17 +284,17 @@ export default function CusiFloresMockup() {
                   <img src={item.image} alt={item.title} className="h-full w-full object-contain scale-[1.2]" loading="lazy" />
                 </div>
                 <div className="flex flex-1 flex-col gap-2 p-4">
-                  <h3 className={`min-h-[3.4rem] leading-[1.02] text-[#2a1c19] [font-family:var(--font-script)] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden ${item.title === 'Orquídea Phalenopsis En Escultura de Piedra 3 varas' ? 'text-[1.512rem]' : 'text-[1.89rem]'}`}>
+                  <h3 className="min-h-[3.4rem] text-[1.89rem] leading-[1.02] text-[#2a1c19] [font-family:var(--font-script)] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden">
                     {item.title}
                   </h3>
-                  <p className={`leading-tight text-[#8d6c62] italic tracking-[0.01em] [font-family:Arial,sans-serif] ${item.title === 'Orquídea Phalenopsis En Escultura de Piedra 3 varas' ? 'text-[1.08rem]' : 'text-[1.35rem]'}`}>
+                  <p className="text-[1.35rem] leading-tight text-[#8d6c62] italic tracking-[0.01em] [font-family:Arial,sans-serif]">
                     {handwrittenDescriptions[item.title] || 'Diseno floral con sello CUSI.'}
                   </p>
                   {item.title === 'Caja Rosas Amarillas' ? <p className="text-sm font-medium text-[#664f48]">16 Rosas</p> : null}
                   {item.title === 'Tulipanes en ramo' ? <p className="text-sm font-medium text-[#664f48]">2 docenas</p> : null}
                   {item.title === 'Tulipanes en cilindro' ? <p className="text-sm font-medium text-[#664f48]">4 Decenas</p> : null}
                   <div className="mt-auto space-y-2">
-                    <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price} + IVA</p>
+                    <p className="text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price} + IVA</p>
                     <a
                       href={BRAND.whatsappUrl}
                       target="_blank"
