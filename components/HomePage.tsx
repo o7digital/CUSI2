@@ -540,7 +540,7 @@ export default function CusiFloresMockup() {
                 <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram CUSI" className="transition hover:opacity-80">Instagram</a>
               </div>
             </div>
-            <div className="mx-auto mt-5 max-w-[1200px] px-5 text-center text-[11px] leading-[1.8] text-white/45 md:text-[12px]">
+            <div className="mx-auto mt-5 max-w-[1200px] border-t border-white/10 px-5 pt-5 text-center text-[12px] leading-[1.8] text-white/65">
               {footerSeoText}
             </div>
           </div>
