@@ -12,6 +12,13 @@ export const metadata: Metadata = {
     'Informacion fiscal de CUSI Flores: facturacion CFDI, requisitos de datos fiscales y acreditacion de pagos.',
   alternates: {
     canonical: 'https://www.cusiflores.com/pago-de-impuestos',
+    languages: {
+      'es-MX': 'https://www.cusiflores.com/pago-de-impuestos',
+      en: 'https://www.cusiflores.com/en/tax-information',
+      it: 'https://www.cusiflores.com/it/tax-information',
+      fr: 'https://www.cusiflores.com/fr/tax-information',
+      'x-default': 'https://www.cusiflores.com/pago-de-impuestos',
+    },
   },
   robots: {
     index: true,

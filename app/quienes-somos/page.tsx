@@ -7,6 +7,13 @@ export const metadata: Metadata = {
     'Conoce a CUSI Flores: boutique floral premium en CDMX, enfocada en diseno floral elegante, atencion personalizada y entregas cuidadas.',
   alternates: {
     canonical: 'https://www.cusiflores.com/quienes-somos',
+    languages: {
+      'es-MX': 'https://www.cusiflores.com/quienes-somos',
+      en: 'https://www.cusiflores.com/en/about',
+      it: 'https://www.cusiflores.com/it/about',
+      fr: 'https://www.cusiflores.com/fr/about',
+      'x-default': 'https://www.cusiflores.com/quienes-somos',
+    },
   },
   openGraph: {
     title: 'Quienes Somos | CUSI Flores',

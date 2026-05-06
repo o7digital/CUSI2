@@ -12,6 +12,13 @@ export const metadata: Metadata = {
     'Aviso de Privacidad Integral de CUSI Flores: tratamiento de datos personales, finalidades, derechos ARCO y medios de contacto.',
   alternates: {
     canonical: 'https://www.cusiflores.com/aviso-de-privacidad',
+    languages: {
+      'es-MX': 'https://www.cusiflores.com/aviso-de-privacidad',
+      en: 'https://www.cusiflores.com/en/privacy-policy',
+      it: 'https://www.cusiflores.com/it/privacy-policy',
+      fr: 'https://www.cusiflores.com/fr/privacy-policy',
+      'x-default': 'https://www.cusiflores.com/aviso-de-privacidad',
+    },
   },
   robots: {
     index: true,
