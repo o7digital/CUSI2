@@ -82,6 +82,7 @@ const handwrittenDescriptions: Record<string, string> = {
 export default function CusiFloresMockup() {
   const [menuVisible, setMenuVisible] = useState(true)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [selectedProduct, setSelectedProduct] = useState<ProductCard | null>(null)
   const [products, setProducts] = useState<ProductCard[]>([])
   const [productsLoading, setProductsLoading] = useState(true)
   const [productsError, setProductsError] = useState<string | null>(null)
@@ -163,6 +164,27 @@ export default function CusiFloresMockup() {
       isMounted = false
     }
   }, [])
+
+  useEffect(() => {
+    if (!selectedProduct) {
+      return
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedProduct(null)
+      }
+    }
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [selectedProduct])
 
   return (
     <div className="min-h-screen bg-[#f6efe9] text-[#241715] selection:bg-[#dcc1b7] selection:text-[#2b1a17]">
@@ -306,9 +328,22 @@ export default function CusiFloresMockup() {
           <div className="grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-3">
             {products.map((item) => (
               <article key={item.title} className="flex h-full flex-col overflow-hidden rounded-[1.6rem] border border-[#ead8cf] bg-[#fffdfa] shadow-[0_16px_42px_rgba(74,46,37,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_58px_rgba(74,46,37,0.14)]">
-                <div className="flex h-52 items-center justify-center bg-[#f7efea] px-4 py-3 md:h-56">
-                  <img src={item.image} alt={`Arreglo floral ${item.title} CUSI CDMX`} className="h-full w-full object-contain scale-[1.2]" loading="lazy" />
-                </div>
+                <button
+                  type="button"
+                  onClick={() => setSelectedProduct(item)}
+                  className="group relative flex h-52 items-center justify-center overflow-hidden bg-[#f7efea] px-4 py-3 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8d6c62] focus-visible:ring-offset-2 md:h-56"
+                  aria-label={`Ver imagen ampliada de ${item.title}`}
+                >
+                  <img
+                    src={item.image}
+                    alt={`Arreglo floral ${item.title} CUSI CDMX`}
+                    className="h-full w-full scale-[1.2] object-contain transition duration-500 ease-out group-hover:scale-[1.36] group-focus-visible:scale-[1.36]"
+                    loading="lazy"
+                  />
+                  <span className="pointer-events-none absolute inset-x-4 bottom-3 translate-y-2 rounded-full border border-white/60 bg-[#2b1a17]/70 px-3 py-1.5 text-center text-xs font-semibold uppercase tracking-[0.14em] text-white opacity-0 shadow-[0_10px_28px_rgba(43,26,23,0.18)] backdrop-blur-md transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
+                    Ver detalle
+                  </span>
+                </button>
                 <div className="flex flex-1 flex-col gap-2 p-4">
                   <h3 className="min-h-[3.4rem] text-[1.512rem] leading-[1.02] text-[#2a1c19] [font-family:var(--font-script)] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden">
                     {item.title}
@@ -341,6 +376,37 @@ export default function CusiFloresMockup() {
             </div>
           ) : null}
         </section>
+
+        {selectedProduct ? (
+          <div
+            className="fixed inset-0 z-[80] flex items-center justify-center bg-[#1e1210]/85 px-4 py-6 backdrop-blur-sm"
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Imagen ampliada de ${selectedProduct.title}`}
+            onClick={() => setSelectedProduct(null)}
+          >
+            <div className="relative flex max-h-[92svh] w-full max-w-5xl flex-col overflow-hidden rounded-[2rem] border border-white/20 bg-[#fffaf7] shadow-[0_32px_90px_rgba(0,0,0,0.42)]" onClick={(event) => event.stopPropagation()}>
+              <button
+                type="button"
+                onClick={() => setSelectedProduct(null)}
+                className="absolute right-3 top-3 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#2b1a17] text-2xl leading-none text-white shadow-[0_12px_30px_rgba(43,26,23,0.28)] transition hover:bg-[#1d100e] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#2b1a17]"
+                aria-label="Cerrar imagen ampliada"
+              >
+                ×
+              </button>
+              <div className="flex min-h-0 flex-1 items-center justify-center bg-[#f4ebe5] p-4 md:p-8">
+                <img src={selectedProduct.image} alt={`Arreglo floral ${selectedProduct.title} CUSI CDMX`} className="max-h-[68svh] w-full object-contain" />
+              </div>
+              <div className="border-t border-[#ead8cf] bg-[#fffdfa] p-5 md:flex md:items-center md:justify-between md:gap-6">
+                <div>
+                  <h3 className="[font-family:var(--font-script)] text-3xl leading-tight text-[#2a1c19] md:text-4xl">{selectedProduct.title}</h3>
+                  <p className="mt-1 text-sm italic text-[#8d6c62]">{handwrittenDescriptions[selectedProduct.title] || selectedProduct.desc}</p>
+                </div>
+                <p className="mt-3 text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34] md:mt-0">{selectedProduct.price}</p>
+              </div>
+            </div>
+          </div>
+        ) : null}
 
         <section id="ocasiones" className="scroll-mt-32 bg-white py-16 md:py-24">
           <div className="mx-auto grid w-[92%] max-w-7xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
