@@ -79,11 +79,6 @@ const handwrittenDescriptions: Record<string, string> = {
   'Orquídea Fiusha Phalenopsis': 'Fiusha vibrante para un detalle inolvidable.',
 }
 
-const productImageOverrides: Record<string, string> = {
-  'Tulipanes en ramo': '/fotos/tulipe.jpg',
-  'Tulipanes en cilindro': '/mothers-day-2026/image-4-1.webp',
-}
-
 export default function CusiFloresMockup() {
   const [menuVisible, setMenuVisible] = useState(true)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -146,12 +141,7 @@ export default function CusiFloresMockup() {
 
         const data = (await response.json()) as { products?: ProductCard[] }
         if (isMounted && Array.isArray(data.products) && data.products.length > 0) {
-          setProducts(
-            data.products.map((product) => ({
-              ...product,
-              image: productImageOverrides[product.title] || product.image,
-            }))
-          )
+          setProducts(data.products)
           setProductsError(null)
         }
       } catch (error) {

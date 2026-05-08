@@ -4,7 +4,7 @@ type WooStoreProduct = {
   name?: string
   description?: string
   short_description?: string
-  images?: Array<{ src?: string }>
+  images?: Array<{ id?: number; src?: string }>
   prices?: {
     price?: string
     currency_code?: string
@@ -32,6 +32,15 @@ const getProductsUrl = () => {
 const stripHtml = (input: string) => input.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
 const normalizeWpUrl = (url: string) =>
   url.startsWith('http://oliviers54.sg-host.com/') ? url.replace('http://', 'https://') : url
+
+const withFreshWpImage = (url: string, version: number) => {
+  if (!url.startsWith(`${WP_BASE_URL}/wp-content/`)) {
+    return url
+  }
+
+  const separator = url.includes('?') ? '&' : '?'
+  return `${url}${separator}v=${version}`
+}
 
 const extractImageFromHtml = (html: string) => {
   const match = html.match(/<img[^>]+src=["']([^"']+)["']/i)
@@ -108,6 +117,7 @@ const fetchProductsWithRetry = async (retries = 2) => {
 
 export async function GET() {
   try {
+    const imageVersion = Date.now()
     const data = await fetchProductsWithRetry()
 
     const products: ProductCard[] = data
@@ -123,7 +133,7 @@ export async function GET() {
           title,
           desc,
           price: formatPrice(item.prices),
-          image,
+          image: withFreshWpImage(image, imageVersion),
         }
       })
       .filter((item) => item.title.length > 0)
