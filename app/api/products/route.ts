@@ -24,7 +24,8 @@ export const revalidate = 0
 
 const WP_BASE_URL = 'https://oliviers54.sg-host.com'
 const getProductsUrl = () => {
-  const cacheBuster = Math.floor(Date.now() / 60000)
+  // Use a per-request value to avoid intermediary caches serving stale product data.
+  const cacheBuster = Date.now()
   return `${WP_BASE_URL}/wp-json/wc/store/v1/products?per_page=24&orderby=date&order=desc&_=${cacheBuster}`
 }
 
@@ -127,7 +128,16 @@ export async function GET() {
       })
       .filter((item) => item.title.length > 0)
 
-    return NextResponse.json({ products })
+    return NextResponse.json(
+      { products },
+      {
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+          Pragma: 'no-cache',
+          Expires: '0',
+        },
+      }
+    )
   } catch (error) {
     console.error('Failed to fetch WooCommerce products', error)
     return NextResponse.json({ error: 'Failed to load products' }, { status: 502 })
