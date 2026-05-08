@@ -275,7 +275,7 @@ export default function CusiFloresItPage() {
             {products.map((item) => (
               <article key={item.title} className="flex h-full flex-col overflow-hidden rounded-[1.6rem] border border-[#ead8cf] bg-[#fffdfa] shadow-[0_16px_42px_rgba(74,46,37,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_58px_rgba(74,46,37,0.14)]">
                 <div className="flex h-52 items-center justify-center bg-[#f7efea] px-4 py-3 md:h-56">
-                  <img src={item.image} alt={item.title} className="h-full w-full object-contain scale-[1.2]" loading="lazy" />
+                  <img src={item.image} alt={`Composizione floreale premium ${item.title} CUSI CDMX`} className="h-full w-full object-contain scale-[1.2]" loading="lazy" />
                 </div>
                 <div className="flex flex-1 flex-col gap-2 p-4">
                   <h3 className="min-h-[3.4rem] text-[1.89rem] leading-[1.02] text-[#2a1c19] [font-family:var(--font-script)] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden">

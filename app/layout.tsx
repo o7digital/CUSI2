@@ -23,21 +23,21 @@ const dancingScript = Dancing_Script({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.cusiflores.com'),
-  title: 'CUSI | Dia de las Madres 2026 | Floreria premium CDMX',
+  title: 'CUSI | Floreria premium en CDMX',
   description:
-    'Coleccion especial 10 de mayo: flores para el Dia de las Madres, arreglos florales premium y entrega de flores en CDMX por CUSI Flores.',
+    'Floreria premium en CDMX: arreglos florales, ramos, orquideas y entrega programada para ocasiones especiales.',
   keywords: [
     'floreria premium CDMX',
-    'flores para el Dia de las Madres',
-    'arreglos florales 10 de mayo',
-    'ramos para mama CDMX',
+    'flores a domicilio CDMX',
+    'arreglos florales premium',
+    'ramos de flores CDMX',
     'entrega de flores CDMX',
     'CUSI Flores',
   ],
   openGraph: {
-    title: 'CUSI | Coleccion 10 de mayo 2026',
+    title: 'CUSI | Floreria premium en CDMX',
     description:
-      'Landing premium para pedidos de flores del Dia de las Madres en CDMX. WhatsApp directo y entregas programadas.',
+      'Arreglos florales premium en CDMX con pedidos por WhatsApp y entregas programadas.',
     type: 'website',
     url: 'https://www.cusiflores.com/',
     siteName: 'CUSI Flores',
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CUSI | Coleccion 10 de mayo 2026',
+    title: 'CUSI | Floreria premium en CDMX',
     description:
-      'Arreglos florales premium y entrega de flores en CDMX. Pedidos por WhatsApp.',
+      'Arreglos florales premium en CDMX. Pedidos por WhatsApp y entrega programada.',
     images: ['/cusi-logo.webp'],
   },
   robots: {
@@ -124,7 +124,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   }
 
   return (
-    <html lang="es">
+    <html lang="es-MX">
       <body className={`${manrope.variable} ${cormorant.variable} ${dancingScript.variable}`}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-5NB55HC1FZ"
