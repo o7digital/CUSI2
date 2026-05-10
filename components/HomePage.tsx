@@ -6,7 +6,7 @@ import Image from 'next/image'
 const BRAND = {
   name: 'CUSI',
   city: 'Ciudad de Mexico',
-  whatsappUrl: 'https://wa.me/5215512345678?text=Hola%20CUSI%20FLORES%2C%20quiero%20hacer%20un%20pedido%20premium.',
+  whatsappUrl: 'https://wa.me/525521092665?text=Hola%20CUSI%20FLORES%2C%20quiero%20hacer%20un%20pedido%20premium.',
   instagramUrl: 'https://instagram.com/cusiflores',
 }
 

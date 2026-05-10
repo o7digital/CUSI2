@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 const BRAND = {
   name: 'CUSI',
   city: 'Mexico City',
-  whatsappUrl: 'https://wa.me/5215512345678?text=Hello%20CUSI%20FLOWERS%2C%20I%20would%20like%20to%20place%20a%20premium%20order.',
+  whatsappUrl: 'https://wa.me/525521092665?text=Hello%20CUSI%20FLOWERS%2C%20I%20would%20like%20to%20place%20a%20premium%20order.',
   instagramUrl: 'https://instagram.com/cusiflores',
 }
 

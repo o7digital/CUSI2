@@ -65,7 +65,7 @@ export default function FloresBosquesDeLasLomasPage() {
             Nuestro equipo confirma disponibilidad y horario para cada entrega en Bosques de las Lomas y zonas cercanas.
           </p>
           <a
-            href="https://wa.me/5215512345678?text=Hola%20CUSI%20FLORES%2C%20quiero%20un%20arreglo%20para%20Bosques%20de%20las%20Lomas."
+            href="https://wa.me/525521092665?text=Hola%20CUSI%20FLORES%2C%20quiero%20un%20arreglo%20para%20Bosques%20de%20las%20Lomas."
             target="_blank"
             rel="noreferrer"
             className="mt-5 inline-flex rounded-full bg-[#2b1a17] px-6 py-3 text-sm font-semibold text-white"

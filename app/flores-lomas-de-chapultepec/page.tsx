@@ -65,7 +65,7 @@ export default function FloresLomasDeChapultepecPage() {
             Coordinamos cada entrega por WhatsApp para validar horario, direccion y disponibilidad del arreglo.
           </p>
           <a
-            href="https://wa.me/5215512345678?text=Hola%20CUSI%20FLORES%2C%20quiero%20un%20arreglo%20para%20Lomas%20de%20Chapultepec."
+            href="https://wa.me/525521092665?text=Hola%20CUSI%20FLORES%2C%20quiero%20un%20arreglo%20para%20Lomas%20de%20Chapultepec."
             target="_blank"
             rel="noreferrer"
             className="mt-5 inline-flex rounded-full bg-[#2b1a17] px-6 py-3 text-sm font-semibold text-white"
