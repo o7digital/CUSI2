@@ -3,7 +3,13 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Floreria en Santa Fe CDMX | CUSI Flores',
   description: 'Ramos y arreglos florales premium con entrega en Santa Fe, CDMX. Cotizacion y pedidos por WhatsApp.',
-  alternates: { canonical: 'https://www.cusiflores.com/flores-santa-fe' },
+  alternates: {
+    canonical: 'https://www.cusiflores.com/flores-santa-fe',
+    languages: {
+      'es-MX': 'https://www.cusiflores.com/flores-santa-fe',
+      'x-default': 'https://www.cusiflores.com/flores-santa-fe',
+    },
+  },
 }
 
 export default function FloresSantaFePage() {

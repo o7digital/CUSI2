@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import LocaleHtmlLang from '../../components/LocaleHtmlLang'
 
 export const metadata: Metadata = {
   openGraph: { locale: 'it_IT' },
@@ -6,5 +7,10 @@ export const metadata: Metadata = {
 }
 
 export default function ItLayout({ children }: { children: React.ReactNode }) {
-  return children
+  return (
+    <>
+      <LocaleHtmlLang lang="it" />
+      {children}
+    </>
+  )
 }

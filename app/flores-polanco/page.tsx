@@ -3,7 +3,13 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Floreria en Polanco CDMX | CUSI Flores',
   description: 'Entrega de flores y arreglos florales premium en Polanco, CDMX. Pedidos por WhatsApp con atencion personalizada.',
-  alternates: { canonical: 'https://www.cusiflores.com/flores-polanco' },
+  alternates: {
+    canonical: 'https://www.cusiflores.com/flores-polanco',
+    languages: {
+      'es-MX': 'https://www.cusiflores.com/flores-polanco',
+      'x-default': 'https://www.cusiflores.com/flores-polanco',
+    },
+  },
 }
 
 export default function FloresPolancoPage() {
