@@ -4,9 +4,13 @@
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
   font-family: var(--font-sans), system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
