@@ -35,9 +35,9 @@ type ProductCard = {
 }
 
 const emotionalPillars = [
-  { title: 'Flores seleccionadas', text: 'Curaduria floral con foco en calidad, frescura y armonia visual.' },
-  { title: 'Diseno con intencion', text: 'Cada arreglo se construye para comunicar emocion y elegancia.' },
-  { title: 'Entrega cuidada', text: 'Atencion personalizada y entrega programada en zonas seleccionadas.' },
+  { title: 'Flores seleccionadas', text: 'Curaduría floral con foco en calidad, frescura y armonía visual.' },
+  { title: 'Diseño con intención', text: 'Cada arreglo se construye para comunicar emoción y elegancia.' },
+  { title: 'Entrega cuidada', text: 'Atención personalizada y entrega programada en zonas seleccionadas.' },
 ]
 
 const occasions = [
@@ -73,7 +73,7 @@ const handwrittenDescriptions: Record<string, string> = {
   'Indonesia Orquídea Phalenopsis': 'Orquidea premium con gesto refinado.',
   'Orquídea Phalenopsis En Escultura de Piedra': 'Escultura floral para espacios con caracter.',
   'Orquídea en cilindro d e vidrio': 'Orquidea en cilindro de vidrio, minimalismo botanico.',
-  'Orquídea Phalenopsis 8 Varas': 'Composicion de 8 varas, impacto sofisticado.',
+  'Orquídea Phalenopsis 8 Varas': 'Composición de 8 varas, impacto sofisticado.',
   'Orquídea Phalenopsis En Escultura de Piedra 3 varas': '3 varas en escultura, trazo artistico.',
   'Orquídea Phalenopsis En Cilindro de Cristal': 'Orquidea en cristal, elegancia atemporal.',
   'Orquídea Fiusha Phalenopsis': 'Fiusha vibrante para un detalle inolvidable.',
@@ -283,7 +283,7 @@ export default function CusiFloresMockup() {
               </p>
 
               <p className="mt-4 inline-flex rounded-full bg-[#efe0d8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#60473f] md:text-sm">
-                Agenda tu arreglo con atencion personalizada
+                Agenda tu arreglo con atención personalizada
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3 md:gap-4">
@@ -295,8 +295,8 @@ export default function CusiFloresMockup() {
               <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3 md:mt-14 md:gap-4">
                 {[
                   ['Entrega en CDMX', ''],
-                  ['Diseño editorial', 'Composicion floral con lenguaje visual refinado'],
-                  ['Atencion boutique', 'Experiencia calida, elegante y personalizada'],
+                  ['Diseño editorial', 'Composición floral con lenguaje visual refinado'],
+                  ['Atención boutique', 'Experiencia cálida, elegante y personalizada'],
                 ].map(([title, desc]) => (
                   <div key={title} className="rounded-[24px] border border-white/20 bg-white/10 p-4 text-white backdrop-blur-md md:rounded-[28px] md:p-5">
                     <p className="font-[var(--font-display)] text-base font-medium md:text-lg">{title}</p>
@@ -308,10 +308,10 @@ export default function CusiFloresMockup() {
 
             <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-white/30 bg-white/40 p-8 shadow-[0_18px_45px_rgba(71,44,35,0.08)] backdrop-blur-lg lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
               <p className="font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Cada arreglo se disena con flores seleccionadas, equilibrio visual y una intencion clara: emocionar con elegancia.&rdquo;
+                &ldquo;Cada arreglo se diseña con flores seleccionadas, equilibrio visual y una intención clara: emocionar con elegancia.&rdquo;
               </p>
               <p className="-translate-y-[1.5cm] font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Recomendamos confirmar tu pedido con anticipacion para cuidar cada detalle y programar la entrega en CDMX.&rdquo;
+                &ldquo;Recomendamos confirmar tu pedido con anticipación para cuidar cada detalle y programar la entrega en CDMX.&rdquo;
               </p>
             </div>
           </div>
@@ -468,9 +468,9 @@ export default function CusiFloresMockup() {
         <section className="mx-auto w-[92%] max-w-7xl py-6 md:py-10">
           <div className="rounded-[2rem] border border-[#e4d2c9] bg-white p-6 md:p-10">
             <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Experiencia CUSI</p>
-            <h2 className="mt-3 [font-family:var(--font-script)] text-[1.6875rem] leading-tight md:text-[2.8125rem]">Un detalle que Mama no olvidara.</h2>
+            <h2 className="mt-3 [font-family:var(--font-script)] text-[1.6875rem] leading-tight md:text-[2.8125rem]">Un detalle que Mamá no olvidará.</h2>
             <p className="mt-5 max-w-4xl text-base leading-8 text-[#5d4740]">
-              Cada arreglo CUSI esta pensado como una experiencia: flores seleccionadas, composicion cuidada, presentacion elegante y atencion personalizada para que tu regalo llegue con intencion y belleza.
+              Cada arreglo CUSI está pensado como una experiencia: flores seleccionadas, composición cuidada, presentación elegante y atención personalizada para que tu regalo llegue con intención y belleza.
             </p>
             <div className="mt-7 grid gap-4 md:grid-cols-3">
               {emotionalPillars.map((item) => (
@@ -568,7 +568,7 @@ export default function CusiFloresMockup() {
             </a>
             <a href="#contacto" className="group relative block min-h-[180px] overflow-hidden rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30">
               <span className="text-3xl font-light tracking-wide text-white/95">CONTACTO</span>
-              <span className="mt-3 block text-sm text-white/70">Atencion personalizada en CDMX</span>
+              <span className="mt-3 block text-sm text-white/70">Atención personalizada en CDMX</span>
             </a>
           </div>
 

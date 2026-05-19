@@ -196,7 +196,7 @@ export default function AboutPageFrClient() {
           <img src="/cusi-logo.webp" alt="Logo CUSI" className="h-auto w-[220px] max-w-full" />
           <div className="h-3" aria-hidden="true" />
           <p>Premium flower studio CDMX</p>
-          <p>Compositions florales premium a CDMX</p>
+          <p>Compositions florales premium à CDMX</p>
         </div>
 
         <div className="text-[#b48700]">

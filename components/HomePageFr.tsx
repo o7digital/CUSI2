@@ -34,9 +34,9 @@ type ProductCard = {
 }
 
 const emotionalPillars = [
-  { title: 'Fleurs selectionnees', text: "Selection florale axee sur la qualite, la fraicheur et l'harmonie visuelle." },
-  { title: 'Design intentionnel', text: 'Chaque composition est concue pour transmettre emotion et elegance.' },
-  { title: 'Livraison soignee', text: 'Service personnalise et livraison planifiee dans des zones selectionnees.' },
+  { title: 'Fleurs sélectionnées', text: "Sélection florale axée sur la qualité, la fraîcheur et l'harmonie visuelle." },
+  { title: 'Design intentionnel', text: 'Chaque composition est conçue pour transmettre émotion et élégance.' },
+  { title: 'Livraison soignée', text: 'Service personnalisé et livraison planifiée dans des zones sélectionnées.' },
 ]
 
 const occasions = [
@@ -72,7 +72,7 @@ const handwrittenDescriptions: Record<string, string> = {
   'Indonesia Orquídea Phalenopsis': 'Orquidea premium con gesto refinado.',
   'Orquídea Phalenopsis En Escultura de Piedra': 'Escultura floral para espacios con caracter.',
   'Orquídea en cilindro d e vidrio': 'Orquidea en cilindro de vidrio, minimalismo botanico.',
-  'Orquídea Phalenopsis 8 Varas': 'Composicion de 8 varas, impacto sofisticado.',
+  'Orquídea Phalenopsis 8 Varas': 'Composition de 8 tiges, impact sophistiqué.',
   'Orquídea Phalenopsis En Escultura de Piedra 3 varas': '3 varas en escultura, trazo artistico.',
   'Orquídea Phalenopsis En Cilindro de Cristal': 'Orquidea en cristal, elegancia atemporal.',
   'Orquídea Fiusha Phalenopsis': 'Fiusha vibrante para un detalle inolvidable.',
@@ -229,15 +229,15 @@ export default function CusiFloresFrPage() {
           <div className="relative mx-auto grid min-h-[100svh] w-[92%] max-w-7xl items-center gap-8 pt-28 pb-20 md:pt-36 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="max-w-3xl font-[var(--font-sans)]">
               <h1 className="max-w-2xl [font-family:var(--font-script)] text-[1.55rem] leading-[0.98] text-white sm:text-[2.05rem] md:text-[3.05rem] xl:text-[60px]">
-                Des fleurs qui parlent pour vous, meme quand les mots ne suffisent pas
+                Des fleurs qui parlent pour vous, même quand les mots ne suffisent pas
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-7 text-white/85 md:text-xl md:leading-8">
-                Des compositions premium pour celebrer, remercier, accompagner et transformer chaque geste en une presence inoubliable.
+                Des compositions premium pour célébrer, remercier, accompagner et transformer chaque geste en une présence inoubliable.
               </p>
 
               <p className="mt-4 inline-flex rounded-full bg-[#efe0d8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#60473f] md:text-sm">
-                Planifiez votre composition avec une attention personnalisee
+                Planifiez votre composition avec une attention personnalisée
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3 md:gap-4">
@@ -248,9 +248,9 @@ export default function CusiFloresFrPage() {
 
               <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3 md:mt-14 md:gap-4">
                 {[
-                  ['Livraison a CDMX', ''],
-                  ['Design editorial', 'Composition florale au langage visuel raffine'],
-                  ['Service boutique', 'Une experience chaleureuse, elegante et personnalisee'],
+                  ['Livraison à CDMX', ''],
+                  ['Design éditorial', 'Composition florale au langage visuel raffiné'],
+                  ['Service boutique', 'Une expérience chaleureuse, élégante et personnalisée'],
                 ].map(([title, desc]) => (
                   <div key={title} className="rounded-[24px] border border-white/20 bg-white/10 p-4 text-white backdrop-blur-md md:rounded-[28px] md:p-5">
                     <p className="font-[var(--font-display)] text-base font-medium md:text-lg">{title}</p>
@@ -262,10 +262,10 @@ export default function CusiFloresFrPage() {
 
             <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-white/30 bg-white/40 p-8 shadow-[0_18px_45px_rgba(71,44,35,0.08)] backdrop-blur-lg lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
               <p className="font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Chaque composition est pensee avec des fleurs selectionnees, un equilibre visuel et une intention claire : emouvoir avec elegance.&rdquo;
+                &ldquo;Chaque composition est pensée avec des fleurs sélectionnées, un équilibre visuel et une intention claire : émouvoir avec élégance.&rdquo;
               </p>
               <p className="-translate-y-[1.5cm] font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Nous recommandons de confirmer votre commande a l&rsquo;avance afin de soigner chaque detail et programmer la livraison a CDMX.&rdquo;
+                &ldquo;Nous recommandons de confirmer votre commande à l&rsquo;avance afin de soigner chaque détail et programmer la livraison à CDMX.&rdquo;
               </p>
             </div>
           </div>
@@ -274,7 +274,7 @@ export default function CusiFloresFrPage() {
         <section id="coleccion" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10 md:py-14">
           <div className="mb-8 md:mb-10">
             <p className="text-sm uppercase tracking-[0.24em] text-[#94736a] md:text-base">Nos Compositions</p>
-            <h2 className="mt-3 max-w-3xl text-[1.35rem] leading-tight [font-family:Arial,sans-serif] md:text-[2.295rem]">Des compositions florales pour offrir beaute, calme et presence.</h2>
+            <h2 className="mt-3 max-w-3xl text-[1.35rem] leading-tight [font-family:Arial,sans-serif] md:text-[2.295rem]">Des compositions florales pour offrir beauté, calme et présence.</h2>
             {productsLoading ? <p className="mt-3 text-sm text-[#6f5851]">Chargement des produits...</p> : null}
             {productsError ? <p className="mt-3 text-sm text-[#6f5851]">{productsError}</p> : null}
           </div>

@@ -146,7 +146,7 @@ export default function AboutPageItClient() {
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             <article className="rounded-[1.5rem] border border-[#ead8cf] bg-white p-5">
               <h3 className="text-2xl text-[#2a1c19]">Design con intenzione</h3>
-              <p className="mt-2 text-sm leading-7 text-[#664f48]">Ogni composizione e pensata come un pezzo visivo: armonia, colore, texture e presenza.</p>
+              <p className="mt-2 text-sm leading-7 text-[#664f48]">Ogni composizione è pensata come un pezzo visivo: armonia, colore, texture e presenza.</p>
             </article>
             <article className="rounded-[1.5rem] border border-[#ead8cf] bg-white p-5">
               <h3 className="text-2xl text-[#2a1c19]">Attenzione boutique</h3>
@@ -170,7 +170,7 @@ export default function AboutPageItClient() {
           <article className="rounded-[1.8rem] border border-[#e4d2c9] bg-white p-7 md:p-10">
             <h2 className="text-3xl text-[#2a1c19] md:text-4xl">La nostra visione</h2>
             <p className="mt-4 text-base leading-8 text-[#5d4740]">
-              Vogliamo posizionare CUSI come riferimento del design floreale premium a Citta del Messico, riconosciuto per stile delicato, attenzione personalizzata e capacita di creare momenti speciali attraverso i fiori.
+              Vogliamo posizionare CUSI come riferimento del design floreale premium a Città del Messico, riconosciuto per stile delicato, attenzione personalizzata e capacità di creare momenti speciali attraverso i fiori.
             </p>
           </article>
         </section>
@@ -178,7 +178,7 @@ export default function AboutPageItClient() {
         <section className="rounded-[2rem] bg-[#2a1d1a] p-7 text-white shadow-[0_28px_70px_rgba(42,29,26,0.34)] md:p-10">
           <h2 className="text-3xl leading-tight md:text-5xl">Vuoi creare una composizione speciale?</h2>
           <p className="mt-4 max-w-3xl text-base leading-8 text-white/85">
-            Raccontaci l'occasione, lo stile e il messaggio che vuoi trasmettere. CUSI puo aiutarti a progettare una proposta floreale personalizzata.
+            Raccontaci l'occasione, lo stile e il messaggio che vuoi trasmettere. CUSI può aiutarti a progettare una proposta floreale personalizzata.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-[#f4ddd2] px-6 py-3 text-sm font-semibold text-[#2a1d1a] transition duration-300 hover:bg-[#efcfc1]">
@@ -217,7 +217,7 @@ export default function AboutPageItClient() {
             <li>Composizioni settimanali per case e uffici.</li>
             <li>Eventi di tutte le dimensioni.</li>
           </ul>
-          <p className="pt-1 text-xs text-[#6f5851]">Gli ordini sono soggetti a disponibilita e zona di consegna.</p>
+          <p className="pt-1 text-xs text-[#6f5851]">Gli ordini sono soggetti a disponibilità e zona di consegna.</p>
           <div className="pt-1">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6f5851]">Informazioni legali</p>
             <div className="mt-2 flex flex-col gap-1.5 text-xs font-semibold text-[#6f5851]">

@@ -34,8 +34,8 @@ type ProductCard = {
 }
 
 const emotionalPillars = [
-  { title: 'Fiori selezionati', text: 'Curatela floreale focalizzata su qualita, freschezza e armonia visiva.' },
-  { title: 'Design con intenzione', text: 'Ogni composizione e progettata per comunicare emozione ed eleganza.' },
+  { title: 'Fiori selezionati', text: 'Curatela floreale focalizzata su qualità, freschezza e armonia visiva.' },
+  { title: 'Design con intenzione', text: 'Ogni composizione è progettata per comunicare emozione ed eleganza.' },
   { title: 'Consegna accurata', text: 'Attenzione personalizzata e consegna programmata in zone selezionate.' },
 ]
 
@@ -72,7 +72,7 @@ const handwrittenDescriptions: Record<string, string> = {
   'Indonesia Orquídea Phalenopsis': 'Orquidea premium con gesto refinado.',
   'Orquídea Phalenopsis En Escultura de Piedra': 'Escultura floral para espacios con caracter.',
   'Orquídea en cilindro d e vidrio': 'Orquidea en cilindro de vidrio, minimalismo botanico.',
-  'Orquídea Phalenopsis 8 Varas': 'Composicion de 8 varas, impacto sofisticado.',
+  'Orquídea Phalenopsis 8 Varas': 'Composizione di 8 steli, impatto sofisticato.',
   'Orquídea Phalenopsis En Escultura de Piedra 3 varas': '3 varas en escultura, trazo artistico.',
   'Orquídea Phalenopsis En Cilindro de Cristal': 'Orquidea en cristal, elegancia atemporal.',
   'Orquídea Fiusha Phalenopsis': 'Fiusha vibrante para un detalle inolvidable.',
@@ -254,7 +254,7 @@ export default function CusiFloresItPage() {
 
             <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-white/30 bg-white/40 p-8 shadow-[0_18px_45px_rgba(71,44,35,0.08)] backdrop-blur-lg lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
               <p className="font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Ogni composizione e disegnata con fiori selezionati, equilibrio visivo e un&rsquo;intenzione chiara: emozionare con eleganza.&rdquo;
+                &ldquo;Ogni composizione è disegnata con fiori selezionati, equilibrio visivo e un&rsquo;intenzione chiara: emozionare con eleganza.&rdquo;
               </p>
               <p className="-translate-y-[1.5cm] font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
                 &ldquo;Consigliamo di confermare l&rsquo;ordine in anticipo per curare ogni dettaglio e programmare la consegna a CDMX.&rdquo;
@@ -372,7 +372,7 @@ export default function CusiFloresItPage() {
             <p className="text-xs uppercase tracking-[0.24em] text-[#94736a] md:text-sm">Esperienza CUSI</p>
             <h2 className="mt-3 [font-family:var(--font-script)] text-[1.6875rem] leading-tight md:text-[2.8125rem]">Un regalo che la mamma non dimenticherà.</h2>
             <p className="mt-5 max-w-4xl text-base leading-8 text-[#5d4740]">
-              Ogni composizione CUSI e pensata come un'esperienza: fiori selezionati, composizione curata, presentazione elegante e attenzione personalizzata.
+              Ogni composizione CUSI è pensata come un'esperienza: fiori selezionati, composizione curata, presentazione elegante e attenzione personalizzata.
             </p>
             <div className="mt-7 grid gap-4 md:grid-cols-3">
               {emotionalPillars.map((item) => (
