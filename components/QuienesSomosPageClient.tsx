@@ -11,7 +11,7 @@ const BRAND = {
 
 const navLinks = [
   { label: 'Inicio', href: '/#inicio' },
-  { label: 'Coleccion 10 de mayo', href: '/#coleccion' },
+  { label: 'Nuestros Arreglos', href: '/#coleccion' },
   { label: 'Quienes Somos', href: '/quienes-somos' },
   { label: 'Contacto', href: '/#contacto' },
 ]

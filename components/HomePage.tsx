@@ -51,7 +51,7 @@ const occasions = [
 
 const navLinks = [
   { label: 'Inicio', href: '#inicio' },
-  { label: 'Coleccion 10 de mayo', href: '#coleccion' },
+  { label: 'Nuestros Arreglos', href: '#coleccion' },
   { label: 'Quienes Somos', href: '/quienes-somos' },
   { label: 'Contacto', href: '#contacto' },
 ]
@@ -275,15 +275,15 @@ export default function CusiFloresMockup() {
           <div className="relative mx-auto grid min-h-[100svh] w-[92%] max-w-7xl items-center gap-8 pt-28 pb-20 md:pt-36 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="max-w-3xl font-[var(--font-sans)]">
               <h1 className="max-w-2xl [font-family:var(--font-script)] text-[1.55rem] leading-[0.98] text-white sm:text-[2.05rem] md:text-[3.05rem] xl:text-[60px]">
-                Permite que las Flores de CUSI sean las embajadoras de tu cariño el 10 de mayo
+                Flores que hablan por ti, incluso cuando las palabras no alcanzan
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-7 text-white/85 md:text-xl md:leading-8">
-                Colección especial Día de las Madres 2026. Ramos y arreglos premium con entrega en zonas seleccionadas de CDMX.
+                Arreglos premium para celebrar, agradecer, acompanar y transformar cada gesto en una presencia inolvidable.
               </p>
 
               <p className="mt-4 inline-flex rounded-full bg-[#efe0d8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#60473f] md:text-sm">
-                Agenda tu pedido antes del 8 de mayo
+                Agenda tu arreglo con atencion personalizada
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3 md:gap-4">
@@ -308,10 +308,10 @@ export default function CusiFloresMockup() {
 
             <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-[#e4d1c7] bg-white/95 p-8 shadow-[0_26px_65px_rgba(71,44,35,0.15)] backdrop-blur-sm lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
               <p className="font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Para asegurar la calidad de nuestras flores, los pedidos deben quedar confirmados con 10 días de anticipación.&rdquo;
+                &ldquo;Cada arreglo se disena con flores seleccionadas, equilibrio visual y una intencion clara: emocionar con elegancia.&rdquo;
               </p>
               <p className="-translate-y-[1.5cm] font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Las entregas se realizaran el 7, 8 y 9 de mayo. El 10 de mayo se atendera solo de forma excepcional, sujeto a disponibilidad.&rdquo;
+                &ldquo;Recomendamos confirmar tu pedido con anticipacion para cuidar cada detalle y programar la entrega en CDMX.&rdquo;
               </p>
             </div>
           </div>
@@ -319,8 +319,8 @@ export default function CusiFloresMockup() {
 
         <section id="coleccion" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10 md:py-14">
           <div className="mb-8 md:mb-10">
-            <p className="text-sm uppercase tracking-[0.24em] text-[#94736a] md:text-base">Colección Día de las Madres</p>
-            <h2 className="mt-3 max-w-3xl text-[1.35rem] leading-tight [font-family:Arial,sans-serif] md:text-[2.295rem]">Arreglos para decir gracias con belleza y presencia.</h2>
+            <p className="text-sm uppercase tracking-[0.24em] text-[#94736a] md:text-base">Nuestros Arreglos</p>
+            <h2 className="mt-3 max-w-3xl text-[1.35rem] leading-tight [font-family:Arial,sans-serif] md:text-[2.295rem]">Composiciones florales para regalar belleza, calma y presencia.</h2>
             {productsLoading ? <p className="mt-3 text-sm text-[#6f5851]">Cargando productos...</p> : null}
             {productsError ? <p className="mt-3 text-sm text-[#6f5851]">{productsError}</p> : null}
           </div>
