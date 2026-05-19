@@ -306,7 +306,7 @@ export default function CusiFloresMockup() {
               </div>
             </div>
 
-            <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-white/45 bg-white/65 p-8 shadow-[0_26px_65px_rgba(71,44,35,0.12)] backdrop-blur-md lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
+            <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-white/30 bg-white/40 p-8 shadow-[0_18px_45px_rgba(71,44,35,0.08)] backdrop-blur-lg lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
               <p className="font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
                 &ldquo;Cada arreglo se disena con flores seleccionadas, equilibrio visual y una intencion clara: emocionar con elegancia.&rdquo;
               </p>
