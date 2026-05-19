@@ -50,7 +50,7 @@ const occasions = [
 
 const navLinks = [
   { label: 'Home', href: '#inicio' },
-  { label: 'Collezione Festa della Mamma', href: '#coleccion' },
+  { label: 'Le Nostre Composizioni', href: '#coleccion' },
   { label: 'Chi siamo', href: '/it/about' },
   { label: 'Contatto', href: '#contacto' },
 ]
@@ -221,15 +221,15 @@ export default function CusiFloresItPage() {
           <div className="relative mx-auto grid min-h-[100svh] w-[92%] max-w-7xl items-center gap-8 pt-28 pb-20 md:pt-36 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="max-w-3xl font-[var(--font-sans)]">
               <h1 className="max-w-2xl [font-family:var(--font-script)] text-[1.55rem] leading-[0.98] text-white sm:text-[2.05rem] md:text-[3.05rem] xl:text-[60px]">
-                Lascia che i fiori CUSI portino il tuo amore per la Festa della Mamma
+                Fiori che parlano per te, anche quando le parole non bastano
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-7 text-white/85 md:text-xl md:leading-8">
-                Collezione speciale Festa della Mamma 2026. Bouquet e composizioni premium con consegna in zone selezionate di CDMX.
+                Composizioni premium per celebrare, ringraziare, accompagnare e trasformare ogni gesto in una presenza indimenticabile.
               </p>
 
               <p className="mt-4 inline-flex rounded-full bg-[#efe0d8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#60473f] md:text-sm">
-                Prenota il tuo ordine entro il 5 maggio
+                Prenota la tua composizione con attenzione personalizzata
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3 md:gap-4">
@@ -252,12 +252,12 @@ export default function CusiFloresItPage() {
               </div>
             </div>
 
-            <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-[#e4d1c7] bg-white/95 p-8 shadow-[0_26px_65px_rgba(71,44,35,0.15)] backdrop-blur-sm lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
+            <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-white/45 bg-white/65 p-8 shadow-[0_26px_65px_rgba(71,44,35,0.12)] backdrop-blur-md lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
               <p className="font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Per garantire la qualita dei fiori, gli ordini devono essere confermati con almeno 10 giorni di anticipo.&rdquo;
+                &ldquo;Ogni composizione e disegnata con fiori selezionati, equilibrio visivo e un&rsquo;intenzione chiara: emozionare con eleganza.&rdquo;
               </p>
               <p className="-translate-y-[1.5cm] font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Le consegne saranno effettuate il 7, 8 e 9 maggio. Il 10 maggio si accetteranno ordini solo in via eccezionale, in base alla disponibilita.&rdquo;
+                &ldquo;Consigliamo di confermare l&rsquo;ordine in anticipo per curare ogni dettaglio e programmare la consegna a CDMX.&rdquo;
               </p>
             </div>
           </div>
@@ -265,8 +265,8 @@ export default function CusiFloresItPage() {
 
         <section id="coleccion" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10 md:py-14">
           <div className="mb-8 md:mb-10">
-            <p className="text-sm uppercase tracking-[0.24em] text-[#94736a] md:text-base">Collezione Festa della Mamma</p>
-            <h2 className="mt-3 max-w-3xl text-[1.35rem] leading-tight [font-family:Arial,sans-serif] md:text-[2.295rem]">Composizioni per dire grazie con bellezza e presenza.</h2>
+            <p className="text-sm uppercase tracking-[0.24em] text-[#94736a] md:text-base">Le Nostre Composizioni</p>
+            <h2 className="mt-3 max-w-3xl text-[1.35rem] leading-tight [font-family:Arial,sans-serif] md:text-[2.295rem]">Composizioni floreali per offrire bellezza, calma e presenza.</h2>
             {productsLoading ? <p className="mt-3 text-sm text-[#6f5851]">Caricamento prodotti...</p> : null}
             {productsError ? <p className="mt-3 text-sm text-[#6f5851]">{productsError}</p> : null}
           </div>

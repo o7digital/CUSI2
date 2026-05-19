@@ -11,7 +11,7 @@ const BRAND = {
 
 const navLinks = [
   { label: 'Home', href: '/en/#inicio' },
-  { label: "Mother's Day Collection", href: '/en/#coleccion' },
+  { label: 'Our Arrangements', href: '/en/#coleccion' },
   { label: 'About Us', href: '/en/about' },
   { label: 'Contact', href: '/en/#contacto' },
 ]
@@ -177,7 +177,7 @@ export default function AboutPageEnClient() {
               Write us on WhatsApp
             </a>
             <a href="/en/#coleccion" className="inline-flex items-center justify-center rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-white/90 transition duration-300 hover:bg-white/10">
-              View collection
+              View arrangements
             </a>
           </div>
         </section>
@@ -188,7 +188,7 @@ export default function AboutPageEnClient() {
           <img src="/cusi-logo.webp" alt="Logo CUSI" className="h-auto w-[220px] max-w-full" />
           <div className="h-3" aria-hidden="true" />
           <p>Premium flower studio CDMX</p>
-          <p>Mother's Day collection 2026</p>
+          <p>Premium floral arrangements in CDMX</p>
         </div>
 
         <div className="text-[#b48700]">

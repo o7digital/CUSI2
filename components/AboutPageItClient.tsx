@@ -11,7 +11,7 @@ const BRAND = {
 
 const navLinks = [
   { label: 'Home', href: '/it/#inicio' },
-  { label: 'Collezione Festa della Mamma', href: '/it/#coleccion' },
+  { label: 'Le Nostre Composizioni', href: '/it/#coleccion' },
   { label: 'Chi siamo', href: '/it/about' },
   { label: 'Contatto', href: '/it/#contacto' },
 ]
@@ -185,7 +185,7 @@ export default function AboutPageItClient() {
               Scrivici su WhatsApp
             </a>
             <a href="/it/#coleccion" className="inline-flex items-center justify-center rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-white/90 transition duration-300 hover:bg-white/10">
-              Vedi collezione
+              Vedi composizioni
             </a>
           </div>
         </section>
@@ -196,7 +196,7 @@ export default function AboutPageItClient() {
           <img src="/cusi-logo.webp" alt="Logo CUSI" className="h-auto w-[220px] max-w-full" />
           <div className="h-3" aria-hidden="true" />
           <p>Studio floreale premium CDMX</p>
-          <p>Collezione Festa della Mamma 2026</p>
+          <p>Composizioni floreali premium a CDMX</p>
         </div>
 
         <div className="text-[#b48700]">

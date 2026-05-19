@@ -50,7 +50,7 @@ const occasions = [
 
 const navLinks = [
   { label: 'Home', href: '#inicio' },
-  { label: "Mother's Day Collection", href: '#coleccion' },
+  { label: 'Our Arrangements', href: '#coleccion' },
   { label: 'About Us', href: '/en/about' },
   { label: 'Contact', href: '#contacto' },
 ]
@@ -221,15 +221,15 @@ export default function CusiFloresEnPage() {
           <div className="relative mx-auto grid min-h-[100svh] w-[92%] max-w-7xl items-center gap-8 pt-28 pb-20 md:pt-36 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="max-w-3xl font-[var(--font-sans)]">
               <h1 className="max-w-2xl [font-family:var(--font-script)] text-[1.55rem] leading-[0.98] text-white sm:text-[2.05rem] md:text-[3.05rem] xl:text-[60px]">
-                Let CUSI flowers carry your love this Mother's Day
+                Flowers that speak for you, even when words are not enough
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-7 text-white/85 md:text-xl md:leading-8">
-                Special Mother's Day 2026 collection. Premium bouquets and arrangements with delivery in selected CDMX zones.
+                Premium arrangements to celebrate, thank, comfort, and turn every gesture into an unforgettable presence.
               </p>
 
               <p className="mt-4 inline-flex rounded-full bg-[#efe0d8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#60473f] md:text-sm">
-                Schedule your order before May 5
+                Schedule your arrangement with personalized attention
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3 md:gap-4">
@@ -252,12 +252,12 @@ export default function CusiFloresEnPage() {
               </div>
             </div>
 
-            <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-[#e4d1c7] bg-white/95 p-8 shadow-[0_26px_65px_rgba(71,44,35,0.15)] backdrop-blur-sm lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
+            <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-white/45 bg-white/65 p-8 shadow-[0_26px_65px_rgba(71,44,35,0.12)] backdrop-blur-md lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
               <p className="font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;To ensure flower quality, orders should be confirmed at least 10 days in advance.&rdquo;
+                &ldquo;Each arrangement is designed with selected flowers, visual balance, and one clear intention: to move with elegance.&rdquo;
               </p>
               <p className="-translate-y-[1.5cm] font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
-                &ldquo;Deliveries will be made on May 7, 8, and 9. On May 10, orders will be accepted only exceptionally, subject to availability.&rdquo;
+                &ldquo;We recommend confirming your order in advance so every detail and CDMX delivery can be carefully planned.&rdquo;
               </p>
             </div>
           </div>
@@ -265,8 +265,8 @@ export default function CusiFloresEnPage() {
 
         <section id="coleccion" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10 md:py-14">
           <div className="mb-8 md:mb-10">
-            <p className="text-sm uppercase tracking-[0.24em] text-[#94736a] md:text-base">Mother's Day collection</p>
-            <h2 className="mt-3 max-w-3xl text-[1.35rem] leading-tight [font-family:Arial,sans-serif] md:text-[2.295rem]">Arrangements that say thank you with beauty and presence.</h2>
+            <p className="text-sm uppercase tracking-[0.24em] text-[#94736a] md:text-base">Our Arrangements</p>
+            <h2 className="mt-3 max-w-3xl text-[1.35rem] leading-tight [font-family:Arial,sans-serif] md:text-[2.295rem]">Floral compositions to offer beauty, calm, and presence.</h2>
             {productsLoading ? <p className="mt-3 text-sm text-[#6f5851]">Loading products...</p> : null}
             {productsError ? <p className="mt-3 text-sm text-[#6f5851]">{productsError}</p> : null}
           </div>
