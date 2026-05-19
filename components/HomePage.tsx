@@ -307,10 +307,10 @@ export default function CusiFloresMockup() {
             </div>
 
             <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-white/30 bg-white/40 p-8 shadow-[0_18px_45px_rgba(71,44,35,0.08)] backdrop-blur-lg lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
-              <p className="font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
+              <p className="font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#315a2f]">
                 &ldquo;Cada arreglo se diseña con flores seleccionadas, equilibrio visual y una intención clara: emocionar con elegancia.&rdquo;
               </p>
-              <p className="-translate-y-[1.5cm] font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
+              <p className="-translate-y-[1.5cm] font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#315a2f]">
                 &ldquo;Recomendamos confirmar tu pedido con anticipación para cuidar cada detalle y programar la entrega en CDMX.&rdquo;
               </p>
             </div>

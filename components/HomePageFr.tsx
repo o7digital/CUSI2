@@ -261,10 +261,10 @@ export default function CusiFloresFrPage() {
             </div>
 
             <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-white/30 bg-white/40 p-8 shadow-[0_18px_45px_rgba(71,44,35,0.08)] backdrop-blur-lg lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
-              <p className="font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
+              <p className="font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#315a2f]">
                 &ldquo;Chaque composition est pensée avec des fleurs sélectionnées, un équilibre visuel et une intention claire : émouvoir avec élégance.&rdquo;
               </p>
-              <p className="-translate-y-[1.5cm] font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#6a9448]">
+              <p className="-translate-y-[1.5cm] font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#315a2f]">
                 &ldquo;Nous recommandons de confirmer votre commande à l&rsquo;avance afin de soigner chaque détail et programmer la livraison à CDMX.&rdquo;
               </p>
             </div>
