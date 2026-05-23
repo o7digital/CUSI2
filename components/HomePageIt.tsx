@@ -224,7 +224,7 @@ export default function CusiFloresItPage() {
 
       <main id="inicio">
         <section className="relative overflow-hidden bg-white">
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 hidden md:block">
             {heroImages.map((image, index) => (
               <Image
                 key={image}
@@ -239,18 +239,28 @@ export default function CusiFloresItPage() {
               />
             ))}
           </div>
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.96)_0%,rgba(255,255,255,0.84)_38%,rgba(255,255,255,0.18)_72%,rgba(255,255,255,0)_100%)]" />
+          <div className="absolute inset-0 hidden md:block bg-[linear-gradient(90deg,rgba(255,255,255,0.96)_0%,rgba(255,255,255,0.84)_38%,rgba(255,255,255,0.18)_72%,rgba(255,255,255,0)_100%)]" />
           <div className="relative mx-auto grid min-h-[100svh] w-[92%] max-w-7xl items-center gap-8 pt-28 pb-20 md:pt-36">
             <div className="max-w-3xl font-[var(--font-sans)]">
               <h1 className="max-w-2xl [font-family:var(--font-script)] text-[1.55rem] leading-[0.98] text-[#2b1a17] sm:text-[2.05rem] md:text-[3.05rem] xl:text-[60px]">
                 Fiori che parlano per te, anche quando le parole non bastano
               </h1>
 
+              <div className="relative mt-5 h-[250px] overflow-hidden md:hidden">
+                <Image
+                  src={heroImages[heroImageIndex]}
+                  alt=""
+                  fill
+                  sizes="100vw"
+                  className="object-contain object-center"
+                />
+              </div>
+
               <p className="mt-6 max-w-2xl text-base leading-7 text-[#5f4943] md:text-xl md:leading-8">
                 Composizioni premium per celebrare, ringraziare, accompagnare e trasformare ogni gesto in una presenza indimenticabile.
               </p>
 
-              <p className="mt-4 hidden rounded-full md:inline-flex bg-[#efe0d8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#60473f] md:text-sm">
+              <p className="mt-4 inline-flex rounded-full bg-[#efe0d8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#60473f] md:text-sm">
                 Prenota la tua composizione con attenzione personalizzata
               </p>
 
@@ -260,7 +270,7 @@ export default function CusiFloresItPage() {
                 </a>
               </div>
 
-              <div className="mt-10 hidden max-w-2xl md:grid gap-3 sm:grid-cols-3 md:mt-14 md:gap-4">
+              <div className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-3 md:mt-14 md:gap-4">
                 {[
                   ['Consegna a CDMX', ''],
                   ['Design editoriale', 'Composizione floreale con linguaggio visivo raffinato'],
