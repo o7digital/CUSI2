@@ -11,10 +11,11 @@ const BRAND = {
 }
 
 const images = {
-  hero: 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=2200&q=80',
   occasions: '/custom/hero-ocasiones.jpeg',
   events: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1400&q=80',
 }
+
+const heroImages = ['/orquidea.png', '/2.png', '/3.png', '/4.png']
 
 const campaignImages = [
   '/mothers-day-2026/image-1-1.webp',
@@ -62,9 +63,6 @@ const ctaPrimary =
 const footerSeoText =
   'florería premium CDMX · flores premium a domicilio en CDMX · entrega de flores CDMX · arreglos florales CDMX · ramos de flores CDMX · Día de las Madres flores Lomas de Chapultepec CDMX · arreglos florales 10 de mayo Lomas de Chapultepec CDMX · flores para mamá CDMX · bouquets premium CDMX · orquídeas a domicilio CDMX · tulipanes en ramo Lomas de Chapultepec CDMX · tulipanes en cilindro Lomas de Chapultepec CDMX · rosas premium en ramo Lomas de Chapultepec CDMX · caja rosas amarillas Lomas de Chapultepec CDMX · arreglos para cumpleaños Lomas de Chapultepec CDMX · arreglos para aniversario Lomas de Chapultepec CDMX · regalos florales CDMX · florería Bosques de las Lomas · pedidos de flores por WhatsApp Lomas de Chapultepec CDMX · CUSI Flores Lomas de Chapultepec CDMX · flores 10 de Mayo para mamá CDMX · arreglos florales 10 de Mayo para mamá CDMX · ramos de flores 10 de Mayo para mamá CDMX · regalos florales 10 de Mayo para mamá CDMX · flores para mamá 10 de Mayo CDMX'
 
-const ctaSoft =
-  'inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition duration-300 hover:bg-white/20'
-
 const handwrittenDescriptions: Record<string, string> = {
   'Caja Rosas Amarillas': '16 rosas en caja, alegria luminosa.',
   'Rosas Premium en Ramo': 'Ramo clasico de rosas, presencia elegante.',
@@ -86,6 +84,7 @@ export default function CusiFloresMockup() {
   const [products, setProducts] = useState<ProductCard[]>([])
   const [productsLoading, setProductsLoading] = useState(true)
   const [productsError, setProductsError] = useState<string | null>(null)
+  const [heroImageIndex, setHeroImageIndex] = useState(0)
   const productsJsonLd = useMemo(
     () => ({
       '@context': 'https://schema.org',
@@ -128,6 +127,14 @@ export default function CusiFloresMockup() {
 
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setHeroImageIndex((index) => (index + 1) % heroImages.length)
+    }, 5000)
+
+    return () => window.clearInterval(interval)
   }, [])
 
   useEffect(() => {
@@ -269,16 +276,30 @@ export default function CusiFloresMockup() {
       </header>
 
       <main id="inicio">
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${images.hero}')` }} />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(28,17,15,0.88)_0%,rgba(28,17,15,0.58)_40%,rgba(28,17,15,0.2)_100%)]" />
-          <div className="relative mx-auto grid min-h-[100svh] w-[92%] max-w-7xl items-center gap-8 pt-28 pb-20 md:pt-36 lg:grid-cols-[1.05fr_0.95fr]">
+        <section className="relative overflow-hidden bg-white">
+          <div className="absolute inset-0">
+            {heroImages.map((image, index) => (
+              <Image
+                key={image}
+                src={image}
+                alt=""
+                fill
+                priority={index === 0}
+                sizes="100vw"
+                className={`object-contain object-[center_62%] transition-opacity duration-1000 md:object-[75%_58%] ${
+                  index === heroImageIndex ? 'opacity-100' : 'opacity-0'
+                }`}
+              />
+            ))}
+          </div>
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.96)_0%,rgba(255,255,255,0.84)_38%,rgba(255,255,255,0.18)_72%,rgba(255,255,255,0)_100%)]" />
+          <div className="relative mx-auto grid min-h-[100svh] w-[92%] max-w-7xl items-center gap-8 pt-28 pb-20 md:pt-36">
             <div className="max-w-3xl font-[var(--font-sans)]">
-              <h1 className="max-w-2xl [font-family:var(--font-script)] text-[1.55rem] leading-[0.98] text-white sm:text-[2.05rem] md:text-[3.05rem] xl:text-[60px]">
+              <h1 className="max-w-2xl [font-family:var(--font-script)] text-[1.55rem] leading-[0.98] text-[#2b1a17] sm:text-[2.05rem] md:text-[3.05rem] xl:text-[60px]">
                 Flores que hablan por ti, incluso cuando las palabras no alcanzan
               </h1>
 
-              <p className="mt-6 max-w-2xl text-base leading-7 text-white/85 md:text-xl md:leading-8">
+              <p className="mt-6 max-w-2xl text-base leading-7 text-[#5f4943] md:text-xl md:leading-8">
                 Arreglos premium para celebrar, agradecer, acompanar y transformar cada gesto en una presencia inolvidable.
               </p>
 
@@ -287,7 +308,7 @@ export default function CusiFloresMockup() {
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3 md:gap-4">
-                <a href="#pedidos" className={ctaSoft}>
+                <a href="#pedidos" className="inline-flex items-center justify-center rounded-full border border-[#2b1a17]/25 bg-[#2b1a17] px-6 py-3 text-sm font-medium text-white shadow-[0_14px_34px_rgba(43,26,23,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#1d100e]">
                   Solicitar Arreglo
                 </a>
               </div>
@@ -298,22 +319,14 @@ export default function CusiFloresMockup() {
                   ['Diseño editorial', 'Composición floral con lenguaje visual refinado'],
                   ['Atención boutique', 'Experiencia cálida, elegante y personalizada'],
                 ].map(([title, desc]) => (
-                  <div key={title} className="rounded-[24px] border border-white/20 bg-white/10 p-4 text-white backdrop-blur-md md:rounded-[28px] md:p-5">
+                  <div key={title} className="rounded-[24px] border border-[#ead8cf] bg-white/75 p-4 text-[#2b1a17] shadow-[0_16px_42px_rgba(74,46,37,0.08)] backdrop-blur-md md:rounded-[28px] md:p-5">
                     <p className="font-[var(--font-display)] text-base font-medium md:text-lg">{title}</p>
-                    {desc ? <p className="mt-2 text-sm leading-6 text-white/75">{desc}</p> : null}
+                    {desc ? <p className="mt-2 text-sm leading-6 text-[#6f5851]">{desc}</p> : null}
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="reveal hidden h-[520px] overflow-hidden rounded-[2.2rem] border border-white/30 bg-white/40 p-8 shadow-[0_18px_45px_rgba(71,44,35,0.08)] backdrop-blur-lg lg:flex lg:-translate-y-[2cm] lg:flex-col lg:justify-between">
-              <p className="font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#315a2f]">
-                &ldquo;Cada arreglo se diseña con flores seleccionadas, equilibrio visual y una intención clara: emocionar con elegancia.&rdquo;
-              </p>
-              <p className="-translate-y-[1.5cm] font-[var(--font-display)] text-center text-3xl leading-[1.35] text-[#315a2f]">
-                &ldquo;Recomendamos confirmar tu pedido con anticipación para cuidar cada detalle y programar la entrega en CDMX.&rdquo;
-              </p>
-            </div>
           </div>
         </section>
 
