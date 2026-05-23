@@ -258,17 +258,17 @@ export default function CusiFloresFrPage() {
                 Des compositions premium pour célébrer, remercier, accompagner et transformer chaque geste en une présence inoubliable.
               </p>
 
-              <p className="mt-4 inline-flex rounded-full bg-[#efe0d8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#60473f] md:text-sm">
+              <p className="mt-4 hidden rounded-full md:inline-flex bg-[#efe0d8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#60473f] md:text-sm">
                 Planifiez votre composition avec une attention personnalisée
               </p>
 
-              <div className="mt-9 flex flex-wrap gap-3 md:gap-4">
+              <div className="mt-9 hidden flex-wrap md:flex gap-3 md:gap-4">
                 <a href="#pedidos" className="inline-flex items-center justify-center rounded-full border border-[#2b1a17]/25 bg-[#2b1a17] px-6 py-3 text-sm font-medium text-white shadow-[0_14px_34px_rgba(43,26,23,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#1d100e]">
                   Demander un arrangement
                 </a>
               </div>
 
-              <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3 md:mt-14 md:gap-4">
+              <div className="mt-10 hidden max-w-2xl md:grid gap-3 sm:grid-cols-3 md:mt-14 md:gap-4">
                 {[
                   ['Livraison à CDMX', ''],
                   ['Design éditorial', 'Composition florale au langage visuel raffiné'],
