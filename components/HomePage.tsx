@@ -582,6 +582,14 @@ export default function CusiFloresMockup() {
               <li>Tiempo de respuesta: confirmación por WhatsApp y validación de disponibilidad el mismo día.</li>
               <li>Entrega: costo final segun distancia, horario y tipo de arreglo.</li>
             </ul>
+            <div className="mt-6 flex flex-wrap gap-3 text-sm">
+              <a href="/flores-a-domicilio-cdmx" className="rounded-full border border-[#d8c4bb] bg-[#fffdfa] px-4 py-2 text-[#4e3a34] hover:underline">Flores a domicilio CDMX</a>
+              <a href="/arreglos-florales-cdmx" className="rounded-full border border-[#d8c4bb] bg-[#fffdfa] px-4 py-2 text-[#4e3a34] hover:underline">Arreglos florales CDMX</a>
+              <a href="/ramos-de-flores-cdmx" className="rounded-full border border-[#d8c4bb] bg-[#fffdfa] px-4 py-2 text-[#4e3a34] hover:underline">Ramos de flores CDMX</a>
+              <a href="/orquideas-a-domicilio-cdmx" className="rounded-full border border-[#d8c4bb] bg-[#fffdfa] px-4 py-2 text-[#4e3a34] hover:underline">Orquideas a domicilio</a>
+              <a href="/flores-para-cumpleanos-cdmx" className="rounded-full border border-[#d8c4bb] bg-[#fffdfa] px-4 py-2 text-[#4e3a34] hover:underline">Flores para cumpleaños</a>
+              <a href="/flores-dia-de-las-madres-cdmx" className="rounded-full border border-[#d8c4bb] bg-[#fffdfa] px-4 py-2 text-[#4e3a34] hover:underline">Flores Dia de las Madres</a>
+            </div>
           </div>
         </section>
       </main>
@@ -626,6 +634,10 @@ export default function CusiFloresMockup() {
                 <a href="/condiciones-generales-de-uso" className="transition hover:text-white">Condiciones de Uso</a>
                 <a href="/flores-lomas-de-chapultepec" className="transition hover:text-white">Lomas de Chapultepec</a>
                 <a href="/flores-bosques-de-las-lomas" className="transition hover:text-white">Bosques de las Lomas</a>
+                <a href="/flores-polanco" className="transition hover:text-white">Polanco</a>
+                <a href="/flores-santa-fe" className="transition hover:text-white">Santa Fe</a>
+                <a href="/flores-a-domicilio-cdmx" className="transition hover:text-white">Flores a domicilio</a>
+                <a href="/arreglos-florales-cdmx" className="transition hover:text-white">Arreglos florales</a>
                 <a href={BRAND.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram CUSI" className="transition hover:opacity-80">Instagram</a>
               </div>
             </div>

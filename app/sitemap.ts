@@ -41,6 +41,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${baseUrl}/flores-a-domicilio-cdmx`,
+      lastModified: new Date('2026-05-23'),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/arreglos-florales-cdmx`,
+      lastModified: new Date('2026-05-23'),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/ramos-de-flores-cdmx`,
+      lastModified: new Date('2026-05-23'),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/orquideas-a-domicilio-cdmx`,
+      lastModified: new Date('2026-05-23'),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/flores-para-cumpleanos-cdmx`,
+      lastModified: new Date('2026-05-23'),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/flores-dia-de-las-madres-cdmx`,
+      lastModified: new Date('2026-05-23'),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/aviso-de-privacidad`,
       lastModified: new Date('2026-05-07'),
       changeFrequency: 'yearly',
