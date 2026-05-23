@@ -19,6 +19,11 @@ type SeoLandingPageProps = {
   whatsappText: string
   faq: FaqItem[]
   relatedLinks?: RelatedLink[]
+  eyebrow?: string
+  orderTitle?: string
+  orderBody?: string
+  faqTitle?: string
+  relatedLabel?: string
 }
 
 const phoneUrl = (message: string) => `https://wa.me/525521092665?text=${encodeURIComponent(message)}`
@@ -31,6 +36,11 @@ export default function SeoLandingPage({
   whatsappText,
   faq,
   relatedLinks = [],
+  eyebrow = 'CUSI Flores CDMX',
+  orderTitle = 'Pedidos por WhatsApp y entrega programada',
+  orderBody = 'Confirmamos disponibilidad de flores, estilo del arreglo, horario de entrega y datos del destinatario antes de preparar cada pedido.',
+  faqTitle = 'Preguntas frecuentes',
+  relatedLabel = 'Paginas relacionadas',
 }: SeoLandingPageProps) {
   const faqJsonLd = {
     '@context': 'https://schema.org',
@@ -48,7 +58,7 @@ export default function SeoLandingPage({
   return (
     <main className="min-h-screen bg-[#f6efe9] text-[#241715]">
       <section className="mx-auto w-[92%] max-w-5xl py-12 md:py-16">
-        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#94736a]">CUSI Flores CDMX</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#94736a]">{eyebrow}</p>
         <h1 className="mt-4 text-3xl leading-tight md:text-5xl">{title}</h1>
         {intro.map((paragraph) => (
           <p key={paragraph} className="mt-5 text-base leading-8 text-[#4e3a34]">
@@ -57,10 +67,8 @@ export default function SeoLandingPage({
         ))}
 
         <div className="mt-8 rounded-2xl border border-[#ead8cf] bg-white p-6 shadow-[0_16px_42px_rgba(74,46,37,0.08)]">
-          <h2 className="text-2xl md:text-3xl">Pedidos por WhatsApp y entrega programada</h2>
-          <p className="mt-3 text-base leading-8 text-[#4e3a34]">
-            Confirmamos disponibilidad de flores, estilo del arreglo, horario de entrega y datos del destinatario antes de preparar cada pedido.
-          </p>
+          <h2 className="text-2xl md:text-3xl">{orderTitle}</h2>
+          <p className="mt-3 text-base leading-8 text-[#4e3a34]">{orderBody}</p>
           <a
             href={phoneUrl(whatsappText)}
             target="_blank"
@@ -81,7 +89,7 @@ export default function SeoLandingPage({
         </div>
 
         <section className="mt-10 rounded-2xl border border-[#ead8cf] bg-white p-6">
-          <h2 className="text-2xl md:text-3xl">Preguntas frecuentes</h2>
+          <h2 className="text-2xl md:text-3xl">{faqTitle}</h2>
           <div className="mt-5 space-y-5">
             {faq.map((item) => (
               <div key={item.question}>
@@ -93,7 +101,7 @@ export default function SeoLandingPage({
         </section>
 
         {relatedLinks.length ? (
-          <nav className="mt-8 flex flex-wrap gap-3 text-sm text-[#6f5851]" aria-label="Paginas relacionadas">
+          <nav className="mt-8 flex flex-wrap gap-3 text-sm text-[#6f5851]" aria-label={relatedLabel}>
             {relatedLinks.map((link) => (
               <a key={link.href} href={link.href} className="rounded-full border border-[#d8c4bb] bg-white px-4 py-2 underline-offset-2 hover:underline">
                 {link.label}
