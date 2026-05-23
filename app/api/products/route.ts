@@ -19,28 +19,14 @@ type ProductCard = {
   image: string
 }
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+export const revalidate = 300
 
 const WP_BASE_URL = 'https://oliviers54.sg-host.com'
-const getProductsUrl = () => {
-  // Use a per-request value to avoid intermediary caches serving stale product data.
-  const cacheBuster = Date.now()
-  return `${WP_BASE_URL}/wp-json/wc/store/v1/products?per_page=24&orderby=date&order=desc&_=${cacheBuster}`
-}
+const PRODUCTS_URL = `${WP_BASE_URL}/wp-json/wc/store/v1/products?per_page=24&orderby=date&order=desc`
 
 const stripHtml = (input: string) => input.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
 const normalizeWpUrl = (url: string) =>
   url.startsWith('http://oliviers54.sg-host.com/') ? url.replace('http://', 'https://') : url
-
-const withFreshWpImage = (url: string, version: number) => {
-  if (!url.startsWith(`${WP_BASE_URL}/wp-content/`)) {
-    return url
-  }
-
-  const separator = url.includes('?') ? '&' : '?'
-  return `${url}${separator}v=${version}`
-}
 
 const extractImageFromHtml = (html: string) => {
   const match = html.match(/<img[^>]+src=["']([^"']+)["']/i)
@@ -85,8 +71,8 @@ const fetchProductsWithRetry = async (retries = 2) => {
 
   for (let attempt = 0; attempt <= retries; attempt += 1) {
     try {
-      const response = await fetch(getProductsUrl(), {
-        cache: 'no-store',
+      const response = await fetch(PRODUCTS_URL, {
+        next: { revalidate },
         headers: {
           accept: 'application/json',
           'user-agent': 'cusi-site/1.0 (+https://cusi-2.vercel.app)',
@@ -117,7 +103,6 @@ const fetchProductsWithRetry = async (retries = 2) => {
 
 export async function GET() {
   try {
-    const imageVersion = Date.now()
     const data = await fetchProductsWithRetry()
 
     const products: ProductCard[] = data
@@ -133,7 +118,7 @@ export async function GET() {
           title,
           desc,
           price: formatPrice(item.prices),
-          image: withFreshWpImage(image, imageVersion),
+          image,
         }
       })
       .filter((item) => item.title.length > 0)
@@ -142,9 +127,7 @@ export async function GET() {
       { products },
       {
         headers: {
-          'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
-          Pragma: 'no-cache',
-          Expires: '0',
+          'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=1800',
         },
       }
     )

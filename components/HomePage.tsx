@@ -142,7 +142,7 @@ export default function CusiFloresMockup() {
 
     const loadProducts = async () => {
       try {
-        const response = await fetch(`/api/products?t=${Date.now()}`, { cache: 'no-store' })
+        const response = await fetch('/api/products')
         if (!response.ok) {
           throw new Error(`Products API failed with ${response.status}`)
         }
@@ -357,11 +357,12 @@ export default function CusiFloresMockup() {
                   className="group relative flex h-52 items-center justify-center overflow-hidden bg-[#f7efea] px-4 py-3 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8d6c62] focus-visible:ring-offset-2 md:h-56"
                   aria-label={`Ver imagen ampliada de ${item.title}`}
                 >
-                  <img
+                  <Image
                     src={item.image}
                     alt={`Arreglo floral ${item.title} CUSI CDMX`}
+                    fill
+                    sizes="(min-width: 1280px) 384px, (min-width: 768px) 45vw, 92vw"
                     className="h-full w-full scale-[1.2] object-contain transition duration-500 ease-out group-hover:scale-[1.36] group-focus-visible:scale-[1.36]"
-                    loading="lazy"
                   />
                   <span className="pointer-events-none absolute inset-x-4 bottom-3 translate-y-2 rounded-full border border-white/60 bg-[#2b1a17]/70 px-3 py-1.5 text-center text-xs font-semibold uppercase tracking-[0.14em] text-white opacity-0 shadow-[0_10px_28px_rgba(43,26,23,0.18)] backdrop-blur-md transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
                     Ver detalle
@@ -418,7 +419,14 @@ export default function CusiFloresMockup() {
                 ×
               </button>
               <div className="flex min-h-0 flex-1 items-center justify-center bg-[#f4ebe5] p-4 md:p-8">
-                <img src={selectedProduct.image} alt={`Arreglo floral ${selectedProduct.title} CUSI CDMX`} className="max-h-[68svh] w-full object-contain" />
+                <Image
+                  src={selectedProduct.image}
+                  alt={`Arreglo floral ${selectedProduct.title} CUSI CDMX`}
+                  width={1200}
+                  height={900}
+                  sizes="92vw"
+                  className="max-h-[68svh] w-full object-contain"
+                />
               </div>
               <div className="border-t border-[#ead8cf] bg-[#fffdfa] p-5 md:flex md:items-center md:justify-between md:gap-6">
                 <div>

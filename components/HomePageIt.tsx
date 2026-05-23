@@ -118,7 +118,7 @@ export default function CusiFloresItPage() {
 
     const loadProducts = async () => {
       try {
-        const response = await fetch(`/api/products?t=${Date.now()}`, { cache: 'no-store' })
+        const response = await fetch('/api/products')
         if (!response.ok) {
           throw new Error(`Products API failed with ${response.status}`)
         }
@@ -297,8 +297,14 @@ export default function CusiFloresItPage() {
           <div className="grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-3">
             {products.map((item) => (
               <article key={item.title} className="flex h-full flex-col overflow-hidden rounded-[1.6rem] border border-[#ead8cf] bg-[#fffdfa] shadow-[0_16px_42px_rgba(74,46,37,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_58px_rgba(74,46,37,0.14)]">
-                <div className="flex h-52 items-center justify-center bg-[#f7efea] px-4 py-3 md:h-56">
-                  <img src={item.image} alt={`Composizione floreale premium ${item.title} CUSI CDMX`} className="h-full w-full object-contain scale-[1.2]" loading="lazy" />
+                <div className="relative flex h-52 items-center justify-center bg-[#f7efea] px-4 py-3 md:h-56">
+                  <Image
+                    src={item.image}
+                    alt={`Composizione floreale premium ${item.title} CUSI CDMX`}
+                    fill
+                    sizes="(min-width: 1280px) 384px, (min-width: 768px) 45vw, 92vw"
+                    className="h-full w-full scale-[1.2] object-contain"
+                  />
                 </div>
                 <div className="flex flex-1 flex-col gap-2 p-4">
                   <h3 className="min-h-[3.4rem] text-[1.89rem] leading-[1.02] text-[#2a1c19] [font-family:var(--font-script)] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden">
