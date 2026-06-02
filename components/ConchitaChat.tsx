@@ -9,13 +9,13 @@ const CHAT_ENDPOINT = 'https://www.o7digital.com/api/o7-chat'
 
 const COPY = {
   es: {
-    title: 'Conchita',
+    title: 'Olivia AI Assistant',
     status: 'Asistente CUSI Flores',
     online: 'En linea',
     teaser: 'Necesitas flores?',
     open: 'Abrir chat',
     close: 'Cerrar chat',
-    welcome: 'Hola, soy Conchita. En que puedo ayudarte con tus flores?',
+    welcome: 'Hola, soy Olivia AI Assistant. En que puedo ayudarte con tus flores?',
     leadIntro: 'Deja tus datos para que un asesor de CUSI pueda contactarte y confirmar disponibilidad.',
     firstName: 'Nombre',
     lastName: 'Apellido',
@@ -28,13 +28,13 @@ const COPY = {
     error: 'No pude enviar el mensaje. Intenta de nuevo o contacta directamente a CUSI.',
   },
   en: {
-    title: 'Conchita',
+    title: 'Olivia AI Assistant',
     status: 'CUSI Flowers Assistant',
     online: 'Online',
     teaser: 'Need flowers?',
     open: 'Open chat',
     close: 'Close chat',
-    welcome: 'Hello, I am Conchita. How can I help with your flowers?',
+    welcome: 'Hello, I am Olivia AI Assistant. How can I help with your flowers?',
     leadIntro: 'Leave your details so a CUSI advisor can contact you and confirm availability.',
     firstName: 'First name',
     lastName: 'Last name',
@@ -47,13 +47,13 @@ const COPY = {
     error: 'I could not send the message. Please try again or contact CUSI directly.',
   },
   fr: {
-    title: 'Conchita',
+    title: 'Olivia AI Assistant',
     status: 'Assistante CUSI Fleurs',
     online: 'En ligne',
     teaser: 'Besoin de fleurs ?',
     open: 'Ouvrir le chat',
     close: 'Fermer le chat',
-    welcome: 'Bonjour, je suis Conchita. Comment puis-je vous aider avec vos fleurs ?',
+    welcome: 'Bonjour, je suis Olivia AI Assistant. Comment puis-je vous aider avec vos fleurs ?',
     leadIntro: "Laissez vos coordonnees pour qu'un conseiller CUSI puisse vous contacter et confirmer la disponibilite.",
     firstName: 'Prenom',
     lastName: 'Nom',
@@ -66,13 +66,13 @@ const COPY = {
     error: "Je n'ai pas pu envoyer le message. Reessayez ou contactez directement CUSI.",
   },
   it: {
-    title: 'Conchita',
+    title: 'Olivia AI Assistant',
     status: 'Assistente CUSI Fiori',
     online: 'Online',
     teaser: 'Hai bisogno di fiori?',
     open: 'Apri chat',
     close: 'Chiudi chat',
-    welcome: 'Ciao, sono Conchita. Come posso aiutarti con i tuoi fiori?',
+    welcome: 'Ciao, sono Olivia AI Assistant. Come posso aiutarti con i tuoi fiori?',
     leadIntro: 'Lascia i tuoi dati cosi un consulente CUSI potra contattarti e confermare la disponibilita.',
     firstName: 'Nome',
     lastName: 'Cognome',
@@ -138,10 +138,10 @@ export default function ConchitaChat() {
           lastName: lead.lastName.trim(),
           email: lead.email.trim(),
           phone: lead.phone.trim(),
-          source: 'Chat Conchita CUSI Flores',
+          source: 'Chat Olivia AI Assistant CUSI Flores',
           language,
           siteCode: SITE_CODE,
-          message: `Lead Chat Conchita CUSI Flores (${language}, ${SITE_CODE})\n\n${transcript}`,
+          message: `Lead Chat Olivia AI Assistant CUSI Flores (${language}, ${SITE_CODE})\n\n${transcript}`,
         }),
       })
       if (!response.ok) throw new Error('Lead delivery failed')
@@ -217,12 +217,12 @@ export default function ConchitaChat() {
       <div className="conchita-closed">
         {!isOpen && (
           <button type="button" className="conchita-teaser" onClick={() => setIsOpen(true)}>
-            <span className="conchita-avatar">C</span>
+            <span className="conchita-avatar">O</span>
             <span>{copy.teaser}</span>
           </button>
         )}
         <button type="button" className="conchita-toggle" onClick={() => setIsOpen((value) => !value)} aria-label={isOpen ? copy.close : copy.open}>
-          {isOpen ? 'x' : 'Conchita'}
+          {isOpen ? 'x' : 'Olivia'}
         </button>
       </div>
     </div>
