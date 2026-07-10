@@ -5,7 +5,8 @@ import { usePathname } from 'next/navigation'
 
 const SITE_CODE = 'cusi'
 const LEAD_ENDPOINT = 'https://www.o7digital.com/api/o7-lead'
-const CHAT_ENDPOINT = 'https://www.o7digital.com/api/o7-chat'
+const CHAT_ENDPOINT = 'https://olivia-ai.o7digital.com/api/olivia/chat'
+const CHANNEL_ENDPOINT = 'https://olivia-ai.o7digital.com/api/widget/conversations'
 
 const COPY = {
   es: {
@@ -108,6 +109,7 @@ export default function ConchitaChat() {
   const pathname = usePathname()
   const language = getLanguage(pathname)
   const copy = COPY[language]
+  const [visitorId, setVisitorId] = useState('')
   const [isOpen, setIsOpen] = useState(false)
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -123,6 +125,47 @@ export default function ConchitaChat() {
   }, [copy.welcome])
 
   const transcript = useMemo(() => messages.map((message) => `${message.role}: ${message.content}`).join('\n'), [messages])
+
+  useEffect(() => {
+    const key = 'oliviaVisitor:cusi'
+    const existing = window.localStorage.getItem(key)
+    const next = existing || window.crypto.randomUUID()
+    window.localStorage.setItem(key, next)
+    setVisitorId(next)
+  }, [])
+
+  const persistChannelMessage = async (content: string, role: 'user' | 'assistant', extraContext: Record<string, unknown> = {}) => {
+    if (!visitorId || !content.trim()) return null
+
+    const payload = {
+      clientCode: SITE_CODE,
+      visitorId,
+      visitorName: `${lead.firstName} ${lead.lastName}`.trim() || undefined,
+      email: lead.email.trim() || undefined,
+      phone: lead.phone.trim() || undefined,
+      source: 'website-chat',
+      pageUrl: typeof window !== 'undefined' ? window.location.href : '',
+      content,
+      language,
+      metadata: {
+        site: 'CUSI Flores',
+        source: 'Chat Olivia AI Assistant CUSI Flores',
+        pageUrl: typeof window !== 'undefined' ? window.location.href : '',
+        role,
+        lead,
+        ...extraContext,
+      },
+    }
+
+    const response = await fetch(CHANNEL_ENDPOINT, {
+      method: role === 'assistant' ? 'PATCH' : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+
+    if (!response.ok) throw new Error('Channel Manager delivery failed')
+    return response.json().catch(() => null)
+  }
 
   const handleLeadSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -145,8 +188,14 @@ export default function ConchitaChat() {
         }),
       })
       if (!response.ok) throw new Error('Lead delivery failed')
+      await persistChannelMessage(
+        `${lead.firstName.trim()} ${lead.lastName.trim()} · ${lead.email.trim()} · ${lead.phone.trim()}`,
+        'user',
+        { type: 'lead' },
+      ).catch(() => null)
       setLeadSent(true)
       setMessages((prev) => [...prev, { role: 'assistant', content: copy.leadThanks }])
+      await persistChannelMessage(copy.leadThanks, 'assistant', { type: 'lead_acknowledgement' }).catch(() => null)
     } catch {
       setMessages((prev) => [...prev, { role: 'assistant', content: copy.error }])
     } finally {
@@ -163,13 +212,28 @@ export default function ConchitaChat() {
     setMessages((prev) => [...prev, { role: 'user', content: message }])
     setIsLoading(true)
     try {
+      await persistChannelMessage(message, 'user').catch(() => null)
       const response = await fetch(CHAT_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message, language: messageLanguage, siteCode: SITE_CODE }),
+        body: JSON.stringify({
+          message,
+          language: messageLanguage,
+          clientCode: SITE_CODE,
+          clientId: SITE_CODE,
+          visitorId,
+          pageUrl: window.location.href,
+          metadata: {
+            source: 'Chat Olivia AI Assistant CUSI Flores',
+            transcript,
+            lead,
+          },
+        }),
       })
       const data = await response.json()
-      setMessages((prev) => [...prev, { role: 'assistant', content: data.reply || copy.error }])
+      const reply = data.reply || copy.error
+      setMessages((prev) => [...prev, { role: 'assistant', content: reply }])
+      await persistChannelMessage(reply, 'assistant', { type: 'olivia_reply' }).catch(() => null)
     } catch {
       setMessages((prev) => [...prev, { role: 'assistant', content: copy.error }])
     } finally {
