@@ -29,8 +29,8 @@ const COPY = {
     close: 'Cerrar chat',
     welcome: 'Hola, soy Olivia AI Assistant. En que puedo ayudarte con tus flores?',
     leadIntro: 'Deja tus datos para que un asesor de CUSI pueda contactarte y confirmar disponibilidad.',
-    firstName: 'Nombre',
-    lastName: 'Apellido',
+    name: 'Nombre completo',
+    subject: 'Asunto / comentario',
     email: 'Email',
     phone: 'Telefono',
     submitLead: 'Enviar datos',
@@ -48,8 +48,8 @@ const COPY = {
     close: 'Close chat',
     welcome: 'Hello, I am Olivia AI Assistant. How can I help with your flowers?',
     leadIntro: 'Leave your details so a CUSI advisor can contact you and confirm availability.',
-    firstName: 'First name',
-    lastName: 'Last name',
+    name: 'Full name',
+    subject: 'Subject / comment',
     email: 'Email',
     phone: 'Phone',
     submitLead: 'Send details',
@@ -67,8 +67,8 @@ const COPY = {
     close: 'Fermer le chat',
     welcome: 'Bonjour, je suis Olivia AI Assistant. Comment puis-je vous aider avec vos fleurs ?',
     leadIntro: "Laissez vos coordonnees pour qu'un conseiller CUSI puisse vous contacter et confirmer la disponibilite.",
-    firstName: 'Prenom',
-    lastName: 'Nom',
+    name: 'Nom complet',
+    subject: 'Sujet / commentaire',
     email: 'Email',
     phone: 'Telephone',
     submitLead: 'Envoyer',
@@ -86,8 +86,8 @@ const COPY = {
     close: 'Chiudi chat',
     welcome: 'Ciao, sono Olivia AI Assistant. Come posso aiutarti con i tuoi fiori?',
     leadIntro: 'Lascia i tuoi dati cosi un consulente CUSI potra contattarti e confermare la disponibilita.',
-    firstName: 'Nome',
-    lastName: 'Cognome',
+    name: 'Nome completo',
+    subject: 'Oggetto / commento',
     email: 'Email',
     phone: 'Telefono',
     submitLead: 'Invia dati',
@@ -126,7 +126,7 @@ export default function ConchitaChat() {
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [leadSent, setLeadSent] = useState(false)
-  const [lead, setLead] = useState({ firstName: '', lastName: '', email: '', phone: '' })
+  const [lead, setLead] = useState({ name: '', email: '', phone: '', subject: '' })
   const [messages, setMessages] = useState<ChatMessage[]>([{ role: 'assistant', content: copy.welcome }])
 
   useEffect(() => {
@@ -152,7 +152,7 @@ export default function ConchitaChat() {
     const payload = {
       clientCode: SITE_CODE,
       visitorId,
-      visitorName: `${lead.firstName} ${lead.lastName}`.trim() || undefined,
+      visitorName: lead.name.trim() || undefined,
       email: lead.email.trim() || undefined,
       phone: lead.phone.trim() || undefined,
       source: 'website-chat',
@@ -181,7 +181,7 @@ export default function ConchitaChat() {
 
   const handleLeadSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if (!lead.firstName.trim() || !lead.lastName.trim() || !lead.email.trim() || !lead.phone.trim() || isLoading) return
+    if (!lead.name.trim() || !lead.subject.trim() || !lead.email.trim() || !lead.phone.trim() || isLoading) return
 
     setIsLoading(true)
     try {
@@ -189,21 +189,23 @@ export default function ConchitaChat() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          firstName: lead.firstName.trim(),
-          lastName: lead.lastName.trim(),
+          firstName: lead.name.trim().split(/\s+/)[0],
+          lastName: lead.name.trim().split(/\s+/).slice(1).join(' '),
+          name: lead.name.trim(),
+          subject: lead.subject.trim(),
           email: lead.email.trim(),
           phone: lead.phone.trim(),
           source: 'Chat Olivia AI Assistant CUSI Flores',
           language,
           siteCode: SITE_CODE,
-          message: `Lead Chat Olivia AI Assistant CUSI Flores (${language}, ${SITE_CODE})\n\n${transcript}`,
+          message: `Lead Chat Olivia AI Assistant CUSI Flores (${language}, ${SITE_CODE})\n\n${lead.subject.trim()}\n\n${transcript}`,
         }),
       })
       if (!response.ok) throw new Error('Lead delivery failed')
       await persistChannelMessage(
-        `${lead.firstName.trim()} ${lead.lastName.trim()} · ${lead.email.trim()} · ${lead.phone.trim()}`,
+        `${lead.name.trim()} · ${lead.email.trim()} · ${lead.phone.trim()}\n\n${lead.subject.trim()}`,
         'user',
-        { type: 'lead' },
+        { type: 'lead', subject: lead.subject.trim() },
       ).catch(() => null)
       setLeadSent(true)
       setMessages((prev) => [...prev, { role: 'assistant', content: copy.leadThanks }])
@@ -275,10 +277,10 @@ export default function ConchitaChat() {
           {!leadSent && (
             <form className="conchita-lead" onSubmit={handleLeadSubmit}>
               <p>{copy.leadIntro}</p>
-              <input required placeholder={copy.firstName} value={lead.firstName} onChange={(event) => setLead((prev) => ({ ...prev, firstName: event.target.value }))} />
-              <input required placeholder={copy.lastName} value={lead.lastName} onChange={(event) => setLead((prev) => ({ ...prev, lastName: event.target.value }))} />
-              <input required type="email" placeholder={copy.email} value={lead.email} onChange={(event) => setLead((prev) => ({ ...prev, email: event.target.value }))} />
-              <input required type="tel" placeholder={copy.phone} value={lead.phone} onChange={(event) => setLead((prev) => ({ ...prev, phone: event.target.value }))} />
+              <input required name="name" autoComplete="name" aria-label={copy.name} placeholder={copy.name} value={lead.name} onChange={(event) => setLead((prev) => ({ ...prev, name: event.target.value }))} />
+              <input required name="email" autoComplete="email" aria-label={copy.email} type="email" placeholder={copy.email} value={lead.email} onChange={(event) => setLead((prev) => ({ ...prev, email: event.target.value }))} />
+              <input required name="phone" autoComplete="tel" aria-label={copy.phone} type="tel" placeholder={copy.phone} value={lead.phone} onChange={(event) => setLead((prev) => ({ ...prev, phone: event.target.value }))} />
+              <textarea required name="subject" aria-label={copy.subject} placeholder={copy.subject} rows={3} value={lead.subject} onChange={(event) => setLead((prev) => ({ ...prev, subject: event.target.value }))} />
               <button type="submit" disabled={isLoading}>{copy.submitLead}</button>
             </form>
           )}

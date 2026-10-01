@@ -32,7 +32,7 @@ body {
   margin-bottom: 14px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-y: auto;
   border: 1px solid rgba(173, 119, 95, 0.45);
   border-radius: 24px;
   background: #fffaf6;
@@ -136,6 +136,7 @@ body {
   line-height: 1.4;
 }
 
+.conchita-lead textarea,
 .conchita-lead input,
 .conchita-composer input {
   width: 100%;
@@ -149,10 +150,12 @@ body {
   outline: none;
 }
 
-.conchita-lead input {
+.conchita-lead input,
+.conchita-lead textarea {
   padding: 11px;
 }
 
+.conchita-lead textarea::placeholder,
 .conchita-lead input::placeholder,
 .conchita-composer input::placeholder {
   color: rgba(47, 33, 28, 0.48);
@@ -243,4 +246,16 @@ body {
   .conchita-lead {
     grid-template-columns: 1fr;
   }
+}
+
+.conchita-lead textarea {
+  grid-column: 1 / -1;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.conchita-header,
+.conchita-lead,
+.conchita-composer {
+  flex-shrink: 0;
 }
