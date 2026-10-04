@@ -13,6 +13,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'oliviers54.sg-host.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'wp-cusi.o7digitalgroup.com',
+      },
     ],
   },
 }
