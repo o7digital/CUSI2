@@ -21,12 +21,12 @@ type ProductCard = {
 
 export const revalidate = 300
 
-const WP_BASE_URL = 'https://oliviers54.sg-host.com'
+const WP_BASE_URL = 'https://wp-cusi.o7digitalgroup.com'
 const PRODUCTS_URL = `${WP_BASE_URL}/wp-json/wc/store/v1/products?per_page=24&orderby=date&order=desc`
 
 const stripHtml = (input: string) => input.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
 const normalizeWpUrl = (url: string) =>
-  url.startsWith('http://oliviers54.sg-host.com/') ? url.replace('http://', 'https://') : url
+  url.startsWith(`${WP_BASE_URL.replace('https://', 'http://')}/`) ? url.replace('http://', 'https://') : url
 
 const extractImageFromHtml = (html: string) => {
   const match = html.match(/<img[^>]+src=["']([^"']+)["']/i)
