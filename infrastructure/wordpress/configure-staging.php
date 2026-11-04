@@ -6,6 +6,9 @@ require '/var/www/html/wp-load.php';
 if (wp_get_environment_type() !== 'staging' || DB_NAME !== 'wp_cusi_dev') {
     throw new RuntimeException('This configuration is restricted to the isolated CUSI development database.');
 }
+if (get_option('cusi_stripe_live_enabled', false)) {
+    throw new RuntimeException('Refusing to reset a shop that already accepts live Stripe payments.');
+}
 $base = 'https://wp-cusi.o7digitalgroup.com/dev';
 update_option('home', $base);
 update_option('siteurl', $base);

@@ -28,7 +28,9 @@ bouquet = next(product for product in staging if product['type'] == 'simple' and
 opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
 with opener.open(f"{STAGING}/checkout/?add-to-cart={bouquet['id']}&quantity=1", timeout=30) as response:
     assert response.status == 200 and response.url.startswith(STAGING + '/checkout/')
-    assert not re.search(r'pk_live_', response.read().decode()), 'A live Stripe key was exposed on staging'
+    html = response.read().decode()
+    assert re.search(r'pk_live_', html), 'The authorized live Stripe connection is missing'
+    assert not re.search(r'pk_test_', html), 'The dev checkout should now use the real Stripe account'
 cart = read_json(STAGING + '/wp-json/wc/store/v1/cart', opener)
 assert len(cart['items']) == 1 and cart['items'][0]['id'] == bouquet['id']
 assert cart['items'][0]['quantity'] == 1
@@ -36,4 +38,5 @@ assert cart['totals']['total_price'] == bouquet['prices']['price'], cart['totals
 expected_tax = int(bouquet['prices']['price']) - int(prices[bouquet['id']])
 assert int(cart['totals']['total_tax']) == expected_tax, cart['totals']
 print('PASS: checkout contains the selected bouquet, and catalog and checkout totals match')
-print('Stripe test gateway:', 'available' if 'stripe' in cart['payment_methods'] else 'not connected; payment test remains blocked')
+assert 'stripe' in cart['payment_methods'], 'Stripe must be available as a payment method'
+print('PASS: live Stripe is available; no order or charge has been submitted')
