@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import ProductImageViewer from './ProductImageViewer'
+import type { ProductCard } from '@/lib/woocommerce'
 
 const BRAND = {
   name: 'CUSI',
@@ -28,13 +29,6 @@ const campaignImages = [
   '/mothers-day-2026/image-7-1.webp',
   '/mothers-day-2026/image-8-1.webp',
 ]
-
-type ProductCard = {
-  title: string
-  desc: string
-  price: string
-  image: string
-}
 
 const emotionalPillars = [
   { title: 'Fleurs sélectionnées', text: "Sélection florale axée sur la qualité, la fraîcheur et l'harmonie visuelle." },
@@ -319,13 +313,12 @@ export default function CusiFloresFrPage() {
                   {item.title === 'Tulipanes en cilindro' ? <p className="text-sm font-medium text-[#664f48]">40 tiges</p> : null}
                   <div className="mt-auto space-y-2">
                     <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price}</p>
+                    {item.taxIncluded ? <p className="text-xs text-[#6f5851]">{item.currency} · IVA incluse (16 %)</p> : null}
                     <a
-                      href={BRAND.whatsappUrl}
-                      target="_blank"
-                      rel="noreferrer"
+                      href={item.buyUrl || BRAND.whatsappUrl}
                       className="inline-flex w-full items-center justify-center rounded-full border border-[#c8ada3] bg-white px-6 py-2.5 text-sm font-semibold text-[#2e231f] transition duration-300 hover:border-[#b4988e] hover:bg-[#fff8f5]"
                     >
-                      Acheter
+                      {item.buyUrl ? 'Acheter' : 'Demander un devis'}
                     </a>
                   </div>
                 </div>

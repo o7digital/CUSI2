@@ -1,27 +1,9 @@
 import { NextResponse } from 'next/server'
-
-type WooStoreProduct = {
-  name?: string
-  description?: string
-  short_description?: string
-  images?: Array<{ id?: number; src?: string }>
-  prices?: {
-    price?: string
-    currency_code?: string
-    currency_minor_unit?: number
-  }
-}
-
-type ProductCard = {
-  title: string
-  desc: string
-  price: string
-  image: string
-}
+import { formatWooPrice, getPurchaseUrl, type ProductCard, type WooStoreProduct } from '@/lib/woocommerce'
 
 export const revalidate = 300
 
-const WP_BASE_URL = 'https://wp-cusi.o7digitalgroup.com'
+const WP_BASE_URL = (process.env.WORDPRESS_BASE_URL || 'https://wp-cusi.o7digitalgroup.com').replace(/\/$/, '')
 const PRODUCTS_URL = `${WP_BASE_URL}/wp-json/wc/store/v1/products?per_page=24&orderby=date&order=desc`
 
 const stripHtml = (input: string) => input.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
@@ -31,25 +13,6 @@ const normalizeWpUrl = (url: string) =>
 const extractImageFromHtml = (html: string) => {
   const match = html.match(/<img[^>]+src=["']([^"']+)["']/i)
   return match?.[1] ? normalizeWpUrl(match[1]) : null
-}
-
-const formatPrice = (prices: WooStoreProduct['prices']) => {
-  if (!prices?.price) return 'Cotizar por WhatsApp'
-
-  const minorUnit = typeof prices.currency_minor_unit === 'number' ? prices.currency_minor_unit : 2
-  const currency = prices.currency_code || 'MXN'
-  const amount = Number(prices.price) / Math.pow(10, minorUnit)
-
-  if (Number.isNaN(amount)) {
-    return 'Cotizar por WhatsApp'
-  }
-
-  return new Intl.NumberFormat('es-MX', {
-    style: 'currency',
-    currency,
-    maximumFractionDigits: minorUnit,
-    minimumFractionDigits: minorUnit,
-  }).format(amount)
 }
 
 const normalizeTitle = (title: string) => {
@@ -113,12 +76,15 @@ export async function GET() {
         const apiImage = item.images?.[0]?.src ? normalizeWpUrl(item.images[0].src) : null
         const htmlImage = extractImageFromHtml(item.description || '')
         const image = apiImage || htmlImage || '/mothers-day-2026/image-1-1.webp'
+        const price = formatWooPrice(item.prices)
 
         return {
           title,
           desc,
-          price: formatPrice(item.prices),
+          ...price,
           image,
+          buyUrl: getPurchaseUrl(item, WP_BASE_URL),
+          taxIncluded: !!price.priceAmount && process.env.WOOCOMMERCE_PRICES_INCLUDE_IVA === 'true',
         }
       })
       .filter((item) => item.title.length > 0)
