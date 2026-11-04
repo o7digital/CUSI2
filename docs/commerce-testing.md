@@ -11,6 +11,16 @@ The existing WooCommerce prices are the base prices. On the test shop, all 22 pu
 
 The website uses WooCommerce's returned total directly. Simple, available bouquets link to `/dev/checkout/?add-to-cart=PRODUCT_ID&quantity=1`. Products requiring options open the product page. Unavailable or unpriced products offer a quote.
 
+## Road-distance delivery prepared
+
+`cusi-distance-shipping.php` and `cusi-distance-pricing.php` are installed as must-use plugins on dev. The calculator is **disabled until the merchant supplies the MXN/km tariff and a Google Routes API server key**. The current 400 MXN delivery configuration remains active until then. No real route calculation has been verified without these settings.
+
+Configure it at https://wp-cusi.o7digitalgroup.com/dev/wp-admin/admin.php?page=wc-settings&tab=shipping&section=cusi_distance. The proposed origin is the merchant-provided address, Bosques de Robles 32, Lomas de Chapultepec, Ciudad de México. The supplied six-digit postcode is omitted pending correction; validate the exact origin on Maps before activation. Keep the API key in WordPress; never commit it or share it in chat. Enable Routes API with billing in its Google Cloud project and restrict the key to the Routes API and the server's public IP as appropriate. Google's setup documentation: https://developers.google.com/maps/documentation/routes/get-api-key.
+
+Two configurable policies are prepared: (1) 400 MXN in CDMX and distance pricing outside CDMX; (2) a radius policy, including CDMX destinations, with an included distance. Formula: **400 MXN + max(0, one-way road kilometers − included kilometers) × MXN/km**, rounded once to the nearest cent. The proposed, unapproved example is 5 km included and 10 MXN/km beyond that: 20 km costs 550 MXN. The merchant must choose the policy and tariff before activation. Distance is computed server-side using Google Routes `DRIVE` and the delivery address, then appears in the shipping label and order shipping metadata. International delivery is not added. Invalid addresses, a missing route, a missing tariff or an API error cannot fall back to a 400 MXN outside-city rate. Changing the configuration invalidates WooCommerce shipping caches.
+
+`tests/verify-distance-shipping.php` exercises actual WooCommerce rate filters with process-local mocked options and route responses: CDMX pricing, outside-city pricing, rounding, caching, incomplete addresses and provider failures. Run it inside `o7-wp-cusi-dev` after installing the two plugins. It makes no external route request, submits no order, and does not enable or change the merchant's saved calculator settings. The 10 MXN/km used in the test is **test data**, not a chosen commercial tariff.
+
 ## Live Stripe activated on dev
 
 At the user's explicit request on 2026-11-04, dev now accepts **real Stripe payments** using the existing merchant account. The account API reports that charges are enabled. The checkout exposes the `stripe` payment method and renders the secure credit/debit card input in a browser. No charge was submitted during verification.
