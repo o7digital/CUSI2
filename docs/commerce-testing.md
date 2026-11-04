@@ -7,7 +7,7 @@ The Vercel **Preview / dev** environment has `WORDPRESS_BASE_URL=https://wp-cusi
 
 ## Prices and purchases
 
-The existing WooCommerce prices are the base prices. On the test shop, all 22 published bouquets are taxable at 16% IVA; prices are entered excluding tax, and shop/cart prices display including tax. Tax uses the shop's Mexican base address. Product prices themselves have not been increased, so IVA is added once by WooCommerce. For example: 3,990.00 + 638.40 = 4,628.40 MXN. Shipping is a separate WooCommerce charge.
+The existing WooCommerce prices are the base prices. On the test shop, all 22 published bouquets are taxable at 16% IVA; prices are entered excluding tax, and shop/cart prices display including tax. Tax uses the shop's Mexican base address. Product prices themselves have not been increased, so IVA is added once by WooCommerce. For example: 3,990.00 + 638.40 = 4,628.40 MXN. Delivery in the existing Mexico shipping zone costs a flat **400 MXN per order**, making this example's checkout total **5,028.40 MXN**. Free shipping is removed. The 400 MXN is the final delivery charge; no additional IVA is added to it. `infrastructure/wordpress/configure-shipping.php` applies this configuration and invalidates cached shipping rates for existing carts.
 
 The website uses WooCommerce's returned total directly. Simple, available bouquets link to `/dev/checkout/?add-to-cart=PRODUCT_ID&quantity=1`. Products requiring options open the product page. Unavailable or unpriced products offer a quote.
 

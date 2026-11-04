@@ -34,9 +34,15 @@ with opener.open(f"{STAGING}/checkout/?add-to-cart={bouquet['id']}&quantity=1", 
 cart = read_json(STAGING + '/wp-json/wc/store/v1/cart', opener)
 assert len(cart['items']) == 1 and cart['items'][0]['id'] == bouquet['id']
 assert cart['items'][0]['quantity'] == 1
-assert cart['totals']['total_price'] == bouquet['prices']['price'], cart['totals']
+shipping_minor = 40000
+assert cart['totals']['total_shipping'] == str(shipping_minor), cart['totals']
+assert cart['totals']['total_shipping_tax'] == '0', cart['totals']
+assert int(cart['totals']['total_price']) == int(bouquet['prices']['price']) + shipping_minor, cart['totals']
+rates = [rate for package in cart['shipping_rates'] for rate in package['shipping_rates']]
+assert rates and not any(rate['method_id'] == 'free_shipping' for rate in rates), rates
+assert any(rate['method_id'] == 'flat_rate' and rate['selected'] and rate['price'] == str(shipping_minor) for rate in rates), rates
 expected_tax = int(bouquet['prices']['price']) - int(prices[bouquet['id']])
 assert int(cart['totals']['total_tax']) == expected_tax, cart['totals']
-print('PASS: checkout contains the selected bouquet, and catalog and checkout totals match')
+print('PASS: checkout contains the selected bouquet, 400 MXN delivery, and the correct total')
 assert 'stripe' in cart['payment_methods'], 'Stripe must be available as a payment method'
 print('PASS: live Stripe is available; no order or charge has been submitted')
