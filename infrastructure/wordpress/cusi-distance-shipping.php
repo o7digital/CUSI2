@@ -10,9 +10,9 @@ function cusi_distance_settings(): array {
     return [
         'enabled' => get_option('cusi_distance_enabled', 'no') === 'yes',
         'origin' => trim((string) get_option('cusi_distance_origin', 'Bosques de Robles 32, Lomas de Chapultepec, Ciudad de México, México')),
-        'rate' => (string) get_option('cusi_distance_rate', ''),
-        'scope' => (string) get_option('cusi_distance_scope', 'outside_cdmx'),
-        'included_km' => (string) get_option('cusi_distance_included_km', '0'),
+        'rate' => (string) get_option('cusi_distance_rate', '15'),
+        'scope' => (string) get_option('cusi_distance_scope', 'radius'),
+        'included_km' => (string) get_option('cusi_distance_included_km', '5'),
         'api_key' => trim((string) get_option('cusi_distance_api_key', '')),
     ];
 }
@@ -132,9 +132,9 @@ add_filter('woocommerce_get_settings_shipping', static function ($settings, $sec
     return [
         ['type' => 'title', 'id' => 'cusi_distance', 'title' => 'Envíos desde Lomas', 'desc' => '400 MXN de base + kilómetros por carretera no incluidos × tarifa/km. El total se calcula antes del pago.'],
         ['type' => 'text', 'id' => 'cusi_distance_origin', 'title' => 'Dirección de salida', 'default' => 'Bosques de Robles 32, Lomas de Chapultepec, Ciudad de México, México', 'css' => 'width: 600px;'],
-        ['type' => 'select', 'id' => 'cusi_distance_scope', 'title' => 'Aplicar cálculo', 'default' => 'outside_cdmx', 'options' => ['radius' => 'Desde la boutique, incluyendo destinos en CDMX', 'outside_cdmx' => 'Solo fuera de CDMX; CDMX se mantiene en 400 MXN']],
-        ['type' => 'number', 'id' => 'cusi_distance_included_km', 'title' => 'Kilómetros incluidos en los 400 MXN', 'default' => '0', 'custom_attributes' => ['min' => '0', 'step' => '0.1']],
-        ['type' => 'price', 'id' => 'cusi_distance_rate', 'title' => 'Tarifa por km (MXN)', 'default' => '', 'desc' => 'Importe final por kilómetro de trayecto de ida, sin IVA adicional.'],
+        ['type' => 'select', 'id' => 'cusi_distance_scope', 'title' => 'Aplicar cálculo', 'default' => 'radius', 'options' => ['radius' => 'Desde la boutique, incluyendo destinos en CDMX', 'outside_cdmx' => 'Solo fuera de CDMX; CDMX se mantiene en 400 MXN']],
+        ['type' => 'number', 'id' => 'cusi_distance_included_km', 'title' => 'Kilómetros incluidos en los 400 MXN', 'default' => '5', 'custom_attributes' => ['min' => '0', 'step' => '0.1']],
+        ['type' => 'price', 'id' => 'cusi_distance_rate', 'title' => 'Tarifa por km (MXN)', 'default' => '15', 'desc' => 'Importe final por kilómetro de trayecto de ida, sin IVA adicional.'],
         ['type' => 'password', 'id' => 'cusi_distance_api_key', 'title' => 'Google Routes API key', 'default' => '', 'desc' => 'Clave del servidor con Routes API habilitada. Se guarda únicamente en WordPress.'],
         ['type' => 'checkbox', 'id' => 'cusi_distance_enabled', 'title' => 'Cálculo automático', 'default' => 'no', 'desc' => 'Activar después de configurar la tarifa/km y conectar Google Routes API. Si no se puede calcular una ruta fuera de CDMX, no se ofrece un importe incorrecto.'],
         ['type' => 'sectionend', 'id' => 'cusi_distance'],

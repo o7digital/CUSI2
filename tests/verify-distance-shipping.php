@@ -16,8 +16,11 @@ function check_distance($condition, string $message): void {
 check_distance(cusi_distance_price_minor(0, 1000) === 40000, '400 MXN minimum, added once');
 check_distance(cusi_distance_price_minor(25000, 1000) === 65000, '25 road km at 10 MXN/km gives 650 MXN');
 check_distance(cusi_distance_price_minor(12345, 755) === 49320, 'fractional kilometers and cent rounding');
-check_distance(cusi_distance_price_minor(5000, 1000, 5000) === 40000, 'included 5 km are not charged twice');
-check_distance(cusi_distance_price_minor(20000, 1000, 5000) === 55000, 'proposed radius pricing: 20 km gives 550 MXN');
+check_distance(cusi_distance_price_minor(5000, 1500, 5000) === 40000, 'approved tariff: up to 5 km costs 400 MXN');
+check_distance(cusi_distance_price_minor(10000, 1500, 5000) === 47500, 'approved tariff: 10 km costs 475 MXN');
+check_distance(cusi_distance_price_minor(20000, 1500, 5000) === 62500, 'approved tariff: 20 km costs 625 MXN');
+check_distance(cusi_distance_price_minor(30000, 1500, 5000) === 77500, 'approved tariff: 30 km costs 775 MXN');
+check_distance(cusi_distance_price_minor(5001, 1500, 5000) === 40002, 'only the distance beyond 5 km is billed, rounded to cents');
 foreach ([[-1, 1000], [1000, 0], [1000, -100], [PHP_INT_MAX, 1000]] as [$meters, $rate]) {
     try {
         cusi_distance_price_minor($meters, $rate);
@@ -62,10 +65,11 @@ $rates = apply_filters('woocommerce_package_rates', $base, $package);
 check_distance($calls === 1, 'repeated checkout recalculation reuses the route');
 add_filter('pre_option_cusi_distance_scope', static fn () => 'radius', 20);
 add_filter('pre_option_cusi_distance_included_km', static fn () => '5', 20);
+add_filter('pre_option_cusi_distance_rate', static fn () => '15', 20);
 $package['destination']['state'] = 'DF';
 $package['destination']['address'] = 'CUSI radius route test';
 $rates = apply_filters('woocommerce_package_rates', $base, $package);
-check_distance((float) reset($rates)->get_cost() === 600.0, 'radius mode charges only kilometers beyond 5, including CDMX destinations');
+check_distance((float) reset($rates)->get_cost() === 700.0, 'approved radius tariff: 25 km costs 700 MXN, including CDMX destinations');
 $package['destination']['state'] = 'MX';
 $mock_status = 503;
 $package['destination']['address'] = 'CUSI unavailable route test';
