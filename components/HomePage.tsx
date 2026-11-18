@@ -559,7 +559,7 @@ export default function CusiFloresMockup() {
               <span className="text-3xl font-light tracking-wide text-white/95">COLECCION</span>
               <span className="mt-3 block text-sm text-white/70">Arreglos premium y temporada</span>
             </a>
-            <a href="#pedido" className="group relative block min-h-[180px] overflow-hidden rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30">
+            <a href="#pedidos" className="group relative block min-h-[180px] overflow-hidden rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30">
               <span className="text-3xl font-light tracking-wide text-white/95">PEDIDOS</span>
               <span className="mt-3 block text-sm text-white/70">Cotiza y confirma por WhatsApp</span>
             </a>

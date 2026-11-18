@@ -434,7 +434,7 @@ export default function CusiFloresItPage() {
         <div className="mx-auto w-[92%] max-w-7xl py-14 md:py-16">
           <div className="grid gap-5 md:grid-cols-3">
             <a href="#coleccion" className="group block min-h-[180px] rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30"><span className="text-3xl font-light tracking-wide text-white/95">COLLEZIONE</span></a>
-            <a href="#pedido" className="group block min-h-[180px] rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30"><span className="text-3xl font-light tracking-wide text-white/95">ORDINI</span></a>
+            <a href="#pedidos" className="group block min-h-[180px] rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30"><span className="text-3xl font-light tracking-wide text-white/95">ORDINI</span></a>
             <a href="#contacto" className="group block min-h-[180px] rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30"><span className="text-3xl font-light tracking-wide text-white/95">CONTATTO</span></a>
           </div>
           <div className="mt-12 border-t border-white/15 pt-10 text-center">
