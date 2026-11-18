@@ -1,5 +1,6 @@
 import './globals.css'
 import './olivia.css'
+import './order.css'
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, Dancing_Script, Manrope } from 'next/font/google'
 import Script from 'next/script'

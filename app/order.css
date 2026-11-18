@@ -1,0 +1,7 @@
+.cusi-order-form fieldset{min-width:0}
+.cusi-order-input{display:block;width:100%;min-width:0;border:1px solid #ffffff45;border-radius:12px;background:#ffffff12;padding:12px 15px;color:#fff;font:inherit;font-size:16px;outline-offset:3px;color-scheme:dark}
+.cusi-order-input:focus-visible{outline:2px solid #f4ddd2}
+.cusi-order-input:disabled{opacity:.6}
+.cusi-order-input option{background:#2a1d1a;color:#fff}
+.cusi-order-input[type=file]{font-size:14px}
+.cusi-order-form textarea{resize:vertical}

@@ -17,6 +17,8 @@ export default function OliviaChat() {
   const locale = pathname?.split('/')[1] || 'es'
   const language: Language = locale === 'fr' || locale === 'en' || locale === 'it' ? locale : 'es'
   const t = COPY[language]
+  const orderLabel = { es: 'Solicitar un arreglo', fr: 'Commander un arrangement', en: 'Order an arrangement', it: 'Ordinare una composizione' }[language]
+  const orderUrl = `${language === 'es' ? '/' : `/${language}`}#pedidos`
   const [open, setOpen] = useState(false)
   const [consent, setConsent] = useState(false)
   const [status, setStatus] = useState<'checking' | 'online' | 'offline'>('checking')
@@ -108,6 +110,7 @@ export default function OliviaChat() {
         <form className="cusi-olivia-form" onSubmit={send}>
           <label className="cusi-olivia-consent"><input type="checkbox" checked={consent} onChange={event => setConsent(event.target.checked)} /><span>{t.consent} <a href={t.privacyUrl}>{t.privacy}</a></span></label>
           <div className="cusi-olivia-composer"><input ref={composer} value={draft} onChange={event => setDraft(event.target.value)} maxLength={4000} placeholder={t.placeholder} aria-label={t.placeholder} /><button disabled={!consent || loading || !draft.trim()} type="submit">{t.send}</button></div>
+          <a className="cusi-olivia-order" href={orderUrl} onClick={close}>{orderLabel} →</a>
           <a className="cusi-olivia-contact" href="https://wa.me/525521092665" target="_blank" rel="noreferrer">{t.contact} ↗</a>
         </form>
       </section>}

@@ -31,6 +31,7 @@
 .cusi-olivia-composer button{border:0;border-radius:12px;padding:10px 12px;background:#5d3038;color:white;font-weight:600}
 .cusi-olivia-composer button:disabled{opacity:.45;cursor:default}
 .cusi-olivia-contact{display:block;margin-top:9px;text-align:center;font-size:12px;color:#714e35;text-decoration:underline;text-underline-offset:3px}
+.cusi-olivia-order{display:block;margin-top:10px;padding:9px 12px;border:1px solid #d8c4ad;border-radius:12px;background:#f5e8da;color:#5d3038;text-align:center;font-size:13px;font-weight:600}
 @keyframes cusi-olivia-pulse{to{opacity:.35}}
 @media(max-width:767px){.cusi-olivia{right:14px;bottom:82px}.cusi-olivia-panel{height:min(560px,calc(100dvh - 180px));margin-bottom:8px}.cusi-olivia-launcher{min-height:55px;padding:7px 14px 7px 7px;gap:9px}.cusi-olivia-launcher .cusi-olivia-avatar{width:36px;height:36px;font-size:25px}.cusi-olivia-header{padding:12px}.cusi-olivia-header p{font-size:11px}.cusi-olivia-consent{font-size:10px}.cusi-olivia-form{padding:11px}}
 @media(prefers-reduced-motion:reduce){.cusi-olivia-thinking span{animation:none}.cusi-olivia-messages{scroll-behavior:auto}}
