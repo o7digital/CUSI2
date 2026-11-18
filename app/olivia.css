@@ -1,0 +1,51 @@
+.cusi-olivia{position:fixed;right:22px;bottom:22px;z-index:100;font-family:var(--font-sans),sans-serif;color:#30211d;font-size:14px;line-height:1.5}
+.cusi-olivia button,.cusi-olivia input{font:inherit}
+.cusi-olivia button{cursor:pointer}
+.cusi-olivia button:focus-visible,.cusi-olivia input:focus-visible,.cusi-olivia a:focus-visible{outline:3px solid #ba9559;outline-offset:3px}
+.cusi-olivia-launcher{display:flex;align-items:center;gap:12px;min-height:64px;margin-left:auto;padding:10px 18px 10px 10px;border:1px solid #b99565;border-radius:40px;background:linear-gradient(135deg,#4b252d,#2e1d20);color:#fff8ee;box-shadow:0 10px 35px #321c3040;text-align:left;font-weight:700}
+.cusi-olivia-avatar{display:grid;place-items:center;flex-shrink:0;width:42px;height:42px;border:1px solid #d3b482;border-radius:50%;background:#6b3b43;color:#f5dfb5;font-family:var(--font-display),serif;font-size:30px;font-weight:500}
+.cusi-olivia-status{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:400;line-height:1.7}
+.cusi-olivia-status i{display:block;width:7px;height:7px;border-radius:50%;background:#e7b273}
+.cusi-olivia-status i[data-status=online]{background:#80d7a4;box-shadow:0 0 7px #80d7a466}
+.cusi-olivia-panel{display:flex;flex-direction:column;width:min(390px,calc(100vw - 28px));height:min(610px,calc(100dvh - 120px));margin-bottom:12px;border:1px solid #d7b98b;border-radius:23px;overflow:hidden;background:#fffcf8;box-shadow:0 18px 70px #321c3050}
+.cusi-olivia-header{display:flex;align-items:center;gap:11px;padding:17px;background:linear-gradient(135deg,#4b252d,#2e1d20);color:#fff8ee;flex-shrink:0}
+.cusi-olivia-header h2{margin:0;font-size:18px;font-weight:600;line-height:1.4}
+.cusi-olivia-header p{margin:0;font-size:12px;color:#f0d7c8}
+.cusi-olivia-close{align-self:flex-start;margin-left:auto;min-width:36px;height:36px;border:1px solid #ffffff44;border-radius:50%;background:transparent;color:#fff8ee;font-size:25px!important;line-height:1}
+.cusi-olivia-messages{flex:1;min-height:80px;overflow-y:auto;overscroll-behavior:contain;padding:16px;background:linear-gradient(#fffcf8,#f9f1e8)}
+.cusi-olivia-message{width:fit-content;max-width:92%;margin:0 0 12px;padding:12px 14px;border-radius:16px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;line-height:1.65}
+.cusi-olivia-message.assistant{background:#eee2d5;color:#34251e;border-bottom-left-radius:4px}
+.cusi-olivia-message.user{margin-left:auto;background:#5d3038;color:#fffaf4;border-bottom-right-radius:4px}
+.cusi-olivia-thinking{font-size:12px;color:#6f5146}
+.cusi-olivia-thinking span{display:inline-block;animation:cusi-olivia-pulse 1s ease-in-out infinite alternate}
+.cusi-olivia-error{font-size:13px;line-height:1.6;color:#8c2929}
+.cusi-olivia-questions{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 12px;background:#f9f1e8}
+.cusi-olivia-questions button{padding:6px 10px;border:1px solid #d8c4ad;border-radius:14px;background:#fffaf4;color:#593f33;font-size:12px}
+.cusi-olivia-form{padding:13px;background:#fffcf8;border-top:1px solid #e8d8c8;flex-shrink:0}
+.cusi-olivia-consent{display:flex;align-items:flex-start;gap:8px;font-size:11px;line-height:1.5;color:#684e40}
+.cusi-olivia-consent input{flex-shrink:0;margin-top:3px;accent-color:#5d3038;width:16px;height:16px}
+.cusi-olivia-consent a{text-decoration:underline}
+.cusi-olivia-composer{display:flex;gap:8px;margin-top:12px}
+.cusi-olivia-composer input{min-width:0;flex:1;border:1px solid #d8c4ad;border-radius:12px;padding:11px;background:white;color:#30211d;font-size:14px}
+.cusi-olivia-composer input::placeholder{color:#80695e}
+.cusi-olivia-composer button{border:0;border-radius:12px;padding:10px 12px;background:#5d3038;color:white;font-weight:600}
+.cusi-olivia-composer button:disabled{opacity:.45;cursor:default}
+.cusi-olivia-contact{display:block;margin-top:9px;text-align:center;font-size:12px;color:#714e35;text-decoration:underline;text-underline-offset:3px}
+.cusi-olivia-order{display:block;width:100%;margin-top:10px;padding:9px 12px;border:1px solid #d8c4ad;border-radius:12px;background:#f5e8da;color:#5d3038;text-align:center;font-size:13px;font-weight:600}
+.cusi-olivia-order-view{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:13px 16px;background:#fffcf8}
+.cusi-olivia-order-back{padding:0;border:0;background:transparent;font-size:11px!important;color:#76564b}
+.cusi-olivia-order-view h3{margin:6px 0 10px;font-size:16px;font-weight:600}
+.cusi-olivia-order-product{margin:-4px 0 10px;font-size:12px;color:#76564b;overflow-wrap:anywhere}
+.cusi-olivia-mini-order fieldset{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 10px;margin:0;padding:0;border:0;min-width:0}
+.cusi-olivia-mini-order label{min-width:0}
+.cusi-olivia-mini-order fieldset label span{display:block;margin-bottom:3px;font-size:11px;color:#684e40}
+.cusi-olivia-mini-order fieldset .wide{grid-column:1/-1}
+.cusi-olivia-mini-order fieldset input{display:block;width:100%;min-width:0;height:35px;border:1px solid #d8c4ad;border-radius:8px;padding:6px 9px;background:#fff;color:#30211d;font-size:14px}
+.cusi-olivia-mini-order .cusi-olivia-consent{margin-top:10px;font-size:10px;line-height:1.4}
+.cusi-olivia-order-submit{width:100%;margin-top:10px;border:0;border-radius:10px;padding:9px;background:#5d3038;color:#fff;font-weight:600}
+.cusi-olivia-order-submit:disabled{opacity:.5}
+.cusi-olivia-order-sent{padding:14px;border-radius:12px;background:#eee2d5;font-size:13px;line-height:1.7}
+@keyframes cusi-olivia-pulse{to{opacity:.35}}
+@media(max-width:767px){.cusi-olivia{right:14px;bottom:82px}.cusi-olivia-panel{height:min(560px,calc(100dvh - 180px));margin-bottom:8px}.cusi-olivia-launcher{min-height:55px;padding:7px 14px 7px 7px;gap:9px}.cusi-olivia-launcher .cusi-olivia-avatar{width:36px;height:36px;font-size:25px}.cusi-olivia-header{padding:12px}.cusi-olivia-header p{font-size:11px}.cusi-olivia-consent{font-size:10px}.cusi-olivia-form{padding:11px}}
+@media(prefers-reduced-motion:reduce){.cusi-olivia-thinking span{animation:none}.cusi-olivia-messages{scroll-behavior:auto}}
+@media(max-width:767px){.cusi-olivia-mini-order fieldset input{font-size:16px}}

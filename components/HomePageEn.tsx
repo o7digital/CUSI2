@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { openOliviaOrder } from '@/lib/olivia-order'
 
 const BRAND = {
   name: 'CUSI',
@@ -189,7 +190,7 @@ export default function CusiFloresEnPage() {
               </svg>
             </button>
 
-            <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" className={`${ctaPrimary} hidden px-4 py-2 text-xs md:text-sm lg:inline-flex`}>
+            <a href="#pedidos" onClick={event => { event.preventDefault(); openOliviaOrder() }} className={`${ctaPrimary} hidden px-4 py-2 text-xs md:text-sm lg:inline-flex`}>
               Order Now
             </a>
           </div>
@@ -214,7 +215,7 @@ export default function CusiFloresEnPage() {
                   {item.label}
                 </a>
               ))}
-              <a href={BRAND.whatsappUrl} target="_blank" rel="noreferrer" onClick={() => setMobileMenuOpen(false)} className="mt-2 inline-flex items-center justify-center rounded-full bg-[#2b1a17] px-5 py-2.5 text-sm font-medium text-white">
+              <a href="#pedidos" onClick={event => { event.preventDefault(); setMobileMenuOpen(false); openOliviaOrder() }} className="mt-2 inline-flex items-center justify-center rounded-full bg-[#2b1a17] px-5 py-2.5 text-sm font-medium text-white">
                 Order Now
               </a>
             </nav>
@@ -319,9 +320,8 @@ export default function CusiFloresEnPage() {
                   <div className="mt-auto space-y-2">
                     <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price}</p>
                     <a
-                      href={BRAND.whatsappUrl}
-                      target="_blank"
-                      rel="noreferrer"
+                      href="#pedidos"
+                      onClick={event => { event.preventDefault(); openOliviaOrder(item.title) }}
                       className="inline-flex w-full items-center justify-center rounded-full border border-[#c8ada3] bg-white px-6 py-2.5 text-sm font-semibold text-[#2e231f] transition duration-300 hover:border-[#b4988e] hover:bg-[#fff8f5]"
                     >
                       Buy
@@ -414,58 +414,10 @@ export default function CusiFloresEnPage() {
           </div>
         </section>
 
-        <section id="pedidos" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-12 md:py-16">
-          <div className="rounded-[2rem] bg-[#2a1d1a] p-7 text-white shadow-[0_28px_70px_rgba(42,29,26,0.34)] md:p-10">
-            <h2 className="text-3xl leading-tight md:text-5xl">Requirements for your arrangement delivery</h2>
-            <div className="mt-6 grid gap-3 md:grid-cols-2">
-              {[
-                'Arrangement',
-                'Transfer slip copy',
-              ].map((step) => (
-                <p key={step} className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white/90">
-                  {step}
-                </p>
-              ))}
-            </div>
-
-            <form action="https://formspree.io/f/xqewoabn" method="POST" encType="multipart/form-data" className="mt-7 grid gap-3 md:grid-cols-2">
-              <div className="md:col-span-2">
-                <label htmlFor="comprobante_transferencia_pdf" className="mb-2 block text-sm font-medium text-white/90">
-                  Transfer slip copy (PDF) * Required field
-                </label>
-                <input
-                  id="comprobante_transferencia_pdf"
-                  type="file"
-                  name="comprobante_transferencia_pdf"
-                  accept="application/pdf"
-                  required
-                  className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white file:mr-4 file:rounded-full file:border-0 file:bg-[#f4ddd2] file:px-4 file:py-2 file:text-sm file:font-semibold file:text-[#2a1d1a] hover:file:bg-[#efcfc1]"
-                />
-              </div>
-              <input type="text" name="nombre" required placeholder="Name of the person placing the order" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
-              <input type="text" name="para_quien" required placeholder="Recipient name" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
-              <input type="text" name="que_debe_decir_el_sobre" placeholder="Envelope text" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
-              <input type="text" name="texto_tarjeta" required placeholder="Card message" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
-              <input type="text" name="quien_firma" required placeholder="Quien firma" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
-              <input type="text" name="direccion_entrega" required placeholder="Full delivery address * Required field" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45 md:col-span-2" />
-              <input type="tel" name="telefono_entrega" required placeholder="Delivery contact phone" className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45" />
-              <div>
-                <label htmlFor="dia_entrega" className="mb-2 block text-sm font-medium text-white/90">
-                  Delivery date
-                </label>
-                <input id="dia_entrega" type="date" name="dia_entrega" required className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white outline-none ring-0 focus:border-white/45" />
-              </div>
-              <textarea name="mensaje" placeholder="Additional order details" rows={3} className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/65 outline-none ring-0 focus:border-white/45 md:col-span-2" />
-              <input type="hidden" name="_subject" value="New CUSI order" />
-              <button type="submit" className="inline-flex items-center justify-center rounded-full bg-[#f4ddd2] px-6 py-3 text-sm font-semibold text-[#2a1d1a] transition duration-300 hover:bg-[#efcfc1] md:col-span-2 md:justify-self-start">
-                Submit order
-              </button>
-            </form>
-
-            <ul className="mt-4 list-disc space-y-1 pl-5 text-xs text-white/80 md:text-sm">
-              <li>After 5 km from Bosques de las Lomas, an extra trusted-courier fee applies and is added to the arrangement price.</li>
-            </ul>
-
+        <section id="pedidos" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10">
+          <div className="flex flex-wrap items-center justify-between gap-5 rounded-[2rem] bg-[#2a1d1a] p-7 text-white">
+            <div><h2 className="text-2xl">Ready to order?</h2><p className="mt-2 text-sm text-white/80">Share your details directly in the Olivia chat.</p></div>
+            <button type="button" onClick={() => openOliviaOrder()} className="rounded-full bg-[#f4ddd2] px-6 py-3 text-sm font-semibold text-[#2a1d1a]">Order with Olivia</button>
           </div>
         </section>
 
@@ -476,7 +428,7 @@ export default function CusiFloresEnPage() {
         <div className="mx-auto w-[92%] max-w-7xl py-14 md:py-16">
           <div className="grid gap-5 md:grid-cols-3">
             <a href="#coleccion" className="group block min-h-[180px] rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30"><span className="text-3xl font-light tracking-wide text-white/95">COLLECTION</span></a>
-            <a href="#pedido" className="group block min-h-[180px] rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30"><span className="text-3xl font-light tracking-wide text-white/95">ORDERS</span></a>
+            <a href="#pedidos" className="group block min-h-[180px] rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30"><span className="text-3xl font-light tracking-wide text-white/95">ORDERS</span></a>
             <a href="#contacto" className="group block min-h-[180px] rounded-md border border-white/10 bg-[#26272d] px-6 py-7 transition duration-300 hover:border-white/30"><span className="text-3xl font-light tracking-wide text-white/95">CONTACT</span></a>
           </div>
           <div className="mt-12 border-t border-white/15 pt-10 text-center">
