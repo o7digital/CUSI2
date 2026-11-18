@@ -1,6 +1,6 @@
 # CUSI Flores — Olivia AI 3.6
 
-The public site previously used a production build from `main` without a chat component. The older Olivia integration existed only on `dev`, alongside unpublished checkout changes. This update starts from `origin/main`, restores Olivia, applies the Next.js 14.2.35 patch and adds a detailed order-request form. The separate dev checkout and its payment/shipping configuration are outside this change.
+The public site previously used a production build from `main` without a chat component. The older Olivia integration existed only on `dev`, alongside unpublished checkout changes. This update starts from `origin/main`, restores Olivia, applies the Next.js 14.2.35 patch and adds a small order-request form inside the chat. The separate dev checkout and its payment/shipping configuration are outside this change.
 
 `components/OliviaChat.tsx` mounts through the root layout on every route. The launcher is rendered independently of browser storage and external widget scripts. The ES/FR/EN/IT interface follows the page language. Visitors consent before sending or storing a question. Replies are rendered as text. Errors preserve the draft, and expired visitor sessions are renewed. The green status requires the dedicated CUSI 3.6 service to answer its health check with its provider configured; an unavailable service is labelled accordingly. Mobile placement clears the existing WhatsApp button.
 
@@ -23,13 +23,15 @@ The Olivia RAG/chat core in `infrastructure/olivia/core` retains its upstream re
 
 The new database stores only consented CUSI messages. No test creates an order, makes a charge or submits a prospect to a CRM.
 
-## Detailed order requests
+## Small order form inside Olivia
 
-The four homepages share `components/OrderForm.tsx` at `#pedidos`. First name, last name, email, phone, street address, city, country and postal code are required and separately labelled. The form also collects the recipient, arrangement, quantity, preferred date, card/envelope text, signature, notes and optional PDF transfer receipt. Catalog order buttons preselect the chosen arrangement; header order links and Olivia's localized order button lead to the same form. Olivia's CUSI system instructions recommend this form when a visitor wants to order.
+`components/OliviaChat.tsx` contains the entire compact order experience. Its Commander button replaces the conversation area with a two-column form containing exactly eight required contact/address fields: first name, last name, email, phone, address, city, postal code and country. Back returns to the conversation. Closing/reopening the chat retains unsent details. The homepages have only a compact chat invitation at `#pedidos`, without a page order form. Catalog and header ordering actions open the chat directly via `lib/olivia-order.ts`; a catalog selection supplies the arrangement context.
 
-Requests use the existing `https://formspree.io/f/xqewoabn` endpoint with Spanish field identifiers, an email reply-to field, locale, consent and the reference product price. Empty attachments are omitted; selected PDFs are limited to 10 MB. The browser validates required fields and email; submission is locked while sending. Only a successful JSON acknowledgement displays the sent-request message. Errors preserve entered details for retry. The acknowledgement says CUSI must confirm availability, delivery and the total before payment. These requests do not create a paid WooCommerce order.
+For explicit ordering intent, the 3.6 system instructions emit the internal `[CUSI_ORDER_FORM]` marker. The backend strips it before saving/displaying the reply and returns the supported `open_order_form` action. The same-origin gateway forwards only that allowlisted UI action. The chat opens the small form automatically, without navigation. Neither the marker nor a page-form URL appears in the human reply.
 
-Firefox checks intercept every Formspree request, validate the complete multipart payload in ES/FR/EN/IT, check product preselection, missing/invalid fields, retries, leading-zero postal codes, localized Olivia links and 320/390/768 px layouts. No verification sends a test request to the merchant. Formspree inbox delivery and account plan settings are not independently verified by these browser checks.
+Requests use the existing `https://formspree.io/f/xqewoabn` endpoint with the eight Spanish field identifiers, locale, consent, selected arrangement when present, and up to twelve recent conversation messages for order context. There are no upload, quantity, date or extra gift-detail fields in this form. The browser validates required fields and email; submission is locked while sending. Only a successful JSON acknowledgement displays the sent-request message. Errors preserve details for retry. CUSI must still confirm the request before payment; this is not a paid WooCommerce order.
+
+Firefox checks intercept every Formspree request and check the eight-field inline form in ES/FR/EN/IT, catalog context, no navigation, missing/invalid fields, draft persistence, retries, leading-zero postal codes, automatic intent and compact desktop/mobile layouts. No verification sends a test request to the merchant. Formspree inbox delivery and account settings are not independently verified by these browser checks. Six gateway tests and six isolated backend tests cover session/tenant isolation and the supported order-form action, including removal of the internal marker from saved conversation history.
 
 ## Rollback and remaining delivery work
 

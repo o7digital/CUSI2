@@ -68,6 +68,16 @@ test('oversized bodies are rejected even without a content-length header', async
   assert.equal((await handle(request('POST', 'chat', headers, { ...body(), message: 'a'.repeat(17000) }), 'chat')).status, 413)
 })
 
+test('only the supported inline form action reaches the chat UI', async () => {
+  for (const action of ['open_order_form', 'arbitrary_action']) {
+    const handle = createOliviaGateway(key, async () => Response.json({ reply: 'Remplissez ce petit formulaire.', clientCode: 'cusi', version: '3.6.0', model: 'test-model', action }))
+    const headers = await session(handle)
+    const response = await handle(request('POST', 'chat', headers, body()), 'chat')
+    const result = await response.json()
+    assert.equal(result.action, action === 'open_order_form' ? action : undefined)
+  }
+})
+
 test('wrong-client replies and provider failures cannot become a successful AI response', async () => {
   for (const reply of [Response.json({ clientCode: 'someone-else', version: '3.6.0', reply: 'private', model: 'test' }), Response.json({}, { status: 500 }), Response.json({}, { status: 429 })]) {
     const handle = createOliviaGateway(key, async () => reply)

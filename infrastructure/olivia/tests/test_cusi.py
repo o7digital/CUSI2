@@ -90,3 +90,14 @@ def test_limits(client, monkeypatch):
     for _ in range(8):
         assert post(client).status_code == 200
     assert post(client).status_code == 429
+
+
+def test_order_intent_opens_inline_form_without_storing_control_markers(client, monkeypatch):
+    monkeypatch.setattr(cusi, 'generate', lambda *args, **kwargs: ('Remplissez ce petit formulaire ici. [CUSI_ORDER_FORM]', 'test-model', 'test', 1))
+    response = post(client, message='Je souhaite commander', language='fr')
+    assert response.status_code == 200
+    assert response.json()['action'] == 'open_order_form'
+    assert response.json()['reply'] == 'Remplissez ce petit formulaire ici.'
+    with database.tenant_session(cusi.TENANT) as db:
+        replies = list(db.scalars(select(Message).where(Message.role == 'assistant')))
+        assert replies and all('[CUSI_ORDER_FORM]' not in reply.content for reply in replies)

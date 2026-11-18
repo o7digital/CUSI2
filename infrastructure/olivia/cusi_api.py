@@ -115,6 +115,10 @@ def chat(body: ChatIn, authorization: str | None = Header(None)):
                 raise HTTPException(502, "Invalid CUSI context")
             prompt = f"Interface locale (fallback only): {body.language}.\nVisitor question: {body.message}"
             reply, model, _, _ = generate("BALANCED", prompt, history, context, tenant=TENANT)
+            open_order_form = '[CUSI_ORDER_FORM]' in reply
+            reply = reply.replace('[CUSI_ORDER_FORM]', '').strip()
+            if not reply:
+                raise HTTPException(502, 'Empty CUSI response')
             engine = "local" if model.startswith("local:") else "openai"
             if not conversation:
                 db.add(Conversation(id=body.conversation_id, tenant_id=TENANT))
@@ -122,7 +126,7 @@ def chat(body: ChatIn, authorization: str | None = Header(None)):
             db.add_all([Message(tenant_id=TENANT, conversation_id=body.conversation_id, role="user", content=body.message), Message(tenant_id=TENANT, conversation_id=body.conversation_id, role="assistant", content=reply)])
             db.add(Audit(tenant_id=TENANT, action="cusi.chat", metadata_json=json.dumps({"conversation_id": body.conversation_id, "consent": True, "engine": engine, "model": model})))
             db.commit()
-        return {"reply": reply, "clientCode": TENANT, "version": "3.6.0", "engine": engine, "model": model}
+        return {"reply": reply, "clientCode": TENANT, "version": "3.6.0", "engine": engine, "model": model, "action": "open_order_form" if open_order_form else None}
     finally:
         with lock:
             busy.discard(body.conversation_id)

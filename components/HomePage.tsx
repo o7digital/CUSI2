@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
-import OrderForm from './OrderForm'
+import { openOliviaOrder } from '@/lib/olivia-order'
 
 const BRAND = {
   name: 'CUSI',
@@ -83,7 +83,6 @@ export default function CusiFloresMockup() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState<ProductCard | null>(null)
   const [products, setProducts] = useState<ProductCard[]>([])
-  const [orderProduct, setOrderProduct] = useState('')
   const [productsLoading, setProductsLoading] = useState(true)
   const [productsError, setProductsError] = useState<string | null>(null)
   const [heroImageIndex, setHeroImageIndex] = useState(0)
@@ -240,7 +239,7 @@ export default function CusiFloresMockup() {
               </svg>
             </button>
 
-            <a href="#pedidos" className={`${ctaPrimary} hidden px-4 py-2 text-xs md:text-sm lg:inline-flex`}>
+            <a href="#pedidos" onClick={event => { event.preventDefault(); openOliviaOrder() }} className={`${ctaPrimary} hidden px-4 py-2 text-xs md:text-sm lg:inline-flex`}>
               Pedir ahora
             </a>
           </div>
@@ -269,7 +268,7 @@ export default function CusiFloresMockup() {
                   {item.label}
                 </a>
               ))}
-              <a href="#pedidos" onClick={() => setMobileMenuOpen(false)} className="mt-2 inline-flex items-center justify-center rounded-full bg-[#2b1a17] px-5 py-2.5 text-sm font-medium text-white">
+              <a href="#pedidos" onClick={event => { event.preventDefault(); setMobileMenuOpen(false); openOliviaOrder() }} className="mt-2 inline-flex items-center justify-center rounded-full bg-[#2b1a17] px-5 py-2.5 text-sm font-medium text-white">
                 Pedir ahora
               </a>
             </nav>
@@ -384,7 +383,7 @@ export default function CusiFloresMockup() {
                     <p className="text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price}</p>
                     <a
                       href="#pedidos"
-                      onClick={() => setOrderProduct(item.title)}
+                      onClick={event => { event.preventDefault(); openOliviaOrder(item.title) }}
                       className="inline-flex w-full items-center justify-center rounded-full border border-[#c8ada3] bg-white px-6 py-2.5 text-sm font-semibold text-[#2e231f] transition duration-300 hover:border-[#b4988e] hover:bg-[#fff8f5]"
                     >
                       Comprar
@@ -515,15 +514,10 @@ export default function CusiFloresMockup() {
           </div>
         </section>
 
-        <section id="pedidos" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-12 md:py-16">
-          <div className="rounded-[2rem] bg-[#2a1d1a] p-7 text-white shadow-[0_28px_70px_rgba(42,29,26,0.34)] md:p-10">
-            <h2 className="text-3xl leading-tight md:text-5xl">Solicita tu arreglo</h2>
-            <OrderForm language="es" products={products} selectedProduct={orderProduct} />
-
-            <ul className="mt-4 list-disc space-y-1 pl-5 text-xs text-white/80 md:text-sm">
-              <li>Despues de 5 km de Bosques de las Lomas habra un cargo por envio con taxi de confianza, que se anade al precio del arreglo.</li>
-            </ul>
-
+        <section id="pedidos" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10">
+          <div className="flex flex-wrap items-center justify-between gap-5 rounded-[2rem] bg-[#2a1d1a] p-7 text-white">
+            <div><h2 className="text-2xl">¿Quieres hacer un pedido?</h2><p className="mt-2 text-sm text-white/80">Comparte tus datos directamente en el chat de Olivia.</p></div>
+            <button type="button" onClick={() => openOliviaOrder()} className="rounded-full bg-[#f4ddd2] px-6 py-3 text-sm font-semibold text-[#2a1d1a]">Pedir con Olivia</button>
           </div>
         </section>
 

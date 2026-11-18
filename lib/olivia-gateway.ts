@@ -74,7 +74,7 @@ export function createOliviaGateway(key: string, upstream: typeof fetch = fetch)
       if (!response.ok) return json({ error: 'Olivia is temporarily unavailable' }, response.status === 429 ? 429 : 502)
       const data = await response.json()
       if (data.clientCode !== CLIENT || data.version !== VERSION || typeof data.reply !== 'string' || !data.reply.trim() || data.reply.length > 16000 || typeof data.model !== 'string' || !data.model) return json({ error: 'Invalid CUSI response' }, 502)
-      return json({ reply: data.reply, clientCode: CLIENT, version: VERSION, model: data.model })
+      return json({ reply: data.reply, clientCode: CLIENT, version: VERSION, model: data.model, ...(data.action === 'open_order_form' ? { action: 'open_order_form' } : {}) })
     } catch { return json({ error: 'Olivia is temporarily unavailable' }, 502) }
   }
 }
