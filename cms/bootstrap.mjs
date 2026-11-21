@@ -12,7 +12,7 @@ async function api(path,method='GET',body){
 }
 token=(await api('/auth/login','POST',{email:access.ADMIN_EMAIL,password:access.ADMIN_PASSWORD,mode:'json'})).access_token;
 const me=await api('/users/me');
-await api('/users/'+me.id,'PATCH',{token:access.ADMIN_TOKEN,first_name:'CUSI',language:'es-ES'});
+await api('/users/'+me.id,'PATCH',{token:access.ADMIN_TOKEN,language:'es-ES'});
 const field=(name,type='string',meta={})=>({field:name,type,schema:{is_nullable:true,...(type==='string'?{max_length:2000}:{})},meta:{interface:type==='text'?'input-rich-text-html':'input',width:'full',...meta}});
 const id={field:'id',type:'string',schema:{is_primary_key:true,is_nullable:false,max_length:120},meta:{hidden:true}};
 const status=field('status','string',{interface:'select-dropdown',options:{choices:[{text:'Publicado',value:'published'},{text:'Borrador',value:'draft'}]}});
@@ -63,8 +63,8 @@ if(!role)role=await api('/roles','POST',{name:'Cusi editora',icon:'local_florist
 access.EDITOR_ROLE_ID=role.id;
 const users=await api('/users?fields=id,email&limit=-1');let readUser=users.find(row=>row.email==='website-reader@example.com');
 if(!readUser)readUser=await api('/users','POST',{email:'website-reader@example.com',password:randomBytes(32).toString('hex'),first_name:'Cusi website',status:'active',token:access.WEBSITE_READ_TOKEN,policies:[{policy:reader.id}]});
-// This reserved address is an internal login identifier, never an email recipient.
-access.EDITOR_EMAIL='cusi-editor@example.com';
+// Preserve the owner's configured client email on subsequent bootstrap runs.
+access.EDITOR_EMAIL ||= 'cusi-editor@example.com';
 if(!users.some(row=>row.email===access.EDITOR_EMAIL)){
  access.EDITOR_PASSWORD=randomBytes(24).toString('base64url');
  await writeFile(accessPath,JSON.stringify(access),{mode:0o600});
