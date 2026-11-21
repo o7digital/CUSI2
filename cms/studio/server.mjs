@@ -8,7 +8,7 @@ export function makeStudio(config = process.env) {
   const cms = config.DIRECTUS_URL?.replace(/\/$/,'');
   const site = config.WEBSITE_URL || 'https://www.cusiflores.com';
   const studio = config.STUDIO_URL;
-  const sessions = new Map(), attempts = new Map();
+  const sessions = new Map(), attempts = new Map(), previewTickets = new Map();
   const secure = !config.INSECURE_LOCAL;
   const cookie = (value, age) => `cusi_session=${value}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${age}${secure ? '; Secure' : ''}`;
   async function directus(path, method='GET', body, token) {
@@ -70,7 +70,13 @@ export function makeStudio(config = process.env) {
         sessions.set(id,{user,token:auth.access_token,refresh:auth.refresh_token,refreshAt:Date.now()+auth.expires-30000,expires:Date.now()+8*3600000});
         res.setHeader('Set-Cookie',cookie(id,8*3600));send(res,200,{ok:true});return;
       }
-      const id=(req.headers.cookie||'').split(';').map(v=>v.trim()).find(v=>v.startsWith('cusi_session='))?.split('=')[1];
+      let id=(req.headers.cookie||'').split(';').map(v=>v.trim()).find(v=>v.startsWith('cusi_session='))?.split('=')[1];
+      // Sandboxed frames have an opaque origin; browsers may withhold Lax cookies.
+      // A single-use ticket binds only this preview navigation to the parent session.
+      if(url.pathname==='/api/preview'&&req.method==='GET'){
+        const ticket=url.searchParams.get('ticket'),entry=previewTickets.get(ticket);
+        if(entry&&entry.expires>Date.now()){id=entry.sessionId;previewTickets.delete(ticket);}
+      }
       for(const [key,value] of sessions)if(value.expires<Date.now())sessions.delete(key);
       const session=sessions.get(id);
       if(!session){send(res,401,{error:'Inicia sesión para abrir Cusi Studio.'});return;}
@@ -79,6 +85,10 @@ export function makeStudio(config = process.env) {
         try{const auth=await directus('/auth/refresh','POST',{refresh_token:session.refresh,mode:'json'});session.token=auth.access_token;session.refresh=auth.refresh_token;session.refreshAt=Date.now()+auth.expires-30000;}catch{sessions.delete(id);send(res,401,{error:'Tu sesión terminó. Vuelve a entrar.'});return;}
       }
       const api=(path,method,body)=>directus(path,method,body,session.token);
+      if(url.pathname==='/api/preview-ticket'&&req.method==='GET'){
+        for(const[key,value]of previewTickets)if(value.expires<Date.now())previewTickets.delete(key);
+        const ticket=randomBytes(32).toString('hex');previewTickets.set(ticket,{sessionId:id,expires:Date.now()+60000});send(res,200,{ticket});return;
+      }
       if(url.pathname==='/api/session'&&req.method==='GET'){send(res,200,{user:{name:session.user.first_name||'CUSI',isAdmin:session.user.email===config.ADMIN_EMAIL},site,cms});return;}
       if(url.pathname==='/api/content'&&req.method==='GET'){
         const [copy,slides]=await Promise.all([api('/items/site_copy?limit=100'),api('/items/hero_slides?sort=sort&limit=30')]);
@@ -135,7 +145,8 @@ export function makeStudio(config = process.env) {
         let html=snapshot(await response.text(),origin);
         const nonce=randomBytes(16).toString('base64');
         const bridge=`const parentOrigin=${JSON.stringify(studio||'http://'+req.headers.host)};document.querySelectorAll('[data-cusi-copy]').forEach(el=>{el.contentEditable='true';el.style.outline='1px dashed #79a68c';el.addEventListener('click',e=>{e.preventDefault();parent.postMessage({type:'select',id:el.dataset.cusiCopy,field:el.dataset.cusiField},parentOrigin)});el.addEventListener('input',()=>parent.postMessage({type:'edit',id:el.dataset.cusiCopy,field:el.dataset.cusiField,value:el.dataset.cusiRich?el.innerHTML:el.innerText},parentOrigin))});document.querySelectorAll('a,button').forEach(el=>el.addEventListener('click',e=>e.preventDefault()));addEventListener('message',e=>{if(e.source!==parent||e.origin!==parentOrigin)return;const d=e.data;if(d.type==='set')document.querySelectorAll('[data-cusi-copy]').forEach(el=>{if(el.dataset.cusiCopy===d.id&&el.dataset.cusiField===d.field){if(el.dataset.cusiRich)el.innerHTML=d.value;else el.textContent=d.value;}});if(d.type==='section'&&d.row){const row=d.row;const isHero=row.section.endsWith('_hero');document.querySelectorAll('[data-cusi-copy]').forEach(el=>{const inHero=el.dataset.cusiCopy.includes('_hero_');if(inHero!==isHero)return;if(inHero)el.dataset.cusiCopy=row.id;if(el.dataset.cusiCopy===row.id){const value=row[el.dataset.cusiField]||'';if(el.dataset.cusiRich)el.innerHTML=value;else el.textContent=value;}});const target=[...document.querySelectorAll('[data-cusi-copy]')].find(el=>el.dataset.cusiCopy===row.id);target?.scrollIntoView({block:'center'});}if(d.type==='slide')document.querySelectorAll('[data-cusi-slide]').forEach(el=>{el.style.opacity=el.dataset.cusiSlide===d.id?'1':'0';})});`;
-        html=html.replace('</body>',`<style>[contenteditable]:focus{outline:2px solid #39734d!important}header{position:relative!important}html{scroll-behavior:auto!important}</style><script nonce="${nonce}">${bridge}</script></body>`);
+        html=html.replace('</body>',`<style>[contenteditable]:focus{outline:2px solid #39734d!important}.cusi-olivia{display:none!important}header{position:relative!important}html{scroll-behavior:auto!important}</style><script nonce="${nonce}">${bridge};parent.postMessage({type:'ready'},parentOrigin)</script></body>`);
+        res.setHeader('Referrer-Policy','no-referrer');
         res.setHeader('Content-Security-Policy',`default-src 'none'; style-src 'unsafe-inline' ${origin}; font-src ${origin} data:; img-src ${origin} https://wp-cusi.o7digitalgroup.com data:; script-src 'nonce-${nonce}'; base-uri 'none'; form-action 'none'; frame-ancestors 'self'`);
         res.setHeader('Content-Type','text/html; charset=utf-8');res.end(html);return;
       }

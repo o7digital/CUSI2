@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  async headers() {
+    return [{
+      source: '/_next/static/media/:path*',
+      headers: [{ key: 'Access-Control-Allow-Origin', value: '*' }],
+    }]
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 86400,

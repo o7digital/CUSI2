@@ -35,7 +35,7 @@ export function snapshot(html, origin) {
       const attr=attrs.get(key);
       try { const url=new URL(attr.value,origin); attr.value=url.protocol==='https:' || url.protocol==='http:' ? url.href : ''; } catch { attr.value=''; }
     }
-    if (attrs.has('srcset')) attrs.get('srcset').value=attrs.get('srcset').value.split(',').map(part => { const [src,...size]=part.trim().split(/\s+/); return `${new URL(src,origin).href} ${size.join(' ')}`; }).join(', ');
+    for(const key of ['srcset','imagesrcset'])if(attrs.has(key))attrs.get(key).value=attrs.get(key).value.split(',').map(part => { const [src,...size]=part.trim().split(/\s+/); return `${new URL(src,origin).href} ${size.join(' ')}`; }).join(', ');
     if (node.tagName==='a') node.attrs.push({name:'tabindex',value:'-1'});
   }
   walk(doc);

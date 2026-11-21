@@ -11,6 +11,7 @@ test('Studio requires a session, guards writes, preserves prices and returns pri
   requests.push({url,options});
   if(url.endsWith('/auth/login'))return Response.json({data:{access_token:'private-access',refresh_token:'private-refresh',expires:900000}});
   if(url.includes('/users/me'))return Response.json({data:{id:'owner',email:'owner@cusi.test',first_name:'Cusi',role:'owner'}});
+  if(url==='https://www.cusiflores.com/')return new Response('<html><body><h1 data-cusi-copy="hero_es" data-cusi-field="heading">Flores</h1></body></html>');
   if(url.includes('/items/site_copy/hero_es')){if(options.method==='PATCH')row={...row,...JSON.parse(options.body)};return Response.json({data:row});}
   if(url.includes('/wc/v3/orders'))return Response.json([{id:123,number:'123',status:'processing',date_created:'2026-11-21T10:00:00',total:'1530.00',currency:'MXN',billing:{first_name:'María',last_name:'Test',email:'private@cusi.test'},shipping:{address_1:'Private address'},line_items:[{name:'Nochebuenas',quantity:1,total:'1530.00'}]}],{headers:{'x-wp-total':'1','x-wp-totalpages':'1'}});
   throw new Error('Unexpected upstream '+url);
@@ -25,6 +26,9 @@ test('Studio requires a session, guards writes, preserves prices and returns pri
   assert.equal(login.status,200);assert.match(login.headers.get('set-cookie'),/HttpOnly/);const cookie=login.headers.get('set-cookie').split(';')[0];
   assert.doesNotMatch(await login.text(),/private-access|private-refresh/);
   const headers={Cookie:cookie,Origin:'http://studio.test'};
+  const ticket=await(await fetch(base+'/api/preview-ticket',{headers})).json();
+  const preview=await fetch(base+'/api/preview?ticket='+ticket.ticket);assert.equal(preview.status,200);assert.match(preview.headers.get('content-security-policy'),/frame-ancestors 'self'/);assert.match(await preview.text(),/data-cusi-copy="hero_es"/);
+  assert.equal((await fetch(base+'/api/preview?ticket='+ticket.ticket)).status,401);
   const active=await fetch(base+'/api/orders?status=processing&page=2',{headers});assert.equal(active.status,200);const data=await active.json();assert.equal(data.orders[0].items[0].name,'Nochebuenas');assert.equal(data.orders[0].customer,'María Test');assert.equal(data.total,1);assert.equal(data.page,2);assert.doesNotMatch(JSON.stringify(data),/private-key|private-secret|private-access/);assert.match(requests.find(r=>r.url.includes('/wc/v3/orders')).url,/status=processing&page=2/);
   assert.equal((await fetch(base+'/api/orders?status=arbitrary',{headers})).status,400);
   assert.equal((await fetch(base+'/api/copy/hero_es',{method:'PATCH',headers,body:JSON.stringify({heading:'Nuevo',revision:'stale'})})).status,409);

@@ -12,7 +12,7 @@ The **Editar sitio** screen shows the actual website in a sandboxed snapshot. Cl
 
 **Guardar cambios** stores the selected edits in Directus. The site refreshes its published content within approximately one minute without rebuilding. Draft content is excluded. Conflicting text edits are rejected and unsaved text stays in the editor. The desktop, tablet and mobile controls resize the snapshot. The photos screen preserves all six slides: two Nochebuenas followed by the four existing flower images. Replacing a slide uploads the image to the persistent Directus volume. The source photographs in `public/` are preserved.
 
-The preview endpoint fixes the configured website origin, strips scripts, forms, embedded frames and event handlers, resolves asset URLs and adds only its restricted editing bridge. Its iframe has scripts enabled and an opaque origin. It receives no Directus or WooCommerce credentials.
+The preview endpoint fixes the configured website origin, strips scripts, forms, embedded frames and event handlers, resolves asset URLs and adds only its restricted editing bridge. Its iframe has scripts enabled and an opaque origin. A one-use, one-minute navigation ticket binds the frame to its authenticated parent session without depending on third-party cookies. It receives no Directus or WooCommerce credentials. Public website font files allow cross-origin reads so the opaque preview can render the original typography.
 
 ## Prices and orders
 
