@@ -39,7 +39,11 @@ try{
  await page.goto(studio);await page.locator('input[name="email"]').fill('cusi');await page.locator('input[name="password"]').fill(access.EDITOR_PASSWORD);await page.getByRole('button',{name:'Entrar a mi Studio'}).click();await page.getByRole('heading',{name:'Tus pedidos',exact:true}).waitFor();await page.getByText('Todo al día.',{exact:true}).waitFor();assert.equal(await page.locator('#cms-link').isVisible(),false);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:'test-results/cusi-dashboard-mobile.png',fullPage:true});
  await page.setViewportSize({width:1500,height:1000});await page.locator('[data-tab="editor"]').click();
  await page.locator('#preview-state').filter({hasText:'Los textos con borde verde'}).waitFor();
- const frame=page.frameLocator('#preview');await frame.locator('[data-cusi-copy="christmas_hero_es"][data-cusi-field="heading"]').waitFor();
+ const frame=page.frameLocator('#preview');
+ console.log('Editor ready:',await page.locator('#locale').inputValue(),await page.locator('#copy-section').inputValue());
+ await frame.locator('h1').waitFor();
+ console.log('Preview heading:',await frame.locator('h1').getAttribute('data-cusi-copy'));
+ await frame.locator('[data-cusi-copy="christmas_hero_es"][data-cusi-field="heading"]').waitFor();
  const text=frame.locator('[data-cusi-copy="christmas_hero_es"][data-cusi-field="heading"]');await text.fill('Esta Navidad, regala vida.');await page.locator('#save-state').filter({hasText:'cambios sin guardar'}).waitFor();
  await page.getByRole('button',{name:'Guardar cambios',exact:true}).click();await page.getByRole('status').filter({hasText:'Guardado. El sitio se actualiza'}).waitFor();
  await page.locator('#copy-section').selectOption('christmas_collection');await page.locator('[data-field="heading"]').fill('La Navidad florece en casa.');await page.getByRole('button',{name:'Guardar cambios',exact:true}).click();await page.locator('#save-state').filter({hasText:'Sin cambios pendientes.'}).waitFor();
