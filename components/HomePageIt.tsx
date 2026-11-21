@@ -80,7 +80,7 @@ const handwrittenDescriptions: Record<string, string> = {
   'Orquídea Fiusha Phalenopsis': 'Fiusha vibrante para un detalle inolvidable.',
 }
 
-export default function CusiFloresItPage({ christmasProduct }: { christmasProduct: ChristmasProduct | null }) {
+export default function CusiFloresItPage({ christmasProducts }: { christmasProducts: ChristmasProduct[] }) {
   const [menuVisible, setMenuVisible] = useState(true)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [products, setProducts] = useState<ProductCard[]>([])
@@ -289,7 +289,7 @@ export default function CusiFloresItPage({ christmasProduct }: { christmasProduc
           </div>
         </section>
 
-        <ChristmasCollection product={christmasProduct} locale="it" />
+        <ChristmasCollection products={christmasProducts} locale="it" />
 
         <section id="coleccion" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10 md:py-14">
           <div className="mb-8 md:mb-10">
