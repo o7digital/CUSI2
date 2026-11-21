@@ -1,3 +1,4 @@
+import { getSiteContent } from '../../lib/studio'
 import type { Metadata } from 'next'
 import { getChristmasProducts } from '../../lib/christmas'
 import HomePageIt from '../../components/HomePageIt'
@@ -26,6 +27,6 @@ export const metadata: Metadata = {
 }
 
 export default async function ItPage() {
-  const christmasProducts = await getChristmasProducts()
-  return <HomePageIt christmasProducts={christmasProducts} />
+  const [christmasProducts, siteContent] = await Promise.all([getChristmasProducts(), getSiteContent()])
+  return <HomePageIt christmasProducts={christmasProducts} siteContent={siteContent} />
 }

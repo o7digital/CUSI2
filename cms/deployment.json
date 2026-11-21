@@ -1,0 +1,12 @@
+{
+  "project": "cusi-cms",
+  "projectId": "3f248108-1998-4419-a20d-87df46ec5c75",
+  "environment": "production",
+  "environmentId": "0ea11459-67f0-49ef-8544-1b0ef340a3b6",
+  "directusServiceId": "6da7a54b-ed72-4a62-9de9-d40ba0b28eb0",
+  "databaseServiceId": "2e1978e9-3ff7-4697-96af-4ba0e19cd104",
+  "studioServiceId": "34a05eb1-ba73-486b-8900-54d760deacce",
+  "directusUrl": "https://directus-production-39d0efab.up.railway.app",
+  "studioUrl": "https://studio-production-659f4076.up.railway.app",
+  "directusImage": "directus/directus:12.6.1"
+}

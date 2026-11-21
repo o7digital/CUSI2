@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import type { ChristmasProduct } from '../lib/christmas'
+import type { SiteContent } from '../lib/studio'
 
 const copy = {
   es: {
@@ -109,22 +110,24 @@ function ChristmasProductCard({ product, locale }: { product: ChristmasProduct; 
   )
 }
 
-export default function ChristmasCollection({ products, locale = 'es' }: { products: ChristmasProduct[]; locale?: Locale }) {
+export default function ChristmasCollection({ products, locale = 'es', content }: { products: ChristmasProduct[]; locale?: Locale; content?: SiteContent }) {
   const text = copy[locale]
+  const editorial = content?.copy.find(row => row.locale === locale && row.section === 'christmas_collection')
+  const field = (key: string) => editorial ? { 'data-cusi-copy': editorial.id, 'data-cusi-field': key } : {}
   return (
     <section id="navidad" aria-labelledby="christmas-heading" className="scroll-mt-28 bg-[#123d30] py-14 text-white md:py-20">
       <div className="mx-auto w-[92%] max-w-7xl">
         <div className="mb-9 max-w-3xl md:mb-12">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#ebd39d]">{text.eyebrow}</p>
-          <h2 id="christmas-heading" className="mt-4 font-[var(--font-display)] text-4xl leading-tight md:text-6xl">{text.heading}</h2>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-white/80 md:text-lg">{text.intro}</p>
+          <h2 id="christmas-heading" className="mt-4 font-[var(--font-display)] text-4xl leading-tight md:text-6xl" {...field('heading')}>{editorial?.heading || text.heading}</h2>
+          <div {...field('body')} data-cusi-rich="true" className="studio-rich mt-4 max-w-2xl text-base leading-7 text-white/80 md:text-lg" dangerouslySetInnerHTML={{ __html: editorial?.body || `<p>${text.intro}</p>` }} />
         </div>
         <aside id="christmas-delivery" aria-label={text.deliveryLabel} className="mb-8 flex flex-col gap-3 rounded-3xl border border-[#ebd39d]/40 bg-[#8b2330] p-6 md:mb-12 md:flex-row md:items-center md:justify-between md:gap-6 md:px-8">
           <div>
             <p className="text-sm font-semibold tracking-[0.18em] text-[#ebd39d]">{text.deliveryLabel}</p>
-            <p className="mt-2 text-2xl font-semibold leading-tight text-white md:text-3xl">{text.deliveryDates}</p>
+            <p className="mt-2 text-2xl font-semibold leading-tight text-white md:text-3xl" {...field('delivery')}>{editorial?.delivery || text.deliveryDates}</p>
           </div>
-          <p className="text-lg font-medium text-[#ebd39d] md:text-xl">{text.deliverySlogan}</p>
+          <p className="text-lg font-medium text-[#ebd39d] md:text-xl" {...field('slogan')}>{editorial?.slogan || text.deliverySlogan}</p>
         </aside>
         {products.length ? (
           <div className="space-y-8 md:space-y-12">

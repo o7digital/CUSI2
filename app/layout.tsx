@@ -1,7 +1,9 @@
 import './globals.css'
+import './olivia.css'
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, Dancing_Script, Manrope } from 'next/font/google'
 import Script from 'next/script'
+import OliviaChat from '../components/OliviaChat'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -159,6 +161,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
         />
         {children}
+        <OliviaChat />
       </body>
     </html>
   )
