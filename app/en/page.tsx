@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { getChristmasProduct } from '../../lib/christmas'
 import HomePageEn from '../../components/HomePageEn'
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function EnPage() {
-  return <HomePageEn />
+export default async function EnPage() {
+  const christmasProduct = await getChristmasProduct()
+  return <HomePageEn christmasProduct={christmasProduct} />
 }

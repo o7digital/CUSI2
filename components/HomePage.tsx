@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
+import ChristmasCollection from './ChristmasCollection'
+import type { ChristmasProduct } from '../lib/christmas'
 
 const BRAND = {
   name: 'CUSI',
@@ -51,6 +53,7 @@ const occasions = [
 ]
 
 const navLinks = [
+  { label: 'Navidad', href: '#navidad' },
   { label: 'Inicio', href: '#inicio' },
   { label: 'Nuestros Arreglos', href: '#coleccion' },
   { label: 'Quienes Somos', href: '/quienes-somos' },
@@ -77,7 +80,7 @@ const handwrittenDescriptions: Record<string, string> = {
   'Orquídea Fiusha Phalenopsis': 'Fiusha vibrante para un detalle inolvidable.',
 }
 
-export default function CusiFloresMockup() {
+export default function CusiFloresMockup({ christmasProduct }: { christmasProduct: ChristmasProduct | null }) {
   const [menuVisible, setMenuVisible] = useState(true)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState<ProductCard | null>(null)
@@ -339,6 +342,8 @@ export default function CusiFloresMockup() {
 
           </div>
         </section>
+
+        <ChristmasCollection product={christmasProduct} locale="es" />
 
         <section id="coleccion" className="mx-auto w-[92%] max-w-7xl scroll-mt-28 py-10 md:py-14">
           <div className="mb-8 md:mb-10">

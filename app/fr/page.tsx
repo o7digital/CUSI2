@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { getChristmasProduct } from '../../lib/christmas'
 import HomePageFr from '../../components/HomePageFr'
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function FrPage() {
-  return <HomePageFr />
+export default async function FrPage() {
+  const christmasProduct = await getChristmasProduct()
+  return <HomePageFr christmasProduct={christmasProduct} />
 }
