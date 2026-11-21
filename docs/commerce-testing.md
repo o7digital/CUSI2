@@ -8,6 +8,14 @@ For **Preview / dev2**, use `WORDPRESS_BASE_URL=https://wp-cusi.o7digitalgroup.c
 
 The following historical configuration and tests describe that isolated WordPress shop. References to the original `dev` preview below identify its source configuration; new development and preview deployment use `dev2`.
 
+## Taxi delivery status on dev2
+
+The 2026-11-21 check confirms the configured radius tariff: 400 MXN includes the first 5 one-way road kilometers, then 15 MXN per extra kilometer. The existing isolated PHP checks pass for the threshold, fractional kilometers, cents, caching, incomplete addresses and provider failures. A failure cannot become an invented free or flat-rate delivery quote.
+
+The automatic calculator remains disabled because its Google Routes key is absent. The stored dispatch origin is Bosques de Robles 32, Lomas de Chapultepec, while WooCommerce stores 990 Monte Carpatos, CDMX, CP 11000. Confirm the actual dispatch location before connecting real routes. Keep the key only in the private WordPress settings; do not paste it into Git or a public frontend variable.
+
+`tests/inspect-distance-delivery.php` is a read-only diagnostic for `o7-wp-cusi-dev`. Run its contents through `docker exec -i o7-wp-cusi-dev php` on `o7-vps`. It reports configuration problems and examples using the same pricing function as checkout. It never enables the calculator, calls Google, submits an order or prints a key. Its examples are tariff arithmetic, not real taxi-provider quotes or verified journeys.
+
 # CUSI checkout on dev
 
 Production remains on `main` at https://www.cusiflores.com/.
