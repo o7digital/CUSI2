@@ -7,6 +7,8 @@ import HomeHero from './HomeHero'
 import type { SiteContent } from '../lib/studio'
 import type { ChristmasProduct } from '../lib/christmas'
 import { openOliviaOrder } from '@/lib/olivia-order'
+import ProductImageViewer from './ProductImageViewer'
+import type { ProductCard } from '@/lib/woocommerce'
 
 const BRAND = {
   name: 'CUSI',
@@ -31,13 +33,6 @@ const campaignImages = [
   '/mothers-day-2026/image-7-1.webp',
   '/mothers-day-2026/image-8-1.webp',
 ]
-
-type ProductCard = {
-  title: string
-  desc: string
-  price: string
-  image: string
-}
 
 const emotionalPillars = [
   { title: 'Selected flowers', text: 'Floral curation focused on quality, freshness, and visual harmony.' },
@@ -235,15 +230,7 @@ export default function CusiFloresEnPage({ christmasProducts, siteContent }: { c
           <div className="grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-3">
             {products.map((item) => (
               <article key={item.title} className="flex h-full flex-col overflow-hidden rounded-[1.6rem] border border-[#ead8cf] bg-[#fffdfa] shadow-[0_16px_42px_rgba(74,46,37,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_58px_rgba(74,46,37,0.14)]">
-                <div className="relative flex h-52 items-center justify-center bg-[#f7efea] px-4 py-3 md:h-56">
-                  <Image
-                    src={item.image}
-                    alt={`Premium floral arrangement ${item.title} CUSI CDMX`}
-                    fill
-                    sizes="(min-width: 1280px) 384px, (min-width: 768px) 45vw, 92vw"
-                    className="h-full w-full scale-[1.2] object-contain"
-                  />
-                </div>
+                <ProductImageViewer image={item.image} title={item.title} locale="en" />
                 <div className="flex flex-1 flex-col gap-2 p-4">
                   <h3 className="min-h-[3.4rem] text-[1.89rem] leading-[1.02] text-[#2a1c19] [font-family:var(--font-script)] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden">
                     {item.title}
@@ -256,12 +243,13 @@ export default function CusiFloresEnPage({ christmasProducts, siteContent }: { c
                   {item.title === 'Tulipanes en cilindro' ? <p className="text-sm font-medium text-[#664f48]">40 stems</p> : null}
                   <div className="mt-auto space-y-2">
                     <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#4e3a34]">{item.price}</p>
+                    {item.taxIncluded ? <p className="text-xs text-[#6f5851]">{item.currency} · IVA included (16%)</p> : null}
                     <a
-                      href="#pedidos"
-                      onClick={event => { event.preventDefault(); openOliviaOrder(item.title) }}
+                      href={item.buyUrl || '#pedidos'}
+                      onClick={item.buyUrl ? undefined : event => { event.preventDefault(); openOliviaOrder(item.title) }}
                       className="inline-flex w-full items-center justify-center rounded-full border border-[#c8ada3] bg-white px-6 py-2.5 text-sm font-semibold text-[#2e231f] transition duration-300 hover:border-[#b4988e] hover:bg-[#fff8f5]"
                     >
-                      Buy
+                      {item.buyUrl ? 'Buy' : 'Request arrangement'}
                     </a>
                   </div>
                 </div>
