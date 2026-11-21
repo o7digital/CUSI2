@@ -8,6 +8,7 @@ const copy = {
   es: {
     eyebrow: 'Colección de Navidad', heading: 'La Navidad florece en casa.',
     intro: 'El rojo de las nochebuenas, el encanto de celebrar juntos. Un detalle CUSI para vestir tus fiestas.',
+    deliveryLabel: 'ENTREGAMOS', deliveryDates: 'Del 25 nov al 9 de dic.', deliverySlogan: 'Después se acaban.',
     size: 'Elige tu tamaño', singleSize: 'Tamaño', height: 'alto', diameter: 'diámetro', selected: 'Tu selección',
     order: 'Pedir por WhatsApp', note: 'Confirma disponibilidad y entrega por WhatsApp.',
     unavailable: 'Consulta nuestra colección de Navidad por WhatsApp.',
@@ -18,6 +19,7 @@ const copy = {
   en: {
     eyebrow: 'Christmas collection', heading: 'Let Christmas bloom at home.',
     intro: 'Red poinsettias and the joy of celebrating together. A CUSI touch for the festive season.',
+    deliveryLabel: 'WE DELIVER', deliveryDates: 'Nov 25 – Dec 9', deliverySlogan: 'After that, they’re gone.',
     size: 'Choose your size', singleSize: 'Size', height: 'height', diameter: 'diameter', selected: 'Your selection',
     order: 'Order on WhatsApp', note: 'Confirm availability and delivery on WhatsApp.',
     unavailable: 'Ask about our Christmas collection on WhatsApp.',
@@ -31,6 +33,7 @@ const copy = {
   fr: {
     eyebrow: 'Collection de Noël', heading: 'Faites fleurir votre Noël.',
     intro: 'Le rouge des poinsettias, le plaisir de se retrouver. Une touche CUSI pour habiller vos fêtes.',
+    deliveryLabel: 'LIVRAISONS', deliveryDates: 'Du 25 nov. au 9 déc.', deliverySlogan: 'Après, il n’y en aura plus.',
     size: 'Choisissez votre taille', singleSize: 'Taille', height: 'hauteur', diameter: 'diamètre', selected: 'Votre sélection',
     order: 'Commander sur WhatsApp', note: 'Disponibilité et livraison à confirmer sur WhatsApp.',
     unavailable: 'Découvrez notre collection de Noël sur WhatsApp.',
@@ -44,6 +47,7 @@ const copy = {
   it: {
     eyebrow: 'Collezione di Natale', heading: 'Il Natale fiorisce in casa.',
     intro: 'Il rosso delle stelle di Natale, la gioia di stare insieme. Un tocco CUSI per le tue feste.',
+    deliveryLabel: 'CONSEGNIAMO', deliveryDates: 'Dal 25 nov al 9 dic.', deliverySlogan: 'Poi finiscono.',
     size: 'Scegli la misura', singleSize: 'Misura', height: 'altezza', diameter: 'diametro', selected: 'La tua scelta',
     order: 'Ordina su WhatsApp', note: 'Conferma disponibilità e consegna su WhatsApp.',
     unavailable: 'Scopri la nostra collezione di Natale su WhatsApp.',
@@ -115,6 +119,13 @@ export default function ChristmasCollection({ products, locale = 'es' }: { produ
           <h2 id="christmas-heading" className="mt-4 font-[var(--font-display)] text-4xl leading-tight md:text-6xl">{text.heading}</h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-white/80 md:text-lg">{text.intro}</p>
         </div>
+        <aside id="christmas-delivery" aria-label={text.deliveryLabel} className="mb-8 flex flex-col gap-3 rounded-3xl border border-[#ebd39d]/40 bg-[#8b2330] p-6 md:mb-12 md:flex-row md:items-center md:justify-between md:gap-6 md:px-8">
+          <div>
+            <p className="text-sm font-semibold tracking-[0.18em] text-[#ebd39d]">{text.deliveryLabel}</p>
+            <p className="mt-2 text-2xl font-semibold leading-tight text-white md:text-3xl">{text.deliveryDates}</p>
+          </div>
+          <p className="text-lg font-medium text-[#ebd39d] md:text-xl">{text.deliverySlogan}</p>
+        </aside>
         {products.length ? (
           <div className="space-y-8 md:space-y-12">
             {products.map((product) => <ChristmasProductCard key={product.id} product={product} locale={locale} />)}
