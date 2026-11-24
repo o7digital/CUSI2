@@ -31,6 +31,7 @@ try {
             imagejpeg($image, $file, 95);
         }
         $hash = hash_file('sha256', $file);
+        media_check(wp_get_image_editor($file) instanceof WP_Image_Editor_GD, $format . ' uses the memory-bounded GD editor');
         $id = wp_insert_attachment(['post_title' => 'CUSI temporary image test', 'post_mime_type' => 'image/' . $format, 'post_status' => 'inherit'], $file, 0, true);
         if (is_wp_error($id)) throw new RuntimeException($id->get_error_message());
         $ids[] = $id;
@@ -74,6 +75,9 @@ try {
     remove_filter('wp_generate_attachment_metadata', $fail_metadata, 99);
     media_check(is_wp_error($failed) && $failed->get_error_code() === 'cusi_conversion', 'invalid generated metadata triggers a recoverable failure');
     media_check(get_attached_file($failure_id) === $failure_file && get_post_mime_type($failure_id) === 'image/jpeg' && wp_get_attachment_metadata($failure_id) === $initial, 'failure restores the original file, MIME type and metadata');
+    wp_update_attachment_metadata($failure_id, array_merge($initial, ['file' => _wp_relative_upload_path($dir . '/interrupted-cusi.webp')]));
+    $resumed = Cusi_Media_Optimizer::optimize($failure_id);
+    media_check(!is_wp_error($resumed) && $resumed['status'] === 'optimized' && get_post_meta($failure_id, '_cusi_media_original', true)['metadata'] === $initial, 'resuming an interrupted conversion repairs partial metadata and keeps the original backup');
     echo 'All real WordPress media checks passed.' . PHP_EOL;
 } finally {
     foreach ($ids as $id) wp_delete_attachment($id, true);

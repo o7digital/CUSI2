@@ -59,6 +59,17 @@ final class Cusi_Media_Optimizer {
         }
         $source = $real;
         $previous = get_post_meta($id, '_cusi_media_optimized', true);
+        $original = get_post_meta($id, '_cusi_media_original', true);
+        $attached = get_post_meta($id, '_wp_attached_file', true);
+        // WP saves thumbnail metadata incrementally. Repair an interrupted run
+        // that stopped before switching away from the original primary file.
+        if (!$previous && is_array($original) && $attached === $original['file'] &&
+            (($metadata['file'] ?? '') !== $attached || $mime !== $original['mime'])) {
+            $metadata = $original['metadata'];
+            wp_update_attachment_metadata($id, $metadata);
+            wp_update_post(['ID' => $id, 'post_mime_type' => $original['mime']]);
+            $mime = $original['mime'];
+        }
         if (is_array($previous) && ($previous['file'] ?? '') === get_post_meta($id, '_wp_attached_file', true)) {
             return ['status' => 'already_optimized'];
         }
@@ -150,6 +161,11 @@ final class Cusi_Media_Optimizer {
 }
 
 add_filter('wp_generate_attachment_metadata', ['Cusi_Media_Optimizer', 'metadata'], 20, 2);
+// Prefer GD for uploads as well as conversions to bound native-memory usage.
+// WordPress can still fall back to another editor for formats GD cannot read.
+add_filter('wp_image_editors', static function ($editors) {
+    return array_values(array_unique(array_merge(['WP_Image_Editor_GD'], $editors)));
+}, 20);
 add_filter('wp_editor_set_quality', static function ($quality, $mime) {
     return $mime === 'image/webp' ? min(80, $quality) : $quality;
 }, 20, 2);
