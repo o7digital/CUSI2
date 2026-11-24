@@ -1,6 +1,8 @@
 <?php
 // CLI only: dry-run by default; --apply converts images on either CUSI installation.
 if (PHP_SAPI !== 'cli') exit(1);
+// Production WooCommerce extensions exceed PHP CLI's default 128 MiB limit.
+ini_set('memory_limit', '256M');
 require '/var/www/html/wp-load.php';
 if (!in_array(untrailingslashit(home_url()), ['https://wp-cusi.o7digitalgroup.com', 'https://wp-cusi.o7digitalgroup.com/dev'], true)) {
     throw new RuntimeException('Restricted to the two CUSI installations.');
