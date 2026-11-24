@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { formatWooPrice, getPurchaseUrl, type ProductCard, type WooStoreProduct } from '@/lib/woocommerce'
+import { formatWooPrice, getProductPreviewImage, getPurchaseUrl, type ProductCard, type WooStoreProduct } from '@/lib/woocommerce'
 
 export const revalidate = 300
 
@@ -73,7 +73,9 @@ export async function GET() {
         const title = normalizeTitle(item.name?.trim() || `Arreglo floral ${index + 1}`)
         const descSource = item.short_description || item.description || ''
         const desc = stripHtml(descSource) || 'Arreglo floral premium para ocasiones especiales.'
-        const apiImage = item.images?.[0]?.src ? normalizeWpUrl(item.images[0].src) : null
+        const productImage = item.images?.[0]
+        const previewImage = productImage ? getProductPreviewImage(productImage) : undefined
+        const apiImage = previewImage ? normalizeWpUrl(previewImage) : null
         const htmlImage = extractImageFromHtml(item.description || '')
         const image = apiImage || htmlImage || '/mothers-day-2026/image-1-1.webp'
         const price = formatWooPrice(item.prices)
@@ -83,6 +85,7 @@ export async function GET() {
           desc,
           ...price,
           image,
+          fullImage: productImage?.src ? normalizeWpUrl(productImage.src) : image,
           buyUrl: process.env.WOOCOMMERCE_CHECKOUT_ENABLED === 'true' ? getPurchaseUrl(item, WP_BASE_URL) : undefined,
           taxIncluded: !!price.priceAmount && process.env.WOOCOMMERCE_PRICES_INCLUDE_IVA === 'true',
         }

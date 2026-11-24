@@ -238,7 +238,7 @@ export default function CusiFloresFrPage({ christmasProducts, siteContent }: { c
           <div className="grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-3">
             {products.map((item) => (
               <article key={item.title} className="flex h-full flex-col overflow-hidden rounded-[1.6rem] border border-[#ead8cf] bg-[#fffdfa] shadow-[0_16px_42px_rgba(74,46,37,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_58px_rgba(74,46,37,0.14)]">
-                <ProductImageViewer image={item.image} title={item.title} locale="fr" />
+                <ProductImageViewer image={item.image} fullImage={item.fullImage} title={item.title} locale="fr" />
                 <div className="flex flex-1 flex-col gap-2 p-4">
                   <h3 className="min-h-[3.4rem] text-[1.89rem] leading-[1.02] text-[#2a1c19] [font-family:var(--font-script)] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden">
                     {item.title}
@@ -275,7 +275,7 @@ export default function CusiFloresFrPage({ christmasProducts, siteContent }: { c
         <section id="ocasiones" className="scroll-mt-32 bg-white py-16 md:py-24">
           <div className="mx-auto grid w-[92%] max-w-7xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
             <div className="relative h-[460px] overflow-hidden rounded-[2.4rem] shadow-[0_30px_90px_rgba(83,48,37,0.12)] md:h-[560px]">
-              <img src={images.occasions} alt="Premium floral arrangement" className="h-full w-full object-cover scale-[0.7]" />
+              <Image src={images.occasions} alt="Premium floral arrangement" fill sizes="(min-width: 1440px) 610px, (min-width: 1024px) 45vw, 92vw" className="h-full w-full object-cover scale-[0.7]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent" />
             </div>
 
@@ -313,7 +313,7 @@ export default function CusiFloresFrPage({ christmasProducts, siteContent }: { c
 
             <div className="grid gap-4">
               <div className="overflow-hidden rounded-[2rem]">
-                <img src={images.events} alt="Evento floral premium" className="h-72 w-full object-cover" />
+                <Image src={images.events} alt="Evento floral premium" width={1200} height={600} sizes="(min-width: 1440px) 580px, (min-width: 1024px) 43vw, 92vw" className="h-72 w-full object-cover" />
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <article className="rounded-[1.8rem] bg-white p-6 shadow-[0_20px_50px_rgba(83,48,37,0.08)]">

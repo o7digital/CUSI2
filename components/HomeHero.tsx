@@ -47,7 +47,10 @@ export default function HomeHero({ products, content, locale = 'es' }: { product
         </div>
         <div className="relative min-w-0">
           <div className="relative h-[340px] sm:h-[440px] md:h-[530px]">
-            {slides.map((item, i) => <Image key={item.id} data-cusi-slide={item.id} src={item.image} alt={item.alt} fill priority={i === 0} sizes="(min-width: 768px) 52vw, 92vw" className={`object-contain transition-opacity duration-700 ${i === index ? 'opacity-100' : 'pointer-events-none opacity-0'}`} />)}
+            {/* Hidden slides reuse the small thumbnails until selected. */}
+            {slides.map((item, i) => <Image key={item.id} data-cusi-slide={item.id} src={item.image} alt={item.alt} fill priority={i === 0}
+              sizes={i === index ? '(min-width: 1440px) 650px, (min-width: 768px) 48vw, 92vw' : '40px'}
+              className={`object-contain transition-opacity duration-700 ${i === index ? 'opacity-100' : 'pointer-events-none opacity-0'}`} />)}
           </div>
           <div aria-live="polite" className="mt-2 flex min-h-12 flex-wrap items-center justify-between gap-2 border-t border-[#dce4de] pt-4 text-sm">
             <span className="max-w-[70%]">{product?.title || slide.alt}</span>

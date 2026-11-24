@@ -11,8 +11,8 @@ const labels = {
   it: { open: 'Ingrandisci', close: 'Chiudi', zoom: 'Zoom avanti', reset: 'Zoom indietro' },
 }
 
-export default function ProductImageViewer({ image, title, locale = 'es' }: {
-  image: string; title: string; locale?: keyof typeof labels
+export default function ProductImageViewer({ image, fullImage = image, title, locale = 'es' }: {
+  image: string; fullImage?: string; title: string; locale?: keyof typeof labels
 }) {
   const [open, setOpen] = useState(false)
   const [zoom, setZoom] = useState(false)
@@ -56,7 +56,9 @@ export default function ProductImageViewer({ image, title, locale = 'es' }: {
             <button type="button" aria-label={zoom ? text.reset : text.zoom} onClick={() => setZoom(!zoom)}
               style={{ width: zoom ? '200%' : '100%', height: zoom ? '200%' : '100%' }}
               className={`relative block ${zoom ? 'cursor-zoom-out' : 'cursor-zoom-in'}`}>
-              <Image src={image} alt={title} fill unoptimized sizes="100vw" className="object-contain" />
+              <Image src={fullImage} alt={title} fill
+                sizes={zoom ? '(min-width: 1100px) 2048px, 188vw' : '(min-width: 1100px) 1024px, 94vw'}
+                className="object-contain" />
             </button>
           </div>
         </div>

@@ -1,10 +1,23 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { formatWooPrice, getPurchaseUrl } from '../lib/woocommerce.ts'
+import { formatWooPrice, getProductPreviewImage, getPurchaseUrl } from '../lib/woocommerce.ts'
 
 const base = 'https://wp-cusi.o7digitalgroup.com/dev'
 const bouquet = { id: 71, type: 'simple', is_purchasable: true, is_in_stock: true,
   prices: { price: '462840', currency_code: 'MXN', currency_minor_unit: 2 } }
+
+test('cards choose the smallest adequate uncropped WP image, regardless of srcset order', () => {
+  const src = `${base}/wp-content/uploads/bouquet.png`
+  const preview = `${base}/wp-content/uploads/bouquet-1024x688.png`
+  assert.equal(getProductPreviewImage({ src, srcset: `${src} 1920w, ${base}/wp-content/uploads/bouquet-300x202.png 300w, ${preview} 1024w, ${base}/wp-content/uploads/bouquet-1536x1032.png 1536w` }), preview)
+})
+test('missing, undersized or invalid WP derivatives preserve the original', () => {
+  const src = `${base}/wp-content/uploads/bouquet.png`
+  for (const srcset of [undefined, '', `${base}/small.png 300w`, 'broken', 'https://other.example/image.png 1024w', 'javascript:alert(1) 1024w', 'http://[invalid 1024w']) {
+    assert.equal(getProductPreviewImage({ src, srcset }), src)
+  }
+  assert.equal(getProductPreviewImage({}), undefined)
+})
 
 test('formats the authoritative price including IVA without taxing it twice', () => {
   assert.deepEqual(formatWooPrice(bouquet.prices), { price: '$4,628.40', priceAmount: '4628.40', currency: 'MXN' })

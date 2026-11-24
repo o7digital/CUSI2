@@ -8,7 +8,7 @@ export type WooStoreProduct = {
   is_purchasable?: boolean
   is_in_stock?: boolean
   has_options?: boolean
-  images?: Array<{ id?: number; src?: string }>
+  images?: Array<{ id?: number; src?: string; srcset?: string }>
   prices?: {
     price?: string
     currency_code?: string
@@ -21,10 +21,29 @@ export type ProductCard = {
   desc: string
   price: string
   image: string
+  fullImage?: string
   buyUrl?: string
   priceAmount?: string
   currency: string
   taxIncluded: boolean
+}
+
+// Use an uncropped WordPress derivative for cards; keep the original for zoom.
+export function getProductPreviewImage(image: NonNullable<WooStoreProduct['images']>[number]): string | undefined {
+  if (!image.src || !image.srcset) return image.src
+  try {
+    const original = new URL(image.src)
+    const candidates = image.srcset.split(',').flatMap(entry => {
+      const match = entry.trim().match(/^(\S+)\s+(\d+)w$/)
+      if (!match || Number(match[2]) < 1024) return []
+      try {
+        const url = new URL(match[1])
+        if (!['http:', 'https:'].includes(url.protocol) || url.origin !== original.origin) return []
+        return [{ src: url.href, width: Number(match[2]) }]
+      } catch { return [] }
+    })
+    return candidates.sort((a, b) => a.width - b.width)[0]?.src || image.src
+  } catch { return image.src }
 }
 
 // Use WooCommerce's tax-inclusive Store API price. Never add IVA a second time here.
